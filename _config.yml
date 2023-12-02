@@ -1,11 +1,11 @@
-url: "https://mrinal.pages.dev" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://mrinal.tk" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 title: "Mrinal Chandra Sarkar"
 locale: en-IN
 
 author:
   name: Mrinal Chandra Sarkar
-  url: https://mrinal.pages.dev/
+  url: https://mrinal.tk/
 
 twitter:
   username: mrinalcs
