@@ -1,0 +1,45 @@
+url: "https://mrinal.pages.dev" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "Mrinal Chandra Sarkar"
+locale: en-IN
+
+author:
+  name: Mrinal Chandra Sarkar
+  url: https://mrinal.pages.dev/
+
+twitter:
+  username: mrinalcs
+  card: summary
+
+webmaster_verifications:
+  google: UmwiotR-8wM6Ofe84oHe6DGvaM1kJpkpAhYH6laQdcQ
+
+permalink: /:title
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: katex
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-toc
+  
+
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      toc: true
+
+
+exclude:
+  - README.md

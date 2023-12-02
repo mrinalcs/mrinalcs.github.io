@@ -1,0 +1,46 @@
+h1, h2, h3, h4, h5, h6 {
+    padding-top: 30px;
+}
+
+
+hr, ul, ol, dl, blockquote, p, table, pre {
+    margin-top: 30px;
+}
+
+
+
+blockquote {
+    position: relative;
+    margin: 40px 0;
+    padding-left: 26px;
+    line-height: 1.7;
+}
+
+blockquote::before {
+    content: '\201C'; 
+    position: absolute;
+    left: 0;
+    top: 50%;
+    font-size: 2em; 
+    transform: translateY(-50%);
+}
+
+
+img+em {
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+}
+
+
+pre.highlight {
+    overflow: auto;
+    margin: 30px 0;
+    padding: 15px;
+    background: #93939330;
+}
+
+.footnotes p {
+    margin: 0;
+    padding: 0;
+  }

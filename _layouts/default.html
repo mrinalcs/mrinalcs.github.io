@@ -1,0 +1,35 @@
+---
+layout: dist
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-IN" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    {%- seo -%}
+    
+    <link rel="stylesheet" href="{{ "/style.css" | relative_url }}">
+
+    {%- feed_meta -%}
+
+
+    <!-- Sitemap -->  
+<link rel="sitemap" type="application/xml" href="{{ "/sitemap.xml" | absolute_url }}">
+
+  </head>
+  <body>
+
+    {%- include header.html -%}
+    
+    <main>
+
+    {{ content }}
+    
+    </main>
+
+    <script src="/script.js"></script>
+
+  </body>
+</html>
