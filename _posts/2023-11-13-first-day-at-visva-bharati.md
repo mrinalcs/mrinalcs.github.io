@@ -1,5 +1,5 @@
 ---
-title: First Day at Visva Bharati University
+title: First Day at Visva Bharati
 ---
 
 As far I can remember its was a pandamic period after a long indecision our 2 exam got cancelled. Finaly after result I applied for admission to Visva Bharai and received a call from HoD and took admission the following day. As payment mode was SBI collect mode so I decided to visit campus.
