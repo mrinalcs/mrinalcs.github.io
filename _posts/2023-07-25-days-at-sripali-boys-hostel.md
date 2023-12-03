@@ -33,10 +33,12 @@ We wait for Grand in the kitchen which usually held in the end of month.
 *Last grand without electricity*
 
 
-<div style="display: flex;padding: 20px 0 0 0;">
+<div style="display: flex;justify-content:space-around;gap: 20px;padding: 20px 0 0 0;">
     <img src="/img/blog/sripalli-boys-hostel-balcony-left.jpg" alt="art on walls" style="width: 50%; height: auto;">
     <img src="/img/blog/sripalli-boys-hostel-balcony-right.jpg" alt="art on walls" style="width: 50%; height: auto;">
 </div>
+
+
 
 ![sripalli-boys-hostel](/img/blog/sripalli-boys-hostel-balcony-from-cilling.jpg)
 *Last day in Hostel July 25 2023*

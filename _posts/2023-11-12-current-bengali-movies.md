@@ -1,5 +1,5 @@
 ---
-title: My Struggle to Connect with Current Bengali Movies
+title: Current Bengali Movies
 ---
 
 I am neither an experienced nor an intellectual in the field of movies industry. But as a viewer in pov of a common man I am sharing this heres some of bengali movies which not only title but also dialogs I remembered. Followings are some of them.
