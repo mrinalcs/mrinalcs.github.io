@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     // Get all TOC links
     var tocLinks = document.querySelectorAll('#toc a');
@@ -25,8 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to handle heading tag click
     function handleHeadingClick(heading) {
-        // Prevent default heading tag behavior
+        // Add 'click' event listener to heading tags
         heading.addEventListener('click', function(event) {
+            // Prevent default heading tag behavior
             event.preventDefault();
 
             // Remove 'underline' class from the current section
@@ -78,7 +78,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click event listener to heading tags with id
     var headingTagsWithId = document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]');
     headingTagsWithId.forEach(function(heading) {
+        // Call handleHeadingClick for each heading
         handleHeadingClick(heading);
+
+        // Wrap the heading content with an anchor tag
+        var anchorTag = document.createElement('a');
+        anchorTag.href = '#' + heading.id;
+        
+        // Move the heading's children to the anchor tag
+        while (heading.firstChild) {
+            anchorTag.appendChild(heading.firstChild);
+        }
+
+        heading.appendChild(anchorTag);
     });
 
     // Initial underline state on page load (assuming the URL contains a section ID)
