@@ -40,6 +40,10 @@ body {
   }
   main {
     padding: 20px;
+    > ul {
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
     ul {
       padding-inline-start: 15px;
     }
