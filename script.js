@@ -22,18 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Function to handle heading tag click
-    function handleHeadingClick(heading) {
-        // Add 'click' event listener to heading tags
-        heading.addEventListener('click', function(event) {
-            // Prevent default heading tag behavior
+    // Function to handle anchor tag click
+    function handleAnchorClick(anchor) {
+        // Add 'click' event listener to anchor tags
+        anchor.addEventListener('click', function(event) {
+            // Prevent default anchor tag behavior
             event.preventDefault();
 
             // Remove 'underline' class from the current section
             removeUnderline();
 
-            // Get the target ID from the id attribute of the heading
-            var targetId = heading.id;
+            // Get the target ID from the href attribute
+            var targetId = anchor.getAttribute('href').substring(1);
 
             // Add 'underline' class to the corresponding section
             addUnderline(targetId);
@@ -51,46 +51,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add click event listener to each TOC link
     tocLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            // Prevent default link behavior
-            event.preventDefault();
-
-            // Remove 'underline' class from the current section
-            removeUnderline();
-
-            // Get the target ID from the href attribute
-            var targetId = link.getAttribute('href').substring(1);
-
-            // Add 'underline' class to the corresponding section
-            addUnderline(targetId);
-
-            // Scroll to the corresponding section
-            var targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-
-            // Update the URL with the section ID
-            history.pushState({}, '', '#' + targetId);
-        });
+        handleAnchorClick(link);
     });
 
     // Add click event listener to heading tags with id
     var headingTagsWithId = document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]');
     headingTagsWithId.forEach(function(heading) {
-        // Call handleHeadingClick for each heading
-        handleHeadingClick(heading);
-
         // Wrap the heading content with an anchor tag
         var anchorTag = document.createElement('a');
         anchorTag.href = '#' + heading.id;
-        
+
         // Move the heading's children to the anchor tag
         while (heading.firstChild) {
             anchorTag.appendChild(heading.firstChild);
         }
 
+        heading.innerHTML = ''; // Clear the heading content
         heading.appendChild(anchorTag);
+
+        // Call handleAnchorClick for each anchor tag
+        handleAnchorClick(anchorTag);
     });
 
     // Initial underline state on page load (assuming the URL contains a section ID)
