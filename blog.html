@@ -9,8 +9,10 @@ description: My Blog posts
 <ul>
   {% for post in site.posts %}
     <li class="blog-title">
-      <a href="{{ post.url }}">{{ post.title }}</a>
-      <small>{{ post.date | date: "%b %e, %Y" }}</small>
+      <article>
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%A %B %-d, %Y" }}</time>
+      </article>
     </li>
   {% endfor %}
 </ul>
