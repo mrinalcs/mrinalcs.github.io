@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +25,7 @@ body {
   margin: auto;
   background-color: var(--bg);
   color: var(--text);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "DM Serif Display", serif;
   word-wrap: break-word;
   header {
     padding: 20px;
