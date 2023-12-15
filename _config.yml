@@ -14,7 +14,7 @@ twitter:
 webmaster_verifications:
   google: 
 
-permalink: /:title
+permalink: /blog/:title
 
 markdown: kramdown
 kramdown:
