@@ -56,6 +56,7 @@ https://placehold.co/600x400
 - <https://infinityfree.net>
 - <https://infinityfree.net>
 - <https://pages.cloudflare.com>
+- <https://in.000webhost.com>
 
 ## Tools
 
