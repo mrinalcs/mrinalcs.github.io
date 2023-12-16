@@ -7,19 +7,9 @@ image: /img/blog/department-of-statics-eu-front.jpg
 
 
 
-
-
-
-
-Got up at 4.30am.
-
 Downloaded videos from youtube and movies including open heimer , The Nun 2 , Pinocchio, used approx 10 GB , then getting my phone in charge I started final packing. As its wasn't  6am I downloaded few more things . Finally its 6.15 I took 3 bags and one my father the havier one and set for station. Where I meet one of my class mate Preetam who had no changes for ticket so we took ticket together, then I went to animesh who was waiting in the east part of the station where we came across with Sharmila, anothr friend  after talking she left and the train comes when we took a sitting coatch by the way which seems to be crowdy.  
 
 Now its few minutes and I remembered that I forgot to bring watter bottol.
-
-## My Typing
-
-Now a days I am noticing that my typing is horrible with slow speed , my fingures are so horrible actually not in phone but also with keyboard, actually I could type very fast but recently I am making too much miss typing. Such as to type something I am typing every letters but letters are messing around.
 
 ## Tebhaga Express
 
