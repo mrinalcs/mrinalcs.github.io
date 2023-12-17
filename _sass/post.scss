@@ -6,6 +6,14 @@ article {
             display: block;
         }
     }
+    aside {
+        details {
+            ul {
+                margin-top: 0;
+                padding-inline-start: 30px;
+            }
+        }
+    }
     p {
         img {
             display: block;
