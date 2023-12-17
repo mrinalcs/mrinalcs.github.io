@@ -1,4 +1,4 @@
-# mrinal.tk
+# mrinalcs.github.io
 
 ## Installation
 
