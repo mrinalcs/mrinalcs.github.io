@@ -39,6 +39,10 @@ This works if ones loaded the webpage it works offline as well. I intentionally 
 ### HOTWIRE: TURBO
 For smooth transition I have added HOTWIRE TURBO which  make possible pag e transition wihout refresh which I liked so added to this project. 
 
+## Pages
+
+### Faculty 
+
 ###  Notes Page
 This page is for listing all notes files by folders and a little addition adding file count. Later made every paper name as link to share a specefic section like [r-programming](https://vbstat.github.io/notes#r-programming)
 
