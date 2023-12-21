@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+
 
 * {
   margin: 0;
@@ -25,7 +26,7 @@ body {
   margin: auto;
   background-color: var(--bg);
   color: var(--text);
-  font-family: "DM Serif Display", serif;
+  font-family:'Borel', sans-serif;
   word-wrap: break-word;
   header {
     padding: 20px;
