@@ -1,5 +1,6 @@
 ---
 title: Building Vbstat
+description: The making of VBSTAT a github page using jekyll to list Handouts and Notes
 image: /img/blog/vbstat-home-page.jpg
 ---
 
@@ -84,9 +85,11 @@ I have created multiple branches only to keep revert if anything goes wrong when
 
 ##  Resources
 
-* **Bootstrap v4.5**: <https://getbootstrap.com>
+* **Bootstrap v5.3.2**: <https://getbootstrap.com>
 * **Google Fonts**: <http://fonts.google.com>
 * **Font Awesome Free**: <https://fontawesome.com>
+* **Hotwire Turbo**: <https://turbo.hotwired.dev>
+* **Faculty info**: <https://www.visvabharati.ac.in>
 
 ---
 
