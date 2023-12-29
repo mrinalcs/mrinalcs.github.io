@@ -1,0 +1,15 @@
+.my-photo {
+    float: right;
+    height: 200px;
+    width: 150px;
+    object-fit: cover;
+    margin: 0 0 10px 30px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .my-photo {
+      float: none!important;
+      margin: 0!important;
+    }
+  }
+  
