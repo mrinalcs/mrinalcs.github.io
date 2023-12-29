@@ -3,7 +3,7 @@ layout: default
 title: Blog
 description: My Blog posts
 ---
-
+<article> 
 <h1>All Posts</h1>
 
 {% assign current_year = '' %}
@@ -18,10 +18,11 @@ description: My Blog posts
         {% assign current_year = post_year %}
     {% endif %}
     <li>
-      <article>
-        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+       
+         <a href="{{ post.url }}">{{ post.title }}</a> 
         <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%B %-d" }}</time>
-      </article>
+       
     </li>
   {% endfor %}
     </ul>
+  </article>
