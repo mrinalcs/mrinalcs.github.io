@@ -1,11 +1,12 @@
 ---
 title: Memories of my Phones and apps
+description: A snippet of phone and apps i used
 image: /img/blog/memories-of-my-phones-and-apps.jpg
 ---
 
 I miss the days when the scenerio with mobile phone was different. Now a days having a smart phone seems to have internet - Youtube Instagram TikTok and unlimited social media apps. But it was different then people usually use facebook and whatsapp with 2G. Data plan were so high that we keep data turn off when not using. Then there were so many telecom services like aircel docomo BSNL Vodafone which I knew. But all this changed after Jio comes. I was at class 10 then people were mad at the free internet and big change took place.
 
-## How It started
+
 I got my first phone at class viii. Then I did't have idea about internet. I even didn't know how to turn data on or off. Later one from my friend I learnt that but I was in a rural village where there was barely network signal there. Inside my room it got disconnected from network. Then I had a collection of bengali songs. My phone had only 1.27GB of space and 500mb RAM so I use a microSD card of 8GB. 
 
 ## Android apps
@@ -13,6 +14,8 @@ At that time I have garbage of security apps like Clean Master and 360 Security.
 
 ## Apps I used
 - MX Player v1.7.36 and below
+- APK Editor
+- Apk Cloner
 - APUS Launcher
 - Next Launcher 3D Shell
 - Nova Launcher
@@ -44,7 +47,7 @@ Having my phone corrupted and sent to service center via seller I have to loose 
 I get my first internet access when I shifted to our near by city Buniadpur where I meet a same smartphone freak. He was at next level at this. I remembered he opened my first gmail id which I was unaware. We together share this things. He used to tech me how to surf internet and initiated a addiction to Clash of Clans. There after I used to make recharge of 98/1GB/28D for Clash of clans only. I avoid playing COC after my 10th. Till class 12 I didn't used Facebook and Whatsapp. 
 
 ## Present
-At 2020 internet plans were like 1OR2GB/D which was big change. I started watching YouTube. For online classes I installed Whatsapp and Google meet and Moodle app. Now the scenerio have changed completely. Mow a days my younger cousins are at same level as me at mobile phone and using internet.
+At 2020 internet plans were like 1 OR 2GB/D which was big change. I started watching YouTube. For online classes I installed Whatsapp and Google meet and Moodle app. Now the scenerio have changed completely. Now a days my younger cousins are at same level as me at mobile phone and using internet.
 
 
 ## Phones I Used
@@ -56,5 +59,5 @@ At 2020 internet plans were like 1OR2GB/D which was big change. I started watchi
 - Samsung Galaxy M21 Android 11
 - Samsung Galaxy M31 Android 12, One UI 4.1
 
-## Conclusion
+
 Any way throughout my teenage and now I saw a huge evolution in this. Some apps we used to use are mainly no longer exist. Android is also evolbing but I like older version of android till now though support of most adndroid apps not longer available.
