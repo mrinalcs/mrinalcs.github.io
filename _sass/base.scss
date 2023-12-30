@@ -80,7 +80,12 @@ body {
 
 
 /* common class */
-
+.post-list {
+  margin-top: 10px;
+  li {
+    margin-top: 10px;
+  }
+}
 .underline {
   text-decoration: underline;
   text-underline-position: under;
