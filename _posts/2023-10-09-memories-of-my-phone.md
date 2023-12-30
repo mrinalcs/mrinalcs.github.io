@@ -1,8 +1,9 @@
 ---
 title: Memories of my Phone
-description: My experience and memories with phones and android apps i used 
+description: My memories with phones and apps I use
 image: /img/blog/memories-of-my-phones-and-apps.jpg
 ---
+
 
 I miss the days when the scenerio with mobile phone was different. Now a days having a smart phone seems to have internet - Youtube Instagram TikTok and unlimited social media apps. But it was different then people usually use facebook and whatsapp with 2G. Data plan were so high that we keep data turn off when not using. Then there were so many telecom services like aircel docomo BSNL Vodafone which I knew. But all this changed after Jio comes. I was at class 10 then people were mad at the free internet and big change took place.
 
