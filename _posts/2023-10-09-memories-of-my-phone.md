@@ -1,6 +1,6 @@
 ---
-title: My Phone
-description: My experience with phones and android apps i used 
+title: Memories of my Phone
+description: My experience and memories with phones and android apps i used 
 image: /img/blog/memories-of-my-phones-and-apps.jpg
 ---
 
