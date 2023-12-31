@@ -6,7 +6,7 @@ image: /img/blog/vbstat-home-page.jpg
 
 I initially started with [vbstat.epizy.com](https://vbstat.epizy.com){:rel="nofollow" target="_blank"} and later on [vbstat.ml](https://vbstat.ml){:rel="nofollow" target="_blank"} which domain no more exist rather not free. So I've migrated to GitHub Pages.
 
-My first commit was on **First commit** : **<time datetime="2023-09-24">September 24, 2023</time>** Initially, the aim was to compile handouts and notes from both students and faculty of BSc Statistics at Visva Bharati. Later on I learnt basics of Jekyll and wanted to built a website to use it. I have tried to modified a template from github which available in Branch [v1](https://github.com/mrinalcs/vbstat/tree/v1) . Later on I have created [v2](https://github.com/mrinalcs/vbstat/blob/baa4d3e6a9fd3d492257f123efd7e2277c2c147f) from scratch after making a html template using  Bootstrap. Followings are pdf notes which available in the page from previous.
+My first commit was on **First commit** : **<time datetime="2023-09-24">September 24, 2023</time>** Initially, the aim was to compile handouts and notes from both students and faculty of BSc Statistics at Visva Bharati. Later on I learnt basics of Jekyll and wanted to built a website to use it. I have tried to modified a template from github which available in Branch [v1](https://github.com/mrinalcs/vbstat/tree/v1) . Later on I have created from scratch which you can see in this [commit](https://github.com/mrinalcs/vbstat/blob/baa4d3e6a9fd3d492257f123efd7e2277c2c147f)  after making a html template using  Bootstrap. Followings are pdf notes which available in the page from previous.
 
 - Calculus
 - Demography and Vital Statistics
