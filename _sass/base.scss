@@ -103,11 +103,6 @@ body {
 /* print */
 @media print {
 
-  body {
-    > header {
-      display: none;
-    }
-  }
   main{
     article {
       font-size: 1rem;
