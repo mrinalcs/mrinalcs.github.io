@@ -28,7 +28,22 @@ For a standardized measure of the strength and direction of the linear relations
 
 ## Correlation
 
-$$ \rho(X, Y) = \frac{\text{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y} $$
+The correlation coefficient (r) scale between -1 and 1.
+
+$$
+\text{Cor}(X, Y) = \frac{\sum{(X_i - \bar{X})(Y_i - \bar{Y})}}{\sqrt{\sum{(X_i - \bar{X})^2} \sum{(Y_i - \bar{Y})^2}}}
+$$
 
 
- 
+
+
+$$ \implies \text{Cor}(X, Y) = \frac{\text{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y} $$
+
+where standard deviation $$ (\sigma) $$
+
+$$
+\sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N}(X_i - \bar{X})^2} 
+$$
+
+
+Thats why correlation is often preferred over covariance due to its standardized nature, unit independence, and ease of interpretation.
