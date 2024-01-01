@@ -58,5 +58,3 @@ Thats why correlation is often preferred over covariance due to its standardized
 | **Normalization**     | Not normalized. In the units of the product of the original variables. | Normalized to a range of -1 to 1, making it unitless and easier to interpret. |
 | **Scale Free** | Depends on the units of the variables. | Scale-independent, suitable for comparing relationships between variables measured in different units. |
 
-
- 
