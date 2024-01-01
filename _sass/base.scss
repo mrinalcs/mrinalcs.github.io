@@ -103,11 +103,15 @@ body {
 /* print */
 @media print {
 
+  body {
+    > header {
+      display: none;
+    }
+  }
   main{
     article {
-      header {
-        padding: 0;
-      }
+      font-size: 1rem;
+      
     }
   }
 }
