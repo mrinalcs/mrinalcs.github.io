@@ -8,6 +8,7 @@ group :jekyll_plugins do
   gem 'jekyll-seo-tag'
   gem 'jekyll-toc'
   gem 'kramdown-math-katex'
+  gem 'jekyll-redirect-from'
 
 end
 
