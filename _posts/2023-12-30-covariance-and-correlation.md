@@ -47,3 +47,16 @@ $$
 
 
 Thats why correlation is often preferred over covariance due to its standardized nature, unit independence, and ease of interpretation.
+
+## Comparison:
+
+| Criteria               | Covariance                            | Correlation                               |
+|------------------------|---------------------------------------|-------------------------------------------|
+| **Definition**         | Measures the degree of joint variability between two variables. | Standardized measure of the linear relationship between two variables. |
+| **Formula**            | $$\text{Cov}(X, Y) = \frac{\sum{(X_i - \bar{X})(Y_i - \bar{Y})}}{n-1}$$ | $$\text{Corr}(X, Y) = \frac{\text{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y}$$ |
+| **Interpretation**     | Positive: Variables move in the same direction. Negative: Variables move in opposite directions. Zero: No linear relationship. | $$\rho = 1$$: Perfect positive correlation. $$\rho = -1$$: Perfect negative correlation. $$\rho = 0$$: No linear correlation. |
+| **Normalization**     | Not normalized. In the units of the product of the original variables. | Normalized to a range of -1 to 1, making it unitless and easier to interpret. |
+| **Scale Free** | Depends on the units of the variables. | Scale-independent, suitable for comparing relationships between variables measured in different units. |
+
+
+ 
