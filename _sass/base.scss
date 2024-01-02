@@ -25,10 +25,11 @@ body {
   margin: auto;
   background-color: var(--bg);
   color: var(--text);
-  font-size: 1.1rem;font-family: monospace;
+  font-family: monospace;
   word-wrap: break-word;
   header {
     padding: 20px;
+    font-size: 1.1rem;
     nav {
       ul {
         list-style: none;
