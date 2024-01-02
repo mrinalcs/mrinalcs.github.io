@@ -1,5 +1,6 @@
 ---
 title: Covariance and Correlation
+image: /img/blog/covariance-and-correlation.jpg
 ---
 
 Consider two random variables $$ X $$ and $$ Y $$ Here and we want to measure of the connection between two random variables and to what amount, they change together.
@@ -50,11 +51,11 @@ Thats why correlation is often preferred over covariance due to its standardized
 
 ## Comparison:
 
-| Criteria               | Covariance                            | Correlation                               |
+| Covariance                            | Correlation                               |
 |------------------------|---------------------------------------|-------------------------------------------|
-| **Definition**         | Measures the degree of joint variability between two variables. | Standardized measure of the linear relationship between two variables. |
-| **Formula**            | $$\text{Cov}(X, Y) = \frac{\sum{(X_i - \bar{X})(Y_i - \bar{Y})}}{n-1}$$ | $$\text{Corr}(X, Y) = \frac{\text{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y}$$ |
-| **Interpretation**     | Positive: Variables move in the same direction. Negative: Variables move in opposite directions. Zero: No linear relationship. | $$\rho = 1$$: Perfect positive correlation. $$\rho = -1$$: Perfect negative correlation. $$\rho = 0$$: No linear correlation. |
-| **Normalization**     | Not normalized. In the units of the product of the original variables. | Normalized to a range of -1 to 1, making it unitless and easier to interpret. |
-| **Scale Free** | Depends on the units of the variables. | Scale-independent, suitable for comparing relationships between variables measured in different units. |
+| Measures the degree of joint variability between two variables. | Standardized measure of the linear relationship between two variables. |
+| $$\text{Cov}(X, Y) = \frac{\sum{(X_i - \bar{X})(Y_i - \bar{Y})}}{n-1}$$ | $$\text{Corr}(X, Y) = \frac{\text{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y}$$ |
+| Positive: Variables move in the same direction. Negative: Variables move in opposite directions. Zero: No linear relationship. | $$\rho = 1$$: Perfect positive correlation. $$\rho = -1$$: Perfect negative correlation. $$\rho = 0$$: No linear correlation. |
+| Not normalized. In the units of the product of the original variables. | Normalized to a range of -1 to 1, making it unitless and easier to interpret. |
+| Depends on the units of the variables. | Scale-independent, suitable for comparing relationships between variables measured in different units. |
 
