@@ -1,5 +1,5 @@
 ---
-title: Days at Sripalli Boys' Hostel
+title: Sripalli Boys' Hostel
 image: /img/blog/sripalli-boys-hostel.jpg
 ---
 
@@ -7,12 +7,13 @@ I was alloted to Elmhirst Boys' Hostel, but distance from our department was too
 
 ## About Hostel
 
+
 Its not the best hostel in Visva-Bharati but its near to Sikha Bhavana. It has a old building structure which actually creat more vive of Visva-Bharati. It has all necessary facilities like water, gym, kitchen but none of okey now.  Its only one water purifier and cooler is running with regular management of students. Food quality is poor in kitchen though its managed by students. But as Hostel student we were okey with that.
 
 ![Sripalli Boys' Hostel](/img/blog/sripalli-boys-hostel.jpg)
 *Sripalli Boys' Hostel*
 
-## Roommate
+## My Experience
 
 When I was choosing room there were few rooms left in front block but all of them except *room 19* were dirty and I had to clean my self. Who will clean room ? :) so obviously I choosed that room with a senior of MSc Zoology dept. My roomate speaks hindi in which I am not good. So we had a very little converstion only when necessary. But his eager ness in learning and talking in Bengali makes me confortable and I also speak Hindi when possible.
 
@@ -22,9 +23,7 @@ But I can't call him only roomate. But I had a restriction of sleeping awaking e
 *Self of roommate dada*
 
 
-## Daily Routine
-
-Our days start at before or at 6am. Then after some study we took bath and take our break fast. Then we went for class as per routine. At evening we passes some free time and at 9am I took my dinner in the hostel kitchen. We usually went to sleep at 12pm by keeping a dim light in the room and mosquito liquid vapourizer turning on. Usually who went to sleep later did that.
+ 
 
 ## Events
 We wait for Grand in the kitchen which usually held in the end of month.
