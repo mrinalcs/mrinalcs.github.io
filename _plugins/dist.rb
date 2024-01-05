@@ -8,6 +8,9 @@ module Jekyll
         output.gsub!(/<meta\s+name=["']generator["'][^>]*>/i, '<link rel="icon" href="/favicon.ico">')
   
         output.gsub!(/\s\/>/, '>')
+
+        # Remove all empty spaces between HTML tags
+        output.gsub!(/>\s+</, '><')
         
         output
       end
