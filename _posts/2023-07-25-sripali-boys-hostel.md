@@ -22,17 +22,12 @@ Its not the best hostel in Visva-Bharati but its near to Sikha Bhavana and Kala 
 ## Room 19
 
 Its a room in Block A .
-When I was choosing room there were few rooms left in front block but all of them except *room 19* were dirty and I had to clean my self. Who will clean room ?
-
+When I was choosing room there were few rooms left in front block but all of them except *room 19* were dirty and I had to clean my self.
 
 ![hindu gods in hostel](/img/blog/sripalli-boys-hostel-god.jpg)
 *Self of roommate dada*
 
 
- 
-
-## Events
-We wait for Grand in the kitchen which usually held in the end of month.
 
 ![grand nandan hostel](/img/blog/sripalli-boys-hostel-canteen-grand.jpg)
 *Last grand without electricity*
@@ -46,4 +41,4 @@ We wait for Grand in the kitchen which usually held in the end of month.
 
 
 ![sripalli-boys-hostel](/img/blog/sripalli-boys-hostel-balcony-from-cilling.jpg)
-*Last day in Hostel July 25 2023*
+*Block A*
