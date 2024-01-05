@@ -4,4 +4,8 @@
 # © 2023 Mrinal Chandra Sarkar
 # MIT License
 ---
-{{ content | dist }}
+{% if jekyll.environment == "production" %}
+  {{ content | dist }}
+{% else %}
+  {{ content }}
+{% endif %}
