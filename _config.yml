@@ -19,7 +19,6 @@ permalink: /:title
 markdown: kramdown
 kramdown:
   input: GFM
-  math_engine: katex
 
 plugins:
   - jekyll-feed

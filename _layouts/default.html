@@ -11,7 +11,7 @@ layout: dist
     {%- seo -%}
     
     <link rel="stylesheet" href="{{ "/style.css" | relative_url }}">
-    {% katex_stylesheet %}
+    
 
 
     {%- feed_meta -%}
@@ -32,6 +32,7 @@ layout: dist
     </main>
 
     <script src="/script.js"></script>
+    {% mathjax %}
 
   </body>
 </html>
