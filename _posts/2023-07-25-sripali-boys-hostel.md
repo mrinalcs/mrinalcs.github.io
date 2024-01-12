@@ -11,7 +11,7 @@ I was alloted to Elmhirst Boys' Hostel, but distance from our department was too
 Its not the best hostel in Visva-Bharati but its near to Sikha Bhavana and Kala Bhavana. Its front block-A if for Siksha Bhavana and block-B is for kala bhavana students.
 
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14615.297434449187!2d87.6796238!3d23.6822384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f9dcc246314d17%3A0x8b8d0e29dd9e301a!2sSripalli%20Boys%20Hostel%20(Nanda%20Sadan)%2C%20Visva-Bharati!5e0!3m2!1sen!2sin!4v1704380635557!5m2!1sen!2sin" width="100%" height="450" style="margin-top:30px;border:0;background-color:rgba(255, 0, 0, 0.15);border: solid 1px rgba(147, 147, 147, 0.4901960784);padding: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14615.297434449187!2d87.6796238!3d23.6822384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f9dcc246314d17%3A0x8b8d0e29dd9e301a!2sSripalli%20Boys%20Hostel%20(Nanda%20Sadan)%2C%20Visva-Bharati!5e0!3m2!1sen!2sin!4v1704380635557!5m2!1sen!2sin" width="100%" height="450" style="margin-top:30px;border:0;background-color:rgba(255, 0, 0, 0.15);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 ### Facilities
  Rooms are not very good but each room has two tube light and a fan in center. It has a old building structure. It had all necessary facilities like water, gym, kitchen but all are not okey now.  Only one water purifier working  with regular management of students. Food quality is poor in kitchen though its managed by students. But as Hostel student we were okey with that.
