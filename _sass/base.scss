@@ -84,8 +84,15 @@ body {
 /* common class */
 .post-list {
   margin-top: 10px;
+  padding-inline-start: 10px;
   li {
     margin-top: 10px;
+    display: block;
+    > div{ 
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
   }
 }
 .underline {
