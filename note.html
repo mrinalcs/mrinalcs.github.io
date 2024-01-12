@@ -20,8 +20,32 @@ redirect_from:
         {% assign current_year = post_year %}
     {% endif %}
     <li>
-         <a href="{{ post.url }}">{{ post.title }}</a>
+      <div class="post-header">
+        <div class="meta">
+          <div class="date">
+            <span class="day">{{ post.date | date: "%d" }}</span>
+            <span class="rest">{{ post.date | date: "%b" }}</span>
+          </div>
+        </div>
+        <div class="matter">
+          <div class="title small">
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            
+          </div>
+   
+        </div>
+      </div>
     </li>
   {% endfor %}
     </ul>
   </article>
+
+  <style>
+    li {
+      display: block;
+    }
+    .post-header {
+    display: flex;
+    align-items: center;
+}
+  </style>
