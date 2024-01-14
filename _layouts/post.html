@@ -8,6 +8,7 @@ layout: default
     <header>
         <h1>{{ page.title }}</h1>
         <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        <span id="view">views: counting..</span>
     </header>
 
     <aside>
@@ -20,3 +21,21 @@ layout: default
 {{ content }}
 
 </article>
+
+
+
+
+<script>
+  function getSlugFromUrl() {
+    var pathArray = window.location.pathname.split('/');
+    var slug = pathArray[pathArray.length - 1];
+    return slug || 'home'; 
+  }
+  var slug = getSlugFromUrl();
+  fetch('https://api.mrinal.tk/1/view_counter.php?slug=' + slug)
+    .then(response => response.text())
+    .then(viewCount => {
+      document.getElementById('view').textContent = '  views: ' + viewCount;
+    })
+    .catch(error => console.error('Error fetching view count:', error));
+</script>
