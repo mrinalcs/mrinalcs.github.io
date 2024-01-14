@@ -51,7 +51,7 @@ body {
        
     }
     ul {
-      padding-inline-start: 15px;
+      padding-inline-start: 20px;
     }
     ol {
       padding-inline-start: 30px;
@@ -88,12 +88,7 @@ body {
   padding-inline-start: 10px;
   li {
     margin-top: 10px;
-    display: block;
-    > div{ 
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
+    margin-left: 10px;
   }
 }
 .underline {
