@@ -7,8 +7,8 @@ layout: default
 
     <header>
         <h1>{{ page.title }}</h1>
-        <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-        <span id="view"></span>
+        <time class="sf" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        <span class="sf" id="view"></span>
     </header>
 
     <aside>
@@ -39,3 +39,8 @@ layout: default
     })
     .catch(error => console.error('Error fetching view count:', error));
 </script>
+<style>
+.sf {
+    font-size:.9rem;
+}
+</style>
