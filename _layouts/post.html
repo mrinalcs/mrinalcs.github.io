@@ -7,8 +7,7 @@ layout: default
 
     <header>
         <h1>{{ page.title }}</h1>
-        <time class="sf" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-        <span class="sf" id="view"></span>
+        <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time>
     </header>
 
     <aside>
@@ -21,26 +20,3 @@ layout: default
 {{ content }}
 
 </article>
-
-
-
-
-<script>
-  function getSlugFromUrl() {
-    var pathArray = window.location.pathname.split('/');
-    var slug = pathArray[pathArray.length - 1];
-    return slug || 'home'; 
-  }
-  var slug = getSlugFromUrl();
-  fetch('https://api.mrinal.tk/1/view_counter.php?slug=' + slug)
-    .then(response => response.text())
-    .then(viewCount => {
-      document.getElementById('view').textContent = '  views: ' + viewCount;
-    })
-    .catch(error => console.error('Error fetching view count:', error));
-</script>
-<style>
-.sf {
-    font-size:.9rem;
-}
-</style>
