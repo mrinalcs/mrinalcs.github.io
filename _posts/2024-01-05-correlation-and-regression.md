@@ -1,10 +1,10 @@
 ---
 title: Correlation and Regression
+description: Basic difference b/w regression predicts outcomes from variables, while correlation gauges linear relationships
 ---
 
-## Definition
 
-### Correlation
+## Correlation
 
 
 $$
@@ -20,7 +20,7 @@ $$
 - Correlation coefficients range from -1 to 1, where -1 represents a perfect negative correlation, 1 represents a perfect positive correlation, and 0 indicates no correlation.
 
 
-### Regression
+## Regression
 
 
 
