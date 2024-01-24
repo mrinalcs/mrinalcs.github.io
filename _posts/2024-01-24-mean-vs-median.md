@@ -8,4 +8,3 @@ Why we use median instead of mean
 ** why median
 
 ** and why we use mode
-
