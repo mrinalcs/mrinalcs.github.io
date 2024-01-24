@@ -5,7 +5,7 @@ description: Basic difference b/w regression predicts outcomes from variables, w
 
 
 ## Correlation
-
+Correlation measures the strength and direction of a linear relationship between two variables. It helps us understand how changes in one variable relate to changes in another. The correlation coefficient, ranging from -1 to 1, provides insights into the nature of the association. Remember, correlation does not imply causation; it simply quantifies the degree of connection.
 
 $$
 r = \frac{\sum_{i=1}^{n}(X_i - \bar{X})(Y_i - \bar{Y})}{\sqrt{\sum_{i=1}^{n}(X_i - \bar{X})^2} \sqrt{\sum_{i=1}^{n}(Y_i - \bar{Y})^2}}
@@ -21,7 +21,7 @@ $$
 
 
 ## Regression
-
+Regression takes us a step further by modeling the relationship between a dependent variable and one or more independent variables. The resulting equation represents the best-fit line or curve, enabling us to predict the dependent variable's value based on given independent variables. While correlation provides insights into association, regression equips us with a predictive tool.
 
 
 
