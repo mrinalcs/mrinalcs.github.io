@@ -2,8 +2,6 @@
 title: Building Vbstat
 description: The making of VBSTAT a github page using jekyll to list Handouts and Notes
 image: /img/blog/vbstat-home-page.jpg
-redirect_from:
-  - /blog/building-vbstat
 ---
 
 <!-- I initially started with [vbstat.epizy.com](https://vbstat.epizy.com){:rel="nofollow" target="_blank"} and later on [vbstat.ml](https://vbstat.ml){:rel="nofollow" target="_blank"} which domain no more exist rather not free. So I've migrated to GitHub Pages. -->
