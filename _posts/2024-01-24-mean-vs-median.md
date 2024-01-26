@@ -33,7 +33,7 @@ $$
 ## Example
 
 
-## Exam Scores
+### Exam Scores
 
 Imagine a class of students with the following exam scores:
 75,80,85,90,95,100
