@@ -9,6 +9,7 @@ group :jekyll_plugins do
   gem 'jekyll-toc'
   gem 'kramdown-math-katex'
   gem 'jekyll-redirect-from'
+  gem 'jekyll-minifier'
 
 end
 
