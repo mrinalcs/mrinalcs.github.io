@@ -10,7 +10,8 @@ group :jekyll_plugins do
   gem 'kramdown-math-katex'
   gem 'jekyll-redirect-from'
   gem 'jekyll-minifier'
-
+  gem 'jekyll-analytics'
+  gem 'jekyll-avatar'
 end
 
 if Gem.win_platform?

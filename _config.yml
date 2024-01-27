@@ -25,8 +25,13 @@ plugins:
   - jekyll-toc
   - jekyll-redirect-from
   - jekyll-minifier
+  - jekyll-analytics
+  - jekyll-avatar
   
-
+jekyll_analytics:
+  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+    id: G-SHN1H6Y4R5          # Required - replace with your tracking id
+    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
 
 defaults:
   - scope:
