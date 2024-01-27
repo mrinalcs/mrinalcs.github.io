@@ -24,15 +24,10 @@ plugins:
   - jekyll-seo-tag
   - jekyll-toc
   - jekyll-redirect-from
-  - jekyll-minifier
-  - jekyll-analytics
+  - jekyll-minifier 
   - jekyll-avatar
   
-jekyll_analytics:
-  GoogleAnalytics:          # Add, if you want to track with Google Analytics
-    id: UA-123-456          # Required - replace with your tracking id
-    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
-
+ 
 defaults:
   - scope:
       path: ""
