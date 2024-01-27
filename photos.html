@@ -1,0 +1,49 @@
+---
+layout: default
+image: /img/mrinal.jpg
+title: Photos
+description: My photos
+---
+
+<article>
+    <h1>{{page.title}}</h1>
+    <p style="margin-top: 5px;"></p>
+
+    <h2 id="me">Me</h2>
+
+    <div class="gallery">
+      {% for image in site.static_files %}
+        {% if image.path contains '/img/me/' %}
+          <img src="{{ site.baseurl }}{{ image.path }}" alt="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}">
+        {% endif %}
+      {% endfor %}
+    </div>
+
+
+    <h2 id="gallery">Gallery</h2>
+    <p style="margin-top: 5px;">Heres some images which I deleted from my phone but here to show you.</p>
+
+    <div class="gallery">
+        {% for image in site.static_files %}
+          {% if image.path contains '/img/photo/' %}
+            <img src="{{ site.baseurl }}{{ image.path }}" alt="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}">
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    <h2>Sketches</h2>
+    <p style="margin-top: 5px;">Wish I had learnt sketching.</p>
+</article>
+
+<style>
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  width: calc(33.333% - 20px); /* Adjust as needed */
+  margin: 10px;
+  object-fit: cover;
+}
+</style>
