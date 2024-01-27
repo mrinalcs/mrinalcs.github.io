@@ -28,9 +28,10 @@ plugins:
   - jekyll-analytics
   - jekyll-avatar
   
-analytics:
-  google:
-    tracking_id: G-SHN1H6Y4R5
+jekyll_analytics:
+  GoogleAnalytics:          # Add, if you want to track with Google Analytics
+    id: UA-123-456          # Required - replace with your tracking id
+    anonymizeIp: false      # Optional - Default: false - set to true for anonymized tracking
 
 defaults:
   - scope:
