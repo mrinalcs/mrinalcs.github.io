@@ -16,6 +16,7 @@
     <!-- Sitemap -->  
 <link rel="sitemap" type="application/xml" href="{{ "/sitemap.xml" | absolute_url }}">
 
+{% if jekyll.environment == 'production' %}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SHN1H6Y4R5"></script>
 <script>
@@ -25,6 +26,8 @@
 
   gtag('config', 'G-SHN1H6Y4R5');
 </script>
+{% endif %}
+
   </head>
   <body>
 
