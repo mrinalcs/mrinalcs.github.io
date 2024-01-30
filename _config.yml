@@ -27,7 +27,9 @@ plugins:
   - jekyll-minifier 
   - jekyll-avatar
   
-
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
  
 defaults:
   - scope:
