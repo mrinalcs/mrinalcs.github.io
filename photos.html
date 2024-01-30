@@ -1,15 +1,56 @@
 ---
 layout: default
-image: /img/mrinal.jpg
+image: /img/me/mrinal-chandra-sarkar-portrait-visvabharati.jpg
 title: Photos
 description: My photos
 ---
 
+<style>
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .gallery img {
+    width: calc(33.333% - 20px); /* Adjust as needed */
+    margin: 10px;
+    object-fit: cover;
+  }
+  </style>
+  
+  <style>
+    .grid-container {
+      -moz-columns: 200px 3;
+      columns: 100px 3;
+      -moz-column-gap: 1.5rem;
+      column-gap: 1.5rem;
+      margin: 0 auto;
+  }
+  
+  .grid-container div {
+      width: 250px;
+      margin: 0 0 1.5rem;
+      display: inline-block;
+      width: 100%;  
+      transition: all .25s ease-in-out;
+  }
+  
+  .grid-container div img {
+      width: 100%;
+      filter: grayscale(100%); 
+      transition: all .25s ease-in-out;
+  }
+  
+  .grid-container div img:hover {
+      filter: grayscale(0);
+  }
+  </style>
+  
+
 <article>
     <h1>{{page.title}}</h1>
 
-
-<!--
+ 
     
     <p style="margin-top: 5px;"></p>
 
@@ -26,7 +67,7 @@ description: My photos
 
     <h2 id="gallery">Gallery</h2>
 
--->
+ 
 
     
     
@@ -49,43 +90,3 @@ description: My photos
     <p style="margin-top: 5px;">Wish I had learnt sketching.</p>
 </article>
 
-<style>
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.gallery img {
-  width: calc(33.333% - 20px); /* Adjust as needed */
-  margin: 10px;
-  object-fit: cover;
-}
-</style>
-
-<style>
-  .grid-container {
-    -moz-columns: 200px 3;
-    columns: 100px 3;
-    -moz-column-gap: 1.5rem;
-    column-gap: 1.5rem;
-    margin: 0 auto;
-}
-
-.grid-container div {
-    width: 250px;
-    margin: 0 0 1.5rem;
-    display: inline-block;
-    width: 100%;  
-    transition: all .25s ease-in-out;
-}
-
-.grid-container div img {
-    width: 100%;
-    filter: grayscale(100%); 
-    transition: all .25s ease-in-out;
-}
-
-.grid-container div img:hover {
-    filter: grayscale(0);
-}
-</style>
