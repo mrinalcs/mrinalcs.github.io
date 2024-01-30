@@ -7,6 +7,7 @@ layout: default
     <header>
         <h1>{{ page.title }}</h1>
         <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        • <span id="viewCount"></span> <span>Views</span>
     </header>
 
     <aside>
@@ -19,3 +20,29 @@ layout: default
 {{ content }}
 
 </article>
+
+<script>
+    window.onload = function() { 
+        function fetchViewCount(postId) {
+            fetch('https://api.mrinal.tk/views', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'post_id=' + postId
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.view_count !== undefined) {
+                    document.getElementById('viewCount').innerText = data.view_count;
+                } else {
+                    console.error('Failed to fetch view count:', data.error);
+                }
+            })
+            .catch(error => console.error('Error fetching view count:', error));
+        }
+     
+        const postId = '{{ page.url | remove_first: '/' }}';  
+        fetchViewCount(postId);
+    };
+    </script>
