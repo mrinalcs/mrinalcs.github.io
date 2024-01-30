@@ -46,3 +46,35 @@ layout: default
         fetchViewCount(postId);
     };
     </script>
+
+
+<div>
+    <button id="likeBtn" onclick="sendFeedback('like')">Like</button>
+    <button id="dislikeBtn" onclick="sendFeedback('dislike')">Dislike</button>
+    <button id="okayBtn" onclick="sendFeedback('okay')">Okay</button>
+
+</div>
+
+
+<script>
+    function sendFeedback(action) {
+        var post_id = '{{ page.url | remove_first: '/' }}';  
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://api.mrinal.tk/feedback');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                console.log('Feedback:', response);
+                updateButtonCounts(response);
+            }
+        };
+        xhr.send('post_id=' + post_id + '&action=' + action);
+    }
+
+    function updateButtonCounts(counts) {
+        document.getElementById('likeBtn').innerText = 'Like😀 (' + counts.like + ')';
+        document.getElementById('dislikeBtn').innerText = 'Dislike👎 (' + counts.dislike + ')';
+        document.getElementById('okayBtn').innerText = 'Okay😕 (' + counts.okay + ')';
+    }
+</script>
