@@ -48,13 +48,22 @@ layout: default
     </script>
 
 
-<div>
+<div style="padding-top: 100px;">
     <button id="likeBtn" onclick="sendFeedback('like')">Like</button>
     <button id="dislikeBtn" onclick="sendFeedback('dislike')">Dislike</button>
     <button id="okayBtn" onclick="sendFeedback('okay')">Okay</button>
 
 </div>
 
+<style>
+    button{
+        padding: 5px 10px;
+             
+            cursor: pointer;
+            border: 0px solid #ccc;
+            border-radius: 5px; 
+    }
+</style>
 
 <script>
     function sendFeedback(action) {
