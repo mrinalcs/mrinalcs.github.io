@@ -60,5 +60,23 @@
     {% endif %}
 
 
+<!-- mermaid -->
+{% capture page_content %}{{ page.content }}{% endcapture %}
+{% if page_content contains 'class="language-mermaid"' %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(function () {
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: "default"
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
+{% endif %}
+ 
+
+
   </body>
 </html>
