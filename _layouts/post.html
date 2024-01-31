@@ -165,3 +165,18 @@ layout: default
 
   window.addEventListener("load", initPhotoSwipe);
 </script>
+
+
+<!-- mermaid -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/mermaid@8.9.3/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(function () {
+    mermaid.initialize({
+      startOnLoad:true,
+      theme: "default",
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+  });
+</script>
