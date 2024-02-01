@@ -9,29 +9,48 @@
 main{
     max-width: 8.3in;
     margin: auto;
+    padding: 20px;
 }
 
 
 h1 {
     font-size: 2rem;
+    padding-top: 30px;
 }
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.5rem;padding-top: 30px;
 }
 
 h3 {
-    font-size: 1rem;
+    font-size: 1rem;padding-top: 30px;
 }
 
 img {
-    max-width: 100%; 
-    border: solid 1px ;
-}
+    max-width: 50%;margin: 0 auto;
+    border: solid 1px ;}
+
 
 a{
     text-decoration: none;
 }
 
 header {
-    font-size: 1.1rem;
+    
+    ul {font-size: 1.1rem;
+    max-width: 8.3in;
+    margin: auto;
+    padding: 20px;
+        list-style: none;display: flex;gap: 15px;
+    }
+}
+
+
+ul {
+    list-style-type: disc; /* Set bullet style */
+    padding-left: 20px; /* Add some left padding to separate bullet from content */
+}
+
+/* Style for list items */
+ul li {
+    margin-bottom: 10px; /* Add space between list items */
 }
