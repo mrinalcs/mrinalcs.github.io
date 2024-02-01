@@ -2,111 +2,36 @@
 ---
 
 * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Merriweather', sans-serif;
-    font-size: 16px;
-    /* showing the default */
-    line-height: 1.8;
-  }
-  .article {
-    max-width: 610px;
-    margin: 0 auto;
-    /* for mobile */
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 60px;
-    padding-bottom: 90px;
-    /* (shorthand) padding: 60px 30px 90px; */
-  }
-  /* yoink! dropbox colors http://brandcolors.net/ */
-  /* sizes: http://www.modularscale.com/?16&px&1.8,1.34164&web&table */
-  /* HEADER */
-  .category {
-    font-family: 'Open Sans', sans-serif;
-    color: #7b8994;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1.342em;
-    line-height: 1;
-  }
-  h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    /* default */
-    font-size: 2.415em;
-    line-height: 1.2;
-    /*
-    letter-spacing: -1px;
-    color: @blue;
-    padding-bottom: 6px;
-    border-bottom: 2px solid @gray;
-    */
-  }
-  .pub-date {
-    display: block;
-    font-family: 'Open Sans', sans-serif;
-    color: #7b8994;
-    text-transform: uppercase;
-    font-size: 74.5%;
-    font-size: 0.745em;
-    /* 74.5% of parent */
-  }
-  /* END HEADER */
-  /* ARTICLE CONTENT */
-  p {
-    /* we did most of the work in the body tag! */
-    margin-bottom: 1em;
-  }
-  h2 {
-    font-size: 1.8rem;
-    line-height: 1;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-  }
-  h3 {
-    font-size: 1.342rem;
-    line-height: 1;
-    margin-top: 1.8em;
-    margin-bottom: 0.5em;
-  }
-  /* inline vs inline-block; */
-  code {
-    display: inline;
-    /* display: inline-block; */
-    vertical-align: baseline;
-    padding-top: 0px;
-    /* padding-bottom: 300px; */
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: whitesmoke;
-    /* background-color: fade(teal, 30%); */
-  }
-  /* What <display> are images ? */
-  /* another great default, for your sanity. */
-  img {
-    /* display: block; */
-    max-width: 100%;
-  }
-  sup {
-    font-family: 'Open Sans', sans-serif;
-  }
-  figure {
-    margin: 1em 0;
-    /* what is a float ? */
-    /*
-    float: right;
-    width: 70%;
     padding: 0;
-    margin-right: -25%;
-    margin-left: 1em;
-    */
-  }
-  figcaption {
-    font-family: 'Open Sans', sans-serif;
-    color: #7b8994;
-    line-height: 1.8em;
-    text-align: center;
-    padding: 0.5em 1em;
-  }
+    margin: 0;
+}
+
+main{
+    max-width: 8.3in;
+    margin: auto;
+}
+
+
+h1 {
+    font-size: 2rem;
+}
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+img {
+    max-width: 100%; 
+    border: solid 1px ;
+}
+
+a{
+    text-decoration: none;
+}
+
+header {
+    font-size: 1.1rem;
+}
