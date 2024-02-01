@@ -28,9 +28,7 @@
     max-width: 8.3in;
     margin: auto;
     background-color: var(--bg);
-    color: var(--text);
-    font-size: 1.05rem;
-    font-family: monospace;
+    color: var(--text); 
     word-wrap: break-word;
     header {
       padding: 20px;
@@ -106,7 +104,7 @@
   .gist {
     padding: 20px 0px;
   }
-  .katex { font-size: 1.1rem!important; }
+  .katex { font-size: 1.0rem!important; }
   
   
   
