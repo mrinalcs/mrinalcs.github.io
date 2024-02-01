@@ -26,6 +26,14 @@ plugins:
   - jekyll-redirect-from
   - jekyll-minifier 
   - jekyll-avatar
+  - jekyll-assets
+
+assets:
+  compress:
+    images:
+      paths:
+        - /img
+
   
 jekyll-minifier:
   uglifier_args:
