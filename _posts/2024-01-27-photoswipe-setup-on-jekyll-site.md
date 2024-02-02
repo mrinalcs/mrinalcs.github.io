@@ -4,7 +4,7 @@ description: Here's the setup process for the PhotoSwipe lightbox gallery on  Je
 ---
 
 ## Install PhotoSwipe
-- Download PhotoSwipe from [GitHub](https://github.com/dimsemenov/photoswipe){:rel="nofollow noopener noreferrer"} or install it via npm or yarn.
+- Download **PhotoSwipe** from [GitHub](https://github.com/dimsemenov/photoswipe){:rel="nofollow noopener noreferrer"} or install it via npm or yarn.
 - Extract the downloaded files or install it using npm/yarn.\
 best go throught the doc
 [PhotoSwipe](https://photoswipe.com/){:rel="nofollow noreferrer"}
