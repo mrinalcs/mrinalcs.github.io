@@ -4,7 +4,18 @@ layout: default
 
 <article>
 
+    <header>
+        <h1>{{ page.title }}</h1>
+        <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        ● <span id="viewCount"></span> <span>Views</span>
+    </header>
 
+    <aside>
+        <details>
+            <summary>Table of Content</summary>
+            {% toc %}
+        </details>
+    </aside>
 
 {{ content }}
 
