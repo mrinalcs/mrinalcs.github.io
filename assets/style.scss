@@ -19,7 +19,6 @@ main {
 
 h1 {
   font-size: 1.5em;
-  margin: 0.67em 0;
 }
 
 hr {
@@ -349,7 +348,8 @@ article {
             // max-width: 560px;
             margin: auto;
             background: rgb(255, 0, 0, 0.15);
-            min-height: 150px;
+            min-height: 150px;   
+            border: solid 2px var(--text);
         }
     }
 }
@@ -424,9 +424,7 @@ pre.highlight {
     padding: 0;
   }
 
-  code {
-    font-family: "DM Serif Display", serif;
-  }
+ 
 
 
   table {
