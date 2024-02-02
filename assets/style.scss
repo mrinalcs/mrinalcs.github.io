@@ -349,7 +349,7 @@ article {
             margin: auto;
             background: rgb(255, 0, 0, 0.15);
             min-height: 150px;   
-            box-shadow: 0px 0px 11px 0px black;
+            box-shadow: 0px 0px 11px 0px #00000030;
         }
     }
 }
@@ -405,7 +405,7 @@ blockquote::before {
 
 em {
     display: block;
-    margin-top: 5px;
+    margin-top: 20px;
     text-align: center;
     font-size: 0.8rem;
     font-style: normal;
