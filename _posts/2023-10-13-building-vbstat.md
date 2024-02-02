@@ -1,7 +1,7 @@
 ---
 title: Building Vbstat
 description: The making of VBSTAT a github page using jekyll to list Handouts and Notes
-image: /img/blog/vbstat-home-page.jpg
+image: /assets/img/blog/vbstat-home-page.jpg
 redirect_from:
   - /blog/building-vbstat
 ---
@@ -20,13 +20,13 @@ My first commit was on **<time datetime="2023-09-24">September 24, 2023</time>**
 ### Home page
 The home page includes a hero section with image carousel and a blockquote , another section which have an accordion and about section.
 
-![Home Page Screen Short](/img/blog/vbstat-home-page.jpg)
+![Home Page Screen Short](/assets/img/blog/vbstat-home-page.jpg)
 *Vbstat home page*
 
 ### About page
 All pages have a common sidebar with common tabs and reusable header and footer.
 
-![About Page Screen Short](/img/blog/vbstat-about-page.jpg)
+![About Page Screen Short](/assets/img/blog/vbstat-about-page.jpg)
 *Vbstat about page*
 
 
@@ -52,7 +52,7 @@ This page dynamically list all question papers catagoried by sem and year based 
   <script src="https://gist.github.com/mrinalcs/32755c35bdd408ffa0ab7a62032852a2.js"></script>
 </details>
 
-![](/img/blog/vbstat-question-paper-page.jpg)
+![](/assets/img/blog/vbstat-question-paper-page.jpg)
 *Sortable quesion paper page*
 
 ### Student page
@@ -91,7 +91,7 @@ This reposetory [vbstat](https://github.com/mrinalcs/vbstat) was created by [me]
 ## Seo
 Used Jekyll-seo-tag for seo. I have added all infromation which are already available on the Internet. One thing just do is bring all of them in one place.
 
-![Google search result](/img/blog/vbstat-google-search-result.jpg)
+![Google search result](/assets/img/blog/vbstat-google-search-result.jpg)
 *vbstat google search*
 
 ## Branches

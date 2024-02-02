@@ -1,6 +1,6 @@
 ---
 layout: default
-image: /img/photo/basanta-utsab-2023-visvabharatai.jpg
+image: /assets/img/photo/basanta-utsab-2023-visvabharatai.jpg
 title: Photos
 description: My photos
 ---
@@ -50,7 +50,7 @@ description: My photos
 
     <div class="grid-container">
         {% for image in site.static_files %}
-          {% if image.path contains '/img/photo/' %}
+          {% if image.path contains '/assets/img/photo/' %}
 
           <div>
               <img src="{{ site.url }}{{ site.baseurl }}{{ image.path }}" alt="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}" title="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}">

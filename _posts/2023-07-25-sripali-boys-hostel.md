@@ -1,6 +1,6 @@
 ---
 title: Sripalli Boys' Hostel
-image: /img/blog/sripalli-boys-hostel.jpg
+image: /assets/img/blog/sripalli-boys-hostel.jpg
 ---
 
 I was alloted to Elmhirst Boys' Hostel, but distance from our department was too long. So I shifted to Sripalli Boys' Hostel where I stayed about one year.
@@ -15,7 +15,7 @@ Its not the best hostel in Visva-Bharati but its near to Sikha Bhavana and Kala 
 ### Facilities
  Rooms are not very good but each room has two tube light and a fan in center. It has a old building structure. It had all necessary facilities like water, gym, kitchen but all are not okey now.  Only one water purifier working  with regular management of students. Food quality is poor in kitchen though its managed by students. But as Hostel student we were okey with that.
 
-![Sripalli Boys' Hostel](/img/blog/sripalli-boys-hostel.jpg)
+![Sripalli Boys' Hostel](/assets/img/blog/sripalli-boys-hostel.jpg)
 *Sripalli Boys' Hostel*
 
 ## Room 19
@@ -23,21 +23,21 @@ Its not the best hostel in Visva-Bharati but its near to Sikha Bhavana and Kala 
 Its a room in Block A .
 When I was choosing room there were few rooms left in front block but all of them except *room 19* were dirty and I had to clean my self.
 
-![hindu gods in hostel](/img/blog/sripalli-boys-hostel-god.jpg)
+![hindu gods in hostel](/assets/img/blog/sripalli-boys-hostel-god.jpg)
 *Self of roommate dada*
 
 
 
-![grand nandan hostel](/img/blog/sripalli-boys-hostel-canteen-grand.jpg)
+![grand nandan hostel](/assets/img/blog/sripalli-boys-hostel-canteen-grand.jpg)
 *Last grand without electricity*
 
 
 <div style="display: flex;justify-content:space-around;gap: 20px;padding: 20px 0 0 0;">
-    <img src="/img/blog/sripalli-boys-hostel-balcony-left.jpg" alt="art on walls" style="width: 50%; height: auto;">
-    <img src="/img/blog/sripalli-boys-hostel-balcony-right.jpg" alt="art on walls" style="width: 50%; height: auto;">
+    <img src="/assets/img/blog/sripalli-boys-hostel-balcony-left.jpg" alt="art on walls" style="width: 50%; height: auto;">
+    <img src="/assets/img/blog/sripalli-boys-hostel-balcony-right.jpg" alt="art on walls" style="width: 50%; height: auto;">
 </div>
 
 
 
-![sripalli-boys-hostel](/img/blog/sripalli-boys-hostel-balcony-from-cilling.jpg)
+![sripalli-boys-hostel](/assets/img/blog/sripalli-boys-hostel-balcony-from-cilling.jpg)
 *Block A*
