@@ -4,63 +4,49 @@ image: /assets/img/photo/basanta-utsab-2023-visvabharatai.jpg
 title: Photos
 description: My photos
 ---
-  
-  <style>
-    .grid-container {
-      -moz-columns: 200px 3;
-      columns: 150px 3;
-      -moz-column-gap: 1.5rem;
-      column-gap: 1.5rem;
-      margin: 0 auto;
-  }
-  
-  .grid-container div {
-      width: 250px;
-      margin: 0 0 1.5rem;
-      display: inline-block;
-      width: 100%;  
-      transition: all .25s ease-in-out;
-  }
-  
-  .grid-container div img {
-      width: 100%; 
-      transition: all .25s ease-in-out;
-  }
-   
 
-  img {
-    animation: pulse 1s infinite alternate;
-  }
+<style>
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+.image-gallery > li {
+    flex: 1 1 auto;
+    height: 150px;
+    cursor: pointer;
+    position: relative;
+}
 
-  @keyframes pulse {
-    0% {
-      background-color: #c3c3c3a1;
-    }
-    100% {
-      background-color: #383838a2;
-    }
-  }
-  </style>
-  
+.image-gallery li img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+
+</style>
 
 <article>
     <h1>{{page.title}}</h1>
   
     <p style="margin-top: 5px; margin-bottom: 20px;">Heres some images which I deleted from my phone but here to show you.</p>
 
-    <div class="grid-container">
+    <ul class="image-gallery">
         {% for image in site.static_files %}
           {% if image.path contains '/assets/img/photo/' %}
 
-          <div>
+          <li>
               <img src="{{ site.url }}{{ site.baseurl }}{{ image.path }}" alt="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}" title="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}">
-          </div>
+          </li>
           {% endif %}
         {% endfor %}
-      </div>
+        </ul>
 
-    <h2>Sketches</h2>
-    <p style="margin-top: 5px;">Wish I had learnt sketching.</p>
+    
 </article>
 
 
