@@ -15,3 +15,52 @@
 @layer utilities {
   @import "utilities";
 }
+
+
+:root {
+  --bg:white;
+  --text:black;
+  --hover: #0073ec;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:rgb(31,31,31);
+    --text:white;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.bg-white {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.nav-link {
+  color: var(--text);
+}
+
+.text-text {
+  color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text);
+}
+
+.text-dark {
+  color: var(--text);
+}
+
+.search-modal .search-close {
+  color: var(--hover);
+}
+
+.search-modal.open {
+  margin: 0 2rem;
+}
