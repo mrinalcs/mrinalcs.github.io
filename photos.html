@@ -40,7 +40,7 @@ description: My photos
           {% if image.path contains '/assets/img/photo/' %}
 
           <li>
-              <img src="{{ site.url }}{{ site.baseurl }}{{ image.path }}" alt="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}" title="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}" loading="lazy">
+              <img src="{{ site.url }}{{ site.baseurl }}{{ image.path }}" alt="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}" title="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}">
           </li>
           {% endif %}
         {% endfor %}
