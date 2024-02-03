@@ -88,3 +88,9 @@ h1,h2,h3,h4,p,strong,a,li,ol,code,dd,dl,dt,table {
 blockquote,pre {
   background-color: var(--bg2)!important;
 }
+
+.bg-theme-light {
+  color: var(--text);
+  background: var(--bg2);
+}
+
