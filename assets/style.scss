@@ -403,8 +403,9 @@ blockquote::before {
     transform: translateY(-50%);
 }
 
+// for photoswipe 
 
-em {
+img+em , a+em {
     display: block;
     margin-top: 20px;
     text-align: center;
