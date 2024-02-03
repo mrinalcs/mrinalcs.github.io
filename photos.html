@@ -30,25 +30,6 @@ description: My photos
 
 </style>
 
-<article>
-    <h1>{{page.title}}</h1>
-  
-    <p style="margin-top: 5px; margin-bottom: 20px;">Heres some images which I deleted from my phone but here to show you.</p>
-
-    <ul class="image-gallery">
-        {% for image in site.static_files %}
-          {% if image.path contains '/assets/img/photo/' %}
-
-          <li>
-              <img src="{{ site.url }}{{ site.baseurl }}{{ image.path }}" alt="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}" title="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}">
-          </li>
-          {% endif %}
-        {% endfor %}
-        </ul>
-
-    
-</article>
-
 
 <!-- // photoswipe -->
 
@@ -126,3 +107,25 @@ description: My photos
 
   window.addEventListener("load", initPhotoSwipe);
 </script> 
+
+
+
+
+<article>
+    <h1>{{page.title}}</h1>
+  
+    <p style="margin-top: 5px; margin-bottom: 20px;">Heres some images which I deleted from my phone but here to show you.</p>
+
+    <ul class="image-gallery">
+        {% for image in site.static_files %}
+          {% if image.path contains '/assets/img/photo/' %}
+
+          <li>
+              <img src="{{ site.url }}{{ site.baseurl }}{{ image.path }}" alt="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}" title="{{ image.name | replace: "-", " " | replace: "_", " " | remove: "," | split: "." | first | capitalize }}">
+          </li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+
+    
+</article>
