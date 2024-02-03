@@ -94,3 +94,25 @@ blockquote,pre {
   background: var(--bg2);
 }
 
+
+.space-x-4 {
+  > .inline-block {
+    margin: 10px;
+  }
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  .shadow {
+    box-shadow: 0 10px 30px rgba(10, 10, 10, 0.3);
+  }
+}
+
+a.navbar-brand.block.nav-link {
+  padding: 0;
+}
+
+ul.nav-dropdown-list {
+  box-shadow: 0 10px 30px black;
+}
