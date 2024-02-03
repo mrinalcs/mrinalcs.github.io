@@ -1,0 +1,29 @@
+{
+  "site": {
+    "title": "Mrinal's Article",
+    "base_url": "/",
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
+    "logo_width": "153",
+    "logo_height": "32",
+    "logo_text": "Mrinal's Article"
+  },
+
+  "settings": {
+    "pagination": 7,
+    "summary_length": 200,
+    "blog_folder": "posts"
+  },
+
+  "params": {
+    "tag_manager_id": "",
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2023  [Mrinal](https://mrinal.tk)"
+  },
+
+  "metadata": {
+    "meta_author": "Mrinal",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Next Boilerplate"
+  }
+}
