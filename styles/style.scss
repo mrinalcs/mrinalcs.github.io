@@ -21,6 +21,8 @@
   --bg:white;
   --text:black;
   --hover: #0073ec;
+
+  --bg2:rgb(240, 240, 240);
 }
 
 
@@ -28,6 +30,7 @@
   :root {
     --bg:rgb(31,31,31);
     --text:white;
+    --bg2:#282828;
   }
 }
 
@@ -58,9 +61,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .search-modal .search-close {
-  color: var(--hover);
+  color: var(--text);
 }
 
 .search-modal.open {
   margin: 0 2rem;
+}
+
+.search-modal .form-input {
+  background: var(--bg2) ;
+}
+
+// to hide text under it
+ 
+@media (min-width: 768px){
+.search-modal {
+    height: 80%;
+}
 }
