@@ -14,6 +14,8 @@ const Posts = ({ posts, authors, className }) => {
           className={i === 0 ? "col-12" : "col-12 sm:col-6"}
         >
           {post.frontmatter.image && (
+
+<Link href={`/${post.slug}`} >
             <Image
               className="rounded-lg"
               src={post.frontmatter.image}
@@ -22,6 +24,7 @@ const Posts = ({ posts, authors, className }) => {
               height={i === 0 ? "475" : "230"}
               priority={i === 0 ? true : false}
             />
+</Link>
           )}
           <ul className="mt-4 mb-4 flex flex-wrap items-center space-x-3 text-text">
             <li>
