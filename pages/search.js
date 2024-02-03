@@ -42,7 +42,7 @@ const SearchPage = ({ authors }) => {
           {searchResults.length > 0 ? (
             <Posts posts={searchResults} authors={authors} />
           ) : (
-            <div className="py-24 text-center text-h3 shadow">
+            <div className="py-24 text-center text-h3">
               No Search Found
             </div>
           )}
