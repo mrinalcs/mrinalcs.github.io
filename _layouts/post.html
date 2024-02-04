@@ -12,7 +12,7 @@ layout: default
 
     <aside>
         <details>
-            <summary>Table of Content</summary>
+            <summary>On this page</summary>
             {% toc %}
         </details>
     </aside>
@@ -68,6 +68,11 @@ color: var(--text);
 
 
 <!-- // photoswipe -->
+
+
+{% capture page_content %}{{ page.content }}{% endcapture %}
+{% if page_content contains '<img' %}
+
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
@@ -144,4 +149,4 @@ color: var(--text);
   window.addEventListener("load", initPhotoSwipe);
 </script>
 
-
+{% endif %}
