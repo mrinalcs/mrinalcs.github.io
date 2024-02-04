@@ -1,9 +1,8 @@
 ---
 title: Sripalli Boys' Hostel
+desccription: A hostel for sikha and kala Bhavana students in Bolpur Visva Bharati University
 image: /assets/img/blog/sripalli-boys-hostel.jpg
 ---
-
-I was alloted to Elmhirst Boys' Hostel, but distance from our department was too long. So I shifted to Sripalli Boys' Hostel where I stayed about one year.
 
 ## About Hostel
 
