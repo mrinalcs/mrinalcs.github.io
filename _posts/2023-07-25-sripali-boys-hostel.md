@@ -1,10 +1,12 @@
 ---
 title: Sripalli Boys' Hostel
-desccription: A hostel for sikha and kala Bhavana students in Bolpur Visva Bharati University
+description: A hostel for sikha and kala Bhavana boys students in Shantiniketan Visva Bharati University
 image: /assets/img/blog/sripalli-boys-hostel.jpg
 ---
 
 ## About Hostel
+
+{{page.description}}
 
 ### Location
 Its not the best hostel in Visva-Bharati but its near to Sikha Bhavana and Kala Bhavana and another important thing that Aroshree market is few minute away.. Its front block-A if for Siksha Bhavana and block-B is for kala bhavana students.
@@ -14,13 +16,16 @@ Its not the best hostel in Visva-Bharati but its near to Sikha Bhavana and Kala 
 ### Facilities
  Rooms are not very good but each room has two tube light and a fan in center. It has a old building structure. It had all necessary facilities like water, gym, kitchen but all are not okey now.  Only one water purifier working  with regular management of students. Food quality is poor in kitchen though its managed by students. But as Hostel student we were okey with that.
 
+### Rooms
+Each rooms are two bed with table and chair (most of rooms had old stuffs). The rooms have a balcony in front. It has four window and self. 
+
 ![Sripalli Boys' Hostel](/assets/img/blog/sripalli-boys-hostel.jpg)
 *Sripalli Boys' Hostel*
 
 ## Room 19
 
 Its a room in Block A .
-When I was choosing room there were few rooms left in front block but all of them except *room 19* were dirty and I had to clean my self.
+When I was choosing room there were few rooms left in front block but all of them except *room 19* were dirty and I had to clean my self. Though it has limited facilities its rooms mostely fillup.
 
 ![hindu gods in hostel](/assets/img/blog/sripalli-boys-hostel-god.jpg)
 *Self of roommate dada*
