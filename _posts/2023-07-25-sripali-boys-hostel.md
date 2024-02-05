@@ -25,15 +25,14 @@ Each rooms are two bed with table and chair (most of rooms had old stuffs). The 
 ## Room 19
 
 Its a room in Block A .
-When I was choosing room there were few rooms left in front block but all of them except *room 19* were dirty and I had to clean my self. Though it has limited facilities its rooms mostely fillup.
+When I was choosing room there were few rooms left in front block but all of them except *room 19* were dirty and I had to clean my self. Though it has limited facilities its rooms mostely filledup.
 
 ![hindu gods in hostel](/assets/img/blog/sripalli-boys-hostel-god.jpg)
 *Self of roommate dada*
 
 
-
-![grand nandan hostel](/assets/img/blog/sripalli-boys-hostel-canteen-grand.jpg)
-*Last grand without electricity*
+![nandan hostel Kitchen](/assets/img/blog/sripalli-boys-hostel-canteen-grand.jpg)
+*Kitchen : Candle Light *electricity cut due to rain*
 
 
 <div style="display: flex;justify-content:space-around;gap: 20px;padding: 20px 0 0 0;">
@@ -43,5 +42,5 @@ When I was choosing room there were few rooms left in front block but all of the
 
 
 
-![sripalli-boys-hostel](/assets/img/blog/sripalli-boys-hostel-balcony-from-cilling.jpg)
-*Block A*
+![sripalli-boys-hostel block a building](/assets/img/blog/sripalli-boys-hostel-balcony-from-cilling.jpg)
+*Block A Building*
