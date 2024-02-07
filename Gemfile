@@ -12,6 +12,7 @@ group :jekyll_plugins do
   gem 'jekyll-minifier'
   gem 'jekyll-analytics'
   gem 'jekyll-avatar'
+  gem 'jekyll-assets'
 
 end
 
