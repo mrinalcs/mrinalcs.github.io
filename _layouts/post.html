@@ -22,9 +22,9 @@ layout: default
 </article>
 
 
+{% if jekyll.environment == 'production' %}
 <!-- views -->
 
-<!-- page views -->
 
 <script>
   window.onload = function() { 
@@ -96,6 +96,7 @@ color: var(--text);
     }
 </script>
 
+{% endif %}
 
 <!-- // photoswipe -->
 
