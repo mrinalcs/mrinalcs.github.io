@@ -1,7 +1,9 @@
 ---
 title: Correlation and Regression
+image: /assets/img/correlation-and-regression/2024-02-08%20230312.jpg
 description: Basic difference b/w regression predicts outcomes from variables, while correlation gauges linear relationships
 ---
+
 
 
 ## Correlation

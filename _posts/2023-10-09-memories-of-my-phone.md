@@ -1,7 +1,7 @@
 ---
 title: Memories of my Phone
 description: My memories with phones and apps I use
-image: /assets/img/blog/memories-of-my-phones-and-apps.jpg
+image: /assets/img/memories-of-my-phone/memories-of-my-phones-and-apps.jpg
 ---
 
 

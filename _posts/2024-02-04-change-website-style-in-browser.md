@@ -1,7 +1,7 @@
 ---
 title: Change website style in browser
 description: How to change style of a website in your browser using extensions or developer tools.
-image: /assets/img/blog/change-website-style-in-browser/stylebot.jpg
+image: /assets/img/change-website-style-in-browser/stylebot.jpg
 redirect_from:
   - /change-website-style
 ---
@@ -57,7 +57,7 @@ header h1 a {
 
 With above css results following output of stylebot website.
 
-![change website style in browser stylebot website](/assets/img/blog/change-website-style-in-browser/stylebot.jpg)
+![change website style in browser stylebot website](/assets/img/change-website-style-in-browser/stylebot.jpg)
 *Stylebot website with added style*
 
 

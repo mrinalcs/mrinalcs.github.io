@@ -1,7 +1,7 @@
 ---
 title: Free web Resources
 description: Heres free resources I used for web devlopment. 
-image: /assets/img/blog/free-resources-for-web-devs.jpg
+image: /assets/img/free-web-resources/free-resources-for-web-devs.jpg
 ---
 
 Resources I've Used:

@@ -124,3 +124,13 @@ lightbox.init();
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+Or following markdown
+
+
+```
+![The Starry Night](/assets/img/photoswipe-setup-on-jekyll-site/thumb3.jpg)
+```
+
+![The Starry Night](/assets/img/photoswipe-setup-on-jekyll-site/thumb3.jpg)

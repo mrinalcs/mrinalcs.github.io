@@ -1,7 +1,9 @@
 ---
 title: Why sample variance divided by n-1
+image: /assets/img/why-sample-variance-divided-by-n-1/2024-02-08%20230547.jpg
 description: why we use n-1 in sample variance and standard deviation and n in population variance and standard deviation
 ---
+
 
 **Population Variance**
 $$
