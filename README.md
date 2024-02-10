@@ -11,3 +11,5 @@ jekyll serve --future
 ```
 
 Browse to <http://localhost:4000>
+
+https://mrinalcs.github.io/
