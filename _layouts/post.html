@@ -6,8 +6,7 @@ layout: default
 
     <header>
         <h1>{{ page.title }}</h1>
-        <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-        ● <span id="viewCount"></span> <span>Views</span>
+        <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time> 
     </header>
 
     <aside>
@@ -21,83 +20,7 @@ layout: default
 
 </article>
 
-
-{% if jekyll.environment == 'production' %}
-<!-- views -->
-
-
-<script>
-  window.onload = function() { 
-      function fetchViewCount(postId) {
-          fetch('https://chrestomathic-restr.000webhostapp.com/views', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded'
-              },
-              body: 'post_id=' + postId
-          })
-          .then(response => response.json())
-          .then(data => {
-              if (data && data.view_count !== undefined) {
-                  document.getElementById('viewCount').innerText = data.view_count;
-              } else {
-                  console.error('Failed to fetch view count:', data.error);
-              }
-          })
-          .catch(error => console.error('Error fetching view count:', error));
-      }
-   
-      const postId = '{% if page.url == '/' %}home{% else %}{{ page.url | remove_first: '/' }}{% endif %}';  
-      fetchViewCount(postId);
-  };
-  </script>
-
-<!-- feedback -->
-
-<div style="padding-top: 100px;padding-bottom: 50px;">
-    <button id="likeBtn" onclick="sendFeedback('like')">Like</button>
-    <button id="dislikeBtn" onclick="sendFeedback('dislike')">Dislike</button>
-    <button id="okayBtn" onclick="sendFeedback('okay')">Okay</button>
-
-</div>
-
-<style>
-    button{
-        padding: 5px 10px;
-        background-color: rgba(var(--bg), 0.5);
-margin: 5px;
-color: var(--text);
-            cursor: pointer;
-            border: 1px solid var(--text);
-             
-    }
-</style>
-
-<script>
-    function sendFeedback(action) {
-        var post_id = '{{ page.url | remove_first: '/' }}';  
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://chrestomathic-restr.000webhostapp.com/feedback');
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                var response = JSON.parse(xhr.responseText);
-                console.log('Feedback:', response);
-                updateButtonCounts(response);
-            }
-        };
-        xhr.send('post_id=' + post_id + '&action=' + action);
-    }
-
-    function updateButtonCounts(counts) {
-        document.getElementById('likeBtn').innerText = 'Like😀 (' + counts.like + ')';
-        document.getElementById('dislikeBtn').innerText = 'Dislike👎 (' + counts.dislike + ')';
-        document.getElementById('okayBtn').innerText = 'Okay😕 (' + counts.okay + ')';
-    }
-</script>
-
-{% endif %}
-
+ 
 <!-- // photoswipe -->
 
 
