@@ -13,7 +13,7 @@ group :jekyll_plugins do
   gem 'jekyll-analytics'
   gem 'jekyll-avatar'
   gem 'jekyll-assets'
-
+  gem 'jekyll-archives'
 end
 
 if Gem.win_platform?
