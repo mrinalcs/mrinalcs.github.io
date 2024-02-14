@@ -15,6 +15,7 @@ group :jekyll_plugins do
   gem 'jekyll-assets'
   gem 'jekyll-archives'
   gem 'jekyll-mentions'
+  gem 'jekyll-timeago'
 end
 
 if Gem.win_platform?
