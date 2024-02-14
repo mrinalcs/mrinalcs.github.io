@@ -14,6 +14,7 @@ group :jekyll_plugins do
   gem 'jekyll-avatar'
   gem 'jekyll-assets'
   gem 'jekyll-archives'
+  gem 'jekyll-mentions'
 end
 
 if Gem.win_platform?
