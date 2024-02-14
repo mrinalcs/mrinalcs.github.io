@@ -34,8 +34,12 @@ pre {
 
 a {
   background-color: transparent;
+  display: inline-block;
+  transition: transform 0.3s ease;
 }
-
+a:active {
+  transform: scale(0.9); 
+}
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
