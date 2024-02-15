@@ -27,7 +27,7 @@ plugins:
   - jekyll-minifier 
   - jekyll-avatar
   - jekyll-assets
-
+  - jekyll-last-modified-at
 
   
 jekyll-minifier:
