@@ -89,6 +89,7 @@
 
 
 <!-- remove this -->
+
 <script>
 document.addEventListener('DOMContentLoaded', function(){
 
@@ -103,15 +104,27 @@ document.addEventListener('DOMContentLoaded', function(){
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(var(--bg),0.4);
+        }
+
+        .modal-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg);
+            backdrop-filter: blur(8px);
         }
 
         .modal-content {
-            background-color: var(--bg);
+            background-color: #fefefe;
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
+            position: relative;
+            z-index: 1;
+            color: var(--text);
         }
 
         .modal-footer {
@@ -120,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         .button {
             padding: 10px 20px;
-            background-color: var(--bg);
+            background-color: #007bff;
             color: #fff;
             border: none;
             cursor: pointer;
@@ -134,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function(){
     // HTML modal structure
     var modalHTML = `
         <div id="externalLinkModal" class="modal">
+            <div class="modal-background"></div>
             <div class="modal-content">
                 <h2>External Link</h2>
                 <p id="linkInfo">Do you want to proceed to the external link?</p>
