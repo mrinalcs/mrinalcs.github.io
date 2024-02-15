@@ -17,7 +17,7 @@ group :jekyll_plugins do
   gem 'jekyll-mentions'
   gem 'jekyll-timeago'
   gem 'jekyll-github-metadata'
-
+  gem "jekyll-last-commit"
 
 end
 
