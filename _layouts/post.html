@@ -6,12 +6,10 @@ layout: default
 
     <header>
         <h1>{{ page.title }}</h1>
-        <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time> 
-        
-Last modified: {{ page.github.last_modified_at | date: "%Y-%m-%d" }}
-<p>Created At: {{ page.created_at | date: "%Y-%m-%d" }}</p>
-<p>Last Updated At: {{ page.last_updated_at | date: "%Y-%m-%d" }}</p>
-        
+        <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time> ●
+<span>         
+Updated: {{ page.last_modified_at | date: "%Y-%m-%d" }}
+</span>  
     </header>
 
     <aside>
