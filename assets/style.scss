@@ -441,6 +441,7 @@ pre.highlight {
     border: 1px solid #aaa;
     border-radius: 4px;
     padding: 0.5em 0.5em 0;
+    background-color: #8282821a;
   }
   
   summary {
@@ -458,4 +459,10 @@ pre.highlight {
     margin-bottom: 0.5em;
   }
   
-     
+// unnecessary
+
+article > p > a:hover { 
+  text-decoration: none;
+  color: var(--bg);
+  background-color: var(--text);
+}
