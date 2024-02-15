@@ -10,13 +10,14 @@ layout: default
         <span>Last modified: {{ page.last_modified_at | date: "%B %d, %Y" }}
 </span>
 
-{% assign last_modified_date = site.github.time | date: "%Y-%m-%d" %}
-{% if page.last_modified_at %}
-  {% assign last_modified_date = page.last_modified_at | date: "%Y-%m-%d" %}
-{% endif %}
+
+{% assign last_modified_date = "" %}
+{% assign git_log = "" %}
+
+{% capture git_log %}{% endcapture %}
+{% assign last_modified_date = git_log | split:"\n" | first | split: " " | last | slice: 1, 10 %}
 
 Last modified: {{ last_modified_date }}
-
 
 
         
