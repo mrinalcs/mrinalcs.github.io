@@ -16,6 +16,8 @@ group :jekyll_plugins do
   gem 'jekyll-archives'
   gem 'jekyll-mentions'
   gem 'jekyll-timeago'
+  gem 'jekyll-last-modified-at'
+
 end
 
 if Gem.win_platform?
