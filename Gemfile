@@ -12,15 +12,9 @@ group :jekyll_plugins do
   gem 'jekyll-minifier'
   gem 'jekyll-analytics'
   gem 'jekyll-avatar'
-  gem 'jekyll-assets'
   gem 'jekyll-archives'
   gem 'jekyll-mentions'
-  gem 'jekyll-timeago'
-  gem 'jekyll-github-metadata'
-  gem "jekyll-last-commit"
 
 end
 
-if Gem.win_platform?
-  gem 'wdm', '>= 0.1.0'
-end
+ 

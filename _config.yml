@@ -28,8 +28,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-minifier 
   - jekyll-avatar
-  - jekyll-assets
-  - jekyll-github-metadata
+
   
 jekyll-minifier:
   uglifier_args:
