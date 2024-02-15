@@ -9,6 +9,19 @@ layout: default
         <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time> 
         <span>Last modified: {{ page.last_modified_at | date: "%B %d, %Y" }}
 </span>
+
+{% assign file_path = include.path %}
+{% assign last_modified_date = "" %}
+{% assign git_log = "" %}
+
+{% capture git_log %}{{ git_log | append: "{% endcapture %}
+
+{% assign last_modified_date = git_log | split:"\n" | first | split: " " | last | slice: 1, 10 %}
+
+{{ last_modified_date }}
+
+
+        
     </header>
 
     <aside>
