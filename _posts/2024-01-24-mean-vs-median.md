@@ -1,6 +1,7 @@
 ---
 title: Mean vs. Median
-description: When to Use Mean vs. Median 
+description: When to Use Mean vs. Median
+tags: math 
 ---
 
 ## Mean
