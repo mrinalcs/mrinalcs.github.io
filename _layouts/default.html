@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 if (linkURL.startsWith('mailto:')) {
                     document.getElementById('linkInfo').textContent = 'Do you want to send an email to ' + linkURL.substring(7) + '?';
                 } else {
-                    document.getElementById('linkInfo').textContent = 'Do you want to proceed to the external link: ' + linkTitle + ' (' + linkURL + ')?';
+                    document.getElementById('linkInfo').textContent = 'Do you want to proceed to the external link: ' + linkTitle + ' (' + linkURL + ')  ?';
                 }
                 proceedBtn.href = linkURL + '?ref=' + window.location.hostname;
                 modal.style.display = 'block';
