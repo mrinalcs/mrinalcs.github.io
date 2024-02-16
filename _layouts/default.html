@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 } else {
                     document.getElementById('linkInfo').textContent = 'Do you want to proceed to the external link: ' + linkTitle + ' (' + linkURL + ')?';
                 }
-                proceedBtn.href = linkURL;
+                proceedBtn.href = linkURL + '?ref=' + window.location.hostname;
                 modal.style.display = 'block';
                 cancelBtn.addEventListener('click', function(){
                     modal.style.display = 'none';
