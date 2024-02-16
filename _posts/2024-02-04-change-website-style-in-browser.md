@@ -24,6 +24,9 @@ Install Stylish Extension For Chrome from [Chrome Web Store](https://chromewebst
 
 Then find Stylish extension icon in your browser toolbar, then select the style you want to apply from the list of installed styles which existing styles or you may creat your own style from *my styles section*
 
+![stylish google home page](/assets/img/change-website-style-in-browser/stylish-google.jpg)
+*google homepage using stylish*
+
 ## Using Stylebot
 
 Customize Website Style Using Stylebot For Chrome: Visit the [Stylebot Chrome Web Store page](https://chrome.google.com/webstore/detail/stylebot/oiaejidbmkiecgbjeifoejpgmdaleoha){:rel="nofollow" target="_blank"} and click on "Add to Chrome". For Firefox Install Stylebot from the [Stylebot Firefox Add-ons page](https://addons.mozilla.org/en-US/firefox/addon/stylebot-web/){:rel="nofollow" target="_blank"} .
