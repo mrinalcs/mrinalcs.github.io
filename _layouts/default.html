@@ -136,6 +136,9 @@ document.addEventListener('DOMContentLoaded', function(){
         .button.secondary {
             background-color: #ccc;
         }
+        p#linkInfo {
+    margin-bottom: 30px;
+}
     `;
 
     // HTML modal structure
@@ -146,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 <p id="linkInfo">Do you want to proceed to the external link?</p>
                 <div class="modal-footer">
                     <button id="cancelBtn" class="button secondary">Cancel</button>
-                    <a id="proceedBtn" class="button" href="#">Proceed</a>
+                    <a id="proceedBtn" class="button" href="#" target="_blank">Proceed</a>
                 </div>
             </div>
         </div>
@@ -177,9 +180,24 @@ document.addEventListener('DOMContentLoaded', function(){
                 if (linkURL.startsWith('mailto:')) {
                     document.getElementById('linkInfo').textContent = 'Do you want to send an email to ' + linkURL.substring(7) + '?';
                 } else {
-                    document.getElementById('linkInfo').textContent = 'Do you want to proceed to the external link: ' + linkTitle + ' (' + linkURL + ')  ?';
+                    document.getElementById('linkInfo').innerHTML = 'Do you want to proceed this will take you to <b>' + linkTitle + '</b> (' + linkURL + ') ?';
                 }
-                proceedBtn.href = linkURL + '?ref=' + window.location.hostname;
+                // Check if linkURL contains ?rel=
+if (linkURL.includes('?ref=')) {
+    // If linkURL already has ?ref=, don't add ?ref=
+    proceedBtn.href = linkURL;
+} else {
+    // If linkURL doesn't have ?rel=, add ?ref=
+    // Check if linkURL contains any query parameters
+    if (linkURL.includes('?')) {
+        // If linkURL already has query parameters, append '&ref=' followed by window.location.hostname
+        proceedBtn.href = linkURL + '&ref=' + window.location.hostname;
+    } else {
+        // If linkURL doesn't have any query parameters, append '?ref=' followed by window.location.hostname
+        proceedBtn.href = linkURL + '?ref=' + window.location.hostname;
+    }
+}
+
                 modal.style.display = 'block';
                 cancelBtn.addEventListener('click', function(){
                     modal.style.display = 'none';
