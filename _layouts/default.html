@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 <p id="linkInfo">Do you want to proceed to the external link?</p>
                 <div class="modal-footer">
                     <button id="cancelBtn" class="button secondary">Cancel</button>
-                    <a id="proceedBtn" class="button" href="#" target="_blank">Proceed</a>
+                    <a id="proceedBtn" class="button" href="#" >Proceed</a>
                 </div>
             </div>
         </div>
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 var linkTitle = this.getAttribute('title') || this.textContent || this.innerText || 'Untitled';
                 var linkURL = this.getAttribute('href');
                 if (linkURL.startsWith('mailto:')) {
-                    document.getElementById('linkInfo').textContent = 'Do you want to send an email to ' + linkURL.substring(7) + '?';
+                    document.getElementById('linkInfo').innerHTML = 'Do you want to send an email to <b>' + linkURL.substring(7) + '</b>  ?';
                 } else {
                     document.getElementById('linkInfo').innerHTML = 'Do you want to proceed this will take you to <b>' + linkTitle + '</b> (' + linkURL + ') ?';
                 }
