@@ -186,21 +186,10 @@ a#proceedBtn {
                 } else {
                     document.getElementById('linkInfo').innerHTML = 'Do you want to proceed this will take you to <b>' + linkTitle + '</b> (' + linkURL.replace(/[?&]ref=[^&]*/, '') + ') ?';
                 }
-                // Check if linkURL contains ?rel=
-if (linkURL.includes('?ref=')) {
-    // If linkURL already has ?ref=, don't add ?ref=
+                
+              
     proceedBtn.href = linkURL;
-} else {
-    // If linkURL doesn't have ?rel=, add ?ref=
-    // Check if linkURL contains any query parameters
-    if (linkURL.includes('?')) {
-        // If linkURL already has query parameters, append '&ref=' followed by window.location.hostname
-        proceedBtn.href = linkURL + '&ref=' + window.location.hostname;
-    } else {
-        // If linkURL doesn't have any query parameters, append '?ref=' followed by window.location.hostname
-        proceedBtn.href = linkURL + '?ref=' + window.location.hostname;
-    }
-}
+
 
                 modal.style.display = 'block';
                 cancelBtn.addEventListener('click', function(){
