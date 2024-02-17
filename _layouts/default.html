@@ -139,6 +139,10 @@ document.addEventListener('DOMContentLoaded', function(){
         p#linkInfo {
     margin-bottom: 30px;
 }
+a#proceedBtn {
+    margin: 5px;
+    padding: 8px 20px;
+}
     `;
 
     // HTML modal structure
@@ -180,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 if (linkURL.startsWith('mailto:')) {
                     document.getElementById('linkInfo').innerHTML = 'Do you want to send an email to <b>' + linkURL.substring(7) + '</b>  ?';
                 } else {
-                    document.getElementById('linkInfo').innerHTML = 'Do you want to proceed this will take you to <b>' + linkTitle + '</b> (' + linkURL + ') ?';
+                    document.getElementById('linkInfo').innerHTML = 'Do you want to proceed this will take you to <b>' + linkTitle + '</b> (' + linkURL.replace(/[?&]ref=[^&]*/, '') + ') ?';
                 }
                 // Check if linkURL contains ?rel=
 if (linkURL.includes('?ref=')) {
