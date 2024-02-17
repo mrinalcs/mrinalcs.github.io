@@ -22,7 +22,7 @@
       content.gsub!('a href="/', 'a href="https://mrinalcs.github.io/')
 
       # Update external links
-      content.gsub!(%r{<a\s+(?:[^>]*?\s+)?href="((?!https?://mrinalcs.github.io|http://localhost:4000|/|#)[^"]*)"(?![^>]*?rel=)}, '<a href="\1?ref=mrinalcs.github.io" rel="nofollow noopener noreferrer"')
+      content.gsub!(%r{<a\s+(?:[^>]*?\s+)?href="((?!mailto:|tel:|https?://mrinalcs.github.io|http://localhost:4000|/|#)[^"]*)"(?![^>]*?rel=)}, '<a href="\1?ref=mrinalcs.github.io" rel="nofollow noopener noreferrer"')
 
       
       # Update the item content
