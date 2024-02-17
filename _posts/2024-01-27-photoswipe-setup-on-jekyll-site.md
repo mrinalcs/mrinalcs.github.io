@@ -5,10 +5,10 @@ tags: how
 ---
 
 ## Install PhotoSwipe
-- Download **PhotoSwipe** from [GitHub](https://github.com/dimsemenov/photoswipe){:rel="nofollow noopener noreferrer"} or install it via npm or yarn.
+- Download **PhotoSwipe** from [GitHub](https://github.com/dimsemenov/photoswipe) or install it via npm or yarn.
 - Extract the downloaded files or install it using npm/yarn.\
 best go throught the doc
-[PhotoSwipe](https://photoswipe.com/){:rel="nofollow noreferrer"}
+[PhotoSwipe](https://photoswipe.com/)
 
 
 ## Set up HTML Markup
