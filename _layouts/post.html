@@ -84,8 +84,9 @@ layout: default
 
     imgEls.forEach((imgEl) => {
       imgEl.outerHTML = `
-    <a class="photo-swipe"
+    <a 
       href="${imgEl.src}"
+      class="photo-swipe"
       data-pswp-width="${Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
         }"
       data-pswp-height="${Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
