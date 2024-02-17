@@ -1,5 +1,5 @@
 ---
-title: Indian Male-Female Literacy Using 2011 Census Data
+title: Statistical Analysis on Indian Male-Female Literacy Using 2011 Census Data
 description: Statistical Analysis graduation  project on literacy in India through R programming, utilizing descriptive statistics and analytical tools to uncover gender disparities | Census 2011
 image: 
 tags: project, analysis, r-rogramming
@@ -30,6 +30,32 @@ In this project, we made a comparision in literacy in India, focusing on gender 
 
 - Test hypotheses to identify significant differences in literacy rates among two-way classified religious groups and locations (rural, urban).
 - Conduct hypothesis testing to compare literacy rates among different religious groups and between urban and rural populations within various states.
+
+
+```mermaid
+pie
+    title Education Level in India
+    "No Formal Education" : 10
+    "Primary Education" : 20
+    "Secondary Education" : 35
+    "Higher Secondary Education" : 20
+    "Graduate and Above" : 15
+
+
+```
+
+```mermaid
+flowchart TD
+    A[Descriptive Statistics] --> B[Education in Different States]
+    A --> C[Comparison of Male and Female Literacy]
+    A --> D[National Average Literacy]
+    A --> E[Comparison with National Average]
+    A --> F[Statistical Analysis]
+    F --> G[Normality Check (Shapiro-Wilk Test)]
+    F --> H[One-way ANOVA]
+    F --> I[Two-way ANOVA (One Observation per Cell)]
+
+```
 
 ## Project files
 
