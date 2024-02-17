@@ -45,12 +45,7 @@ Updated on : {{ page.last_modified_at | date: "%d %b %Y" }}
   function initPhotoSwipe() {
     let customOptions = {};
 
-    try {
-      const data = `{{ site.photo_previewer }}`.replaceAll("=>", ":");
-      customOptions = JSON.parse(data);
-    } catch (e) {
-      console.info("Invalid custom photo previewer options! " + e.message);
-    }
+ 
 
     // Define object and gallery options
     const options = Object.assign(
