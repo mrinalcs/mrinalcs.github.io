@@ -20,7 +20,7 @@ To change the style of a website in your browser, you can use chrome extensions 
 
 ## Using Stylish
 
-Install Stylish Extension For Chrome from [Chrome Web Store](https://chromewebstore.google.com/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe){:rel="nofollow" target="_blank"} page and click on "Add to Chrome". For Firefox [Stylish Add-ons](https://addons.mozilla.org/en-US/firefox/addon/stylish/){:rel="nofollow" target="_blank"} page.
+Install Stylish Extension For Chrome from [Chrome Web Store](https://chromewebstore.google.com/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe) page and click on "Add to Chrome". For Firefox [Stylish Add-ons](https://addons.mozilla.org/en-US/firefox/addon/stylish/) page.
 
 Then find Stylish extension icon in your browser toolbar, then select the style you want to apply from the list of installed styles which existing styles or you may creat your own style from *my styles section*
 
@@ -29,7 +29,7 @@ Then find Stylish extension icon in your browser toolbar, then select the style 
 
 ## Using Stylebot
 
-Customize Website Style Using Stylebot For Chrome: Visit the [Stylebot Chrome Web Store page](https://chrome.google.com/webstore/detail/stylebot/oiaejidbmkiecgbjeifoejpgmdaleoha){:rel="nofollow" target="_blank"} and click on "Add to Chrome". For Firefox Install Stylebot from the [Stylebot Firefox Add-ons page](https://addons.mozilla.org/en-US/firefox/addon/stylebot-web/){:rel="nofollow" target="_blank"} .
+Customize Website Style Using Stylebot For Chrome: Visit the [Stylebot Chrome Web Store page](https://chrome.google.com/webstore/detail/stylebot/oiaejidbmkiecgbjeifoejpgmdaleoha) and click on "Add to Chrome". For Firefox Install Stylebot from the [Stylebot Firefox Add-ons page](https://addons.mozilla.org/en-US/firefox/addon/stylebot-web/) .
 
 ### Open Stylebot
    - Once installed, click on the Stylebot icon in your browser toolbar to open the extension.
@@ -70,7 +70,7 @@ With above css results following output of stylebot website.
 
 
 
-Check this out for more [https://stylebot.dev/help/](https://stylebot.dev/help/){:rel="nofollow" target="_blank"}
+Check this out for more [https://stylebot.dev/help/](https://stylebot.dev/help/)
 
 ## Related questions
 
