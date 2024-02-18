@@ -92,126 +92,135 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-
-    // CSS styles
-    var modalStyles = `
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.2);
-            backdrop-filter: blur(2px);
-        }
-
-        .modal-content {
-            background-color: var(--bg);
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width:7in;
-        }
-
-        .modal-footer {
-            text-align: right;
-        }
-
-        .button {
-            padding: 10px 20px;
-            background-color: #007bff; 
-            border: none;
-            cursor: pointer;
-            text-decoration:none;
-        }
-
-        .button:hover {
-            color:var(--bg)
-        }
-        .button.secondary {
-            background-color: #ccc;
-        }
-        p#linkInfo {
-    margin-bottom: 30px;
-}
-a#proceedBtn {
-    margin: 5px;
-    padding: 8px 20px;
-}
-    `;
-
-    // HTML modal structure
-    var modalHTML = `
-        <div id="externalLinkModal" class="modal">
-            <div class="modal-content">
-                <h2>External Link</h2>
-                <p id="linkInfo">Do you want to proceed to the external link?</p>
-                <div class="modal-footer">
-                    <button id="cancelBtn" class="button secondary">Cancel</button>
-                    <a id="proceedBtn" class="button" href="#" >Proceed</a>
+    document.addEventListener('DOMContentLoaded', function(){
+    
+        // CSS styles
+        var modalStyles = `
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.2);
+                backdrop-filter: blur(2px);
+                animation: fadeInOut 0.3s ease-in-out forwards;
+            }
+    
+            @keyframes fadeInOut {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+    
+            .modal-content {
+                background-color: var(--bg);
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                max-width:7in;
+            }
+    
+            .modal-footer {
+                text-align: right;
+            }
+    
+            .button {
+                padding: 10px 20px;
+                background-color: #007bff; 
+                border: none;
+                cursor: pointer;
+                text-decoration:none;
+            }
+    
+            .button:hover {
+                color:var(--bg)
+            }
+            .button.secondary {
+                background-color: #ccc;
+            }
+            p#linkInfo {
+                margin-bottom: 30px;
+            }
+            a#proceedBtn {
+                margin: 5px;
+                padding: 8px 20px;
+            }
+        `;
+    
+        // HTML modal structure
+        var modalHTML = `
+            <div id="externalLinkModal" class="modal">
+                <div class="modal-content">
+                    <h2>External Link</h2>
+                    <p id="linkInfo">Do you want to proceed to the external link?</p>
+                    <div class="modal-footer">
+                        <button id="cancelBtn" class="button secondary">Cancel</button>
+                        <a id="proceedBtn" class="button" href="#" target="_blank">Proceed</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    `;
-
-    // Append CSS styles to head
-    var style = document.createElement('style');
-    style.innerHTML = modalStyles;
-    document.head.appendChild(style);
-
-    // Append HTML modal structure to body
-    var modalContainer = document.createElement('div');
-    modalContainer.innerHTML = modalHTML;
-    document.body.appendChild(modalContainer);
-
-    // Check for external links and attach event listener
-    var links = document.getElementsByTagName('a');
-    for (var i = 0; i < links.length; i++) {
-        var href = links[i].getAttribute('href');
-        if (href && !href.startsWith('#') && !href.startsWith('tel:') && !isSameDomain(href)) {
-            links[i].addEventListener('click', function(e){
-                e.preventDefault();
-                var modal = document.getElementById('externalLinkModal');
-                var proceedBtn = document.getElementById('proceedBtn');
-                var cancelBtn = document.getElementById('cancelBtn');
-                var linkTitle = this.getAttribute('title') || this.textContent || this.innerText || 'Untitled';
-                var linkURL = this.getAttribute('href');
-                if (linkURL.startsWith('mailto:')) {
-                    document.getElementById('linkInfo').innerHTML = 'Do you want to send an email to <b>' + linkURL.substring(7) + '</b>  ?';
-                } else {
-                    document.getElementById('linkInfo').innerHTML = 'Do you want to proceed this will take you to <b>' + linkTitle + '</b> (' + linkURL.replace(/[?&]ref=[^&]*/, '') + ') ?';
-                }
-                
-              
-    proceedBtn.href = linkURL;
-
-
-                modal.style.display = 'block';
-                cancelBtn.addEventListener('click', function(){
-                    modal.style.display = 'none';
-                });
-                window.addEventListener('click', function(event) {
-                    if (event.target == modal) {
-                        modal.style.display = 'none';
+        `;
+    
+        // Append CSS styles to head
+        var style = document.createElement('style');
+        style.innerHTML = modalStyles;
+        document.head.appendChild(style);
+    
+        // Append HTML modal structure to body
+        var modalContainer = document.createElement('div');
+        modalContainer.innerHTML = modalHTML;
+        document.body.appendChild(modalContainer);
+    
+        // Check for external links and attach event listener
+        var links = document.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+            var href = links[i].getAttribute('href');
+            if (href && !href.startsWith('#') && !href.startsWith('tel:') && !isSameDomain(href)) {
+                links[i].addEventListener('click', function(e){
+                    e.preventDefault();
+                    var modal = document.getElementById('externalLinkModal');
+                    var proceedBtn = document.getElementById('proceedBtn');
+                    var cancelBtn = document.getElementById('cancelBtn');
+                    var linkTitle = this.getAttribute('title') || this.textContent || this.innerText || 'Untitled';
+                    var linkURL = this.getAttribute('href');
+                    if (linkURL.startsWith('mailto:')) {
+                        document.getElementById('linkInfo').innerHTML = 'Do you want to send an email to <b>' + linkURL.substring(7) + '</b>  ?';
+                    } else {
+                        document.getElementById('linkInfo').innerHTML = 'Do you want to proceed this will take you to <b>' + linkTitle + '</b> (' + linkURL.replace(/[?&]ref=[^&]*/, '') + ') ?';
                     }
+                    
+                    proceedBtn.href = linkURL;
+    
+                    modal.style.display = 'block';
+                    cancelBtn.addEventListener('click', function(){
+                        modal.style.display = 'none';
+                    });
+                    window.addEventListener('click', function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = 'none';
+                        }
+                    });
                 });
-            });
+            }
         }
-    }
-
-    // Function to check if the given URL is from the same domain
-    function isSameDomain(url) {
-        var a = document.createElement('a');
-        a.href = url;
-        return a.hostname === window.location.hostname;
-    }
-});
-</script>
+    
+        // Function to check if the given URL is from the same domain
+        function isSameDomain(url) {
+            var a = document.createElement('a');
+            a.href = url;
+            return a.hostname === window.location.hostname;
+        }
+    });
+    </script>
+    
 
 
 <!-- remove this -->
