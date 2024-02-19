@@ -4,7 +4,21 @@ image: /assets/img/Photos.png
 title: Photos
 description: My photos
 ---
+<style>
+  /* Base styles for the gallery */
+.pswp-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust minmax value as needed */
+  gap: 10px; /* Adjust gap between images as needed */
+}
 
+/* Styles for images in the gallery */
+.pswp-gallery img {
+   width: 100%;
+  height: auto;
+}
+
+</style>
   
 
 <link rel='stylesheet' href='https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css'>

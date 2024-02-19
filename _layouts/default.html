@@ -216,6 +216,17 @@
         function isSameDomain(url) {
             var a = document.createElement('a');
             a.href = url;
+
+    // Define an array of domains to exclude from comparison
+    var excludedDomains = ['localhost', '127.0.0.1', 'res.cloudinary.com'];
+
+    // Check if the URL hostname is in the excludedDomains array
+    for (var i = 0; i < excludedDomains.length; i++) {
+        if (a.hostname.includes(excludedDomains[i])) {
+            return true;
+        }
+    }
+            
             return a.hostname === window.location.hostname;
         }
     });
