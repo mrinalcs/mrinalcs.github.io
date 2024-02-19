@@ -3,6 +3,7 @@ title: Basic Statistical Calculator
 ---
  
 
+
 <div class="calculator">
     <h2>Statistics Calculator</h2>
     <table>
