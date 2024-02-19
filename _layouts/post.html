@@ -42,6 +42,12 @@ layout: default
   .pswp .pswp__container .pswp__img {
     background-color: white;
   }
+  .pswp.pswp--open.pswp--has_mouse.pswp--zoom-allowed.pswp--click-to-zoom.pswp--ui-visible {
+    backdrop-filter: blur(5px);
+}
+.pswp__bg { 
+    background: rgba(var(--bg), 0.5)!important; /* Use rgba() to specify the color with 50% transparency */
+}
 </style>
 
 <script>
