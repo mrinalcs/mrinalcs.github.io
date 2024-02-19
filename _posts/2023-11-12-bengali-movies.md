@@ -1,5 +1,5 @@
 ---
-title: Current Bengali Movies
+title: Bengali Movies
 ---
 
 ## Movies Watched
