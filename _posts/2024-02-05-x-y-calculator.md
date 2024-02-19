@@ -157,3 +157,40 @@ window.onload = function() {
     }
 };
 </script>
+
+{% raw %}
+## Formulas for Statistics
+
+### **Number of values (Count):**
+   - This represents the count of data points in the dataset.
+   - Formula: $$ \text{Number of values} = n $$, where \( n \) is the count of data points.
+
+### **Sum:**
+   - The sum of all the values in the dataset.
+   - Formula: $$ \text{Sum} = \sum_{i=1}^{n} x_i $$, where \( x_i \) represents each individual value in the dataset.
+
+### **Mean (Average):**
+   - The arithmetic mean or average of the values in the dataset.
+   - Formula: $$ \text{Mean} = \frac{{\text{Sum}}}{{\text{Number of values}}} = \frac{{\sum_{i=1}^{n} x_i}}{n} $$.
+
+### **Sample Variance:**
+   - A measure of the dispersion of a set of values from its mean, calculated from a sample of the population.
+   - Formula: $$ \text{Sample Variance} = \frac{{\sum_{i=1}^{n} (x_i - \text{Mean})^2}}{n-1} $$.
+
+### **Population Variance:**
+   - Similar to sample variance but calculated from the entire population rather than a sample.
+   - Formula: $$ \text{Population Variance} = \frac{{\sum_{i=1}^{n} (x_i - \text{Mean})^2}}{n} $$.
+
+### **Median:**
+- The median value is the middle value of the dataset when it is sorted in ascending order.
+- Formula: For odd $$ n $$, the median is the value at position $$ \frac{{n+1}}{2} $$ in the sorted dataset. For even $$ n $$, the median is the average of the values at positions $$ \frac{n}{2} $$ and $$ \frac{n}{2} + 1 $$.
+
+
+### **Covariance:**
+   - A measure of how much two random variables vary together.
+   - Formula: $$ \text{Covariance} = \frac{{\sum_{i=1}^{n} (x_i - \text{Mean of } x) \times (y_i - \text{Mean of } y)}}{n} $$.
+
+### **Correlation:**
+   - A measure of the strength and direction of the linear relationship between two variables.
+   - Formula: $$ \text{Correlation} = \frac{{\text{Covariance}(x, y)}}{{\text{Standard Deviation}(x) \times \text{Standard Deviation}(y)}} $$.
+{% endraw %}
