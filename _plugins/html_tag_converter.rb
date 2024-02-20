@@ -7,7 +7,7 @@
       content.gsub!(/<!--(.*?)-->/m, "")
 
       # Remove meta tag with name="generator"
-      #content.gsub!(/<meta\s+name=["']generator["'][^>]*>/i, '')
+      content.gsub!(/<meta\s+name=["']generator["'][^>]*>/i, '')
 
       # Remove trailing spaces before self-closing tag (/>)
       content.gsub!(/\s\/>/, '>')
