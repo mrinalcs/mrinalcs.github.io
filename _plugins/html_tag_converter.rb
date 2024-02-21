@@ -13,7 +13,7 @@
       content.gsub!(/\s\/>/, '>')
 
       # Remove all empty spaces between HTML tags
-      #content.gsub!(/>[[:space:]]+</, '><')
+      content.gsub!(/>[[:space:]]+</, '><')
 
       # Replace img src="/ with img src="https://mrinalcs.github.io/
       #content.gsub!('img src="/', 'img src="https://mrinalcs.github.io/')
