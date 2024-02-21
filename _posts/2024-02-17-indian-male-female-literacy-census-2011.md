@@ -1,11 +1,14 @@
 ---
-title: Statistical Analysis on Indian Male-Female Literacy Using 2011 Census Data
+title: Indian Male-Female Literacy Census 2011
 description: Statistical Analysis graduation  project on literacy in India through R programming, utilizing descriptive statistics and analytical tools to uncover gender disparities | Census 2011
 image: 
 tags: project, analysis, r-rogramming
 redirect_from:
   - /indian-literacy
+  - /indian-male-female-literacy
 ---
+
+Statistical Analysis on Indian Male-Female Literacy Using 2011 Census Data.
 
 In this project, we made a comparision in literacy in India, focusing on gender disparities, using data from the 2011 census. Utilizing R programming, we employ descriptive statistics and analytical tools to understand and quantify the literacy rates among males and females across different regions of India.
 
