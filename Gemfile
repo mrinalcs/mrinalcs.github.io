@@ -9,8 +9,10 @@ group :jekyll_plugins do
   gem 'jekyll-toc' 
   gem 'jekyll-redirect-from' 
   gem 'jekyll-archives'
- 
+  gem 'jekyll-minifier'
 
 end
 
- 
+if Gem.win_platform?
+  gem 'wdm', '>= 0.1.0'
+end
