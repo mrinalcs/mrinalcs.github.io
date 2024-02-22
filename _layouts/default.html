@@ -48,9 +48,14 @@
 
 
 
-    <footer>
-    &copy; {{ site.time | date: "%Y" }} Mrinal Chandra Sarkar | Last built: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}
-    </footer>
+<footer>
+  &copy; {{ site.time | date: "%Y" }} Mrinal Chandra Sarkar
+  {% if page.layout == 'home' %}
+    | Last built: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}
+  {% endif %}
+</footer>
+
+
 
   </body>
 </html>
