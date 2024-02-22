@@ -50,14 +50,10 @@
 
 <footer>
   &copy; {{ site.time | date: "%Y" }} Mrinal Chandra Sarkar
-  {% if page.layout == 'page' %}
 
-
-{% if page.url == '/' %}
-    | Site Last built: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}
-{% endif %}
-
-  {% endif %}
+    | Site built on: {{ site.time | date: "%Y-%m-%d %H:%M:%S" }}
+ | <a href="https://github.com/mrinalcs/mrinalcs.github.io/commits/jekyll/{{ page.path }}">
+                  <span class="social-icon">VersionsOf this page</a>    
 </footer>
 
 
