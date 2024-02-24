@@ -10,7 +10,7 @@ group :jekyll_plugins do
   gem 'jekyll-redirect-from' 
   gem 'jekyll-archives'
   gem 'jekyll-minifier'
-
+  gem 'jekyll-auto-image'
 end
 
 if Gem.win_platform?
