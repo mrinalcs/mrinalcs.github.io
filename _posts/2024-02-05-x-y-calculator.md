@@ -1,5 +1,6 @@
 ---
 title: Basic Statistical Calculator
+tags: [tool,stat]
 ---
  
 

@@ -14,6 +14,15 @@ layout: default
 {% if page_date != last_modified_date %}
 ●    <span>Updated on: <time datetime="{{ page.last_modified_at | date: "%Y-%m-%d" }}">{{ page.last_modified_at | date: "%d %b %Y" }}</time></span>
 {% endif %}
+
+
+{% for tag in page.tags %}
+  
+    <span style="margin-left: 10px;"><a style="text-decoration: none;" href="/{{ tag | slugify }}">{{ tag }}</a></span>
+  
+{% endfor %}
+
+
     </header>
 
     <aside>

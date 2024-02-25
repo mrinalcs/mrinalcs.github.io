@@ -1,7 +1,7 @@
 ---
 title: PhotoSwipe Setup on jekyll Site
 description: Here's the setup process for the PhotoSwipe lightbox gallery on  Jekyll site
-tags: how
+tags: [tips,web]
 ---
 
 ## Install PhotoSwipe

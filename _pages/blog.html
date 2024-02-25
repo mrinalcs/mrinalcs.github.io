@@ -1,13 +1,20 @@
 ---
-title: Posts
+title: Blog
 image: /assets/img/blog.jpg
 description: Read my writings Note Blogs and Random thoughts.
 redirect_from:
-  - /blog
+  - /posts
+  - /blogs
 ---
 <article> 
-<h1>Posts</h1>
+<h1>Blogs</h1>
 
+<span>
+  {% for tag in site.tags %}
+    <a href="/{{ tag[0] }}">{{ tag[0] }}</a>
+  {% endfor %}
+  </span>
+  
 
 {% assign current_year = '' %}
   {% for post in site.posts %}

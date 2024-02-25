@@ -2,6 +2,7 @@
 title: Change website style in browser
 description: How to change style of a website in your browser using extensions or developer tools.
 image: /assets/img/change-website-style-in-browser/stylebot.jpg
+tags: [web,tips]
 redirect_from:
   - /change-website-style
 ---
