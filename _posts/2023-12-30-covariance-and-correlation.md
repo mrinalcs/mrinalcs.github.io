@@ -1,6 +1,7 @@
 ---
 title: Covariance and Correlation
 image: /assets/img/covariance-and-correlation/covariance-and-correlation.jpg
+tags: [stat]
 ---
 
 Consider two random variables $$ X $$ and $$ Y $$ Here and we want to measure of the connection between two random variables and to what amount, they change together.

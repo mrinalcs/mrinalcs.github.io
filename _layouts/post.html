@@ -18,7 +18,7 @@ layout: default
 
 {% for tag in page.tags %}
   
-    <span style="margin-left: 10px;"><a style="text-decoration: none;" href="/{{ tag | slugify }}">{{ tag }}</a></span>
+    <span style="margin-left: 10px;"><a class="tags" style="text-decoration: none;" href="/{{ tag | slugify }}">{{ tag }}</a></span>
   
 {% endfor %}
 
