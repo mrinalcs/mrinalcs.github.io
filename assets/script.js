@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function(){
         a.href = url;
 
         // Define an array of domains to exclude from comparison
-        var excludedDomains = ['localhost', '127.0.0.1', 'res.cloudinary.com'];
+        var excludedDomains = ['mrinalcs.github.io', 'localhost', '127.0.0.1', 'res.cloudinary.com'];
 
         // Check if the URL hostname is in the excludedDomains array
         for (var i = 0; i < excludedDomains.length; i++) {
