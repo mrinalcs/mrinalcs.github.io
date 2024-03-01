@@ -15,13 +15,13 @@ layout: default
 ●    <span>Updated on: <time datetime="{{ page.last_modified_at | date: "%Y-%m-%d" }}">{{ page.last_modified_at | date: "%d %b %Y" }}</time></span>
 {% endif %}
 
-<div>
+
 {% for tag in page.tags %}
   
-    <span><a class="tags" style="text-decoration: none;" href="/{{ tag | slugify }}">{{ tag }}</a></span>
+    <span style="margin-right: 10px;"><a class="tags" style="text-decoration: none;" href="/{{ tag | slugify }}">{{ tag }}</a></span>
   
 {% endfor %}
-</div>
+
 
     </header>
 
