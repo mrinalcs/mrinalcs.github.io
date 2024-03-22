@@ -1,5 +1,5 @@
 ---
-title: Indian Male-Female Literacy Census 2011
+title: Indian Male-Female Literacy
 description: Statistical Analysis graduation  project on literacy in India through R programming, utilizing descriptive statistics and analytical tools to uncover gender disparities | Census 2011
 image: 
 tags: [project, analysis, r-programming]
