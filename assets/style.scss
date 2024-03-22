@@ -582,3 +582,6 @@ a {
 
 
 
+.pieTitleText,.legend text,  .error-text, .error-icon {
+  fill: var(--text)!important;
+}

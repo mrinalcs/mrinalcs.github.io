@@ -60,6 +60,15 @@ flowchart TD
 
 ```
 
+```mermaid
+pie
+    title OverAll Literacy Rate by Gender
+    "Male" : 95
+    "Female" : 92
+```
+
+
+
 ## Project files
 
 - [project repo](https://github.com/mrinalcs/india-literacy)
