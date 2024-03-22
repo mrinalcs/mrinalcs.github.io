@@ -9,20 +9,6 @@ layout: default
         <h1>{{ page.title }}</h1>
         <time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%B %-d, %Y" }}</time> 
         
-        {% capture page_date %}{{ page.date | date: "%Y-%m-%d" }}{% endcapture %}
-{% capture last_modified_date %}{{ page.last_modified_at | date: "%Y-%m-%d" }}{% endcapture %}
-{% if page_date != last_modified_date %}
-●    <span>Updated on: <time datetime="{{ page.last_modified_at | date: "%Y-%m-%d" }}">{{ page.last_modified_at | date: "%d %b %Y" }}</time></span>
-{% endif %}
-
-
-{% for tag in page.tags %}
-  
-    <span style="margin-left: 10px;"><a class="tags" style="text-decoration: none;" href="/{{ tag | slugify }}">{{ tag }}</a></span>
-  
-{% endfor %}
-
-
     </header>
 
     <aside>
