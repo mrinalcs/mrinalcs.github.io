@@ -438,10 +438,10 @@ pre.highlight {
   
   
   details {
-    border: 1px solid #aaa;
+    // border: 1px solid #aaa;
     border-radius: 4px;
-    padding: 0.5em 0.5em 0;
-    background-color: #8282821a;
+    // padding: 0.5em 0.5em 0;
+    // background-color: #8282821a;
   }
   
   summary {
@@ -450,12 +450,12 @@ pre.highlight {
     padding: 0.5em;
   }
   
-  details[open] {
-    padding: 0.5em;
-  }
+  // details[open] {
+  //   padding: 0.5em;
+  // }
   
   details[open] summary {
-    border-bottom: 1px solid #aaa;
+    // border-bottom: 1px solid #aaa;
     margin-bottom: 0.5em;
   }
   
