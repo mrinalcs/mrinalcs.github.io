@@ -588,3 +588,9 @@ a {
 .pieTitleText,.legend text,  .error-text, .error-icon {
   fill: var(--text)!important;
 }
+
+ul.section-nav {
+  border: solid 1px;
+  padding:30px ;
+
+}
