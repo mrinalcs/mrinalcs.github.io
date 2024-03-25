@@ -9,7 +9,17 @@ redirect_from:
 <article> 
 <h1>Blogs</h1>
 
-  
+<p style="margin-top: 5px; margin-bottom: 20px;">Read my writings on :
+ 
+{% for tag in site.tags %}
+  <span>
+    <a style="text-decoration: none;" href="{{ site.baseurl }}/{{ tag[0] }}">{{ tag[0] }}</a>   {{ site.data.tags[tag[0]] }}
+    {% unless forloop.last %} , {% endunless %}
+  </span> 
+{% endfor %}
+
+</p>
+ 
 
 {% assign current_year = '' %}
   {% for post in site.posts %}
