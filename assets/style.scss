@@ -1,6 +1,8 @@
 ---
 ---
 
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 // normalise
 
@@ -203,7 +205,8 @@ template {
   
   
   body {
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    // font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-family: "Josefin Sans";
     max-width: 8.3in;
     margin: auto;
     background-color: var(--bg);
