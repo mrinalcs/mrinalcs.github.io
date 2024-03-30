@@ -585,6 +585,23 @@ a {
 
 
 
+//
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns per row by default */
+  grid-gap: 20px; /* Optional gap between columns */
+}
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* One column per row on smaller screens */
+  }
+}
+
+//
+
 .pieTitleText,.legend text,  .error-text, .error-icon {
   fill: var(--text)!important;
 }
