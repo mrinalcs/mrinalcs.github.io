@@ -14,8 +14,9 @@ redirect_from:
 
 {% for tag in site.tags %}
   <span>
-    <a style="text-decoration: none;" href="{{ site.baseurl }}/{{ tag[0] }}">{{ tag[0] | replace: '-', ' ' | replace: '_', ' ' | capitalize  }}</a>   {{ site.data.tags[tag[0]] }}
-    {% unless forloop.last %}, {% endunless %}
+    <a style="text-decoration: none;" href="{{ site.baseurl }}/{{ tag[0] }}">{{ tag[0] | replace: '-', ' ' | replace: '_', ' ' | capitalize  }}</a>   
+    {{ site.data.tags[tag[0]] }}
+    {% unless forloop.last %}<span>, </span>{% endunless %}
   </span> 
 {% endfor %}
   
