@@ -9,7 +9,6 @@ group :jekyll_plugins do
   gem 'jekyll-toc' 
   gem 'jekyll-redirect-from' 
   gem 'jekyll-archives'
-  gem 'jekyll-minifier'
   gem 'jekyll-auto-image'
   gem 'jekyll-paginate'
 end
