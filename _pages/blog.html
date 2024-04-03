@@ -2,26 +2,11 @@
 title: Blog
 image: /assets/img/blog.jpg
 description: Read my writings Note Blogs and Random thoughts.
-redirect_from:
-  - /posts
-  - /blogs
 ---
 <article> 
 <h1>Blogs</h1>
 
-<p style="margin-top: 5px; margin-bottom: 20px;">Read my blogs :
- 
-
-{% for tag in site.tags %}
-  <span>
-    <a style="text-decoration: none;" href="{{ site.baseurl }}/{{ tag[0] }}">{{ tag[0] | replace: '-', ' ' | replace: '_', ' ' | capitalize  }}</a>   
-    {{ site.data.tags[tag[0]] }}
-    {% unless forloop.last %}<span>, </span>{% endunless %}
-  </span> 
-{% endfor %}
-  
-
-</p>
+<!-- <p style="margin-top: 5px; margin-bottom: 20px;">Read my blogs</p> -->
  
 <div class="container">
 
