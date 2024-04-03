@@ -22,11 +22,28 @@
 
 {% include gtag.html %}
 
+
+
+
+    <link rel="stylesheet" href="/assets/css/transitions.css">
+    <script src="/assets/js/Swup.umd.js"></script>
+    <script src="/assets/js/index.umd.js"></script>
+
+    <script>
+      const swup = new Swup({
+  plugins: [
+    new SwupPreloadPlugin(), // will put the first page into the cache automatically
+  ]
+});
+    </script>  
+
+
+
   </head>
   <body>
 
     <header>
-      <nav>
+      <nav data-swup-preload-all>
           <ul>
               <li><a href="{{ site.url }}/">home</a></li>
               <li><a href="{{ site.url }}/blog">blog</a></li>
@@ -34,7 +51,7 @@
       </nav>
     </header>
     
-    <main>
+    <main id="swup" class="transition-main">
 
     {{ content }}
     
