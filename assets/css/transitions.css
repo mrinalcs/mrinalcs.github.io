@@ -1,7 +1,0 @@
-html.is-changing .transition-main {
-  transition: opacity 0ms ease-in-out;
-}
-
-html.is-animating .transition-main {
-  opacity: 0;
-}

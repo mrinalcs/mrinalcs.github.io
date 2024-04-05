@@ -8,9 +8,8 @@
     {%- seo title=false -%}
 
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap">
-
-    <link rel="stylesheet" href="{{ "/assets/css/style.css" | absolute_url }}">
+    
+    <link rel="stylesheet" href="{{ "/assets/style.css" | absolute_url }}">
     
 
     {%- feed_meta -%}
@@ -22,28 +21,11 @@
 
 {% include gtag.html %}
 
-
-
-
-    <link rel="stylesheet" href="/assets/css/transitions.css">
-    <script src="/assets/js/Swup.umd.js"></script>
-    <script src="/assets/js/index.umd.js"></script>
-
-    <script>
-      const swup = new Swup({
-  plugins: [
-    new SwupPreloadPlugin(), // will put the first page into the cache automatically
-  ]
-});
-    </script>  
-
-
-
   </head>
   <body>
 
     <header>
-      <nav data-swup-preload-all>
+      <nav>
           <ul>
               <li><a href="{{ site.url }}/">home</a></li>
               <li><a href="{{ site.url }}/blog">blog</a></li>
@@ -51,13 +33,13 @@
       </nav>
     </header>
     
-    <main id="swup" class="transition-main">
+    <main>
 
     {{ content }}
     
     </main>
 
-    <script src="{{ site.url }}/assets/js/script.js"></script>
+    <script src="{{ site.url }}/assets/script.js"></script>
     
     
  {% include mathjax.html %}

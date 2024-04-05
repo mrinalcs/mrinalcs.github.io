@@ -13,7 +13,6 @@ webmaster_verifications:
   google: MqwDRSLNo0fmAemi7VVB_g6f7Z9KU9u_EhcaU9icYbQ
 
 permalink: /:title
-
  
 plugins:
   - jekyll-feed
@@ -21,7 +20,11 @@ plugins:
   - jekyll-seo-tag
   - jekyll-toc
   - jekyll-redirect-from 
-
+  - jekyll-minifier
+  
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
 
 collections:
   pages:
