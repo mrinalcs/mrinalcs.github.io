@@ -45,10 +45,10 @@
       <p>&copy; 2024 Mrinal | 
         
         {% if page.last_modified_at != page.date %}
-   Last Updated: {{ page.last_modified_at | date: "%Y-%m-%d" }} 
+   Updated: {{ page.last_modified_at | date: "%Y-%m-%d" }} 
 {% endif %}
 
-        <a style="float: right;" title="View on Github" href="https://github.com/mrinalcs/mrinalcs.github.io/blob/jekyll/{{ page.path }}">Suggestion</a>
+        <a style="float: right;" title="Suggest on Github" href="https://github.com/mrinalcs/mrinalcs.github.io/blob/jekyll/{{ page.path }}">Suggestion</a>
       </p>
     </footer>
     {% endif %}
