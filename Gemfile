@@ -12,6 +12,7 @@ group :jekyll_plugins do
   gem 'jekyll-minifier'
   gem 'jekyll-auto-image'
   gem 'jekyll-paginate'
+  gem 'kramdown-math-katex'
 end
 
 if Gem.win_platform?
