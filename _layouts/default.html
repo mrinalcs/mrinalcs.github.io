@@ -7,9 +7,10 @@
     <title>{{ page.title }}</title>
     {%- seo title=false -%}
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
 
     
-    <link rel="stylesheet" href="{{ "/assets/style.css" | absolute_url }}">
+    <link rel="stylesheet" href="/assets/css/main.css">
     
 
     {%- feed_meta -%}
@@ -18,22 +19,32 @@
     <!-- Sitemap -->  
 <link rel="sitemap" type="application/xml" href="{{ "/sitemap.xml" | absolute_url }}">
 
+      
+<link rel="stylesheet" href="/assets/css/transitions.css">
+<script src="/assets/js/Swup.umd.js"></script>
+<script src="/assets/js/index.umd.js"></script>
 
-{% include gtag.html %}
+<script>
+  const swup = new Swup({
+plugins: [
+new SwupPreloadPlugin(), // will put the first page into the cache automatically
+]
+});
+</script>
 
   </head>
   <body>
 
     <header>
-      <nav>
+      <nav data-swup-preload-all>
           <ul>
-              <li><a href="{{ site.url }}/">home</a></li>
-              <li><a href="{{ site.url }}/blog">blog</a></li>
+              <li><a href="/">home</a></li>
+              <li><a href="/blog">blog</a></li>
           </ul>
       </nav>
     </header>
     
-    <main>
+    <main id="swup" class="transition-main">
 
     {{ content }}
     
@@ -53,12 +64,9 @@
     </footer>
     {% endif %}
 
-    <script src="{{ site.url }}/assets/script.js"></script>
+    <script src="/assets/script.js"></script>
     
-    
- {% include mathjax.html %}
-
- {% include mermaid.html %}
+  
 
   </body>
 </html>
