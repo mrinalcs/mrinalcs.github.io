@@ -607,9 +607,20 @@ a {
 
 ul.section-nav {
   border: solid 1px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-bottom-right-radius: 225px 15px;
+  border-bottom-left-radius:15px 255px;
   padding:30px ;
 
 }
 a {
   word-break: break-all;
+}
+
+footer {
+  padding: 20px;
+  a {
+    text-decoration: none;
+  }
 }
