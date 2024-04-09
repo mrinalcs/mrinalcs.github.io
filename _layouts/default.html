@@ -10,7 +10,6 @@
 
     
     <link rel="stylesheet" href="{{ "/assets/style.css" | absolute_url }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
     
 
     {%- feed_meta -%}
@@ -21,12 +20,12 @@
 
 
 {% include gtag.html %}
-{% include swup.html %}
+
   </head>
   <body>
 
     <header>
-      <nav data-swup-preload-all>
+      <nav>
           <ul>
               <li><a href="{{ site.url }}/">home</a></li>
               <li><a href="{{ site.url }}/blog">blog</a></li>
@@ -34,7 +33,7 @@
       </nav>
     </header>
     
-    <main id="swup" class="transition-main">
+    <main>
 
     {{ content }}
     
@@ -55,7 +54,11 @@
     {% endif %}
 
     <script src="{{ site.url }}/assets/script.js"></script>
-     
+    
+    
+ {% include mathjax.html %}
+
+ {% include mermaid.html %}
 
   </body>
 </html>

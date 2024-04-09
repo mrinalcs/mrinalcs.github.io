@@ -1,0 +1,9 @@
+    <!-- mathjax -->
+    {% capture page_content %}{{ page.content }}{% endcapture %}
+      {% if page_content contains '\[' or page_content contains '\(' %}
+       <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+       MathJax.Hub.Config({
+       showMathMenu: false
+       });
+       </script>
+    {% endif %}
