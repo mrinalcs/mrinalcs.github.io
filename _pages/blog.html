@@ -10,7 +10,7 @@ description: Read my writings Note Blogs and Random thoughts.
  
 
 {% for tag in site.tags %}
-  <span data-swup-preload>
+  <span data-swup-preload-all>
     <a style="text-decoration: none;" href="/{{ tag[0] }}">{{ tag[0] | replace: '-', ' ' | replace: '_', ' ' | capitalize  }}</a>   
     {{ site.data.tags[tag[0]] }}
     {% unless forloop.last %}<span>, </span>{% endunless %}
