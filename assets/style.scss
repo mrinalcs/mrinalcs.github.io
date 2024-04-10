@@ -255,7 +255,8 @@ template {
       text-underline-position: under;
       text-decoration-thickness: 1px;
       &:hover {
-        color: var(--hover);
+        color: var(--bg);
+        background-color: var(--text);
       }
     }
     summary {
