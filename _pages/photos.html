@@ -4,9 +4,7 @@ title: Photos
 description: My photos
 ---
  
-
-<link rel='stylesheet' href='https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css'>
-
+ 
 <article>
     <h1>{{page.title}}</h1>
   
@@ -20,24 +18,10 @@ description: My photos
         data-pswp-width="{{ image[1].width }}" 
         data-pswp-height="{{ image[1].height }}" 
         target="_blank"> 
-         <img src="{{ image[1].thumbnail }}" alt="" />
+         <img src="{{ image[1].original }}" alt="" />
       </a>
         
       {% endfor %}
     </div>
 </article>
-
-
-<script src='https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css'></script>
-<script type="module">
-
-import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
-
-const lightbox = new PhotoSwipeLightbox({
-  gallery: '#my-gallery',
-  children: 'a',
-  pswpModule: () => import('https://unpkg.com/photoswipe'),
-});
-
-lightbox.init();
-</script>
+ 

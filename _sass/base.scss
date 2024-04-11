@@ -445,20 +445,20 @@ a {
 }
 
 
-main {
-  a {
-    position: relative;
+// main {
+//   a {
+//     position: relative;
      
-  }
-  a:after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    height: 7px;
-    width: 100%;
-    border: solid 2px var(--text);
-    border-color: var(--text) transparent transparent transparent;
-    border-radius: 30%;
-  }
-}
+//   }
+//   a:after {
+//     content: "";
+//     position: absolute;
+//     bottom: -5px;
+//     left: 0;
+//     height: 7px;
+//     width: 100%;
+//     border: solid 2px var(--text);
+//     border-color: var(--text) transparent transparent transparent;
+//     border-radius: 30%;
+//   }
+// }
