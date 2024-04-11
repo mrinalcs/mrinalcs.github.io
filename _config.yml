@@ -20,13 +20,11 @@ plugins:
   - jekyll-seo-tag
   - jekyll-toc
   - jekyll-redirect-from 
- 
-
-kramdown:
-  input: GFM
-  math_engine: katex
-
- 
+  - jekyll-minifier
+  
+jekyll-minifier:
+  uglifier_args:
+    harmony: true 
 
 collections:
   pages:

@@ -75,12 +75,7 @@ body {
   }
   a {
     color: var(--text);
-    text-underline-position: under;
-    text-decoration-thickness: 1px;
-    &:hover {
-      color: var(--bg);
-      background-color: var(--text);
-    }
+    text-decoration: none;
   }
   summary {
     cursor: pointer;
@@ -447,4 +442,23 @@ padding: 20px;
 a {
   text-decoration: none;
 }
+}
+
+
+main {
+  a {
+    position: relative;
+     
+  }
+  a:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    height: 7px;
+    width: 100%;
+    border: solid 2px var(--text);
+    border-color: var(--text) transparent transparent transparent;
+    border-radius: 30%;
+  }
 }
