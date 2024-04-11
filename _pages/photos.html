@@ -14,7 +14,7 @@ description: My photos
       {% for image in site.data.photos.images %}
     
         <a href="{{ image[1].original }}"  > 
-         <img src="{{ image[1].original }}" alt="" />
+         <img src="{{ image[1].thumbnail }}" alt="" />
       </a>
         
       {% endfor %}
