@@ -5,7 +5,6 @@ description: My photos
 ---
  
  
-<article>
     <h1>{{page.title}}</h1>
   
     <p style="margin-top: 5px; margin-bottom: 20px;">Heres some images which I deleted from my phone but here to show you.</p>
@@ -14,14 +13,9 @@ description: My photos
  
       {% for image in site.data.photos.images %}
     
-        <a href="{{ image[1].original }}" 
-        data-pswp-width="{{ image[1].width }}" 
-        data-pswp-height="{{ image[1].height }}" 
-        target="_blank"> 
+        <a href="{{ image[1].original }}"  > 
          <img src="{{ image[1].original }}" alt="" />
       </a>
         
       {% endfor %}
     </div>
-</article>
- 
