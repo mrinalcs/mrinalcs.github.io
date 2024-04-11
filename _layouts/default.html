@@ -7,61 +7,19 @@
     <title>{{ page.title }}</title>
     {%- seo title=false -%}
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
-
-    
     <link rel="stylesheet" href="/assets/css/main.css">
     
-
     {%- feed_meta -%}
-
-
-    <!-- Sitemap -->  
-<link rel="sitemap" type="application/xml" href="{{ "/sitemap.xml" | absolute_url }}">
-
-      
+  
 <link rel="stylesheet" href="/assets/css/transitions.css">
+
 <script src="/assets/js/Swup.umd.js"></script>
 <script src="/assets/js/index.umd.js"></script>
+<script src="/assets/js/script.js"></script>
 
 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
-
-<!-- The loading of KaTeX is deferred to speed up page rendering -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
-
-<!-- To automatically render math in text elements, include the auto-render extension: -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
-onload="renderMathInElement(document.body);"></script>
-
-<script defer>
-  const swup = new Swup({
-plugins: [
-new SwupPreloadPlugin(), // will put the first page into the cache automatically
-]
-}); // Initialize Swup
-
-  // Initialize KaTeX rendering after each page change
-  swup.hooks.on('page:view', () => {
-      renderMathInElement(document.body); // Render KaTeX math expressions
-  });
-
-  // Initialize components function
-  function init() {
-      // Add your component initialization code here
-  }
-
-  // Run once when page loads
-  if (document.readyState === 'complete') {
-      init();
-  } else {
-      document.addEventListener('DOMContentLoaded', init);
-  }
-
-  // Run after every additional navigation by Swup
-  swup.hooks.on('page:view', init);
-</script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script defer id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
   </head>
@@ -82,23 +40,7 @@ new SwupPreloadPlugin(), // will put the first page into the cache automatically
     
     </main>
 
-
-    {% if page.layout == 'post' %}
-    <footer>
-      <p>&copy; 2024 Mrinal | 
-        
-        {% if page.last_modified_at != page.date %}
-   Updated: {{ page.last_modified_at | date: "%Y-%m-%d" }} 
-{% endif %}
-
-        <a style="float: right;" title="Suggest on Github" href="https://github.com/mrinalcs/mrinalcs.github.io/blob/jekyll/{{ page.path }}">Suggestion</a>
-      </p>
-    </footer>
-    {% endif %}
-
-    <script src="/assets/script.js"></script>
     
   
-
   </body>
 </html>
