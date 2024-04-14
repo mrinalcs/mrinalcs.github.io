@@ -24,7 +24,9 @@ plugins:
 
 
 jekyll-minifier:
-  compress_javascript: false
+  exclude:
+    - index.umd.js
+    - Swup.umd.js
 
 
 collections:
