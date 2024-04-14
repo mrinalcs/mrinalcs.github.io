@@ -20,6 +20,12 @@ plugins:
   - jekyll-seo-tag
   - jekyll-toc
   - jekyll-redirect-from 
+  - jekyll-minifier
+
+
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
 
 
 collections:
