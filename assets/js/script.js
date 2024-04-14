@@ -1,6 +1,6 @@
 // Initialize Swup
 const swup = new Swup({
-    plugins: [new SwupPreloadPlugin()]
+    plugins: [new SwupPreloadPlugin({ preloadVisibleLinks: true })]
   });
 
 // Function to initialize MathJax after each page change
