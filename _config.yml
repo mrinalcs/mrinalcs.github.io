@@ -23,7 +23,8 @@ plugins:
   - jekyll-minifier
 
 
-
+jekyll-minifier:
+  compress_javascript: false
 
 
 collections:
