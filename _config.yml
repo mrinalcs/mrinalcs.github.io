@@ -32,9 +32,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-  - scope:
-      path: ""
-    values:
+      render_with_liquid: false
       toc: true
   - scope:
       path: ""
