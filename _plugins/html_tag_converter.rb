@@ -1,6 +1,6 @@
 [:posts, :pages].each do |hook|
   Jekyll::Hooks.register hook, :post_render do |item|
-    if item.output_ext == ".html"
+    if ENV['JEKYLL_ENV'] == 'production' && item.output_ext == ".html"
       content = item.output
 
       # Remove HTML comments
