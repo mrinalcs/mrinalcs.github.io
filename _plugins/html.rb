@@ -18,7 +18,7 @@
       content.gsub!(/>[[:space:]]+{/, '>{')   # Remove spaces between ">" and "{"
         
       # Replace img src="/ with img src="https://mrinalcs.github.io/
-      #content.gsub!('img src="/', 'img src="https://mrinalcs.github.io/')
+      content.gsub!('img src="/', 'img src="https://mrinalcs.github.io/')
 
       # Replace a href="/ with a href="https://mrinalcs.github.io/
       content.gsub!('a href="/', 'a href="https://mrinalcs.github.io/')
