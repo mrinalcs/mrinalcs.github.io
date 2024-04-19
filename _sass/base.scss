@@ -11,6 +11,8 @@ header {
 nav {
     gap: 15px;
     display: flex;
+    padding-bottom: 30px;
+    border-bottom: solid #eee 1px;
     a {
         text-decoration: none;
         color: #999999;
@@ -29,7 +31,7 @@ main,nav {
 header,main {
     margin: auto;
     max-width: 600px;
-    padding: 20px;
+    padding: 30px 30px 0;
 }
 
  a{
@@ -65,13 +67,7 @@ main{
 }
 
 
-hr {
-  border: 0;
-    height: 1px;
-    background-color: #eee;
-    margin: 10px auto;
-    max-width: min(600px, calc(100% - 40px));
-}
+ 
 
 pre {
   color: white;
