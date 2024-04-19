@@ -8,6 +8,7 @@
     {%- seo title=false -%}
 
     {% include icons.html %}
+
     <link rel="stylesheet" href="/assets/css/main.css">
     
     {%- feed_meta -%}
@@ -32,13 +33,26 @@
   <body>
 
     <header>
-      <nav>
-          <ul>
-              <li><a href="/">home</a></li>
-              <li><a href="/blog">blog</a></li>
-          </ul>
-      </nav>
-    </header>
+
+      <a href="{% if page.layout == 'post' %}../blog{% else %}./{% endif %}">
+        <img src="/assets/img/av.jpg" alt="logo" height="50" width="50">
+      </a>
+
+        <h1>{{ page.title }}</h1>
+        <!-- if not a page-->
+        
+        {% unless page.layout == 'post' %}
+        {% include nav.html %}
+        {% endunless %}
+
+        {% if page.layout == 'post' %}
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          {{ page.date | date: "%A %B %-d, %Y" }}
+        </time>        
+        {% endif %}
+
+
+    </header> 
     
     <main>
 

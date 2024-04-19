@@ -4,17 +4,14 @@ title: Photos
 description: My photos
 ---
  
- 
-    <h1>{{page.title}}</h1>
   
-    <p style="margin-top: 5px; margin-bottom: 20px;">Heres some images which I deleted from my phone but here to show you.</p>
-
-    <div class="pswp-gallery grid-container" id="my-gallery">
+   
+    <div id="photos" class="container">
  
       {% for image in site.data.photos.images %}
     
         <a href="{{ image[1].original }}"  > 
-         <img src="{{ image[1].thumbnail }}" alt="" />
+         <img src="{{ image[1].square }}" alt="" loading="lazy" />
       </a>
         
       {% endfor %}

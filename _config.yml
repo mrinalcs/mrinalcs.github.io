@@ -1,6 +1,14 @@
 url: "https://mrinalcs.github.io"
 title: "Mrinal Chandra Sarkar"
 
+nav:
+  - title: About
+    url: /
+  - title: Blog
+    url: /blog
+  - title: Photos
+    url: /photos
+
 author:
   name: Mrinal Chandra Sarkar
   url: https://mrinalcs.github.io

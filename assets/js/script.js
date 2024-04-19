@@ -1,5 +1,6 @@
 // Initialize Swup
 const swup = new Swup({
+    containers: ['header', 'main'],
     plugins: [new SwupPreloadPlugin({ preloadVisibleLinks: true })]
   });
 
