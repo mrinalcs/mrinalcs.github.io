@@ -11,8 +11,6 @@ header {
 nav {
     gap: 15px;
     display: flex;
-    border-bottom: solid #eee 1px;
-    padding-bottom: 40px;
     a {
         text-decoration: none;
         color: #999999;
@@ -71,7 +69,7 @@ hr {
   border: 0;
     height: 1px;
     background-color: #eee;
-    margin: 20px auto;
+    margin: 10px auto;
     max-width: min(600px, calc(100% - 40px));
 }
 

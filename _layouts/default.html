@@ -54,6 +54,10 @@
 
     </header> 
     
+    {% unless page.layout == 'post' %}
+    <hr>
+    {% endunless %}
+    
     <main>
 
     {{ content }}
