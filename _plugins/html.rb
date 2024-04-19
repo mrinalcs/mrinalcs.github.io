@@ -18,11 +18,11 @@
       content.gsub!(/>[[:space:]]+{/, '>{')   # Remove spaces between ">" and "{"
         
       # Replace img src="/ with img src="https://mrinalcs.github.io/
-      content.gsub!('img src="/', 'img src="https://mrinalcs.github.io/')
+      #content.gsub!('img src="/', 'img src="https://mrinalcs.github.io/')
 
       # Replace a href="/ with a href="https://mrinalcs.github.io/
-      content.gsub!('a href="/', 'a href="https://mrinalcs.github.io/')
-      content.gsub!('href="/assets/', 'href="https://mrinalcs.github.io/assets/')
+      #content.gsub!('a href="/', 'a href="https://mrinalcs.github.io/')
+      #content.gsub!('href="/assets/', 'href="https://mrinalcs.github.io/assets/')
 
       # Add rel="nofollow noopener noreferrer" to anchor tags  and ref to external
       content.gsub!(%r{<a\s+href="((?!mailto:|tel:|https?://mrinalcs.github.io|http://localhost:4000|/|#)[^"]*)"(?![^>]*?rel=)}, '<a href="\1?ref=mrinalcs.github.io" target="_blank" rel="nofollow noopener noreferrer"') if content.match?(%r{<a\s+href=})
