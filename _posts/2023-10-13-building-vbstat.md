@@ -40,17 +40,132 @@ The layout is designed to feature promoted faculties at the top, followed by a c
 ###  Notes Page
 This page is for listing all notes files by folders and a little addition adding file count. Later made every paper name as link to share a specefic section like [r-programming](https://vbstat.github.io/notes#r-programming)
 
-<details>
-  <summary>See Code</summary>
-  <script src="https://gist.github.com/mrinalcs/9046ef5c8555c2450f244cbcd499e995.js"></script>
-</details>
+```
+<ul class="list-group">
+    {% assign folder_counts = "" %}
+    {% for folder in site.static_files %}
+      {% if folder.path contains '/note/' and folder.path != '/note/' %}
+        {% assign parts = folder.path | split: '/' %}
+        {% assign foldername = parts[2] %}
+        {% unless folder_counts contains foldername %}
+          {% assign file_count = 0 %}
+          {% for file in site.static_files %}
+            {% if file.path contains '/note/' and file.path contains foldername %}
+              {% assign file_count = file_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+           <a href="?p={{ foldername }}">{{ foldername }}</a>
+            <span class="badge badge-primary badge-pill">{{ file_count }}</span>
+          </li>
+          {% assign folder_counts = folder_counts | append: foldername | append: ";" %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+```
 
 ### Question Papers
 This page dynamically list all question papers catagoried by sem and year based on folder. Additionaly there is filter to sort them out. Questionpaper > Year > Sem .
-<details>
-  <summary>See Code</summary>
-  <script src="https://gist.github.com/mrinalcs/32755c35bdd408ffa0ab7a62032852a2.js"></script>
-</details>
+
+```
+<div class="row">
+  <div class="col-md-6">
+    <input type="text" id="filter-input" class="form-control" placeholder="Filter by Year, Semester, or Files">
+  </div>
+  <div class="col-md-3">
+    <select id="year-dropdown" class="form-control">
+      <option value="">Filter by Year</option>
+      {% assign years = "" | split: "" %}
+      {% for file in site.static_files %}
+        {% if file.path contains '/question-papers/' %}
+          {% assign parts = file.path | split: '/' %}
+          {% if parts.size == 5 %}
+            {% assign year = parts[2] %}
+            {% unless years contains year %}
+              <option value="{{ year }}">{{ year }}</option>
+              {% capture years %}{{ years }}{{ year }}{% endcapture %}
+            {% endunless %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-3">
+    <select id="semester-dropdown" class="form-control">
+      <option value="">Filter by Semester</option>
+      {% assign semesters = "" | split: "" %}
+      {% for file in site.static_files %}
+        {% if file.path contains '/question-papers/' %}
+          {% assign parts = file.path | split: '/' %}
+          {% if parts.size == 5 %}
+            {% assign semester = parts[3] %}
+            {% unless semesters contains semester %}
+              <option value="{{ semester }}">{{ semester }}</option>
+              {% capture semesters %}{{ semesters }}{{ semester }}{% endcapture %}
+            {% endunless %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+</div>
+<br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Semester</th>
+      <th>Files</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% assign folder_path = '/question-papers/' %}
+    {% for file in site.static_files %}
+      {% if file.path contains folder_path %}
+        {% assign parts = file.path | split: '/' %}
+        {% if parts.size == 5 %}
+          <tr>
+            <td>{{ parts[2] }}</td>
+            <td>{{ parts[3] }}</td>
+            <td><a href="{{ file.path }}">{{ parts[4] }}</a></td>
+          </tr>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<script>
+document.getElementById('filter-input').addEventListener('keyup', filterTable);
+document.getElementById('year-dropdown').addEventListener('change', filterTable);
+document.getElementById('semester-dropdown').addEventListener('change', filterTable);
+
+function filterTable() {
+  var searchText = document.getElementById('filter-input').value.toLowerCase();
+  var yearFilter = document.getElementById('year-dropdown').value.toLowerCase();
+  var semesterFilter = document.getElementById('semester-dropdown').value.toLowerCase();
+  var rows = document.querySelectorAll('.table tbody tr');
+
+  for (var i = 0; i < rows.length; i++) {
+    var year = rows[i].querySelector('td:nth-child(1)').textContent.toLowerCase();
+    var semester = rows[i].querySelector('td:nth-child(2)').textContent.toLowerCase();
+    var files = rows[i].querySelector('td:nth-child(3)').textContent.toLowerCase();
+
+    var yearMatch = year.includes(yearFilter) || yearFilter === '';
+    var semesterMatch = semester.includes(semesterFilter) || semesterFilter === '';
+    var textMatch = year.includes(searchText) || semester.includes(searchText) || files.includes(searchText);
+
+    if (yearMatch && semesterMatch && textMatch) {
+      rows[i].style.display = 'table-row';
+    } else {
+      rows[i].style.display = 'none';
+    }
+  }
+}
+</script>
+```
 
 ![](/assets/img/building-vbstat/vbstat-question-paper-page.jpg)
 *Sortable quesion paper page*
@@ -58,10 +173,21 @@ This page dynamically list all question papers catagoried by sem and year based 
 ### Student page
 This page automatically list student in this page by year based on the admissio date in the front matter in each students. Alumni pages are  also same by logic. 
 
-<details>
-  <summary>See Code</summary>
-  <script src="https://gist.github.com/mrinalcs/872f48858f4b9cdb2513071ed7a22902.js"></script>
-</details>
+
+```
+ug alumni
+  {% for student in site.students %}
+    {% if student.ug %}
+      {% capture current_year %}{{ "now" | date: "%Y" }}{% endcapture %}
+      {% assign current_year = current_year | plus: 0 %}
+      {% assign pass_out_year = student.ug | plus: 3 %}
+    
+      {% if current_year >= pass_out_year %}
+        <li>{{ student.title }} (UG: {{ student.ug }})</li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+```
 
 ### Scholars page
 This page is incomplete as I didn't have much information about. I didn't find any information on the Internet.
