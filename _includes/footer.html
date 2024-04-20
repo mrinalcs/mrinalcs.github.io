@@ -1,0 +1,13 @@
+<footer>
+    {% if page.commit_messages %}
+  
+      <p>Last updated on: {{ page.last_modified_at | date: "%Y-%m-%d %H:%M:%S" }}</p>
+      
+      {% if page.commit_messages.size > 0 %} 
+      <p>commit message: {{ page.commit_messages.first }}</p>
+    {% endif %}
+    
+  
+
+{% endif %}
+</footer>
