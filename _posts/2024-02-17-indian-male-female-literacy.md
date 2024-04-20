@@ -14,8 +14,8 @@ In this project, we made a comparision in literacy in India, focusing on gender 
 
 ## Data Source
 
-<https://www.kaggle.com/datasets/danofer/india-census?select=india-districts-census-2011.csv>
-<https://www.indiastat.com/data/demographics/density/data-year/all-years>
+1. <https://www.kaggle.com/datasets/danofer/india-census?select=india-districts-census-2011.csv>
+2. <https://www.indiastat.com/data/demographics/density/data-year/all-years>
 
 ## Objectives
 
