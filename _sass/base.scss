@@ -184,4 +184,11 @@ article {
   a {
     word-break: break-all;
     }
+    strong {
+    background-color: var(--bs);
+    padding: 5px;
+    color: var(--t);
+    border-radius: 5px;
+    }
 }
+
