@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Syne:wght@400..800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 * {
   padding: 0;
   margin: 0;
 }
  
 header {
-  font-family: "Syne", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
 }
 nav {
     gap: 15px;
@@ -25,7 +25,8 @@ nav {
 }
 
 main,nav {
-  font-family: "Manrope", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
 }
 
 header,main {
@@ -147,6 +148,8 @@ footer {
   border-top: solid #eee 1px;
 }
 
-a {
-  word-break: break-all;
-  }
+article {
+  a {
+    word-break: break-all;
+    }
+}
