@@ -1,9 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+  --b:white;
+  --bs:#fafafa;
+  --t:black;
+  --ts: #262626;
+
+  --bc:#e5e5e5;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --b:rgb(31,31,31);
+    --bs:#171717;
+    --t:white;
+    --ts: #e5e5e5;
+
+    --bc: #171717;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
 }
- 
+
+body {
+  background-color: var(--b);
+  color: var(--t);
+}
+
 header {
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
@@ -19,7 +46,7 @@ nav {
         font-weight: 500;
     }
     .active {
-      color: #000000;
+      color: var(--t);
     }
     
 }
@@ -37,15 +64,17 @@ header,main {
 
  a{
   text-decoration: none;
-  &:hover{
-    text-decoration: underline;
-  }
+  color: var(--ts);
+  // &:hover{
+  //   text-decoration: underline;
+  // }
  }
 
  article {
    
    h2 {
     padding-top: 40px;
+    color: var(--t);
   }
   h3 {
     padding-top: 30px;
@@ -61,7 +90,7 @@ header,main {
 
 p {
   font-weight: 500;
-  color: #444444;
+  color: var(--ts);
 }
 
 main{
@@ -77,12 +106,15 @@ main{
  
 
 pre {
-  color: white;
-  background-color: #1b2b34;
+  color: var(--t);
+  background-color: var(--bs);
+  border: solid var(--bc) 1px;
   padding: 20px 15px;
   margin: 10px 0;
   overflow: auto;
   border-radius: 10px;
+  font-size: .875rem;
+  font-family: initial;
 }
 
 .container {
