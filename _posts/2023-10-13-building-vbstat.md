@@ -2,8 +2,6 @@
 title: Building Vbstat
 description: The making of VBSTAT a github page using jekyll to list Handouts and Notes
 image: /assets/img/building-vbstat/vbstat-home-page.jpg
-redirect_from:
-  - /blog/building-vbstat
 ---
 
 <!-- I initially started with [vbstat.epizy.com](https://vbstat.epizy.com){:rel="nofollow" target="_blank"} and later on [vbstat.ml](https://vbstat.ml){:rel="nofollow" target="_blank"} which domain no more exist rather not free. So I've migrated to GitHub Pages. -->
@@ -16,6 +14,8 @@ My first commit was on **<time datetime="2023-09-24">September 24, 2023</time>**
 
 
 ## Pages
+
+Heres are some special pages with functionality .
 
 ### Home page
 The home page includes a hero section with image carousel and a blockquote , another section which have an accordion and about section.
@@ -195,6 +195,8 @@ This page is incomplete as I didn't have much information about. I didn't find a
 
 ## Features
 
+Heres few things added to this site .
+
 ### Offline
 This works if ones loaded the webpage it works offline as well. I intentionally add this as when offline I can access pdf files without downloading.
 
@@ -212,7 +214,7 @@ The purpose of this filter is to remove HTML comments from the default layout. U
 
 
 ## Deploying
-This reposetory [vbstat](https://github.com/mrinalcs/vbstat) was created by [me]({{site.url}}) and forked it from [@vbstat](https://github.com/vbstat) github account and deployed to [https://vbstat.github.io](https://vbstat.github.io/)
+This reposetory [vbstat](https://github.com/mrinalcs/vbstat) was created by [me](/) and forked it from [@vbstat](https://github.com/vbstat) github account and deployed to [https://vbstat.github.io](https://vbstat.github.io/)
 
 ## Seo
 Used Jekyll-seo-tag for seo. I have added all infromation which are already available on the Internet. One thing just do is bring all of them in one place.
