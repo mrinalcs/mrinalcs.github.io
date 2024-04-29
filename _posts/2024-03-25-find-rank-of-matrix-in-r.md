@@ -9,7 +9,7 @@ Rank of a matrix is the dimension of the vector space spanned by its columns or 
 
 ## Computing using the qr() Function
 
-```
+``` r
 # Create a sample matrix mat with dimensions 3x4.
 mat <- matrix(c(1, 2, 3, 4, 2, 4, 6, 8, 3, 6, 9, 12), nrow = 3)
 
@@ -23,3 +23,14 @@ print(rank_mat)
 ## Output
 ![output of above code](/assets/img/find-rank-of-matrix-in-r/Annotation%202024-03-25%20113822.jpg)
 
+Find rank using rankMatrix function in **Matrix package**.
+
+``` r
+library(Matrix)
+mat <- matrix(c(1, 2, 3, 4, 2, 4, 6, 8, 3, 6, 9, 12), nrow = 3)
+rankMatrix(mat)
+```
+
+``` output
+[1] 3
+```
