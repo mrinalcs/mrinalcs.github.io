@@ -75,12 +75,32 @@ function initPhotoSwipe() {
 }
 
 // Initialize MathJax and PhotoSwipe after each page change
- 
+// Function to modify headings inside the article tag to have linkable IDs
+function modifyHeadingsWithIds() {
+    const article = document.querySelector('article');
+    if (!article) {
+        return;
+    }
+
+    const headings = article.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    headings.forEach((heading) => {
+        const id = heading.textContent.trim().replace(/\s+/g, '-').toLowerCase(); // Generate ID from heading text
+        heading.setAttribute('id', id); // Set ID attribute
+
+        const anchor = document.createElement('a'); // Create anchor element
+        anchor.setAttribute('href', '#' + id); // Set href attribute to link to the heading ID
+        anchor.textContent = heading.textContent; // Set anchor text
+        heading.innerHTML = ''; // Clear heading content
+        heading.appendChild(anchor); // Append anchor inside the heading
+    });
+}
+
 
 // Run once when page loads
 function init() {
     initMathJax();
     initPhotoSwipe();
+    modifyHeadingsWithIds();
     // Add your other initialization code here
 }
 
