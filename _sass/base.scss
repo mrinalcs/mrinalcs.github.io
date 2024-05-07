@@ -82,9 +82,6 @@ header,main {
   hr, ul, ol, dl, blockquote, p, table, pre {
     margin-top: 30px;
   }
-  a{
-    display: contents;
-  }
   
  }
 
@@ -183,6 +180,8 @@ footer {
 article {
   a {
     word-break: break-all;
+    text-decoration: underline;
+    text-underline-position: below;
     }
     strong {
       font-weight: 900;
