@@ -47,7 +47,7 @@
 
         {% if page.layout == 'post' %}
         <time datetime="{{ page.date | date_to_xmlschema }}">
-          {{ page.date | date: "%A %B %-d, %Y" }}
+          {{ page.date | date: "%B %-d, %Y" }}
         </time>        
         {% endif %}
 
