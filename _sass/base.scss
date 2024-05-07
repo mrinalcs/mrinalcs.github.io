@@ -180,8 +180,12 @@ footer {
 article {
   a {
     word-break: break-all;
-    text-decoration: underline;
-    text-underline-position: below;
+    }
+    p {
+      a {
+        text-decoration: underline;
+        text-underline-position: below;
+      }
     }
     strong {
       font-weight: 900;
