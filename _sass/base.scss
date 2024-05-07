@@ -180,11 +180,12 @@ footer {
 article {
   a {
     word-break: break-all;
+    text-decoration: underline;
+    text-underline-position: under;
     }
-    p {
+    h1,h2,h3,h4 {
       a {
-        text-decoration: underline;
-        text-underline-position: below;
+        text-decoration: none;
       }
     }
     strong {
@@ -195,5 +196,6 @@ article {
         margin-top: 0;
       }
     }
+
 }
 
