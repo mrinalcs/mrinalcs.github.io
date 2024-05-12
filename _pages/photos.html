@@ -16,3 +16,26 @@ description: My photos
         
       {% endfor %}
     </div>
+
+    <style>
+      /* For large screens */
+@media (min-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* For medium screens */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* For small screens */
+@media (max-width: 767px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);  }
+}
+
+    </style>
