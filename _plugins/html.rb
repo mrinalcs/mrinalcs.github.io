@@ -4,7 +4,7 @@
         content = item.output
   
         # Remove HTML comments
-        #content.gsub!(/<!--(.*?)-->/m, "")
+        content.gsub!(/<!--(.*?)-->/m, "")
   
         # Remove meta tag with name="generator"
         content.gsub!(/<meta\s+name=["']generator["'][^>]*>/i, '')
@@ -23,6 +23,7 @@
         # Replace a href="/ with site url
         content.gsub!('a href="/', "a href=\"#{item.site.config['url']}/")
         content.gsub!('href="/assets/', "href=\"#{item.site.config['url']}/assets/")
+        content.gsub!('src="/assets/', "src=\"#{item.site.config['url']}/assets/")
 
   
         # Add rel="nofollow noopener noreferrer" to anchor tags  and ref to external
