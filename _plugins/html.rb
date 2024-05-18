@@ -4,7 +4,7 @@
         content = item.output
   
         # Remove HTML comments
-        content.gsub!(/<!--(.*?)-->/m, "")
+        #content.gsub!(/<!--(.*?)-->/m, "")
   
         # Remove meta tag with name="generator"
         content.gsub!(/<meta\s+name=["']generator["'][^>]*>/i, '')
@@ -13,7 +13,7 @@
         content.gsub!(/\s\/>/, '>')
   
         # Remove all empty spaces between HTML tags
-        content.gsub!(/>[[:space:]]+</, '><')
+        #content.gsub!(/>[[:space:]]+</, '><')
   
         content.gsub!(/>[[:space:]]+{/, '>{')   # Remove spaces between ">" and "{"
           
@@ -30,8 +30,8 @@
   
 
 
-        # Wrap <table> tags with <div class="table">
-        content.gsub!(/<table(.*?)>/m, '<div class="table"><table\1>')
+        # Wrap <table> tags with <div class="table"> // style="overflow-x:auto;"
+        content.gsub!(/<table(.*?)>/m, '<div style="overflow-x:auto;"><table\1>')
         content.gsub!(/<\/table>/m, '</table></div>')
 
         
