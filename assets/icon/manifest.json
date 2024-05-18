@@ -1,41 +1,37 @@
+---
+permalink: "manifest.json"
+layout: null
+sitemap: false
+---
 {
- "name": "App",
- "icons": [
-  {
-   "src": "\/assets/icon/android-icon-36x36.png",
-   "sizes": "36x36",
-   "type": "image\/png",
-   "density": "0.75"
-  },
-  {
-   "src": "\/assets/icon/android-icon-48x48.png",
-   "sizes": "48x48",
-   "type": "image\/png",
-   "density": "1.0"
-  },
-  {
-   "src": "\/assets/icon/android-icon-72x72.png",
-   "sizes": "72x72",
-   "type": "image\/png",
-   "density": "1.5"
-  },
-  {
-   "src": "\/assets/icon/android-icon-96x96.png",
-   "sizes": "96x96",
-   "type": "image\/png",
-   "density": "2.0"
-  },
-  {
-   "src": "\/assets/icon/android-icon-144x144.png",
-   "sizes": "144x144",
-   "type": "image\/png",
-   "density": "3.0"
-  },
-  {
-   "src": "\/assets/icon/android-icon-192x192.png",
-   "sizes": "192x192",
-   "type": "image\/png",
-   "density": "4.0"
-  }
- ]
+  "lang": "{{ site.lang | default: "en-US" }}",
+  "name": "{{ site.title }}",
+  "short_name": "{{ site.short_name | default: site.title | replace: ' ', '' }}",
+  "theme_color": "{{ site.manifest.theme_color | default: '#24292e' }}",
+  "background_color": "{{ site.manifest.background_color | default: '#ffffff' }}",
+  {% assign icon_dir = site.baseurl | append: '/assets/icon/' %}
+{% assign icons = '' | split: ',' %}
+{% for file in site.static_files %}
+  {% if file.path contains icon_dir and file.path contains '.png' %}
+    {% assign filename_parts = file.name | split: '-' %}
+    {% if filename_parts.size == 3 %}
+      {% assign size = filename_parts[2] | remove: '.png' %}
+    {% else %}
+      {% assign size_parts = filename_parts[1] | split: 'x' %}
+      {% assign size = size_parts[1] | remove: '.png' %}
+    {% endif %}
+    {% assign sizes = size | split: 'x' %}
+    {% assign formatted_size = sizes[0] | append: 'x' | append: sizes[0] %}
+    {% assign icon = '{ "src": "' | append: site.baseurl | append: file.path | append: '", "sizes": "' | append: formatted_size | append: '" }' %}
+    {% assign icons = icons | push: icon %}
+  {% endif %}
+{% endfor %}
+
+"icons": [
+{% for icon in icons %}
+  {{ icon }}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+],
+  "start_url": "/",
+  "display": "standalone"
 }
