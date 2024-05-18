@@ -1,34 +1,17 @@
----
-image: /assets/img/og/photos_zszdw0_Thumbnail.jpg
-title:Contact
----
- 
-  
 <form action="https://docs.google.com/forms/d/e/1FAIpQLScAtxQW8cK268Lq6Ui8vUvei-0tIzdFjgMQaK4Ll-pMPRNkVw/formResponse"
       target="_self"
       id="bootstrapForm"
-      method="POST">
-    <fieldset>
-        <h2>Untitled form<br><small>Drop me your email</small></h2>
-    </fieldset>
-
-
-    <!-- Field type: "short" id: "509292323" -->
-    <fieldset>
-        <legend for="509292323">Email</legend>
+      method="POST"
+      style="margin: 100px 0;display: flex;"
+      >
+   
+  
         <div class="form-group">
-            <input id="2094455528" type="text" name="entry.2094455528" class="form-control" required>
+            <input id="2094455528" placeholder="Email" type="text" name="entry.2094455528" class="form-control" required>
         </div>
-    </fieldset>
+    
 
-
-    <!-- Field type: "paragraph" id: "995785717" -->
-    <fieldset>
-        <legend for="995785717">Message</legend>
-        <div class="form-group">
-            <textarea id="572997188" name="entry.572997188" class="form-control" ></textarea>
-        </div>
-    </fieldset>
+ 
 
     <input type="hidden" name="fvv" value="1">
     <input type="hidden" name="fbzx" value="-8717971013099119454">
@@ -41,4 +24,39 @@ title:Contact
     <input type="hidden" name="pageHistory" value="0">
 
     <input class="btn btn-primary" type="submit" value="Submit">
-</form>
+</form> 
+
+<style>
+    /* Styling for form input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  padding: 10px;
+  background-color: var(--bs);
+  color: var(--t);
+  border: none;
+}
+
+/* Styling for submit button */
+input[type="submit"] {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+   
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* On hover, change background color */
+input[type="submit"]:hover {
+  background-color: #45a049; /* Darker green */
+}
+/* Remove outline when input field is active */
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+</style>
