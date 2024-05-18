@@ -37,6 +37,8 @@ jekyll-minifier:
   uglifier_args:
     harmony: false
 
+jekyll-minifier:
+  exclude: 'Swup.umd.js'
 
 collections:
   pages:
