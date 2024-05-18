@@ -35,7 +35,7 @@ plugins:
 
 jekyll-minifier:
   uglifier_args:
-    harmony: true
+    harmony: false
 
 
 collections:
