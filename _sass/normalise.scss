@@ -2,6 +2,9 @@
 html {
   line-height: 1.6em; // 1
   -webkit-text-size-adjust: 100%; // 2
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 // Sections
