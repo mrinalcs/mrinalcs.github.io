@@ -65,7 +65,9 @@ header,main {
 
  a{
   text-decoration: none;
-  color: var(--ts);
+  color: var(--t);
+  text-decoration: 1px var(--ts) underline;
+    text-underline-position: under;
   // &:hover{
   //   text-decoration: underline;
   // }
@@ -179,10 +181,7 @@ footer {
 }
 
 article {
-  a {
-    text-decoration: 1px var(--ts) underline;
-    text-underline-position: under;
-    }
+  
     h1,h2,h3,h4 {
       a {
         text-decoration: none;
