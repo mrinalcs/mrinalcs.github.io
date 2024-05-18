@@ -32,6 +32,12 @@ plugins:
   - jekyll-toc
   - jekyll-redirect-from 
 
+
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+
+
 collections:
   pages:
     output: true
