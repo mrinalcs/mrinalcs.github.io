@@ -16,7 +16,7 @@
     --b:rgb(31,31,31);
     --bs:#171717;
     --t:white;
-    --ts: #e5e5e5;
+    --ts: #9e9e9e;
 
     --bc: #171717;
   }
@@ -72,7 +72,10 @@ header,main {
  }
 
  article {
-   
+  p {
+    font-weight: 500;
+    color: var(--ts);
+  }
    h2 {
     padding-top: 40px;
     color: var(--t);
@@ -86,10 +89,7 @@ header,main {
   
  }
 
-p {
-  font-weight: 500;
-  color: var(--ts);
-}
+
 
 main{
   img {
@@ -180,8 +180,7 @@ footer {
 
 article {
   a {
-    text-decoration: underline;
-    text-decoration-style:dashed;
+    text-decoration: 1px var(--ts) underline;
     text-underline-position: under;
     }
     h1,h2,h3,h4 {
@@ -191,6 +190,7 @@ article {
     }
     strong {
       font-weight: 900;
+      color: var(--t);
     }
     #toc {
       ul{
