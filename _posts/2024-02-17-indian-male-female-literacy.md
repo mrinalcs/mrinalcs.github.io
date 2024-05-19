@@ -54,9 +54,9 @@ flowchart TD
     A --> D[National Average Literacy]
     A --> E[Comparison with National Average]
     A --> F[Statistical Analysis]
-    F --> G[Normality Check (Shapiro-Wilk Test)]
+    F --> G["Normality Check (Shapiro-Wilk Test)"]
     F --> H[One-way ANOVA]
-    F --> I[Two-way ANOVA (One Observation per Cell)]
+    F --> I["Two-way ANOVA (One Observation per Cell)"]
 
 ```
 
