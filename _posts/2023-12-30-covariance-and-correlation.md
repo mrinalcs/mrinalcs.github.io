@@ -1,5 +1,6 @@
 ---
 title: Covariance and Correlation
+description: Understand the connection between variables using covariance's joint variability
 image: /assets/img/covariance-and-correlation/covariance-and-correlation.jpg
 tags: [stat]
 ---
