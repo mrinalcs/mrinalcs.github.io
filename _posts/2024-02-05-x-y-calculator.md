@@ -159,7 +159,7 @@ window.onload = function() {
 };
 </script>
 
-{% raw %}
+ 
 ## Formulas for Statistics
 
 ### **Number of values (Count):**
@@ -194,4 +194,4 @@ window.onload = function() {
 ### **Correlation:**
    - A measure of the strength and direction of the linear relationship between two variables.
    - Formula: $$ \text{Correlation} = \frac{{\text{Covariance}(x, y)}}{{\text{Standard Deviation}(x) \times \text{Standard Deviation}(y)}} $$.
-{% endraw %}
+ 
