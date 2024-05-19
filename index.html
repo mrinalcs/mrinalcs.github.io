@@ -14,7 +14,7 @@ description: Student of M.Sc in Statistics at Visva Bharati, Shantiniketan
           <a href="{{ post.url | relative_url }}">{{ post.title }}  →</a>
         </h2>
         <div class="card__content">
-          {{ post.excerpt | strip_html | truncate: 100 }}
+          {{ post.description | strip_html | truncate: 100 }}
         </div>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       </article>
