@@ -1,6 +1,6 @@
 ---
 title: Mean vs. Median
-description: When to Use Mean vs. Median
+description: Use of Mean vs. Median
 tags: [stat] 
 ---
 
