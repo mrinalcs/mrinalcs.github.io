@@ -1,15 +1,23 @@
 ---
+layout: default
 title: Mrinal Chandra Sarkar
 image: /assets/img/og/mrinal_vv2mkl_Thumbnail.jpg
-description: Student of M.Sc in Statistics at Visva Bharati, Shantiniketan.
-seo:
-    type: WebSite
+description: Student of M.Sc in Statistics at Visva Bharati, Shantiniketan
 ---
 
  
-
-<p>Student of M.Sc in Statistics at Visva Bharati, Shantiniketan.</p>
-<p>Address: <a href="https://maps.app.goo.gl/CLBrAaFLwJKZy9H86" style="text-decoration:none">India, West Bengal, 733125</a></p>
-
-<p>I am on <a href="https://www.facebook.com/mrinalcs">Facebook</a>. See my projects on <a href="https://github.com/mrinalcs">Github</a>. Connect with me on <a href="https://www.linkedin.com/in/mrinalcs">Linkedin</a>. Check out my <a href="/photos" data-swup-preload>photos</a>. Looking for my CV? <a href="/assets/cv.pdf" download="Mrinal_Chandra_Sarkar_CV.pdf">Download it</a></p> 
-<p>Email <a href="mailto:mrinalcs@yahoo.com">mrinalcs@yahoo.com</a></p>
+<div class="grid" style="--count: {{ site.posts.size }};">
+    {% assign index = 0 %}
+    {% for post in site.posts %}
+      <article class="card" style="--index: {{ index }};">
+        <h2 class="card__title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}  →</a>
+        </h2>
+        <div class="card__content">
+          {{ post.excerpt | strip_html | truncate: 100 }}
+        </div>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </article>
+      {% assign index = index | plus: 1 %}
+    {% endfor %}
+  </div>
