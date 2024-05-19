@@ -1,5 +1,6 @@
 ---
 title:  Find rank of matrix in R
+description: How to find rank of a matrix in R programming using different way.
 tags: [r-programming]
 ---
 
