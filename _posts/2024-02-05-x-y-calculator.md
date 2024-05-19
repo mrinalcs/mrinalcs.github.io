@@ -1,5 +1,6 @@
 ---
 title: Basic Statistical Calculator
+description: Find descriptive ststistics values from bivariate data online
 tags: [tool,stat]
 ---
  
