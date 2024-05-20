@@ -36,15 +36,6 @@ MathJax = {
     enableMenu: false
   }
 };
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      "HTML-CSS": {
-        availableFonts: [],
-        preferredFont: null, // force Web fonts
-        webFont: "Neo-Euler"
-      }
-    });
-  </script>
 ```
 
 ## Mathjax in HTML: Cannot select equations
