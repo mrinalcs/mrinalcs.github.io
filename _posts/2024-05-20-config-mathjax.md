@@ -1,8 +1,10 @@
 ---
 title: Config Mathjax
 description: MathJax rendering mathematical expressions with specific fonts and options
+image: /assets/img/config-mathjax/Annotation%202024-05-20%20235449.jpg
 tags: [tool,web]
 ---
+ 
 
 ### Fonts
 
