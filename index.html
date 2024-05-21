@@ -5,19 +5,3 @@ image: /assets/img/og/mrinal_vv2mkl_Thumbnail.jpg
 description: Student of M.Sc in Statistics at Visva Bharati, Shantiniketan
 ---
  
-<div class="grid" style="--count: {{ site.posts.size }};">
-    {% assign index = 0 %}
-    {% for post in site.posts %}
-      <article class="card" style="--index: {{ index }};">
-        <h2 class="card__title">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}  →</a>
-        </h2>
-        <div class="card__content">
-          {{ post.description | strip_html | truncate: 100 }}
-        </div>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </article>
-      {% assign index = index | plus: 1 %}
-    {% endfor %}
-  </div>
-
