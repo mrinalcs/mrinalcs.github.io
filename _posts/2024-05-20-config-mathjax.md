@@ -5,8 +5,9 @@ image: /assets/img/config-mathjax/Annotation%202024-05-20%20235449.jpg
 tags: [tool,web]
 ---
  
+Here's how you can set up a basic configuration for MathJax, which usually meets most needs. For more detailed options, refer to the official documentation.
 
-### Fonts
+## Fonts
 
 ```
   <script type="text/x-mathjax-config">
@@ -30,7 +31,7 @@ tags: [tool,web]
  
  
 
-### Contextual Menu
+## Contextual Menu
 If you want to disable the contextual menu, you can set the enableMenu option to false
 ```
 MathJax = {
