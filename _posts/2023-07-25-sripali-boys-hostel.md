@@ -4,9 +4,10 @@ description: A hostel for sikha and kala Bhavana boys students in Shantiniketan 
 image: /assets/img/sripali-boys-hostel/sripalli-boys-hostel.jpg
 ---
 
+Also Known as Nandan Boys's Hostel by the name of Nandalal Bose.
 
 ### Location
-Its not the best hostel in Visva-Bharati but its near to Sikha Bhavana and Kala Bhavana and another important thing that Aroshree market is few minute away.. Its front block-A if for Siksha Bhavana and block-B is for kala bhavana students.
+It's one of the best hostel in Visva-Bharati . It's near to Sikha Bhavana and Kala Bhavana and important thing that everything is near about of this Hostel, Aroshree market is few minute away.. Its front block-A if for Siksha Bhavana and block-B is for kala bhavana students.
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14615.297434449187!2d87.6796238!3d23.6822384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f9dcc246314d17%3A0x8b8d0e29dd9e301a!2sSripalli%20Boys%20Hostel%20(Nanda%20Sadan)%2C%20Visva-Bharati!5e0!3m2!1sen!2sin!4v1704380635557!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
