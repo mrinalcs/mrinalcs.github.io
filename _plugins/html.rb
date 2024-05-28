@@ -1,6 +1,6 @@
 [:posts, :pages].each do |hook|
     Jekyll::Hooks.register hook, :post_render do |item|
-       
+        if item.output_ext == ".html"
         content = item.output
    
           
@@ -33,6 +33,6 @@
         
         # Update the item content
         item.output = content
-       
+        end
     end
   end
