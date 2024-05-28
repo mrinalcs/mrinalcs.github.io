@@ -5,13 +5,7 @@
    
           
         # Replace img src="/ with absolute path
-        content.gsub!('img src="/', "img src=\"#{item.site.config['url']}/")
-  
-        # Replace a href="/ with site url
-        content.gsub!('a href="/', "a href=\"#{item.site.config['url']}/")
-        content.gsub!('href="/assets/', "href=\"#{item.site.config['url']}/assets/")
-        content.gsub!('src="/assets/', "src=\"#{item.site.config['url']}/assets/")
-
+        content.gsub!('img src="/', "img src=\"#{item.site.config['baseurl']}/")
   
         # Add rel="nofollow noopener noreferrer" to anchor tags  and ref to external
         content.gsub!(%r{<a\s+href="((?!mailto:|tel:|#{Regexp.escape(item.site.config['url'])}|http://localhost:4000|/|#)[^"]*)"(?![^>]*?rel=)}, "<a href=\"\\1?ref=#{item.site.config['url'].gsub('https://', '')}\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"") if content.match?(%r{<a\s+href=})
