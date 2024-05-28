@@ -24,8 +24,12 @@
 
         
         # Convert <p><img> to <figure><img><figcaption>
-        content.gsub!(/<p><img(.*?)alt="(.*?)"(.*?)title="(.*?)"(.*?)><\/p>/m, '<figure><img\1 alt="\2"\3 title="\4"\5><figcaption>\4</figcaption></figure>')
-   
+        
+        content.gsub!(/<p><img(.*?)alt="(.*?)"(.*?)>(.*?)<em>(.*?)<\/em>(.*?)<\/p>/m, '<figure><img\1alt="\2">\4<figcaption>\5</figcaption></figure>')
+
+        # Remove trailing spaces before self-closing tag (/>)
+        content.gsub!(/\s\/>/, '>')
+
         
         # Update the item content
         item.output = content
