@@ -49,10 +49,17 @@ function initMathJax() {
 
 
     
-  // Function to initialize Mermaid
+// Function to initialize Mermaid
 function initMermaid() {
   // Check if there are elements with the class '.language-mermaid'
   if (document.querySelector('.language-mermaid')) {
+    // Function to set the Mermaid configuration based on the color scheme
+    const setMermaidConfig = () => {
+      const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = prefersDarkScheme ? 'dark' : 'default';
+      mermaid.initialize({ theme });
+    };
+
     // Check if Mermaid is already defined
     if (typeof mermaid === 'undefined') {
       // Load the Mermaid library dynamically
@@ -64,6 +71,9 @@ function initMermaid() {
       
       // Initialize Mermaid after the library is loaded
       script.onload = function() {
+        // Set the Mermaid configuration
+        setMermaidConfig();
+
         // Replace <pre><code> with <div class="mermaid">
         document.querySelectorAll('pre code.language-mermaid').forEach((code) => {
           const div = document.createElement('div');
@@ -74,6 +84,9 @@ function initMermaid() {
         });
       };
     } else {
+      // Set the Mermaid configuration
+      setMermaidConfig();
+
       // Replace <pre><code> with <div class="mermaid">
       document.querySelectorAll('pre code.language-mermaid').forEach((code) => {
         const div = document.createElement('div');
