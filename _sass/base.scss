@@ -1,5 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('/assets/font/ComicNeue-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('/assets/font/ComicNeue-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('/assets/font/ComicNeue-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('/assets/font/ComicNeue-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('/assets/font/ComicNeue-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  src: url('/assets/font/ComicNeue-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ 
 
 * {  font-family: "Comic Neue", cursive;}
 
