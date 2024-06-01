@@ -4,7 +4,7 @@ sitemap: false
 ---
 import Swup from './swup/swup@4.6.1/dist/Swup.module.js?module';
 import SwupPreloadPlugin from './swup/@swup/preload-plugin@3.2.10/dist/index.module.js?module';
-import SwupScrollPlugin from './swup/@swup/scroll-plugin@3.3.2/dist/index.module.js?module';
+// import SwupScrollPlugin from './swup/@swup/scroll-plugin@3.3.2/dist/index.module.js?module';
 
 const swup = new Swup({
   animationSelector: null,
@@ -13,10 +13,12 @@ const swup = new Swup({
   containers: ["header","main", "link[rel='canonical']"],
   plugins: [new SwupPreloadPlugin({ preloadVisibleLinks: true }),
     
-  new SwupScrollPlugin({
-    animateScroll: false,
-    shouldResetScrollPosition: (link) => !link.matches('.backlink')
-  })]
+  // new SwupScrollPlugin({
+  //   animateScroll: false,
+  //   shouldResetScrollPosition: (link) => !link.matches('.backlink')
+  // })
+
+]
 
 });
 
