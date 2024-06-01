@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Syne:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
+
+* {  font-family: "Comic Neue", cursive;}
 
 :root {
   --b:white;
@@ -34,9 +36,9 @@ body {
   color: var(--t);
 }
 
-header {
-  font-family: "Syne", sans-serif;
-}
+// header {
+//   font-family: "Syne", sans-serif;
+// }
 nav {
     gap: 15px;
     display: flex;
@@ -54,7 +56,7 @@ nav {
 }
 
 main,nav {
-  font-family: "Manrope", sans-serif;
+  // font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -77,8 +79,7 @@ header,main {
 
  article {
   p { 
-    color: var(--t);
-    font-size: 14px;
+    color: var(--t); 
   }
    h2 {
     padding-top: 40px;
