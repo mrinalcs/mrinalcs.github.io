@@ -1,15 +1,8 @@
 ---
 title: Archive
+description: All post and pages
 ---
 
-
-## Assets Folder
-{% assign assets = site.static_files | where_exp: "file", "file.path contains '/assets/'" %}
-<ul>
-  {% for file in assets %}
-    <li>{{ file.path | relative_url }}</li>
-  {% endfor %}
-</ul>
 
 ## Pages
 {% assign pages = site.pages %}
