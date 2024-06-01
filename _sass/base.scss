@@ -76,8 +76,7 @@ header,main {
  }
 
  article {
-  p {
-    font-weight: 500;
+  p { 
     color: var(--t);
   }
    h2 {
@@ -108,8 +107,9 @@ pre {
   margin: 10px 0;
   overflow: auto;
   border-radius: 10px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   font-size: 80%;
-  font-family: initial;
 }
 
 .container {
@@ -167,7 +167,7 @@ figure {
 figcaption {
   opacity: .6;
   display: block; 
-  font-size: .9rem;
+  font-size: .8rem;
   font-style: normal;
   text-align: center;
   
