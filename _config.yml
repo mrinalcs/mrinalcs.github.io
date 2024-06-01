@@ -1,14 +1,43 @@
-url: "https://mrinalcs.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
-title: "Mrinal Chandra Sarkar" # the name of your site, e.g. ACME Corp.
+url: "https://mrinalcs.github.io"
+title: "Mrinal Chandra Sarkar"
 description: Mrinal's Github Page
+
+lang: en-IN
+
+nav:
+  - title: About
+    url: /
+  - title: Blog
+    url: /blog
+  - title: Photos
+    url: /photos
+
+author:
+  name: Mrinal Chandra Sarkar
+  url: https://mrinalcs.github.io
+
+twitter:
+  username: mrinalcs
+  card: summary
+
+webmaster_verifications:
+  google: MqwDRSLNo0fmAemi7VVB_g6f7Z9KU9u_EhcaU9icYbQ
+
 permalink: /:title
-
-
+ 
 plugins:
-  - jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-toc
+  - jekyll-redirect-from 
 
-remote_theme: mrinalcs/turbo-memory
+ 
+
+collections:
+  pages:
+    output: true
+    permalink: /:title
 
 defaults:
   - scope:
@@ -17,3 +46,14 @@ defaults:
     values:
       layout: "post"
       render_with_liquid: false
+      toc: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      seo:
+        type: WebPage
+        
+exclude:
+  - README.md

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    
+    <title>{{ page.title }}</title>
+    {%- seo title=false -%}
+
+    {% include icons.html %}
+
+    
+    {%- feed_meta -%}
+  
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <script type="module" src="{{ "/assets/js/script.js" | relative_url }}"></script>
+      
+ 
+{% include gtag.html %}
+  </head>
+  <body>
+
+    <header>
+
+      <a href="{% if page.layout == 'post' %}/blog{% else %}/{% endif %}" class="logo backlink">
+        Mrinal Chandra Sarkar 
+      </a>
+
+        <h1>{{ page.title }}</h1>
+        <!-- if not a page-->
+        
+        {% if page.layout == 'page' %}
+        {% include nav.html %}
+        {% endif %}
+
+        {% if page.layout == 'post' %}
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          {{ page.date | date: "%B %-d, %Y" }}
+        </time>        
+        {% endif %}
+
+
+    </header> 
+    
+
+    
+    <main>
+
+    {{ content }}
+    {% include contact-form.html %}
+    </main>
+
+     
+  </body>
+</html>

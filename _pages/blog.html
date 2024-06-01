@@ -1,0 +1,29 @@
+---
+title: Blog
+image: /assets/img/og/blog_medtea_Thumbnail.jpg
+description: Read my writings Note Blogs and Random thoughts.
+redirect_from:
+  - /post
+  - /blogs
+---
+ 
+<div class="container">
+
+{% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+
+{% for year_group in posts_by_year %}
+  <div>
+    <h2 id="{{year_group.name}}">{{ year_group.name }}</h2>
+  <ul class="post-list">
+    {% for post in year_group.items %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <!-- {{post.description}} -->
+      </li>
+    {% endfor %}
+  </ul>
+  </div>
+{% endfor %}
+
+</div>
+ 

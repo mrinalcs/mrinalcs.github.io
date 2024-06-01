@@ -5,7 +5,12 @@ gem 'jekyll'
 group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jekyll-feed'
-  gem "jekyll-remote-theme"
+  gem 'jekyll-seo-tag'
+  gem 'jekyll-toc' 
+  gem 'jekyll-redirect-from' 
+  gem 'jekyll-archives' 
+  gem 'jekyll-auto-image'
+  gem 'jekyll-paginate'
 end
 
 if Gem.win_platform?
