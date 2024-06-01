@@ -120,10 +120,7 @@ header,main {
  }
 
  article {
-  p { 
-    color: var(--t); 
-    font-size:large;
-  }
+  
    h2 {
     padding-top: 40px;
     color: var(--t);
@@ -283,4 +280,8 @@ article {
 h1 {
   font-size: 1.8em;
   margin: 0.67em 0;
+}
+p { 
+    color: var(--t); 
+    font-size:large;
 }
