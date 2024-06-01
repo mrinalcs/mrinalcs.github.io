@@ -85,7 +85,7 @@ nav {
     gap: 15px;
     display: flex;
     padding-bottom: 30px;
-    border-bottom: solid #eee 1px;
+    border-bottom: solid rgba(238, 238, 238, 0.5) 1px;
     a {
         text-decoration: none;
         color: #999999;
@@ -238,7 +238,7 @@ pre::-webkit-scrollbar {
 footer {
   margin: 40px 0;
   padding: 20px 0;
-  border-top: solid #eee 1px;
+  border-top: solid rgba(238, 238, 238, 0.5) 1px;
 }
 
 article {
