@@ -112,11 +112,11 @@ header,main {
  a{
   text-decoration: none;
   color: var(--t);
-  text-decoration: 1px rgba(238, 238, 238, 0.5) underline;
+  text-decoration: 1px rgba(238, 238, 238) underline;
     text-underline-position: under;
-  // &:hover{
-  //   text-decoration: underline;
-  // }
+   &:hover{
+     text-decoration: 1px var(--t) underline;
+ }
  }
 
  article {
