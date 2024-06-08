@@ -1,6 +1,7 @@
 ---
 title: Licenses
 description: This page lists the licenses for various libraries and fonts used on this website.
+sitemap: false
 ---
 
 
