@@ -100,10 +100,57 @@ function initMermaid() {
 }
 
 
+
+// Function to handle form submission
+function initFormSubmission() {
+  const form = document.getElementById('contactForm');
+  const formContainer = document.getElementById('formContainer');
+  if (!form || !formContainer) return;
+
+  // Create and insert the "Sending..." and "Form submitted successfully!" messages
+  const sendingMessage = document.createElement('p');
+  sendingMessage.id = 'sendingMessage';
+  sendingMessage.classList.add('hidden');
+  sendingMessage.textContent = 'Sending...';
+
+  const responseMessage = document.createElement('p');
+  responseMessage.id = 'responseMessage';
+  responseMessage.classList.add('hidden');
+  responseMessage.textContent = 'Form submitted successfully!';
+
+  // Insert the messages just after the form container
+  formContainer.insertAdjacentElement('afterend', sendingMessage);
+  formContainer.insertAdjacentElement('afterend', responseMessage);
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const formData = new FormData(this);
+    formContainer.classList.add('hidden'); // Hide the form
+    sendingMessage.classList.remove('hidden'); // Show the sending message
+
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLScAtxQW8cK268Lq6Ui8vUvei-0tIzdFjgMQaK4Ll-pMPRNkVw/formResponse', {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'
+    }).then(() => {
+      sendingMessage.classList.add('hidden'); // Hide the sending message
+      responseMessage.classList.remove('hidden'); // Show the success message
+    }).catch(error => {
+      sendingMessage.classList.add('hidden'); // Hide the sending message
+      responseMessage.textContent = 'Form submission failed. Please try again.';
+      responseMessage.classList.remove('hidden'); // Show the error message
+      console.error('Error!', error.message);
+    });
+  });
+}
+
     // Function to initialize on initial page load
     function init() {
       initMathJax();
       initMermaid();
+      initFormSubmission();
+
     }
 
     // Call init() on initial page load
