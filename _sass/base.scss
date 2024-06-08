@@ -112,7 +112,7 @@ header,main {
  a{
   text-decoration: none;
   color: var(--t);
-  text-decoration: 1px rgba(238, 238, 238) underline;
+  text-decoration: 1px rgb(136 136 136 / 50%) underline;
     text-underline-position: under;
    &:hover{
      text-decoration: 1px var(--t) underline;
