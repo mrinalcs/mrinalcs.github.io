@@ -272,6 +272,9 @@ article {
   overflow: hidden; // text under logo
   -webkit-tap-highlight-color: transparent; /* for removing the highlight */
   text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .mermaid { 
