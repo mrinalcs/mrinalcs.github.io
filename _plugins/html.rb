@@ -36,9 +36,8 @@
        content.gsub!(/<!--(.*?)-->/m, "")
   
        
- 
-
-
+      # Remove multiple line gaps
+      content.gsub!(/\n{2,}/, "\n")
       
       # Update the item content
       item.output = content
