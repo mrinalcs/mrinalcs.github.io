@@ -17,6 +17,11 @@ PhotoSwipe is a JavaScript image gallery for mobile and desktop, modular, framew
 **License:** MIT License  
 **Link:** [PhotoSwipe License](https://github.com/dimsemenov/PhotoSwipe/blob/master/LICENSE)
 
+## Lightense Images
+[Lightense Images](https://github.com/sparanoid/lightense-images) is a lightweight and simple JavaScript plugin for zooming in images as they are clicked, without any dependencies.
+
+**License:** [MIT License](https://github.com/sparanoid/lightense-images/blob/master/LICENSE)
+
 ## Mermaid
 Mermaid is a JavaScript-based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
 
