@@ -153,11 +153,15 @@ function initFormSubmission() {
                   const script = document.createElement('script');
                   script.src = 'https://unpkg.com/lightense-images/dist/lightense.min.js';
                   script.onload = () => {
-                      Lightense('article img');
+                      Lightense('article img', {
+                        background: 'var(--b)'
+                    });
                   };
                   document.head.appendChild(script);
               } else {
-                  Lightense('article img');
+                  Lightense('article img', {
+                    background: 'var(--b)'
+                });
               }
           }
       }
