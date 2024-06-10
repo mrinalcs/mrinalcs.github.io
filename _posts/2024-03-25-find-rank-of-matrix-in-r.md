@@ -10,7 +10,7 @@ Rank of a matrix is the dimension of the vector space spanned by its columns or 
 
 ## Computing using the qr() Function
 
-```
+```r
 # Create a sample matrix mat with dimensions 3x4.
 mat <- matrix(c(1, 2, 3, 4, 2, 4, 6, 8, 3, 6, 9, 12), nrow = 3)
 
