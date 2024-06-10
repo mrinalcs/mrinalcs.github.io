@@ -9,7 +9,7 @@ Here's how you can set up a basic configuration for MathJax, which usually meets
 
 ## Fonts
 
-```
+```js
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       "HTML-CSS": {
@@ -33,7 +33,7 @@ Here's how you can set up a basic configuration for MathJax, which usually meets
 
 ## Contextual Menu
 If you want to disable the contextual menu, you can set the enableMenu option to false
-```
+```js
 MathJax = {
   options: {
     enableMenu: false
