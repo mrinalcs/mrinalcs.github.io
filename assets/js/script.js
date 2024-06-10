@@ -145,12 +145,30 @@ function initFormSubmission() {
   });
 }
 
+
+        // Function to initialize Lightense Images
+        function initLightenseImages() {
+          if (document.querySelector('article img')) {
+              if (typeof Lightense === 'undefined') {
+                  const script = document.createElement('script');
+                  script.src = 'https://unpkg.com/lightense-images/dist/lightense.min.js';
+                  script.onload = () => {
+                      Lightense('article img');
+                  };
+                  document.head.appendChild(script);
+              } else {
+                  Lightense('article img');
+              }
+          }
+      }
+
+
     // Function to initialize on initial page load
     function init() {
       initMathJax();
       initMermaid();
       initFormSubmission();
-
+      initLightenseImages();
     }
 
     // Call init() on initial page load
