@@ -151,7 +151,7 @@ function initFormSubmission() {
           if (document.querySelector('article img')) {
               if (typeof Lightense === 'undefined') {
                   const script = document.createElement('script');
-                  script.src = 'https://unpkg.com/lightense-images/dist/lightense.min.js';
+                  script.src = '{{ "/assets/js/lightense.min.js" | relative_url }}';
                   script.onload = () => {
                       Lightense('article img', {
                         background: 'var(--b)'
