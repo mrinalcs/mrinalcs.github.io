@@ -39,6 +39,8 @@ function initMathJax() {
             displayMath: [['$$', '$$'], ['\\[', '\\]']],
             processEscapes: true
           },
+          CommonHTML: { scale: 90 },
+          SVG: { scale: 90 },
           showMathMenu: false,
           showProcessingMessages: false,
           messageStyle: 'none'
