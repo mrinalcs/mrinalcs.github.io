@@ -34,6 +34,11 @@ function initMathJax() {
       script.src = '{{ "/assets/js/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" | relative_url }}';
       script.onload = () => {
         MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+          },
           showMathMenu: false,
           showProcessingMessages: false,
           messageStyle: 'none'
