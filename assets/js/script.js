@@ -174,17 +174,20 @@ function initFormSubmission() {
       }
 
 
-      // Function to initialize Google Tag Manager
+// Function to initialize Google Tag Manager
 function initGoogleTagManager() {
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SHN1H6Y4R5';
-  document.head.appendChild(script);
+  // Check if the script has already been added
+  if (!document.querySelector('[src="https://www.googletagmanager.com/gtag/js?id=G-SHN1H6Y4R5"]')) {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SHN1H6Y4R5';
+    document.head.appendChild(script);
+  }
 
+  // Initialize Google Tag Manager
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-SHN1H6Y4R5');
 }
 
