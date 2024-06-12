@@ -15,6 +15,10 @@ data("mtcars")
 head(mtcars)
 
 ```
+
+![output mtcars](/2024/06/12/1s6aJS3Tpdxq.png)
+*The first few rows of the dataset*
+
 ## Check Assumptions
 
 ANOVA has several assumptions:
@@ -23,7 +27,7 @@ ANOVA has several assumptions:
 2. Normality: The dependent variable should be approximately normally distributed within each group.
 3. Homogeneity of variances: The variances among the groups should be approximately equal.
 
-## 1. Check for Normality
+### 1. Check for Normality
 We can use the Shapiro-Wilk test to check for normality.
 
 ```R
@@ -31,7 +35,7 @@ We can use the Shapiro-Wilk test to check for normality.
 shapiro.test(mtcars$mpg)
 ```
 
-## 2. Check for Homogeneity of Variances
+### 2. Check for Homogeneity of Variances
 The Bartlett test can be used to check for homogeneity of variances.
 ```R
 # Bartlett test for homogeneity of variances
