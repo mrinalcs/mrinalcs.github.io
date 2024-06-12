@@ -1,5 +1,5 @@
 ---
-title: One way ANOVA in R Programming
+title: One way ANOVA in R
 description: "How to perform an ANOVA test in R to compare means, check assumptions, and interpret results."
 tags: [r-programming,stat,analysis]
 ---
@@ -34,6 +34,24 @@ We can use the Shapiro-Wilk test to check for normality.
 # Shapiro-Wilk test for normality
 shapiro.test(mtcars$mpg)
 ```
+  
+```R
+
+shapiro.test(mtcars$mpg)
+
+	Shapiro-Wilk normality test
+
+data:  mtcars$mpg
+W = 0.94756, p-value = 0.1229
+
+```
+Interpretation
+
+Null Hypothesis (H0): The data is normally distributed.
+Alternative Hypothesis (H1): The data is not normally distributed.
+
+p-value = 0.1229  Since the p-value is greater than the common significance level of 0.05, we fail to reject the null hypothesis. We can assume the mpg data is approximately normally distributed.
+
 
 ### 2. Check for Homogeneity of Variances
 The Bartlett test can be used to check for homogeneity of variances.
