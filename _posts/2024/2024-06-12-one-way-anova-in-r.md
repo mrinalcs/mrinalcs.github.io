@@ -59,7 +59,21 @@ The Bartlett test can be used to check for homogeneity of variances.
 # Bartlett test for homogeneity of variances
 bartlett.test(mpg ~ cyl, data = mtcars)
 ```
+```
 
+	Bartlett test of homogeneity of variances
+
+data:  mpg by cyl
+Bartlett's K-squared = 8.3934, df = 2, p-value = 0.01505
+```
+Interpretation
+Null Hypothesis (H0): The variances of the different groups are equal.
+Alternative Hypothesis (H1): At least one group has a variance different from the others.
+
+p-value = 0.01505  Since the p-value is less than the common significance level of 0.05, we reject the null hypothesis.In this case, the variances of mpg among different cylinder groups (cyl) are not equal.
+
+
+As normality assumption holds, the homogeneity of variances assumption does not. However, ANOVA can still be performed with caution, and alternative approaches or additional steps can be considered to account for the violation of variance homogeneity.
 
 ## Perform ANOVA
 Now, we perform the ANOVA test. We will compare the miles per gallon (mpg) across different numbers of cylinders (cyl).
@@ -72,8 +86,35 @@ anova_result <- aov(mpg ~ cyl, data = mtcars)
 summary(anova_result)
 
 ```
+```
+            Df Sum Sq Mean Sq F value   Pr(>F)    
+cyl          1  817.7   817.7   79.56 6.11e-10 ***
+Residuals   30  308.3    10.3                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+```
+
 
 ## Interpretation of Results
 The summary of the ANOVA test will provide the F-statistic and p-value. If the p-value is less than the significance level (usually 0.05), we reject the null hypothesis and conclude that there is a significant difference between the group means.
 
+**Null Hypothesis ($H_0$)**
+The null hypothesis states that there are no differences in the group means. In other words, any observed differences in sample means are due to random variation.
 
+$$ 
+H_0: \mu_1 = \mu_2 = \mu_3 = \ldots = \mu_k 
+$$ 
+
+Where:
+- $\mu_i$ represents the mean of the $i$-th group.
+- $k$ is the number of groups.
+
+**Alternative Hypothesis ($H_1$)**
+The alternative hypothesis states that at least one group mean is different from the others. This does not specify which group means are different or how many are different, just that not all the group means are equal.
+
+$$ 
+H_1: \text{At least one } \mu_i \text{ is different} 
+$$ 
+
+The ANOVA test show a significant effect of the number of cylinders on miles per gallon, with a very small p-value (6.11e-10). This means we reject the null hypothesis and conclude that there is a statistically significant difference in miles per gallon between different numbers of cylinders in the mtcars dataset.
