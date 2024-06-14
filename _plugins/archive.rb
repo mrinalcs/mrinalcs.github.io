@@ -18,6 +18,8 @@ module Jekyll
         posts_by_month["#{year}/#{month}"] << post
       end
 
+      site.config['years_list'] = posts_by_year.keys.sort.reverse
+      site.config['months_list'] = posts_by_month.keys.sort.reverse
       generate_archive_pages(site, posts_by_year, "yearly")
       generate_archive_pages(site, posts_by_month, "monthly")
     end
