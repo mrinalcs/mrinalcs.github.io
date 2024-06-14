@@ -58,10 +58,3 @@ defaults:
         
 exclude:
   - README.md
-
-# uglifier:
-#   harmony: true
-
-# jekyll-minifier:
-#   uglifier_args:
-#     harmony: true
