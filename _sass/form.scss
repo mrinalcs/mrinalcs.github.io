@@ -28,13 +28,11 @@ padding: 10px 20px;
 border: none;
 
 cursor: pointer;
-font-size: 16px;
+&:hover {
+    background-color: #45a049; /* Darker green */
+    }
 }
-
-/* On hover, change background color */
-input[type="submit"]:hover {
-background-color: #45a049; /* Darker green */
-}
+ 
 /* Remove outline when input field is active */
 input:focus,
 textarea:focus {
