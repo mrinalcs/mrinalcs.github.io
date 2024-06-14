@@ -62,8 +62,3 @@ exclude:
 uglify:
   harmony: true
 
-minifier:
-  compress:
-    javascript: true
-  uglifier:
-    harmony: true

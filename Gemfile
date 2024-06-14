@@ -12,7 +12,6 @@ group :jekyll_plugins do
   gem 'jekyll-auto-image'
   gem 'jekyll-paginate'
   gem 'jekyll-uglify'
-  gem 'jekyll-minifier'
 end
 
 if Gem.win_platform?
