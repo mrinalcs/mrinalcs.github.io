@@ -59,6 +59,9 @@ defaults:
 exclude:
   - README.md
 
+uglify:
+  harmony: true
+
 minifier:
   compress:
     javascript: true
