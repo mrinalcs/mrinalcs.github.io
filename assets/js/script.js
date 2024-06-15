@@ -174,6 +174,9 @@ function initFormSubmission() {
       }
 
 
+
+{% if jekyll.environment == 'production' %}
+
 // Function to initialize Google Tag Manager
 function initGoogleTagManager() {
   // Check if the script has already been added
@@ -191,13 +194,17 @@ function initGoogleTagManager() {
   gtag('config', 'G-SHN1H6Y4R5');
 }
 
+{% endif %}
+
     // Function to initialize on initial page load
     function init() {
       initMathJax();
       initMermaid();
       initFormSubmission();
       initLightenseImages();
+      {% if jekyll.environment == 'production' %}
       initGoogleTagManager();
+      {% endif %}
     }
 
     // Call init() on initial page load
