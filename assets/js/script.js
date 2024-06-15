@@ -180,10 +180,10 @@ function initFormSubmission() {
 // Function to initialize Google Tag Manager
 function initGoogleTagManager() {
   // Check if the script has already been added
-  if (!document.querySelector('[src="https://www.googletagmanager.com/gtag/js?id=G-SHN1H6Y4R5"]')) {
+  if (!document.querySelector('[src="https://www.googletagmanager.com/gtag/js?id={{ site.gtag }}"]')) {
     const script = document.createElement('script');
     script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SHN1H6Y4R5';
+    script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.gtag }}';
     document.head.appendChild(script);
   }
 
@@ -191,7 +191,7 @@ function initGoogleTagManager() {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-SHN1H6Y4R5');
+  gtag('config', '{{ site.gtag }}');
 }
 
 {% endif %}
