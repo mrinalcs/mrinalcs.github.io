@@ -229,10 +229,12 @@ function initPhotoswipe() {
     photoswipeSimplifyJs.onload = () => {
       // Initialize PhotoSwipe
       photoswipeSimplify.init({
-        bgOpacity: 0.7,
-        zoomEl: false,
+        history: false,
+        bgOpacity: .7,
+        // zoomEl: false,
         shareEl: false,
         fullscreenEl: false,
+        //  closeEl: false,
         captionEl: false
       });
     };
@@ -240,10 +242,12 @@ function initPhotoswipe() {
   } else {
     // Initialize PhotoSwipe
     photoswipeSimplify.init({
-      bgOpacity: 0.7,
-      zoomEl: false,
+      history: false,
+      bgOpacity: .7,
+      // zoomEl: false,
       shareEl: false,
       fullscreenEl: false,
+      //  closeEl: false,
       captionEl: false
     });
   }
