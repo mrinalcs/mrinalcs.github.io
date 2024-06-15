@@ -235,7 +235,7 @@ function initPhotoswipe() {
         shareEl: false,
         fullscreenEl: false,
         //  closeEl: false,
-        captionEl: false
+        captionEl: true
       });
     };
     document.head.appendChild(photoswipeSimplifyJs);
@@ -248,7 +248,7 @@ function initPhotoswipe() {
       shareEl: false,
       fullscreenEl: false,
       //  closeEl: false,
-      captionEl: false
+      captionEl: true
     });
   }
 }
