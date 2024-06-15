@@ -196,12 +196,69 @@ function initGoogleTagManager() {
 
 {% endif %}
 
+
+
+// Function to initialize PhotoSwipe
+function initPhotoswipe() {
+  if (!document.querySelector('#my-gallery')) return;
+
+  // Check if PhotoSwipe has already been loaded
+  if (!document.querySelector('link[href="{{ "/assets/js/photoswipe/photoswipe.css" | relative_url }}"]')) {
+    // Load PhotoSwipe CSS
+    const photoswipeCss = document.createElement('link');
+    photoswipeCss.rel = 'stylesheet';
+    photoswipeCss.href = '{{ "/assets/js/photoswipe/photoswipe.css" | relative_url }}';
+    document.head.appendChild(photoswipeCss);
+
+    const defaultSkinCss = document.createElement('link');
+    defaultSkinCss.rel = 'stylesheet';
+    defaultSkinCss.href = '{{ "/assets/js/photoswipe/default-skin.css" | relative_url }}';
+    document.head.appendChild(defaultSkinCss);
+
+    // Load PhotoSwipe JS
+    const photoswipeJs = document.createElement('script');
+    photoswipeJs.src = '{{ "/assets/js/photoswipe/photoswipe.min.js" | relative_url }}';
+    document.head.appendChild(photoswipeJs);
+
+    const photoswipeUiJs = document.createElement('script');
+    photoswipeUiJs.src = '{{ "/assets/js/photoswipe/photoswipe-ui-default.min.js" | relative_url }}';
+    document.head.appendChild(photoswipeUiJs);
+
+    const photoswipeSimplifyJs = document.createElement('script');
+    photoswipeSimplifyJs.src = '{{ "/assets/js/photoswipe/photoswipe-simplify.js" | relative_url }}';
+    photoswipeSimplifyJs.onload = () => {
+      // Initialize PhotoSwipe
+      photoswipeSimplify.init({
+        bgOpacity: 0.7,
+        zoomEl: false,
+        shareEl: false,
+        fullscreenEl: false,
+        captionEl: false
+      });
+    };
+    document.head.appendChild(photoswipeSimplifyJs);
+  } else {
+    // Initialize PhotoSwipe
+    photoswipeSimplify.init({
+      bgOpacity: 0.7,
+      zoomEl: false,
+      shareEl: false,
+      fullscreenEl: false,
+      captionEl: false
+    });
+  }
+}
+
+
+
+
     // Function to initialize on initial page load
     function init() {
       initMathJax();
       initMermaid();
       initFormSubmission();
       initLightenseImages();
+      initPhotoswipe(); 
       {% if jekyll.environment == 'production' %}
       initGoogleTagManager();
       {% endif %}

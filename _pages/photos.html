@@ -5,37 +5,14 @@ description: My photos
 ---
  
   
-   
-    <div id="photos" class="container">
+<div id="my-gallery" data-pswp="">
+  {% for image in site.data.photos.images %}
+    <a 
+    href="{{ image[1].original }}"  
+    data-size="{{ image[1].width }}x{{ image[1].height }}"
+    >
+      <img src="{{ image[1].thumbnail }}" alt="Image {{ forloop.index }}" >
+    </a>
+  {% endfor %}
+</div>
  
-      {% for image in site.data.photos.images %}
-    
-        <a href="{{ image[1].original }}"  > 
-         <img src="{{ image[1].square }}" alt="" loading="lazy" />
-      </a>
-        
-      {% endfor %}
-    </div>
-
-    <style>
-      /* For large screens */
-@media (min-width: 1200px) {
-  .container {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* For medium screens */
-@media (max-width: 1199px) and (min-width: 768px) {
-  .container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* For small screens */
-@media (max-width: 767px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);  }
-}
-
-    </style>
