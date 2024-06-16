@@ -296,3 +296,17 @@ p {
 main {
   margin-bottom:50px;
 }
+
+code.language-plaintext.highlighter-rouge {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  white-space: break-spaces;
+  background-color: var(--bs);
+  border-radius: 6px;
+}
+
+a.footnote,a.reversefootnote {
+  text-decoration: none;
+  padding: 0 5px;
+}
