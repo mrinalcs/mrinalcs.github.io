@@ -1,6 +1,6 @@
 ---
-title: Help
-description: Syntax and Typography
+title: Typography
+description: mathjax latex mermaid Syntax and Typography
 sitemap: false
 layout: post
 toc: true
@@ -121,7 +121,9 @@ Here is a footnote[^1].
 [^1]: Footnote content goes here.
 
 ```
+Here is a footnote[^1].
 
+[^1]: Footnote content goes here.
 
 ## Task Lists
 ```
@@ -152,7 +154,7 @@ $$
 
  
 
-### matrix
+### Matrix
  
 
 $$
@@ -200,14 +202,58 @@ $$
 
 
 
+### Equation 
+ 
 $$
-\bordermatrix{
-  & x & y \cr
-A & 1 & 2 \cr
-B & 3 & 4 \cr
-}
+f(x;k) = \frac{1}{2^{k/2} \Gamma(k/2)} x^{(k/2) - 1} e^{-x/2}, \quad x \geq 0
 $$
 
+
+$$
+\int_{0}^{1} x^2 \, dx = \frac{1}{3} \tag{1} \label{eq:integral}
+$$ 
+
+Equation $ \ref{eq:integral} $ shows the evaluated integral.
+
+
+
+$$
+\begin{aligned}
+    (x + y)^2 &= x^2 + 2xy + y^2 \\
+              &= x^2 + y^2 + 2xy
+\end{aligned}
+\tag{a}
+$$
+
+Equation (a) shows the expansion of $ (x + y)^2 $
+
+## Flow Chart
+```mermaid
+graph TD;
+
+    subgraph DataCollection
+    A[Data Collection] -->|Sample Survey| B[Sample Selection]
+    end
+
+    subgraph DataAnalysis
+    B --> C[Data Preprocessing]
+    C --> D[Check for Normality]
+    D -->|Normal| E[Choose Parametric Tests]
+    D -->|Not Normal| F[Choose Non-parametric Tests]
+    E --> G[Perform ANOVA]
+    F --> H[Perform Kruskal-Wallis Test]
+    G --> I[Interpret ANOVA Results]
+    H --> J[Interpret Kruskal-Wallis Results]
+    end
+
+    subgraph Conclusion
+    I --> K[Post-hoc Tests if Significant]
+    J --> K
+    K --> L[Final Interpretation and Report]
+    end
+
+
+```
 ## Horizontal Rule
 
 ```
