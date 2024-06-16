@@ -103,6 +103,21 @@ data = np.random.randn(1000)
 print(data[:10])
 
 ```
+### Plain text
+
+```
+import numpy as np
+
+# Set the seed for reproducibility (optional)
+np.random.seed(0)
+
+# Generate 1000 data points from a standard normal distribution
+data = np.random.randn(1000)
+
+# Print the first 10 data points as an example
+print(data[:10])
+
+```
 
 ## Tables
 
@@ -232,7 +247,7 @@ Equation (a) shows the expansion of $ (x + y)^2 $
 graph TD;
 
     subgraph DataCollection
-    A[Data Collection] -->|Sample Survey| B[Sample Selection]
+    A[Population] -->|Sample Survey| B[Sample Selection]
     end
 
     subgraph DataAnalysis
