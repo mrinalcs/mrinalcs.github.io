@@ -3,65 +3,84 @@ image: /assets/img/og/photos_zszdw0_Thumbnail.jpg
 title: Photos
 description: My photos
 ---
- 
-  
+
+
 <div class="container" id="my-gallery" data-pswp="">
-  {% for image in site.data.photos.images %}
-    <a 
-    href="{{ image[1].original }}"  
-    data-size="{{ image[1].width }}x{{ image[1].height }}"
-    {% if  image[1].caption %}
-    data-caption="{{ image[1].caption }}"
-   {% endif %}
-    >
-      <img src="{{ image[1].thumbnail }}" alt="Image {{ forloop.index }}" >
-    </a>
-  {% endfor %}
-</div>
+
+
+{% assign photos_folder = "assets/img/photos/low/" %}
+{% assign file_paths = "" %}
+{% for file in site.static_files %}
+  {% if file.path contains photos_folder and file.path != photos_folder %}
+    {% capture file_name %}{{ file.path | remove_first: photos_folder }}{% endcapture %}
+    {% if file_name contains '.jpg' %}
+      {% capture file_name %}{{ file_name | remove: '/'| remove: '.jpg' }}{% endcapture %}
+    {% endif %}
+    {% capture file_paths %}{{ file_paths }}{{ file_name }}{% if forloop.last == false %},{% endif %}{% endcapture %}
+  {% endif %}
+{% endfor %}
+
+{% assign file_paths_array = file_paths | split: ',' | sort_numbers %}
+
  
+  {% for file_path in file_paths_array %}
+  
+
+ 
+  {% assign cap_i = file_path | prepend: "c" %}
+
+  <a href="/{{ photos_folder | remove: '/low' }}high/{{ file_path }}.jpg"  target="_blank">
+    <img src="/{{ photos_folder }}{{ file_path }}.jpg" alt="{{site.data.captions[cap_i]}}">
+  </a>
+   
+  {% endfor %}
+ 
+</div>
+
+
+
 <style>
-.container {
-  display: grid;
-  gap: 10px; /* Adjust the gap between images as needed */
-}
-
-/* For large screens */
-@media (min-width: 1200px) {
   .container {
-    grid-template-columns: repeat(4, 1fr);
+    display: grid;
+    gap: 10px; /* Adjust the gap between images as needed */
   }
-}
-
-/* For medium screens */
-@media (max-width: 1199px) and (min-width: 768px) {
-  .container {
-    grid-template-columns: repeat(3, 1fr);
+  /* For large screens */
+  @media (min-width: 1200px) {
+    .container {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
-}
-
-/* For small screens */
-@media (max-width: 767px) {
-  .container {
-    grid-template-columns: repeat(2, 1fr);
+  /* For medium screens */
+  @media (max-width: 1199px) and (min-width: 768px) {
+    .container {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
-}
+  /* For small screens */
+  @media (max-width: 767px) {
+    .container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .container a {
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%; /* Adjust the aspect ratio (e.g., 75% for 4:3) */
+    position: relative;
+    overflow: hidden;
+  }
+  .container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container without stretching */
+  }
 
-.container a {
-  display: block;
-  width: 100%;
-  height: 0;
-  padding-bottom: 75%; /* Adjust the aspect ratio (e.g., 75% for 4:3) */
-  position: relative;
-  overflow: hidden;
+  .pswp.pswp--open.pswp--notouch.pswp--css_animation.pswp--svg.pswp--zoom-allowed.pswp--visible {
+    backdrop-filter: blur(3px);
 }
-
-.container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure the image covers the container without stretching */
-}
-
-</style>
+ 
+  </style>

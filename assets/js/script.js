@@ -200,7 +200,30 @@ function initGoogleTagManager() {
 
 // Function to initialize PhotoSwipe
 function initPhotoswipe() {
-  if (!document.querySelector('#my-gallery')) return;
+  const gallery = document.querySelector('#my-gallery');
+  if (!gallery) return;
+
+  // Function to set data-size attribute
+  function setDataSize() {
+    const images = gallery.querySelectorAll('a');
+    images.forEach((link) => {
+      const img = link.querySelector('img');
+      const scale = 10; // Set your desired photo scale here
+      img.onload = () => {
+        const width = Math.max(img.naturalWidth, img.width) * scale;
+        const height = Math.max(img.naturalHeight, img.height) * scale;
+        link.setAttribute('data-size', `${width}x${height}`);
+
+        const altText = img.getAttribute('alt');
+link.setAttribute('data-caption', altText);
+
+      };
+      // If the image is already loaded
+      if (img.complete) {
+        img.onload();
+      }
+    });
+  }
 
   // Check if PhotoSwipe has already been loaded
   if (!document.querySelector('link[href="{{ "/assets/js/photoswipe/photoswipe.css" | relative_url }}"]')) {
@@ -227,6 +250,7 @@ function initPhotoswipe() {
     const photoswipeSimplifyJs = document.createElement('script');
     photoswipeSimplifyJs.src = '{{ "/assets/js/photoswipe/photoswipe-simplify.js" | relative_url }}';
     photoswipeSimplifyJs.onload = () => {
+      setDataSize();
       // Initialize PhotoSwipe
       photoswipeSimplify.init({
         history: false,
@@ -240,6 +264,7 @@ function initPhotoswipe() {
     };
     document.head.appendChild(photoswipeSimplifyJs);
   } else {
+    setDataSize();
     // Initialize PhotoSwipe
     photoswipeSimplify.init({
       history: false,
