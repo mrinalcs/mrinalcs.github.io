@@ -15,23 +15,161 @@ title: Matrices in LaTeX
 [more](https://www.overleaf.com/learn/latex/Matrices#amsmath_matrix_environments)
  
 
+
+## Matrix with Dots
+Sometimes, you might want to include dots in your matrix to indicate a pattern. You can use the `\cdots`, `\ddots`, and `\vdots` commands for this.
+
+```latex
+\begin{pmatrix}
+1 & 2 & \cdots & n \\
+2 & 4 & \cdots & 2n \\
+\vdots & \vdots & \ddots & \vdots \\
+n & 2n & \cdots & n^2 \\
+\end{pmatrix}
+
+```
+
 $$
-\begin{cases}                % Start of the cases environment
- 1 & \text{if } i=j \\        % First case, returns 1 if i equals j
- 0 & \text{otherwise}        % Second case, returns 0 otherwise
-\end{cases}                  % End of the cases environment
+\begin{pmatrix}
+1 & 2 & \cdots & n \\
+2 & 4 & \cdots & 2n \\
+\vdots & \vdots & \ddots & \vdots \\
+n & 2n & \cdots & n^2 \\
+\end{pmatrix}
+$$
+
+and
+
+```latex
+\begin{bmatrix}
+x_{11} & x_{12} & x_{13} & \dots & x_{1n} \\
+x_{21} & x_{22} & x_{23} & \dots & x_{2n} \\
+\dots & \dots & \dots & \dots & \dots \\
+x_{d1} & x_{d2} & x_{d3} & \dots & x_{dn}
+\end{bmatrix}
+=
+\begin{bmatrix}
+x_{11} & x_{12} & x_{13} & \dots & x_{1n} \\
+x_{21} & x_{22} & x_{23} & \dots & x_{2n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+x_{d1} & x_{d2} & x_{d3} & \dots & x_{dn}
+\end{bmatrix}
+```
+
+$$ 
+ 
+\begin{bmatrix}
+x_{11} & x_{12} & x_{13} & \dots & x_{1n} \\
+x_{21} & x_{22} & x_{23} & \dots & x_{2n} \\
+\dots & \dots & \dots & \dots & \dots \\
+x_{d1} & x_{d2} & x_{d3} & \dots & x_{dn}
+\end{bmatrix}
+=
+\begin{bmatrix}
+x_{11} & x_{12} & x_{13} & \dots & x_{1n} \\
+x_{21} & x_{22} & x_{23} & \dots & x_{2n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+x_{d1} & x_{d2} & x_{d3} & \dots & x_{dn}
+\end{bmatrix}
 $$
 
 
+## Matrix Multiplication
+To represent matrix multiplication, you can use the `\times` command or leave a space between matrices.
+
+```latex
+\begin{pmatrix}
+1 & 2 \\
+3 & 4 \\
+\end{pmatrix}
+\times
+\begin{pmatrix}
+5 & 6 \\
+7 & 8 \\
+\end{pmatrix}
+```
+
 $$
-\begin{align*}
+\begin{pmatrix}
+1 & 2 \\
+3 & 4 \\
+\end{pmatrix}
+\times
+\begin{pmatrix}
+5 & 6 \\
+7 & 8 \\
+\end{pmatrix}
+$$
 
-M = \bordermatrix{~ & x & y \cr
-              A & 1 & 0 \cr
-              B & 0 & 1 \cr}
+## Matrix Transpose and Inverse
+To represent the transpose of a matrix, you can use the `^T` command.
+```latex
+\begin{pmatrix}
+1 & 2 \\
+3 & 4 \\
+\end{pmatrix}^T
 
-\end{align*}
+```
+
+$$
+\begin{pmatrix}
+1 & 2 \\
+3 & 4 \\
+\end{pmatrix}^T
+$$
+ 
+```latex 
+\begin{aligned}
+\mathbf{A}
+&=
+\begin{bmatrix}
+\cos \theta & -\sin \theta \\
+\sin \theta & \cos \theta
+\end{bmatrix}
+\\
+\mathbf{A}^T
+&=
+\begin{bmatrix}
+\cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta
+\end{bmatrix}
+\\
+\mathbf{A}^{-1}
+&=
+\begin{bmatrix}
+\cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta
+\end{bmatrix}
+\end{aligned}
+
+ ```
+
+$$
+\begin{aligned}
+\mathbf{A}
+&=
+\begin{bmatrix}
+\cos \theta & -\sin \theta \\
+\sin \theta & \cos \theta
+\end{bmatrix}
+\\
+\mathbf{A}^T
+&=
+\begin{bmatrix}
+\cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta
+\end{bmatrix}
+\\
+\mathbf{A}^{-1}
+&=
+\begin{bmatrix}
+\cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta
+\end{bmatrix}
+\end{aligned}
 $$
 
 ## Ref
 - <https://www.overleaf.com/learn/latex/Matrices>
+- <https://tex.stackexchange.com>
+- <https://www.geeksforgeeks.org/matrices-in-latex>
