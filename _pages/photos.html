@@ -20,7 +20,7 @@ description: My photos
   {% endif %}
 {% endfor %}
 
-{% assign file_paths_array = file_paths | split: ',' | sort_numbers %}
+{% assign file_paths_array = file_paths | split: ',' | sort_numbers_reverse %}
 
  
   {% for file_path in file_paths_array %}
