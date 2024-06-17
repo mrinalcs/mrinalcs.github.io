@@ -279,7 +279,48 @@ link.setAttribute('data-caption', altText);
 }
 
 
+// Function to initialize visit count
+function initCount() {
+  // Check if the visitCount element exists on the page
+  const visitCountElement = document.getElementById('visitCount');
+  if (!visitCountElement) return; // Exit if element doesn't exist
 
+  // Function to create a page_id from the domain and path, excluding query and fragment
+  function createPageId() {
+      // Get the hostname and path from the URL
+      const hostname = window.location.hostname;
+      const path = window.location.pathname;
+
+      // Combine hostname and path, remove slashes and dots, and encode the result to create a valid page_id
+      const combined = hostname + path;
+      const page_id = combined.replace(/[\/.]/g, '_');
+
+      return page_id;
+  }
+
+  // Function to fetch visit count from backend PHP for a specific page_id
+  function fetchVisitCount(page_id) {
+      fetch('https://mrinalvbu.000webhostapp.com/counter.php?page_id=' + encodeURIComponent(page_id))
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              return response.text();
+          })
+          .then(count => {
+              // Update the visit count on the page
+              visitCountElement.textContent = count;
+          })
+          .catch(error => {
+              console.error('Error fetching visit count:', error);
+          });
+  }
+
+  // Generate the page_id and fetch visit count on initial load
+  const page_id = createPageId();
+  fetchVisitCount(page_id);
+}
+ 
 
     // Function to initialize on initial page load
     function init() {
@@ -288,6 +329,7 @@ link.setAttribute('data-caption', altText);
       initFormSubmission();
       initLightenseImages();
       initPhotoswipe(); 
+      initCount();
       {% if jekyll.environment == 'production' %}
       initGoogleTagManager();
       {% endif %}
