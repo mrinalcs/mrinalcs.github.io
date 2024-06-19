@@ -118,12 +118,12 @@ function initFormSubmission() {
   const sendingMessage = document.createElement('p');
   sendingMessage.id = 'sendingMessage';
   sendingMessage.classList.add('hidden');
-  sendingMessage.textContent = 'Sending...';
+  sendingMessage.textContent = 'Wait...';
 
   const responseMessage = document.createElement('p');
   responseMessage.id = 'responseMessage';
   responseMessage.classList.add('hidden');
-  responseMessage.textContent = 'Form submitted successfully!';
+  responseMessage.textContent = 'Submitted successfully!';
 
   // Insert the messages just after the form container
   formContainer.insertAdjacentElement('afterend', sendingMessage);
@@ -145,7 +145,7 @@ function initFormSubmission() {
       responseMessage.classList.remove('hidden'); // Show the success message
     }).catch(error => {
       sendingMessage.classList.add('hidden'); // Hide the sending message
-      responseMessage.textContent = 'Form submission failed. Please try again.';
+      responseMessage.textContent = 'Failed. Please try again.';
       responseMessage.classList.remove('hidden'); // Show the error message
       console.error('Error!', error.message);
     });
