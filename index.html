@@ -1,0 +1,71 @@
+---
+title: Mrinal Chandra Sarkar
+image: /assets/img/og/mrinal_vv2mkl_Thumbnail.jpg
+description: Student of M.Sc in Statistics at Visva Bharati, Shantiniketan.
+seo:
+    type: WebSite
+---
+
+
+<p>I am from <a href="https://maps.app.goo.gl/CLBrAaFLwJKZy9H86" style="text-decoration:none">India, West Bengal</a> currently pursuing my Master's degree in Statistics at Visva Bharati, Shantiniketan.</p>
+
+<br>
+
+
+<h2>Projects</h2>
+
+<p>Explore my projects on <a href="https://github.com/mrinalcs">Github</a> to see what I've been working on. Here are a few highlights:</p>
+
+{% assign posts_with_project_tag = site.posts | where: "tags", "project" %}
+
+<ul style="list-style: none; padding-left: 0;">
+  {% for post in posts_with_project_tag limit:3 %}
+    <li style="margin-bottom: 10px;">
+      <span style="font-weight: bold;">&#10045; {{ post.title }}</span> : {{ post.description | truncate: 150 }} <a href="{{ post.url }}">read</a>
+    </li>
+  {% endfor %}
+</ul>
+
+
+<br>
+
+<!-- ## Blog
+
+I occasionally write about statistics, data science, and places. Check out my latest posts:
+
+{% assign posts_with_stat_tag = site.posts | where: "tags", "stat" %}
+
+<ul>
+  {% for post in posts_with_stat_tag limit:3 %}
+    <li>
+      <strong><a href="{{ post.url }}">{{ post.title }}</a></strong>: {{ post.date | date: "%B %d, %Y" }}
+    </li>
+  {% endfor %}
+</ul> -->
+ 
+ 
+<div>
+  <h2>Skills</h2>
+  <ul>
+    <li><strong>Statistical Analysis</strong>: Descriptive, Regression, Time Series</li>
+    <li><strong>Programming Languages:</strong> R, C, Python</li>
+    <li><strong>Tools:</strong> Excel, LaTeX</li>
+  </ul>
+</div>
+<div>
+  <h2>Online Profiles</h2>
+  <ul>
+    <li><strong><a href="https://github.com/mrinalcs">Github</a></strong></li>
+    <li><strong><a href="https://www.linkedin.com/in/mrinalcs">LinkedIn</a></strong></li>
+    <li><strong><a href="https://www.facebook.com/mrinalcs">Facebook</a></strong></li>
+
+  </ul>
+</div>
+ 
+ 
+
+<h2>Resume</h2>
+<P>Interested in my professional background? <a href="/assets/cv.pdf" download="Mrinal_Chandra_Sarkar_CV.pdf">Download my CV</a>.</P>
+<br> 
+
+
