@@ -29,7 +29,7 @@ description: My photos
  
   {% assign cap_i = file_path | prepend: "c" %}
 
-  <a href="/{{ photos_folder | remove: '/low' }}high/{{ file_path }}.jpg"  target="_blank">
+  <a href="/{{ photos_folder | remove: '/low' }}high/{{ file_path }}.jpg"  target="_blank" aria-label="photo {{ file_path }}">
     <img src="/{{ photos_folder }}{{ file_path }}.jpg" alt="{{site.data.captions[cap_i]}}">
   </a>
    
