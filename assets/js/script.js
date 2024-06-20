@@ -118,7 +118,7 @@ function initFormSubmission() {
   const sendingMessage = document.createElement('p');
   sendingMessage.id = 'sendingMessage';
   sendingMessage.classList.add('hidden');
-  sendingMessage.textContent = 'Wait...';
+  sendingMessage.textContent = 'Please wait...';
 
   const responseMessage = document.createElement('p');
   responseMessage.id = 'responseMessage';
