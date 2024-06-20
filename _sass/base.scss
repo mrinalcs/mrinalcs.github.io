@@ -310,3 +310,10 @@ a.footnote,a.reversefootnote {
   text-decoration: none;
   padding: 0 5px;
 }
+
+ul.post-list {
+  >li {
+    margin: 10px 0;
+  }
+
+}
