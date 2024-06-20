@@ -48,7 +48,7 @@
   --b:white;
   --bs:#fafafa;
   --t:black;
-  --ts: #262626;
+  --ts: #6b6b6b;
 
   --bc:#e5e5e5;
   --h:rgb(134 134 134 / 50%);
@@ -60,7 +60,7 @@
     --b:rgb(31,31,31);
     --bs:#171717;
     --t:white;
-    --ts: #9e9e9e;
+    --ts: #989898;
 
     --bc: #171717;
     --h:rgba(238, 238, 238, 0.5);
@@ -91,7 +91,7 @@ nav {
     border-bottom: solid var(--h) 1px;
     a {
         text-decoration: none;
-        color: #999999;
+        color: var(--ts);
         font-weight: 500;
     }
     .active {
