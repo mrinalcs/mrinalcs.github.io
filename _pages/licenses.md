@@ -4,6 +4,7 @@ description: This page lists the licenses for various libraries and fonts used o
 sitemap: false
 ---
 
+Hreres libraries tools and fonts used on this website.
 
 ## MathJax
 MathJax is an open-source JavaScript display engine for LaTeX, MathML, and AsciiMath notation that works in all modern browsers.
@@ -21,6 +22,12 @@ PhotoSwipe is a JavaScript image gallery for mobile and desktop, modular, framew
 [Lightense Images](https://github.com/sparanoid/lightense-images) is a lightweight and simple JavaScript plugin for zooming in images as they are clicked, without any dependencies.
 
 **License:** [MIT License](https://github.com/sparanoid/lightense-images/blob/master/LICENSE)
+
+## Framer
+Framer is a prototyping tool that allows designers to create interactive prototypes using code components in JavaScript or TypeScript. This site inspired by a starter template.
+
+**Link:** [Framer License](https://www.framer.com/legal/terms/)
+
 
 ## Mermaid
 Mermaid is a JavaScript-based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
