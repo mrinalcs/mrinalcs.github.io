@@ -41,6 +41,11 @@ Comic Neue is a casual typeface for everyone. The typeface family includes both 
 **Link:** [Comic Neue License](https://github.com/crozynski/comicneue/blob/master/OFL.txt)
 
 
+## Lunr.js
+Lunr.js is a lightweight, full-text search engine for client-side search in JavaScript. It indexes JSON documents and allows fast, flexible searches.
+
+**License:** [MIT License](https://github.com/olivernn/lunr.js/blob/master/LICENSE)
+
 ---
 
 
