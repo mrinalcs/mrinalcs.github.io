@@ -280,6 +280,150 @@ link.setAttribute('data-caption', altText);
 
 
 
+// Function to initialize search
+function initSearch() {
+  let idx;
+  let store = {};
+  let lunrLoaded = false;
+  let dataLoaded = false;
+
+  function loadLunrAndData() {
+    if (!lunrLoaded) {
+      const scriptLunr = document.createElement('script');
+      scriptLunr.src = '/assets/js/lunr.min.js';
+      scriptLunr.onload = function() {
+        lunrLoaded = true;
+        if (dataLoaded) {
+          initializeSearch();
+        }
+      };
+      document.head.appendChild(scriptLunr);
+    }
+
+    if (!dataLoaded) {
+      fetch('/data.json')
+        .then(response => response.json())
+        .then(data => {
+          dataLoaded = true;
+          storeData(data);
+          if (lunrLoaded) {
+            initializeSearch();
+          }
+        })
+        .catch(error => console.error('Error fetching the data.json file:', error));
+    }
+  }
+
+  function initializeSearch() {
+    idx = lunr(function () {
+      this.field('id');
+      this.field('title', { boost: 10 });
+      this.field('author');
+      this.field('category');
+      this.field('content');
+    });
+
+    Object.keys(store).forEach(index => {
+      idx.add({
+        'id': index,
+        'title': store[index].title,
+        'author': store[index].author,
+        'category': store[index].category,
+        'content': store[index].content
+      });
+    });
+
+    const initialSearchTerm = getQueryVariable('query');
+    if (initialSearchTerm) {
+      document.getElementById('search-box').setAttribute("value", initialSearchTerm);
+      performSearch(initialSearchTerm);
+    }
+  }
+
+  function storeData(data) {
+    data.forEach((post, index) => {
+      store[index] = post;
+    });
+  }
+
+  function displaySearchResults(results, query) {
+    const searchResults = document.getElementById('search-results');
+    if (results.length) {
+      let appendString = '';
+      for (let i = 0; i < results.length; i++) {
+        const item = store[results[i].ref];
+        const highlightedTitle = highlightMatch(item.title, query);
+        const highlightedContent = highlightMatchInContent(item.content, query);
+
+        appendString += `<li><a href="${item.url}"><h3>${highlightedTitle}</h3></a>`;
+        appendString += `<p>${highlightedContent}</p></li>`;
+      }
+      searchResults.innerHTML = appendString;
+    } else {
+      searchResults.innerHTML = '<li>No results found</li>';
+    }
+  }
+
+  function performSearch(query) {
+    const results = idx.search(query);
+    displaySearchResults(results, query);
+    updateURL(query);
+  }
+
+  function updateURL(query) {
+    const url = new URL(window.location);
+    url.searchParams.set('query', query);
+    history.replaceState(null, '', url.toString());
+  }
+
+  function getQueryVariable(variable) {
+    const query = window.location.search.substring(1);
+    const vars = query.split('&');
+    for (let i = 0; i < vars.length; i++) {
+      const pair = vars[i].split('=');
+      if (pair[0] === variable) {
+        return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+      }
+    }
+    return null;
+  }
+
+  function highlightMatch(text, query) {
+    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+    return parts.map(part => part.toLowerCase() === query.toLowerCase() ? `<mark>${part}</mark>` : part).join('');
+  }
+
+  function highlightMatchInContent(content, query) {
+    const index = content.toLowerCase().indexOf(query.toLowerCase());
+
+    if (index === -1) {
+      return content.length > 150 ? `${content.substring(0, 150)}...` : content;
+    } else {
+      const start = Math.max(index - 75, 0);
+      const end = start + 150;
+      const beforeMatch = content.substring(start, index);
+      const match = content.substring(index, index + query.length);
+      const afterMatch = content.substring(index + query.length, end);
+      
+      return `${start > 0 ? '...' : ''}${beforeMatch}<mark>${match}</mark>${afterMatch}${end < content.length ? '...' : ''}`;
+    }
+  }
+
+  const searchBox = document.getElementById('search-box');
+  if (searchBox) {
+    searchBox.addEventListener('mouseover', loadLunrAndData);
+    searchBox.addEventListener('click', loadLunrAndData);
+    searchBox.addEventListener('input', function(event) {
+      const query = event.target.value;
+      performSearch(query);
+    });
+
+    if (getQueryVariable('query')) {
+      loadLunrAndData();
+    }
+  }
+}
+
 
     // Function to initialize on initial page load
     function init() {
@@ -288,6 +432,7 @@ link.setAttribute('data-caption', altText);
       initFormSubmission();
       initLightenseImages();
       initPhotoswipe(); 
+      initSearch();
       {% if jekyll.environment == 'production' %}
       initGoogleTagManager();
       {% endif %}

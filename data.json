@@ -1,0 +1,14 @@
+---
+layout: null
+---
+[
+  {% for post in site.posts %}
+  {
+    "url": "{{ post.url | xml_escape }}",
+    "title": "{{ post.title | xml_escape }}",
+    "author": "{{ post.author | xml_escape }}",
+    "category": "{{ post.category | xml_escape }}",
+    "content": {{ post.content | strip_html  | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
