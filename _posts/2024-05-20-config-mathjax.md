@@ -9,30 +9,52 @@ Here's how you can set up a basic configuration for MathJax, which usually meets
 
 ## Fonts
 
-```js
-  <script type="text/x-mathjax-config">
+```html
+<!-- configures MathJax.js v2.7.1 settings -->
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-      "HTML-CSS": {
-        availableFonts: [],
-        preferredFont: null, // force Web fonts
-        webFont: "Neo-Euler"
-      }
+        // Configuration for HTML-CSS output
+        "HTML-CSS": {
+            // Specify that no fonts are pre-installed
+            availableFonts: [],
+            // Disable preferred fonts to ensure web fonts are used
+            preferredFont: null,
+            // Force the use of the Neo-Euler web font for rendering math
+            webFont: "Neo-Euler"
+        }
     });
-  </script>
+</script>
 ```
 
 **Mathjax with Neo-Euler Font**
 
-<iframe height="300" style="width: 100%;" scrolling="no" title="Mathjax with  Neo-Euler Font" src="https://codepen.io/mrinalcs/embed/QWRNNXz?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/mrinalcs/pen/QWRNNXz">
-  Mathjax with  Neo-Euler Font</a> by Mrinal (<a href="https://codepen.io/mrinalcs">@mrinalcs</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+![Mathjax with Neo-Euler Font](/assets/img/config-mathjax/Annotation%202024-06-21%20070631.jpg)
+*Mathjax with Neo-Euler Font*
  
+
+You can use the scale option within the "HTML-CSS" section of the configuration
+
+```html
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            availableFonts: [],
+            preferredFont: null,
+            webFont: "Neo-Euler",
+            scale: 120  // Adjust this value to set the desired font size (100 is the default)
+        }
+    });
+</script>
+```
+
+![Mathjax Scale up Font](/assets/img/config-mathjax/Annotation%202024-06-21%20071243.jpg)
+*Mathjax scaleup Font*
  
 
 ## Contextual Menu
+
 If you want to disable the contextual menu, you can set the enableMenu option to false
+
 ```js
 MathJax = {
   options: {
@@ -40,6 +62,10 @@ MathJax = {
   }
 };
 ```
+
+![Mathjax Contextual Menu](/assets/img/config-mathjax/Annotation%202024-06-21%20070337.jpg)
+*Mathjax Contextual Menu*
+
 
 ## Mathjax in HTML: Cannot select equations
 
