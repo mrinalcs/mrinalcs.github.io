@@ -355,10 +355,13 @@ function initSearch() {
         const highlightedTitle = highlightMatch(item.title, query);
         const highlightedContent = highlightMatchInContent(item.content, query);
 
-        appendString += `<li><a href="${item.url}"><h3>${highlightedTitle}</h3></a>`;
+        appendString += `<li><a href="${item.url}" data-swup-link><h3>${highlightedTitle}</h3></a>`;
         appendString += `<p>${highlightedContent}</p></li>`;
       }
       searchResults.innerHTML = appendString;
+
+      // Notify Swup.js of content update
+      swup.triggerEvent('contentReplaced');
     } else {
       searchResults.innerHTML = '<li>No results found</li>';
     }
@@ -411,8 +414,6 @@ function initSearch() {
 
   const searchBox = document.getElementById('search-box');
   if (searchBox) {
-    searchBox.addEventListener('mouseover', loadLunrAndData);
-    searchBox.addEventListener('click', loadLunrAndData);
     searchBox.addEventListener('input', function(event) {
       const query = event.target.value;
       performSearch(query);
