@@ -24,6 +24,17 @@ heres first 10 data point
 | 54  | M      | 166.8     | 67.5      | 27.6       | 85        | 165      | 40.4      | 18.6                    | 34             | 148           | C     |
 
  
+## Visualise
+
+![boxplt diff vars](/assets/img/body-performance/1axc.png)
+
+
+![age](/assets/img/body-performance/00001a.png)
+
+![height](/assets/img/body-performance/00001c.png)
+
+![weight](/assets/img/body-performance/00001e.png)
+
 
 ## Summary
 heres basic summary of the data
@@ -37,8 +48,7 @@ heres basic summary of the data
 | 3rd Qu.   | 48.00 |                  | 3rd Qu.:174.8 | 3rd Qu.: 75.30 | 3rd Qu.:28.00 | 3rd Qu.: 86.0 | 3rd Qu.:141.0 | 3rd Qu.:45.20 | 3rd Qu.: 20.70 | 3rd Qu.:50.00 | 3rd Qu.:221.0 |                  |
 | Max.      | 64.00 |                  | Max.   :193.8 | Max.   :138.10 | Max.   :78.40 | Max.   :156.2 | Max.   :201.0 | Max.   :70.50 | Max.   :213.00 | Max.   :80.00 | Max.   :303.0 |
 
- 
-
-## Codes
+  
 check details
+
 1. <https://github.com/mrinalcs/Statistical-Analysis-on-Body-Performance>
