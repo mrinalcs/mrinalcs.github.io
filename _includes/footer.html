@@ -1,7 +1,9 @@
 <footer>
     {% if page.commit_messages %}
   
-      <p>Last updated on: {{ page.last_modified_at | date: "%Y-%m-%d %H:%M:%S" }}</p>
+    <p>Last Updated at {{ page.last_modified_at | date: "%I:%M %P On %d/%m/%Y" }}</p>
+
+
       
         
 {% endif %}
