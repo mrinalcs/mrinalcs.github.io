@@ -11,10 +11,10 @@ seo:
 
  
 <h2>Skills</h2>
-<ul>
-  <li><strong>Statistical Analysis</strong>: Descriptive, ANOVA, Regression, Time Series</li>
-  <li><strong>Programming Languages:</strong> R, C, Python</li>
-  <li><strong>Tools:</strong> MS Excel, Word, Overleaf (LaTeX), Git</li>
+<ul style="list-style-type: none;padding-left: 0;list-style-position: inside;">
+  <li style="margin-bottom: 10px;list-style-type: '&#10148;'"> <strong>Statistical Analysis</strong>: Descriptive, ANOVA, Regression, Time Series</li>
+  <li style="margin-bottom: 10px;list-style-type: '&#128013;'"> <strong>Programming Languages:</strong> R, C, Python</li>
+  <li style="margin-bottom: 10px;list-style-type: '&#128187;'"> <strong>Tools:</strong> MS Excel, Word, Overleaf (LaTeX), Git</li>
 </ul>
 
 
@@ -25,10 +25,10 @@ seo:
 
 {% assign posts_with_project_tag = site.posts | where: "tags", "project" %}
 
-<ul style="list-style: none; padding-left: 0;">
+<ul style="list-style-position: inside; padding-left: 0;">
   {% for post in posts_with_project_tag limit:3 %}
-    <li style="margin-bottom: 10px;">
-      <span style="font-weight: bold;">&#10045; {{ post.title }}</span> : {{ post.description | truncate: 150 }} <a href="{{ post.url }}">read</a>
+    <li style="margin-bottom: 10px;list-style-type: '&#10045;'">
+      <span style="font-weight: bold;">{{ post.title }}</span> : {{ post.description | truncate: 150 }} <a href="{{ post.url }}">read</a>
     </li>
   {% endfor %}
 </ul>
