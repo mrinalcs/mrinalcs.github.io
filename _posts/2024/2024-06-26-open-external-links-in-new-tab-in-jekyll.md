@@ -83,3 +83,13 @@ end
 ``` 
 
 The `[:documents, :pages].each do |hook|` line iterates over an array containing `:documents` and `:pages`. This suggests it's registering a hook for both Jekyll documents and pages.
+
+
+`content.gsub!(%r{<a\s+href="((?!mailto:|tel:|#{Regexp.escape(site_url)}|http://localhost:4000|/|#)[^"]+)"(?![^>]*rel=):` Uses a regex to identify external links (not mailto, tel, internal links, or anchors) and adds `rel="nofollow noopener noreferrer"` attributes. It also appends a ref parameter with a simplified site URL.
+
+This script is a comprehensive customization for Jekyll, enhancing HTML output by adjusting paths, modifying external link behavior, transforming specific HTML patterns, and cleaning up markup. It's designed to be used within a Jekyll plugin or configuration file to automate these modifications across documents and pages during the rendering process. Adjustments like these can help maintain consistency and enhance functionality across a Jekyll-powered website.  
+
+
+Optionly you can do using js [Open External Links in New Tab](/open-external-links-in-new-tab)
+
+Thats all
