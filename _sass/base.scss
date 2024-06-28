@@ -224,8 +224,12 @@ figcaption {
 
 table {
   border-collapse: collapse;
-  width: 100%;
   text-align: left;
+    display: block;
+    width: 100%;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;  
 }
 
  td, th {
