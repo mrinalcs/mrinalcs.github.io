@@ -5,9 +5,8 @@ sitemap: false
  
 
 <div>
-    <form action="/search" method="get">
-        <label for="search-box">Search</label>
-        <input type="text" id="search-box" name="query">
+    <form action="/search" method="get"> 
+        <input type="text" id="search-box" name="query" placeholder="Type here">
         <input type="submit" value="search">
       </form>
       
@@ -18,10 +17,13 @@ sitemap: false
 
 
 <style>
-    
+    ul#search-results {
+    margin: 30px 0;
+}
     #search-results .title {color: #d9230f;}
     #search-results .url {color: silver;}
-    #search-results a {display: block; color: #777;}
+    #search-results a {display: block; color: var(--t);}
+    #search-results p {color: var(--ts);}
     #search-results a:hover, #search-results a:focus {text-decoration: none;}
     #search-results a:hover .title {text-decoration: underline;}
 </style>
