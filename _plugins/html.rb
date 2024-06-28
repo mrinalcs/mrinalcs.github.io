@@ -1,32 +1,26 @@
-[:posts, :pages].each do |hook|
+[:documents, :pages].each do |hook|
   Jekyll::Hooks.register hook, :post_render do |item|
-      if item.output_ext == ".html"
+    if item.output_ext == ".html"
       content = item.output
- 
-        
-      # Replace img src="/ with absolute path
-      content.gsub!('img src="/', "img src=\"#{item.site.config['baseurl']}/")
-
-      # Add rel="nofollow noopener noreferrer" to anchor tags  and ref to external
-      content.gsub!(%r{<a\s+href="((?!mailto:|tel:|#{Regexp.escape(item.site.config['url'])}|http://localhost:4000|/|#)[^"]*)"(?![^>]*?rel=)}, "<a href=\"\\1?ref=#{item.site.config['url'].gsub('https://', '')}\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"") if content.match?(%r{<a\s+href=})
-
-
-
-      # Wrap <table> tags with <div class="table"> // style="overflow-x:auto;"
-      content.gsub!(/<table(.*?)>/m, '<div style="overflow-x:auto;"><table\1>')
-      content.gsub!(/<\/table>/m, '</table></div>')
+      site_url = item.site.config['url']
+      baseurl = item.site.config['baseurl']
+      env = Jekyll.env
 
       
-      # Convert <p><img> to <figure><img><figcaption>
+      if baseurl
+        content.gsub!(%r{(src|href)="/}, '\1="' + baseurl + '/')
+      end
+
+       if env == 'production'
       
-      content.gsub!(/<p><img(.*?)alt="(.*?)"(.*?)>(.*?)<em>(.*?)<\/em>(.*?)<\/p>/m, '<figure><img\1alt="\2">\4<figcaption>\5</figcaption></figure>')
+      # Add rel="nofollow noopener noreferrer" to external anchor tags and ref parameter
+      content.gsub!(%r{<a\s+href="((?!mailto:|tel:|#{Regexp.escape(site_url)}|http://localhost:4000|/|#)[^"]+)"(?![^>]*rel=)}, 
+                    "<a href=\"\\1?ref=#{site_url.gsub('https://', '')}\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"")
 
-      # Remove meta tag with name="generator"
-      content.gsub!(/<meta\s+name=["']generator["'][^>]*>/i, '')
 
-       # Remove trailing spaces before self-closing tag (/>)
-       content.gsub!(/\s\/>/, '>')
- 
+      # Remove trailing spaces before self-closing tag (/>)
+      content.gsub!(/\s\/>/, '>')
+
        # Remove all empty spaces between HTML tags
        #content.gsub!(/>[[:space:]]+</, '><')
  
@@ -38,9 +32,15 @@
        
       # Remove multiple line gaps
       content.gsub!(/\n{2,}/, "\n")
-      
+
+      end
+
+      # Convert <p><img><em> to <figure><img><figcaption><em>
+      content.gsub!(/<p><img((?:(?!<\/p>|<em>).)*)<em>((?:(?!<\/p>|<em>).)*)<\/em><\/p>/m, '<figure><img\1<figcaption>\2</figcaption></figure>')
+
+
       # Update the item content
       item.output = content
-      end
+    end
   end
 end
