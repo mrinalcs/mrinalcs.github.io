@@ -35,6 +35,9 @@ plugins:
   - jekyll-toc
   - jekyll-redirect-from 
 
+feed:
+  disable_in_development: true
+  
 sass:
    sourcemap: development
 
