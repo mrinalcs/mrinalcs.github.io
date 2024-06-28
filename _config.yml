@@ -35,7 +35,8 @@ plugins:
   - jekyll-toc
   - jekyll-redirect-from 
 
- 
+sass:
+   sourcemap: development
 
 collections:
   pages:
