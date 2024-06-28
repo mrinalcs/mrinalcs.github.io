@@ -10,6 +10,7 @@ jekyll s --drafts
 jekyll serve --future
 bundle exec jekyll serve --incremental --profile
 bundle exec jekyll serve --verbose --livereload --incremental
+$env:JEKYLL_ENV="production"; bundle exec jekyll serve
 ```
 
 ## Posts
