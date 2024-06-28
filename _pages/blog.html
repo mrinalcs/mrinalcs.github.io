@@ -7,7 +7,7 @@ redirect_from:
   - /blogs
 ---
  
-<div class="container">
+<div class="posts">
 
 {% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
 
