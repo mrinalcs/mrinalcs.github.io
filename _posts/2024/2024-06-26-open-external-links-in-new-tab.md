@@ -1,5 +1,6 @@
 ---
 title: Open External Links in New Tab
+description: How to automatically open external links in a new tab using HTML attributes and JavaScript, ensuring a seamless browsing experience for your website visitors.
 tags: [web,tips]
 ---
 
