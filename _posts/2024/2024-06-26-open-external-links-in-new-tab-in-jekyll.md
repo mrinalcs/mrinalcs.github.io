@@ -2,7 +2,7 @@
 title: Open External Links in New Tab in Jekyll
 description: How to open external links in a new tab in Jekyll, especially when GitHub Pages restricts certain plugins.
 image: "/assets/img/2024/06/26/jtb.png"
-tags: [web,tips]
+tags: [jekyll,web,tips]
 ---
 
 
