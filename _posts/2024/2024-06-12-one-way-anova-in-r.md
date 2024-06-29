@@ -16,7 +16,7 @@ head(mtcars)
 
 ```
 
-![output mtcars](/2024/06/12/1s6aJS3Tpdxq.png)
+![output mtcars](/assets/img/2024/06/12/1s6aJS3Tpdxq.png)
 *The first few rows of the dataset*
 
 ## Check Assumptions
