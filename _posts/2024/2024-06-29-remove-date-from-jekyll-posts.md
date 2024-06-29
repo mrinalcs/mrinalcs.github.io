@@ -68,3 +68,5 @@ permalink: /:title
 The resulting URL for the post will be:
 
 https://yourdomain.com/new-post 
+
+Removing dates from Jekyll post URLs and filenames can make your URLs cleaner and more user-friendly. For collections, a simple configuration change is sufficient. For standard posts, using a plugin like `nodates.rb` is necessary to achieve the same result. By following the steps outlined above, you can easily remove dates from your Jekyll posts
