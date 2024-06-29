@@ -60,6 +60,9 @@ If you're using Jekyll, you can create a plugin to automatically wrap tables wit
 end
 ```
 
+![html table with wrapper overflow](/assets/img/2024/06/29/184233.jpg)
+*Table takes 100% width*
+
 
 ## Using Only CSS for Table
 You can also make the table scrollable using only CSS without modifying the HTML.
@@ -75,6 +78,8 @@ table {
 }
 ```
 
+![html table with css for table over flow in small screen](/assets/img/2024/06/29/284400.jpg)
+*Table takes max-content width*
 
 ## Related
 
