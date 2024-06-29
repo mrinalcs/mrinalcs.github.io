@@ -99,3 +99,16 @@ end
 ```
 
 It ensure that the Git hook checks if the last_modified_at and date fields are already populated in the document data before assigning them, you can modify the code to include checks before assigning values.
+
+Don't forget to add for github pages `workflows/jekyll.yml`.
+
+```yml
+# workflows/jekyll.yml
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+```
+
+The `fetch-depth` parameter specifies the depth of the git fetch operation. Setting `fetch-depth` to `0` fetches all history for all branches and tags.
