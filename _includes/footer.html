@@ -8,10 +8,16 @@
   <p>Tags:
   
     {% for tag in page.tags %}
-      <span> <a href="/{{ tag }}" >{{ tag }}</a></span>{% unless forloop.last %},{% endunless %}
+      <span> <a title="Tag {{ tag }}" href="/{{ tag }}" >{{ tag }}</a></span>{% unless forloop.last %},{% endunless %}
     {% endfor %}
    </p>
 {% endif %}
 
+
+<p class="suggestion-link">Any Suggestion or corrections ?
+  <a title="Github link" href="https://github.com/{{ site.github.username }}/{{ site.github.repo }}/blob/main/{{ page.path }}">
+     &#9998; edit
+  </a>
+</p>
 
 </footer>
