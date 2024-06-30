@@ -14,12 +14,10 @@ For collections, like _blog, you can easily remove the date from the permalinks 
 
 
 ```yml
-
 collections:
   blog:
     output: true
     permalink: /blog/:title
-
 ```
 
 Create a New Post in Your Collection: When you create a new post in your `_blog` collection, you don't need to include the date in the filename. Simply name it `new-post.md`.
@@ -43,7 +41,6 @@ Jekyll uses the date in the post filename to sort and organize posts. To remove 
 Add a new file named nodates.rb in the _plugins directory of your Jekyll site `_plugins/nodate.rb`.
 
 ```ruby
-
 class Jekyll::PostReader
   def read_posts(dir)
     read_publishable(dir, "_posts", /.*\.(markdown|md)$/)
@@ -52,7 +49,6 @@ class Jekyll::PostReader
     read_publishable(dir, "_drafts", /.*\.(markdown|md)$/)
   end
 end
-
 ```
 
 Remove Dates from Filenames: Rename your post files to remove the dates. For example, rename _posts/`2024-06-29-new-post.md` to `new-post.md`.
