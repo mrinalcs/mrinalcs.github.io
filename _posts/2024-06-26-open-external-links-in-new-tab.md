@@ -17,7 +17,6 @@ Here's the basic idea
 
 ```html
 <a href="URL" target="_blank">Link Text</a>
-
 ```
 
 href: This is where you put the URL you want to link to.
@@ -32,7 +31,6 @@ Here's how you do it:
 
 ```html
 <a href="URL" target="_blank" rel="noopener noreferrer">Link Text</a> 
-
 ```
 
 
@@ -49,7 +47,6 @@ If you have a lot of links, manually adding `target="_blank"` to each one can be
     });
   });
 </script>
-
 ```
 
 
@@ -91,7 +88,6 @@ Obviously you dont want internal links to open in other tab so apply to external
     });
   });
 </script>
-
 ```
 
 `if (whitelistedDomains.some(domain => linkHostname.includes(domain))) { ... }: `This checks if the link’s hostname is in the whitelisted domains array and applies the attributes only to those links.
@@ -110,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-
 ```
 
 That's It!
