@@ -3,7 +3,7 @@ title: "Automating Jekyll Metadata with Git Hooks"
 description: Automate Jekyll metadata using Git hooks, capturing commit history and setting last modified dates for enhanced content management.
 date: 2024-06-26
 image: "/assets/img/2024/06/26/automating-jekyll-metadata-with-git-hooks.png"
-tags: [web,tips]
+tags: [web,tips,metadata]
 ---
 
 Integrating Git commit history and metadata into your Jekyll site can greatly enhance the informational value of your content. By using Jekyll hooks, you can automate the process of capturing commit history and setting metadata such as the last modified date and commit messages for your documents. 
