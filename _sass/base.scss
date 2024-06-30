@@ -149,6 +149,9 @@ header,main {
  
 
 pre {
+  code{
+    padding: 0;
+  }
   color: var(--t);
   background-color: var(--bs);
   border: solid var(--bc) 1px;
