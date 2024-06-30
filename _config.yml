@@ -17,9 +17,21 @@ author:
   name: Mrinal Chandra Sarkar
   url: https://mrinalcs.github.io
 
+social:
+  name: Mrinal Chandra Sarkar
+  links:
+    - https://twitter.com/mrinalcs
+    - https://www.facebook.com/mrinalcs
+    - https://www.linkedin.com/in/mrinalcs
+    - https://github.com/mrinalcs
+
 twitter:
   username: mrinalcs
   card: summary
+
+github:
+  username: mrinalcs
+  repo: mrinalcs.github.io
 
 webmaster_verifications:
   google: MqwDRSLNo0fmAemi7VVB_g6f7Z9KU9u_EhcaU9icYbQ
