@@ -82,4 +82,13 @@ header-includes:
 ---
 ```
 
+
+## Visual Editor
+
+R Studio has visual editor feature. Its very handy to see output instantly without delay. To use this toogle `Source` and `Visual` options.
+
+![R Markdown Visual editor for latex syntax for pdf of binomial equation](2024-06-30%20at%2022.41.20_127ab6f3.jpg)
+*R Markdown Latex Visual editor*
+
+
 Now you are ready to go . 
