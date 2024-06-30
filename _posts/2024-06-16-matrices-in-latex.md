@@ -1,6 +1,7 @@
 ---
 title: Matrices in LaTeX
 description: Create matrices in LaTeX using various environments and commands, including matrix types, matrix operations, and useful tips for formatting.
+tags: [latex]
 ---
  
 
