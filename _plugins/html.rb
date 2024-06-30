@@ -17,7 +17,13 @@
       content.gsub!(%r{<a\s+href="((?!mailto:|tel:|#{Regexp.escape(site_url)}|http://localhost:4000|/|#)[^"]+)"(?![^>]*rel=)}, 
                     "<a href=\"\\1?ref=#{site_url.gsub('https://', '')}\" target=\"_blank\" rel=\"nofollow noopener noreferrer\"")
 
+      # Wrap <table> tags with <div class="table"> // style="overflow-x:auto;"
+      content.gsub!(/<table(.*?)>/m, '<div style="overflow-x:auto;"><table\1>')
+      content.gsub!(/<\/table>/m, '</table></div>')
 
+      # Remove meta tag with name="generator"
+      content.gsub!(/<meta\s+name=["']generator["'][^>]*>/i, '')         
+         
       # Remove trailing spaces before self-closing tag (/>)
       content.gsub!(/\s\/>/, '>')
 
