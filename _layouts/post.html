@@ -3,10 +3,14 @@ layout: default
 ---
 
 <article>
+
+    {% if page.toc %}
     <details>
         <summary>On This Page</summary>
         {% toc %}
     </details>
+    {% endif %}
+
 {{ content }}
 
 </article>
