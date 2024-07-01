@@ -2,6 +2,7 @@
 title: "Remove Date from Jekyll Posts"
 description: "How to remove the date from Jekyll post URLs and date from filenames."
 date: 2024-06-29
+image: "/assets/img/2024/07/01/1240701_093120464.jpg"
 tags: [jekyll,web,tips]
 ---
 
