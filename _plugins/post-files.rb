@@ -82,13 +82,16 @@ module Jekyll
   
           # Jekyll.logger.warn("[PostFiles]", "postdirs: #{docs_with_dirs.map{|doc| Pathname.new(doc.path).dirname}}")
   
+          processed_assets = Set.new
           assets = docs_with_dirs.map do |doc|
             dest_dir = Pathname.new(doc.destination("")).dirname
             Pathname.new(doc.path).dirname.instance_eval do |postdir|
               Dir[postdir + "**/*"]
                 .reject { |fname| fname =~ FIXED_DATE_FILENAME_MATCHER }
                 .reject { |fname| File.directory? fname }
+                .reject { |fname| processed_assets.include?(fname) }
                 .map do |fname|
+                  processed_assets.add(fname)
                   asset_abspath = Pathname.new fname
                   srcroot_to_asset = asset_abspath.relative_path_from(site_srcroot)
                   srcroot_to_assetdir = srcroot_to_asset.dirname
