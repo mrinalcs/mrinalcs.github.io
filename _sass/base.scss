@@ -151,6 +151,8 @@ header,main {
 pre {
   code{
     padding: 0;
+    background-color: transparent;
+    white-space: unset;    
   }
   color: var(--t);
   background-color: var(--bs);
