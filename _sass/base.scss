@@ -227,20 +227,48 @@ figcaption {
   
 }
 
-table {
-  border-collapse: collapse;
+table { 
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--ts); 
+  
+td, th {
+  padding: 8px;
   text-align: left;
-    display: block;
-    width: 100%;
-    width: max-content;
-    max-width: 100%;
-    overflow: auto;  
+  border-right: 1px solid var(--ts);  
+  border-bottom: 1px solid var(--ts);  
+}
+ 
+tr:nth-child(even) {
+  background-color: var(--bs); 
 }
 
- td, th {
-  border: 1px solid #ddd;
-  padding: 5px;
+/* Header styles */
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #007348;
+  color: white;
+  border-top: none; 
 }
+ 
+tr:first-child th:last-child { 
+  border-right: none;  
+}
+ 
+tr td:last-child {
+  border-right: none;
+}
+ 
+tr:last-child td {
+  border-bottom: none;
+}
+
+}
+ 
 
 
  
