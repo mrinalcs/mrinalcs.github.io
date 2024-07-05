@@ -1,0 +1,43 @@
+ 
+
+@font-face {
+    font-family: 'Syne';
+    src: url('../font/Syne/static/Syne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Syne';
+    src: url('../font/Syne/static/Syne-Medium.ttf') format('truetype');
+    font-weight: 500; /* Medium */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Syne';
+    src: url('../font/Syne/static/Syne-SemiBold.ttf') format('truetype');
+    font-weight: 600; /* SemiBold */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Syne';
+    src: url('../font/Syne/static/Syne-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Syne';
+    src: url('../font/Syne/static/Syne-ExtraBold.ttf') format('truetype');
+    font-weight: 800; /* ExtraBold */
+    font-style: normal;
+  }
+  
+
+
+
+ 
+
+  * {  font-family: "Syne";}  
