@@ -92,5 +92,3 @@ Now when new submission will be done this sheet will be automatically updated.
 
 You have now successfully set up an HTML form that submits data to Google Sheets via Google Forms. This method is straightforward and integrates  with Google's ecosystem, offering a convenient way to manage and analyze form submissions. 
 
-
-To add this form submission to a jekyll site.
