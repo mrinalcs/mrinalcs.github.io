@@ -7,6 +7,7 @@ tags: [web,tips]
 
 Here, we'll explore how to create a simple HTML form and submit its data to Google Sheets using Google Forms. This may be helpfull to get submission in a static site. This page also you will find a form where you can drop something :) [go](#formContainer).
 
+ 
 
 ## Create a Google Form:
 
@@ -17,7 +18,7 @@ Add the necessary fields (e.g., name, email) to your form.
 
 Send this google form via [link](https://docs.google.com/forms/d/e/1FAIpQLSeXElMhFkfRfFOMJIQgUJa0mi9lrNUExF04AN4BNsI3AsTpRw/viewform?usp=sf_link) and copy that link.
 
-![](Annotation%202024-07-05%20100806.jpg)
+![Google form share link page](Annotation%202024-07-05%20100806.jpg)
 
 
 ## Get HTML Form
@@ -42,7 +43,7 @@ Get  `https://docs.google.com/forms/u/0/d/e/1FAIpQLSeXElMhFkfRfFOMJIQgUJa0mi9lrN
 
 and add name attribute values which you can get from  `FB_PUBLIC_LOAD_DATA` by inspecting the page
 
-![](Annotation%202024-07-05%20104401.jpg)
+![get response url rfom inspecting the page](Annotation%202024-07-05%20104401.jpg)
 
 ```html
 <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeXElMhFkfRfFOMJIQgUJa0mi9lrNUExF04AN4BNsI3AsTpRw/formResponse" method="POST">
@@ -69,24 +70,27 @@ There is a existing site that does this in snap.
 
 Go to [Google Forms HTML Exporter](https://stefano.brilli.me/google-forms-html-exporter/) and paste the link you copied. `Get the html` you get html code of the form and output , you can fill the form here to check form is working.
 
-![](Annotation%202024-07-05%20101122.jpg)
+![snap from Google Forms HTML Exporter get the html](Annotation%202024-07-05%20101122.jpg)
 
 ## Google Form responses
 
 Open google form response tab to see responses submited.
 
-![](Annotation%202024-07-05%20101305.jpg)
+![Google form responses page](Annotation%202024-07-05%20101305.jpg)
 
 ## Google Sheet responses
 
 
 Now you can creat a **Google Sheet** 
  
-![](Annotation%202024-07-05%20101803.jpg)
+![google sheet creat from google form](Annotation%202024-07-05%20101803.jpg)
 
 Now when new submission will be done this sheet will be automatically updated.
 
-![](Annotation%202024-07-05%20103354.jpg)
+![google sheet of responses](Annotation%202024-07-05%20103354.jpg)
  
 
 You have now successfully set up an HTML form that submits data to Google Sheets via Google Forms. This method is straightforward and integrates  with Google's ecosystem, offering a convenient way to manage and analyze form submissions. 
+
+
+To add this form submission to a jekyll site.
