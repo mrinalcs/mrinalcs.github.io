@@ -426,6 +426,44 @@ function initSearch() {
 }
 
 
+// copy clipboard
+
+function initCodeCopyBtn() {
+  var codeBlocks = document.querySelectorAll('pre.highlight');
+
+  codeBlocks.forEach(function (codeBlock) {
+    // Create a container to position the button
+    var buttonContainer = document.createElement('div');
+    buttonContainer.className = 'copy-container';
+    
+    // Create the copy button
+    var copyButton = document.createElement('button');
+    copyButton.className = 'copy';
+    copyButton.type = 'button';
+    copyButton.setAttribute('aria-label', 'Copy code to clipboard');
+    copyButton.innerText = 'Copy';
+
+    // Append the button to the container
+    buttonContainer.appendChild(copyButton);
+
+    // Append the container to the code block
+    codeBlock.appendChild(buttonContainer);
+
+    // Event listener for the copy button
+    copyButton.addEventListener('click', function () {
+      var code = codeBlock.querySelector('code').innerText.trim();
+      window.navigator.clipboard.writeText(code);
+
+      copyButton.innerText = 'Copied';
+      var fourSeconds = 4000;
+
+      setTimeout(function () {
+        copyButton.innerText = 'Copy';
+      }, fourSeconds);
+    });
+  });
+}
+
     // Function to initialize on initial page load
     function init() {
       initMathJax();
@@ -434,6 +472,7 @@ function initSearch() {
       initLightenseImages();
       initPhotoswipe(); 
       initSearch();
+      initCodeCopyBtn();
       {% if jekyll.environment == 'production' %}
       initGoogleTagManager();
       {% endif %}
