@@ -466,6 +466,8 @@ function initCodeCopyBtn() {
 
 
 function initComments() {
+  const commentSection = document.getElementById('comment-section');
+  if (commentSection) {
   // Function to format the comment's date to our desired format
   function formatDate(stringDate) {
       const dateTimeParts = stringDate.split(' ');
@@ -617,6 +619,7 @@ function initComments() {
       commentForm.addEventListener('submit', postComment);
   }
 } 
+}
 
     // Function to initialize on initial page load
     function init() {
