@@ -468,158 +468,183 @@ function initCodeCopyBtn() {
 function initComments() {
   const commentSection = document.getElementById('comment-section');
   if (commentSection) {
-  // Function to format the comment's date to our desired format
-  function formatDate(stringDate) {
-      const dateTimeParts = stringDate.split(' ');
-      const datePart = dateTimeParts[0]; // Date part like "7/12/2024"
-      let timePart = dateTimeParts[1]; // Time part like "23:32:54"
+      // Function to format the comment's date to our desired format
+      function formatDate(stringDate) {
+          const dateTimeParts = stringDate.split(' ');
+          const datePart = dateTimeParts[0]; // Date part like "7/12/2024"
+          let timePart = dateTimeParts[1]; // Time part like "23:32:54"
 
-      // Parse hours, minutes, and seconds from time part
-      const [hours, minutes, seconds] = timePart.split(':');
+          // Parse hours, minutes, and seconds from time part
+          const [hours, minutes, seconds] = timePart.split(':');
 
-      // Convert hours to 12-hour format and determine AM/PM
-      let ampm = 'AM';
-      let formattedHours = parseInt(hours, 10);
-      if (formattedHours >= 12) {
-          ampm = 'PM';
-          if (formattedHours > 12) {
-              formattedHours -= 12;
+          // Convert hours to 12-hour format and determine AM/PM
+          let ampm = 'AM';
+          let formattedHours = parseInt(hours, 10);
+          if (formattedHours >= 12) {
+              ampm = 'PM';
+              if (formattedHours > 12) {
+                  formattedHours -= 12;
+              }
           }
-      }
-      if (formattedHours === 0) {
-          formattedHours = 12; // 12 AM case
-      }
-
-      // Format time in HH:mm:ss AM/PM format
-      timePart = `${formattedHours}:${minutes}:${seconds} ${ampm}`;
-
-      return `${datePart} at ${timePart}`;
-  }
-
-  // Function to escape HTML special characters
-  function escapeHtml(text) {
-      var map = {
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#039;'
-      };
-      return text.replace(/[&<>"']/g, function(m) { return map[m]; });
-  }
-
-  // Function to parse CSV data
-  function parseCsv(data) {
-      const lines = data.trim().split('\n');
-      const result = [];
-
-      lines.forEach(line => {
-          const values = line.split(',');
-          const timestamp = values[0].replace(/"/g, ''); // Remove double quotes around timestamp
-          const name = values[1].replace(/"/g, ''); // Remove double quotes around name
-          const comment = values[2].replace(/"/g, ''); // Remove double quotes around comment
-
-          result.push({ timestamp, name, comment });
-      });
-
-      return result;
-  }
-
-  // Function to display comments
-  function displayComments(comments) {
-      const noComments = document.getElementById('no-comments');
-      const commentSection = document.getElementById('commentSection');
-
-      if (!comments) {
-          if (visibleComments.length === 0) {
-              noComments.style.display = 'block';
+          if (formattedHours === 0) {
+              formattedHours = 12; // 12 AM case
           }
-          return;
+
+          // Format time in HH:mm:ss AM/PM format
+          timePart = `${formattedHours}:${minutes}:${seconds} ${ampm}`;
+
+          return `${datePart} at ${timePart}`;
       }
 
-      const commentList = parseCsv(comments);
+      // Function to escape HTML special characters
+      function escapeHtml(text) {
+          var map = {
+              '&': '&amp;',
+              '<': '&lt;',
+              '>': '&gt;',
+              '"': '&quot;',
+              "'": '&#039;'
+          };
+          return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+      }
 
-      commentList.forEach(element => {
-          if (visibleComments.includes(JSON.stringify(element))) {
+      // Function to parse CSV data
+      function parseCsv(data) {
+          const lines = data.trim().split('\n');
+          const result = [];
+
+          lines.forEach(line => {
+              const values = line.split(',');
+              const timestamp = values[0].replace(/"/g, ''); // Remove double quotes around timestamp
+              const name = values[1].replace(/"/g, ''); // Remove double quotes around name
+              const comment = values[2].replace(/"/g, ''); // Remove double quotes around comment
+
+              result.push({ timestamp, name, comment });
+          });
+
+          return result;
+      }
+
+      // Function to display comments
+      function displayComments(comments) {
+          const noComments = document.getElementById('no-comments');
+          const commentSection = document.getElementById('commentSection');
+
+          if (!comments) {
+              if (visibleComments.length === 0) {
+                  noComments.style.display = 'block';
+              }
               return;
           }
 
-          const newItem = document.createElement('div');
-          newItem.className = 'comment-item';
-          newItem.innerHTML = `
-              <p class="commenter-name">${escapeHtml(element.name)}<small>${formatDate(element.timestamp)}</small></p>
-              <div>
-                  <p>${escapeHtml(element.comment).replace(/\r?\n/g, '<br />')}</p>
-              </div>
-          `;
+          const commentList = parseCsv(comments);
 
-          newItem.style.display = 'none';
-          commentSection.appendChild(newItem);
-          newItem.style.display = 'block';
-          visibleComments.push(JSON.stringify(element));
+          commentList.forEach(element => {
+              if (visibleComments.includes(JSON.stringify(element))) {
+                  return;
+              }
 
-          noComments.style.display = 'none';
-      });
-  }
+              const newItem = document.createElement('div');
+              newItem.className = 'comment-item';
+              newItem.innerHTML = `
+                  <p class="commenter-name">${escapeHtml(element.name)}<small>${formatDate(element.timestamp)}</small></p>
+                  <div>
+                      <p>${escapeHtml(element.comment).replace(/\r?\n/g, '<br />')}</p>
+                  </div>
+              `;
 
-  // Function to reload comments
-  function reloadComments() {
-      const sqlStatement = encodeURIComponent(`SELECT A, C, D, E WHERE B = '${thisPageUrl}'`);
-      fetch(`{{ site.comment-read }}/gviz/tq?tqx=out:csv&sheet=comments&tq=${sqlStatement}&headers=0`)
-          .then(response => response.text())
-          .then(response => displayComments(response));
-  }
+              newItem.style.display = 'none';
+              commentSection.appendChild(newItem);
+              newItem.style.display = 'block';
+              visibleComments.push(JSON.stringify(element));
 
-  // Function to encode form data
-  function encodeFormData(data) {
-      return Object.keys(data)
-          .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-          .join('&');
-  }
+              noComments.style.display = 'none';
+          });
+      }
 
-  // Function to post a comment
-  function postComment(event) {
-      event.preventDefault();
-      const username = document.getElementById('comment-name').value;
-      const comment = document.getElementById('comment-comment').value;
+      // Function to reload comments
+      function reloadComments() {
+          const sqlStatement = encodeURIComponent(`SELECT A, C, D, E WHERE B = '${thisPageUrl}'`);
+          fetch(`{{ site.comment-read }}/gviz/tq?tqx=out:csv&sheet=comments&tq=${sqlStatement}&headers=0`)
+              .then(response => response.text())
+              .then(response => displayComments(response));
+      }
 
-      fetch(`{{ site.comment-post }}/formResponse`, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-              "Content-Type": "application/x-www-form-urlencoded"
-          },
-          body: encodeFormData({
-              "{{ site.comment-post-fields[0] }}": thisPageUrl,
-              "{{ site.comment-post-fields[1] }}": username,
-              "{{ site.comment-post-fields[2] }}": comment
-          })
-      }).then(() => {
-          document.getElementById('comment-name').value = '';
-          document.getElementById('comment-comment').value = '';
-          reloadComments();
-      }).catch(error => console.log(error));
-      return false;
-  }
+      // Function to encode form data
+      function encodeFormData(data) {
+          return Object.keys(data)
+              .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+              .join('&');
+      }
 
-  // Initialize comments on initial page load
-  const thisPageUrl = window.location.href;
-  let visibleComments = [];
+      // Function to get a cookie value by name
+      function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(';').shift();
+      }
 
-  reloadComments();
+      // Function to set a cookie
+      function setCookie(name, value, days) {
+          const d = new Date();
+          d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+          const expires = `expires=${d.toUTCString()}`;
+          document.cookie = `${name}=${value};${expires};path=/`;
+      }
 
-  // Reload comments when navigating with Swup.js
-  document.addEventListener('swup:contentReplaced', () => {
+      // Function to post a comment
+      function postComment(event) {
+          event.preventDefault();
+          const username = document.getElementById('comment-name').value;
+          const comment = document.getElementById('comment-comment').value;
+
+          setCookie('commenterName', username, 365);
+
+          fetch(`{{ site.comment-post }}/formResponse`, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+              },
+              body: encodeFormData({
+                  "{{ site.comment-post-fields[0] }}": thisPageUrl,
+                  "{{ site.comment-post-fields[1] }}": username,
+                  "{{ site.comment-post-fields[2] }}": comment
+              })
+          }).then(() => {
+              document.getElementById('comment-comment').value = '';
+              reloadComments();
+          }).catch(error => console.log(error));
+          return false;
+      }
+
+      // Initialize comments on initial page load
+      const thisPageUrl = window.location.href;
+      let visibleComments = [];
+
       reloadComments();
-  });
 
-  // Attach submit event listener to comment form
-  const commentForm = document.getElementById('comment-form');
-  if (commentForm) {
-      commentForm.addEventListener('submit', postComment);
+      // Reload comments when navigating with Swup.js
+      document.addEventListener('swup:contentReplaced', () => {
+          reloadComments();
+      });
+
+      // Attach submit event listener to comment form
+      const commentForm = document.getElementById('comment-form');
+      if (commentForm) {
+          commentForm.addEventListener('submit', postComment);
+      }
+
+      // Pre-fill the username field if the cookie exists
+      const commenterName = getCookie('commenterName');
+      if (commenterName) {
+          document.getElementById('comment-name').value = commenterName;
+      }
   }
-} 
 }
+
+
+
 
     // Function to initialize on initial page load
     function init() {
