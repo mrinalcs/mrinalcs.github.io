@@ -110,12 +110,11 @@ pre {
     white-space: unset;    
   }
   color: var(--t);
-  background-color: var(--bs);
-  border: solid var(--ts) 1px;
+
   padding: 20px 15px;
   margin: 10px 0;
   overflow: auto;
-  border-radius: 10px;
+  
   -ms-overflow-style: none;
   scrollbar-width: none;
   font-size: 85%;

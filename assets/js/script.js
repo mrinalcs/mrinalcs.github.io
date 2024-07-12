@@ -446,8 +446,8 @@ function initCodeCopyBtn() {
     // Append the button to the container
     buttonContainer.appendChild(copyButton);
 
-    // Append the container to the code block
-    codeBlock.appendChild(buttonContainer);
+    // Append the container after the code block
+    codeBlock.parentNode.insertBefore(buttonContainer, codeBlock.nextSibling);
 
     // Event listener for the copy button
     copyButton.addEventListener('click', function () {

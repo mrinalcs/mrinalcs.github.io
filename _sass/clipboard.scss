@@ -1,33 +1,34 @@
-pre.highlight {
-    position: relative;
-  }
-  
-  .copy-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 8px;
-  }
-  
+ 
   .copy {
-    background-color: #003f8290;
-    color: #fff;
+    background-color: var(--bs);
+    color: var(--t);
     border: none;
     padding: 4px 8px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 30px;
   }
   
  
-pre.highlight > .copy-container {
-    opacity: 0;
+ div.highlight{
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--bs);
+  border-radius: 10px;
+  border: solid var(--ts) 1px;
+  margin-top: 30px;
+  pre{
+    margin: 0;
   }
+ }
+
+ .copy-container {
+  display: none;
+
+}
+
+div.highlight:hover {
+  .copy-container {
+    display: block;
   
-  pre.highlight:hover > .copy-container {
-    opacity: 1;
   }
-  
-  pre.highlight > .copy-container:active,
-  pre.highlight > .copy-container:focus {
-    opacity: 1;
-  }  
+}
