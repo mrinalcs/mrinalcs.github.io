@@ -1,0 +1,27 @@
+{% if site.comment-read %}
+ 
+<div id="comment-section">
+	<h4 class="post-subtitle">Comments</h4>
+<div id="commentSection" class="comments">
+	<div id="no-comments" class="post-info">
+		<p>There are currently no comments on this article, be the first to add one below</p>
+	</div>
+</div>
+<h4 class="post-subtitle">Add a Comment</h4>
+<div class="comments">
+	<div class="post-info">
+		<p> be patient.</p>
+	</div>	
+	<div class="comments-form">
+		<form id="comment-form"  >
+			<ul>
+				<li><input id="comment-name" name="username" type="text" placeholder="Name" required></li>
+				<li><textarea id="comment-comment" name="comment" placeholder="Comment" required></textarea></li>
+				<li><input id="comment-submit" type="submit" value="Post"></li>
+			</ul>
+		</form>
+	</div>
+</div>
+</div>
+
+{% endif %}
