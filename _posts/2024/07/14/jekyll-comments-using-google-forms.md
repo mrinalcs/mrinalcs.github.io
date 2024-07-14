@@ -2,6 +2,7 @@
 title: Jekyll comments using Google forms
 description: Setup comments system in jekyll static sites using Google forms and fetching from Google Sheets using js
 date: 2024-07-14
+image: "1841104.jpg"
 tags: [jekyll,web,tips]
 redirect_from:
   - /add-comments-to-jekyll
