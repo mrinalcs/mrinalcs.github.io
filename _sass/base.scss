@@ -311,3 +311,21 @@ ul.post-list {
 .suggestion-link{
   margin: 10px 0;
 }
+
+// Blackquote  
+blockquote {
+  padding: 1.2em 30px 1.2em 50px;
+  position: relative;
+  background-color: #fafafa;
+  margin: 30px 0;
+}
+
+blockquote::before {
+  font-family: Arial;
+  content: "\201C";
+  color: #78c0a8;
+  font-size: 4em;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+}
