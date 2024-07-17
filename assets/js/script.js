@@ -483,7 +483,45 @@ function initCodeCopyBtn() {
   });
 }
 
+function initTimeAgo() {
+  // Select all time elements
+  var postTimeElements = document.querySelectorAll('time');
+  
+  // Loop through each time element
+  postTimeElements.forEach(function (postTimeElem) {
+    // Get the datetime attribute value
+    var postDateTime = postTimeElem.getAttribute('datetime');
+    if (!postDateTime) return;
 
+    // Parse the datetime string to a Date object
+    var postDate = new Date(postDateTime);
+    var currentDate = new Date();
+
+    // Calculate the time difference in various units
+    var timeDiff = currentDate.getTime() - postDate.getTime();
+    var secondsDiff = timeDiff / 1000;
+    var minutesDiff = secondsDiff / 60;
+    var hoursDiff = minutesDiff / 60;
+    var daysDiff = hoursDiff / 24;
+    var monthsDiff = daysDiff / 30;
+    var yearsDiff = monthsDiff / 12;
+
+    // Determine the appropriate time ago format
+    var timeAgoText = '';
+    if (yearsDiff >= 1) {
+      timeAgoText = Math.floor(yearsDiff) + ' year' + (Math.floor(yearsDiff) > 1 ? 's' : '') + ' ago';
+    } else if (monthsDiff >= 1) {
+      timeAgoText = Math.floor(monthsDiff) + ' month' + (Math.floor(monthsDiff) > 1 ? 's' : '') + ' ago';
+    } else if (daysDiff >= 1) {
+      timeAgoText = Math.floor(daysDiff) + ' day' + (Math.floor(daysDiff) > 1 ? 's' : '') + ' ago';
+    }
+
+    // Append the time ago text to the time element
+    if (timeAgoText) {
+      postTimeElem.textContent += ' (' + timeAgoText + ')';
+    }
+  });
+}
 
 function initComments() {
   const commentSection = document.getElementById('comment-section');
@@ -675,6 +713,7 @@ function initComments() {
       initPhotoswipe(); 
       initSearch();
       initCodeCopyBtn();
+      initTimeAgo()
       initComments();
 
       {% if jekyll.environment == 'production' %}
