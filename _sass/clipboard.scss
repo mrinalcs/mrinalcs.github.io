@@ -1,17 +1,22 @@
  
   .copy {
-    background-color: var(--bs);
+    background-color: #8988882e;
     color: var(--t);
     border: none;
     padding: 4px 8px;
     cursor: pointer;
     border-radius: 30px;
   }
-  
+
+  .copy-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    background: #8988882e;
+    border-radius: 10px   10px 0 0;
+}  
  
  div.highlight{
-  display: flex;
-  justify-content: space-between;
   background-color: var(--bs);
   border-radius: 10px;
   border: solid var(--ts) 1px;
@@ -20,15 +25,4 @@
     margin: 0;
   }
  }
-
- .copy-container {
-  display: none;
-
-}
-
-div.highlight:hover {
-  .copy-container {
-    display: block;
-  
-  }
-}
+ 

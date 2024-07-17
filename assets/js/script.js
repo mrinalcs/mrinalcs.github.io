@@ -429,13 +429,18 @@ function initSearch() {
 // copy clipboard
 
 function initCodeCopyBtn() {
+  // Select all code blocks
   var codeBlocks = document.querySelectorAll('pre.highlight');
 
+  // Loop through each code block
   codeBlocks.forEach(function (codeBlock) {
-    // Create a container to position the button
+    // Get the parent div containing file or language information
+    var parentDiv = codeBlock.closest('div.highlighter-rouge');
+
+    // Create a container for positioning the button
     var buttonContainer = document.createElement('div');
     buttonContainer.className = 'copy-container';
-    
+
     // Create the copy button
     var copyButton = document.createElement('button');
     copyButton.className = 'copy';
@@ -443,26 +448,41 @@ function initCodeCopyBtn() {
     copyButton.setAttribute('aria-label', 'Copy code to clipboard');
     copyButton.innerText = 'Copy';
 
-    // Append the button to the container
+    // Create the display label (for file name or language)
+    var label = document.createElement('div');
+    label.className = 'code-label';
+
+    // Check for file name or use language as fallback
+    var fileName = parentDiv.getAttribute('file');
+    var language = parentDiv.getAttribute('class').split(' ')[0].replace('language-', '');
+    label.innerText = fileName ? fileName : language;
+
+    // Append the label and button to the container
+    buttonContainer.appendChild(label);
     buttonContainer.appendChild(copyButton);
 
-    // Append the container after the code block
-    codeBlock.parentNode.insertBefore(buttonContainer, codeBlock.nextSibling);
+    // Insert the container after the code block
+    codeBlock.parentNode.insertBefore(buttonContainer, codeBlock);
 
-    // Event listener for the copy button
+    // Add event listener for the copy button
     copyButton.addEventListener('click', function () {
       var code = codeBlock.querySelector('code').innerText.trim();
-      window.navigator.clipboard.writeText(code);
+      window.navigator.clipboard.writeText(code).then(function() {
+        // On success, change the button text to 'Copied'
+        copyButton.innerText = 'Copied';
 
-      copyButton.innerText = 'Copied';
-      var fourSeconds = 4000;
-
-      setTimeout(function () {
-        copyButton.innerText = 'Copy';
-      }, fourSeconds);
+        // Reset the button text after 4 seconds
+        setTimeout(function () {
+          copyButton.innerText = 'Copy';
+        }, 4000);
+      }, function() {
+        // Handle the error case
+        copyButton.innerText = 'Failed';
+      });
     });
   });
 }
+
 
 
 function initComments() {
