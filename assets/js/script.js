@@ -774,7 +774,7 @@ function initExtLinkHandler() {
     } else {
       modalMessage.textContent = 'Do you want to proceed to this external link?';
       var displayText = link.textContent.trim();
-      var urlWithoutParams = link.href.split('?')[0]; // Get URL without query parameters
+      var urlWithoutParams = link.href.replace(/\?ref=.*$/,''); // Get URL without query parameters
       var params = link.href.split('?')[1]; // Get query parameters
 
       // Check if display text matches the URL and decide whether to show parentheses
