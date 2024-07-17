@@ -585,12 +585,14 @@ function initComments() {
 
       // Function to display comments
       function displayComments(comments) {
-          const noComments = document.getElementById('no-comments');
+          const noComments = document.getElementById('comments-list');
           const commentSection = document.getElementById('commentSection');
 
           if (!comments) {
               if (visibleComments.length === 0) {
                   noComments.style.display = 'block';
+                  noComments.textContent = "There are currently no comments on this post, be the first to add one below";
+
               }
               return;
           }
