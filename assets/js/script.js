@@ -781,7 +781,7 @@ function initExtLinkHandler() {
       if (displayText === urlWithoutParams) {
         linkInfo.textContent = displayText;
       } else {
-        linkInfo.textContent = displayText + ' (' + link.href + ')';
+        linkInfo.textContent = displayText + ' (' + urlWithoutParams + ')';
       }
     }
 
