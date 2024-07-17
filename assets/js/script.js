@@ -772,7 +772,7 @@ function initExtLinkHandler() {
       modalMessage.textContent = 'Do you want to call this number?';
       linkInfo.textContent = link.href.replace('tel:', '');
     } else {
-      modalMessage.textContent = 'Do you want to proceed to this external link?';
+      modalMessage.textContent = 'Do you want to proceed to this link?';
       var displayText = link.textContent.trim();
       var urlWithoutParams = link.href.replace(/\?ref=.*$/,''); // Get URL without query parameters
       var params = link.href.split('?')[1]; // Get query parameters
