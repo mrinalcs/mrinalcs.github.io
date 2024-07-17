@@ -773,10 +773,15 @@ function initExtLinkHandler() {
       linkInfo.textContent = link.href.replace('tel:', '');
     } else {
       modalMessage.textContent = 'Do you want to proceed to this external link?';
-      if (link.textContent !== link.href) {
-        linkInfo.textContent = link.textContent + ' (' + link.href + ')';
+      var displayText = link.textContent.trim();
+      var urlWithoutParams = link.href.split('?')[0]; // Get URL without query parameters
+      var params = link.href.split('?')[1]; // Get query parameters
+
+      // Check if there are parameters and exclude only '?ref='
+      if (params && params.startsWith('ref=')) {
+        linkInfo.textContent = displayText + ' (' + urlWithoutParams + ')';
       } else {
-        linkInfo.textContent = link.href;
+        linkInfo.textContent = displayText + ' (' + link.href + ')';
       }
     }
 
