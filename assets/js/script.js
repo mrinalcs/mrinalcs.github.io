@@ -701,6 +701,139 @@ function initComments() {
   }
 }
 
+function initExtLinkHandler() {
+  // Check if the modal already exists
+  var existingModal = document.getElementById('myModal');
+  if (!existingModal) {
+    // Create the modal elements
+    var modal = document.createElement('div');
+    modal.id = 'myModal';
+    modal.className = 'modal';
+    
+    var modalContent = document.createElement('div');
+    modalContent.className = 'modal-content';
+    
+    var closeSpan = document.createElement('span');
+    closeSpan.className = 'close';
+    closeSpan.innerHTML = '&times;';
+    modalContent.appendChild(closeSpan);
+    
+    var messageP = document.createElement('p');
+    messageP.id = 'modalMessage';
+    modalContent.appendChild(messageP);
+    
+    var linkInfoP = document.createElement('p');
+    linkInfoP.id = 'linkInfo';
+    modalContent.appendChild(linkInfoP);
+    
+    var buttonContainer = document.createElement('p');
+    
+    var cancelLink = document.createElement('a');
+    cancelLink.href = '#';
+    cancelLink.id = 'modalCancel';
+    cancelLink.textContent = 'Cancel';
+    buttonContainer.appendChild(cancelLink);
+    
+    var confirmLink = document.createElement('a');
+    confirmLink.href = '#';
+    confirmLink.id = 'modalConfirm';
+    confirmLink.textContent = 'Yes, Proceed';
+    confirmLink.target = '_blank'; // Open in a new tab
+    buttonContainer.appendChild(confirmLink);
+    
+    modalContent.appendChild(buttonContainer);
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+  }
+
+  // Get the modal and its elements
+  var modal = document.getElementById('myModal');
+  var modalContent = modal.querySelector('.modal-content');
+  var closeSpan = modal.querySelector('.close');
+  var modalMessage = document.getElementById('modalMessage');
+  var modalConfirm = document.getElementById('modalConfirm');
+  var modalCancel = document.getElementById('modalCancel');
+  var linkInfo = document.getElementById('linkInfo');
+
+  // Function to open modal and handle link click
+  function openModal(link) {
+    modal.style.display = 'block';
+    setTimeout(function() {
+      modal.style.opacity = '1';
+      modalContent.style.opacity = '1';
+      modalContent.style.transform = 'translateY(0)';
+    }, 50);
+
+    // Determine the message based on the link type
+    if (link.href.startsWith('mailto:')) {
+      modalMessage.textContent = 'Do you want to send an email to this address?';
+      linkInfo.textContent = link.href.replace('mailto:', '');
+    } else if (link.href.startsWith('tel:')) {
+      modalMessage.textContent = 'Do you want to call this number?';
+      linkInfo.textContent = link.href.replace('tel:', '');
+    } else {
+      modalMessage.textContent = 'Do you want to proceed to this external link?';
+      if (link.textContent !== link.href) {
+        linkInfo.textContent = link.textContent + ' (' + link.href + ')';
+      } else {
+        linkInfo.textContent = link.href;
+      }
+    }
+
+    // Set the href of modalConfirm to the clicked link
+    modalConfirm.href = link.href;
+
+    // Handle click on modalConfirm (proceed to external link)
+    modalConfirm.onclick = function(event) {
+      event.preventDefault(); // Prevent default action to handle it manually
+      closeModal();
+      window.open(link.href, '_blank'); // Open link in a new tab
+    };
+
+    // Handle click on modalCancel
+    modalCancel.onclick = function(event) {
+      event.preventDefault();
+      closeModal();
+    };
+  }
+
+  // Function to close modal
+  function closeModal() {
+    modal.style.opacity = '0';
+    modalContent.style.opacity = '0';
+    modalContent.style.transform = 'translateY(-10px)';
+    setTimeout(function() {
+      modal.style.display = 'none';
+    }, 200); // Adjust the timeout to match the transition duration
+  }
+
+  // Add click event listeners to external links
+  document.querySelectorAll('a[href^="http"], a[href^="mailto:"], a[href^="tel:"]').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      openModal(link);
+    });
+  });
+
+  // Close modal if clicked outside the modal content
+  window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close modal if ESC key is pressed
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // Close modal when clicking the close icon (×)
+  closeSpan.addEventListener('click', function() {
+    closeModal();
+  });
+}
 
 
 
@@ -713,9 +846,9 @@ function initComments() {
       initPhotoswipe(); 
       initSearch();
       initCodeCopyBtn();
-      initTimeAgo()
+      initTimeAgo();
       initComments();
-
+      initExtLinkHandler();
       {% if jekyll.environment == 'production' %}
       initGoogleTagManager();
       {% endif %}
