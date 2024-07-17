@@ -777,9 +777,9 @@ function initExtLinkHandler() {
       var urlWithoutParams = link.href.split('?')[0]; // Get URL without query parameters
       var params = link.href.split('?')[1]; // Get query parameters
 
-      // Check if there are parameters and exclude only '?ref='
-      if (params && params.startsWith('ref=')) {
-        linkInfo.textContent = displayText + ' (' + urlWithoutParams + ')';
+      // Check if display text matches the URL and decide whether to show parentheses
+      if (displayText === urlWithoutParams) {
+        linkInfo.textContent = displayText;
       } else {
         linkInfo.textContent = displayText + ' (' + link.href + ')';
       }
@@ -839,6 +839,7 @@ function initExtLinkHandler() {
     closeModal();
   });
 }
+
 
 
 
