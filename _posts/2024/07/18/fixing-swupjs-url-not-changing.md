@@ -32,7 +32,7 @@ In this example:
 Replace "your-container" with the selector of the container where Swup.js performs transitions.
 Adding "link[rel='canonical']" to the containers array instructs Swup.js to update the canonical URL along with the content transition.
 
-## Using Swup.js Head Plugin
+### Using Swup.js Head Plugin
 Alternatively, you can use the Swup.js Head Plugin to update the entire <head> section of your document, including the canonical URL. This method ensures that all metadata, including titles, descriptions, and canonical URLs, are updated correctly.
 
 ```javascript
