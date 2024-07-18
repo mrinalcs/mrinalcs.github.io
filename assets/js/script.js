@@ -570,17 +570,33 @@ function initComments() {
       function parseCsv(data) {
           const lines = data.trim().split('\n');
           const result = [];
+          let currentComment = [];
 
           lines.forEach(line => {
-              const values = line.split(',');
-              const timestamp = values[0].replace(/"/g, ''); // Remove double quotes around timestamp
-              const name = values[1].replace(/"/g, ''); // Remove double quotes around name
-              const comment = values[2].replace(/"/g, ''); // Remove double quotes around comment
-
-              result.push({ timestamp, name, comment });
+              if (line.startsWith('"')) {
+                  if (currentComment.length > 0) {
+                      result.push(currentComment.join('\n'));
+                  }
+                  currentComment = [line];
+              } else {
+                  currentComment.push(line);
+              }
           });
 
-          return result;
+          if (currentComment.length > 0) {
+              result.push(currentComment.join('\n'));
+          }
+
+          return result.map(comment => {
+              const values = comment.match(/(?:[^,"']+|"(?:\\.|[^"])*"|'(?:\\.|[^'])*')+/g);
+              if (values.length < 3) return null; // Skip rows with insufficient columns
+
+              const timestamp = values[0].replace(/"/g, ''); // Remove double quotes around timestamp
+              const name = values[1].replace(/"/g, ''); // Remove double quotes around name
+              const commentText = values.slice(2).join(',').replace(/"/g, '').replace(/\\n/g, '\n'); // Remove double quotes around comment and handle multiline
+
+              return { timestamp, name, comment: commentText };
+          }).filter(comment => comment !== null);
       }
 
       // Function to display comments
@@ -592,7 +608,6 @@ function initComments() {
               if (visibleComments.length === 0) {
                   noComments.style.display = 'block';
                   noComments.textContent = "There are currently no comments on this post, be the first to add one below";
-
               }
               return;
           }
@@ -702,6 +717,12 @@ function initComments() {
       }
   }
 }
+
+
+
+
+
+
 
 function initExtLinkHandler() {
   // Check if the modal already exists
