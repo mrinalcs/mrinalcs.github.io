@@ -528,30 +528,27 @@ function initComments() {
   if (commentSection) {
       // Function to format the comment's date to our desired format
       function formatDate(stringDate) {
-          const dateTimeParts = stringDate.split(' ');
-          const datePart = dateTimeParts[0]; // Date part like "7/12/2024"
-          let timePart = dateTimeParts[1]; // Time part like "23:32:54"
+          const date = new Date(stringDate);
+          const now = new Date();
+          const diffMs = now - date;
+          const diffSeconds = Math.floor(diffMs / 1000);
+          const diffMinutes = Math.floor(diffSeconds / 60);
+          const diffHours = Math.floor(diffMinutes / 60);
 
-          // Parse hours, minutes, and seconds from time part
-          const [hours, minutes, seconds] = timePart.split(':');
-
-          // Convert hours to 12-hour format and determine AM/PM
-          let ampm = 'AM';
-          let formattedHours = parseInt(hours, 10);
-          if (formattedHours >= 12) {
-              ampm = 'PM';
-              if (formattedHours > 12) {
-                  formattedHours -= 12;
-              }
+          if (diffHours >= 24) {
+              // More than a day ago, format as date and time
+              const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+              return date.toLocaleDateString(undefined, options);
+          } else if (diffHours >= 1) {
+              // Hours ago
+              return `(${diffHours} ${diffHours === 1 ? 'hour' : 'hours'} ago)`;
+          } else if (diffMinutes >= 1) {
+              // Minutes ago
+              return `(${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago)`;
+          } else {
+              // Less than a minute ago
+              return `(just now)`;
           }
-          if (formattedHours === 0) {
-              formattedHours = 12; // 12 AM case
-          }
-
-          // Format time in HH:mm:ss AM/PM format
-          timePart = `${formattedHours}:${minutes}:${seconds} ${ampm}`;
-
-          return `${datePart} at ${timePart}`;
       }
 
       // Function to escape HTML special characters
@@ -717,6 +714,13 @@ function initComments() {
       }
   }
 }
+
+
+
+
+
+
+
 
 
 
