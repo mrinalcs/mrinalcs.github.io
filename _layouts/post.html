@@ -17,7 +17,10 @@ layout: default
 
 
 <!-- {% include contact-form.html %} -->
-
+ 
+{% if jekyll.environment == 'production' %}
 {% include comment-section.html url=page.url %}
+{% endif %}
+
 
 {% include footer.html %}
