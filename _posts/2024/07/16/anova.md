@@ -1,5 +1,5 @@
 ---
-title: Analysis of Variance
+title: Analysis of Variance (ANOVA)
 description: anova
 date: 2024-07-16
 tags: [stat]
