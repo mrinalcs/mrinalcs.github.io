@@ -26,7 +26,7 @@ const swup = new Swup({
 // Function to initialize MathJax
 function initMathJax() {
   // Check for mathematical syntax in the page content
-  if (document.body.innerHTML.match(/\\\(|\\\[|\\begin{.*?}/)) {
+  if (document.body.innerHTML.match(/\\\(|\\\[|\\begin{.*?}|\$/)) {
     if (typeof MathJax === 'undefined') {
       const script = document.createElement('script');
       script.type = 'text/javascript';
