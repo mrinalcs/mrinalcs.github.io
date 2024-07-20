@@ -3,6 +3,7 @@ title: One way Anova manually in r
 description:
 date: 2024-07-20  
 tags: [r-programming]
+image: "191902056.jpg"
 ---
  
 
@@ -170,3 +171,5 @@ msw <- ssw / df_within
 # F-statistic
 f_statistic <- msb / msw
 ```
+
+![R output](Annotation%202024-07-20%20102506.jpg)
