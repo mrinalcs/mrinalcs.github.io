@@ -1,0 +1,37 @@
+---
+title: Tags
+description: All tags
+---
+
+
+<ul id="tags">
+  {% for tag in site.tags %}
+    <li>
+      <a href="{{ site.baseurl }}/{{ tag[0] }}">{{ tag[0] }} <span>({{ tag[1].size }})</span></a> 
+      
+    </li>
+  {% endfor %}
+</ul>
+
+<style>
+#tags {
+    display: flex;
+    gap: 20px;
+   padding-inline-start: 0;
+    flex-wrap: wrap;
+    list-style:none;
+}
+
+#tags > li > a {
+    margin: 5px 0;
+    padding: 10px;
+    background: var(--bs);
+    text-decoration:none;    border-radius: 10px;
+}
+
+#tags > li > a>span {
+    
+       padding: 5px;
+     
+}
+</style>
