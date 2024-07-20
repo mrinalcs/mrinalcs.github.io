@@ -18,3 +18,17 @@
   ::-webkit-scrollbar-thumb:hover {
     background: var(--t); 
   }
+
+
+  // mathjax
+
+
+
+@media only screen and (max-width: 600px) {
+  ::-webkit-scrollbar {
+    height: 0; 
+  }
+  .MJXc-display {
+    overflow-x: scroll;
+}
+}
