@@ -24,7 +24,7 @@ description: All tags
 
 #tags > li > a {
     margin: 5px 0;
-    padding: 10px;
+    padding: 5px 10px;
     background: var(--bs);
     text-decoration:none;    border-radius: 10px;
 }
