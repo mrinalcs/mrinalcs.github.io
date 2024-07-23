@@ -29,7 +29,7 @@ There is a health center in the village. Nearest Primary and high school is [Kas
  
 Farming is the main occupation of people.Fishing is done as subsidiary job also.
 
-![Kakadighi Health Center](kdgi24946ab97.jpg)
+![Kakadighi Health Center](cmpkd00936.jpg)
 *Kakadighi Health Center*
 
 There are few templaes in the village. 
