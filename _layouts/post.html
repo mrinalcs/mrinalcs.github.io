@@ -16,11 +16,15 @@ layout: default
 </article>
 
 
-<!-- {% include contact-form.html %} -->
- 
+
+
 {% if jekyll.environment == 'production' %}
-{% include comment-section.html url=page.url %}
+{% include comment-section.html url=page.url %} 
 {% endif %}
 
 
 {% include footer.html %}
+
+{% include contact-form.html %}
+
+<p>&copy; 2024 Mrinal.</p>
