@@ -1,12 +1,17 @@
 #contactForm {
     display: flex;
     margin: 10px 0;
+
 }
 .hidden {
     display: none;
 }
 #formContainer,#sendingMessage,#responseMessage {
 margin: 100px 0;
+//additional
+    background: red;
+    color: var(--t);
+    padding: 30px;
 }
 /* Styling for form input fields */
 input[type="text"],
@@ -17,7 +22,7 @@ padding: 10px;
 background-color: var(--bs);
 color: var(--t);
 border: none;
-min-width: 200px;
+min-width:50px;
 }
 
 /* Styling for submit button */

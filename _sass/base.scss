@@ -48,6 +48,10 @@ nav {
         text-decoration: none;
         color: var(--ts);
         font-weight: 500;
+        &:hover {
+          text-decoration: none;
+          color: var(--t);
+        }
     }
     .active {
       color: var(--t);
