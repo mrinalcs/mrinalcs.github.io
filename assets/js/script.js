@@ -755,10 +755,10 @@ function initExtLinkHandler() {
     
     var buttonContainer = document.createElement('p');
     
-    var cancelLink = document.createElement('a');
-    cancelLink.href = '#';
+    var cancelLink = document.createElement('span');
+     
     cancelLink.id = 'modalCancel';
-    cancelLink.textContent = 'Cancel';
+    cancelLink.innerHTML = 'Cancel';
     buttonContainer.appendChild(cancelLink);
     
     var confirmLink = document.createElement('a');

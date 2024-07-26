@@ -28,7 +28,7 @@
   }
   
   .close {
-    color: #aaa;
+    color: var(--t);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -37,7 +37,7 @@
   
   .close:hover,
   .close:focus {
-    color: black;
+    color: var(--ts);
     text-decoration: none;
   }
   
@@ -50,3 +50,9 @@
     margin: 0 10px;
   }
   
+  span#modalCancel {
+    cursor: pointer;
+    &:hover{
+      color: var(--ts);
+    }
+}
