@@ -130,8 +130,21 @@ data = np.random.randn(1000)
 
 # Print the first 10 data points as an example
 print(data[:10])
-
 ```
+
+
+### Specific filename
+
+```sass
+@import
+  "colors/light-typography",
+  "colors/dark-typography";
+```
+{: file='_sass/theme.scss'}
+
+
+
+
 
 ## Tables
 
@@ -140,6 +153,12 @@ print(data[:10])
 | John  | 28  | New York     |
 | Jane  | 25  | Los Angeles  |
 
+
+| Company                      | Contact          | Country |
+| :--------------------------- | :--------------- | ------: |
+| Alfreds Futterkiste          | Maria Anders     | Germany |
+| Island Trading               | Helen Bennett    |      UK |
+| Magazzini Alimentari Riuniti | Giovanni Rovelli |   Italy |
 
  
 
@@ -289,3 +308,18 @@ graph TD;
 ---
 ```
 ---
+
+
+
+## Dfinition
+
+HTML
+: Hypertext Markup Language, a standardized system for tagging text files.
+
+CSS
+: Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.
+
+
+
+
+
