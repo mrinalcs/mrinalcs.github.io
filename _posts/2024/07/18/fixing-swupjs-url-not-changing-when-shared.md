@@ -17,13 +17,12 @@ Swup.js primarily focuses on updating parts of the page without necessarily upda
 
 ## The Solution: Updating the Canonical URL
 
-To ensure that the URL updates correctly when sharing pages transitioned via Swup.js, you can manually update the canonical URL. This ensures that browsers and sharing platforms recognize the correct URL to share.
+To ensure that the URL updates correctly when sharing pages transitioned via Swup.js, you can update the canonical URL by adding that tag as containers. This ensures that browsers and sharing platforms recognize the correct URL to share.
 
 ### Implementation Example
 
 ```javascript
 const swup = new Swup({
-  animationSelector: null,
   containers: ["your-container", "link[rel='canonical']"]
 });
 ```
