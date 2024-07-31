@@ -691,7 +691,8 @@ function initComments() {
       }
 
       // Initialize comments on initial page load
-      const thisPageUrl = window.location.href;
+      const thisPageUrl = window.location.href.split(/[?#]/)[0];
+
       let visibleComments = [];
 
       reloadComments();
