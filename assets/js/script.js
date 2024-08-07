@@ -471,10 +471,10 @@ function initCodeCopyBtn() {
         // On success, change the button text to 'Copied'
         copyButton.innerText = 'Copied';
 
-        // Reset the button text after 4 seconds
+        // Reset the button text after 1 seconds
         setTimeout(function () {
           copyButton.innerText = 'Copy';
-        }, 4000);
+        }, 1000);
       }, function() {
         // Handle the error case
         copyButton.innerText = 'Failed';
