@@ -4,6 +4,10 @@ description: Mrinal's Github Page
 
 lang: en-IN
 
+short_name: Mrinal
+manifest:
+  theme_color: '#24292e'
+  background_color: '#ffffff'
 
 nav:
   - title: About
