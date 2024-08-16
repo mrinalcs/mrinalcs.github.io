@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     
-    <title>{% if page.url == "/" %}{{ site.title }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}</title>
+    <title>{% if page.url == "/" %}{{ site.title }}{% else %}{{ page.title }}{% unless page.layout == "post" %} | {{ site.title }}{% endunless %}{% endif %}</title>
     {%- seo title=false -%}
 
     {% include icons.html %}
