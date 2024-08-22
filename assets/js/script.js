@@ -731,11 +731,11 @@ function initComments() {
 
 function initExtLinkHandler() {
   // Check if the modal already exists
-  var existingModal = document.getElementById('myModal');
+  var existingModal = document.getElementById('extLink');
   if (!existingModal) {
     // Create the modal elements
     var modal = document.createElement('div');
-    modal.id = 'myModal';
+    modal.id = 'extLink';
     modal.className = 'modal';
     
     var modalContent = document.createElement('div');
@@ -775,7 +775,7 @@ function initExtLinkHandler() {
   }
 
   // Get the modal and its elements
-  var modal = document.getElementById('myModal');
+  var modal = document.getElementById('extLink');
   var modalContent = modal.querySelector('.modal-content');
   var closeSpan = modal.querySelector('.close');
   var modalMessage = document.getElementById('modalMessage');
