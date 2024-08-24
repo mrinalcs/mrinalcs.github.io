@@ -286,31 +286,39 @@ function initSearch() {
   let store = {};
   let lunrLoaded = false;
   let dataLoaded = false;
+  let searchInitialized = false;
+  let searchDeferred = [];
 
   function loadLunrAndData() {
-    if (!lunrLoaded) {
-      const scriptLunr = document.createElement('script');
-      scriptLunr.src = '/assets/js/lunr.min.js';
-      scriptLunr.onload = function() {
-        lunrLoaded = true;
-        if (dataLoaded) {
-          initializeSearch();
-        }
-      };
-      document.head.appendChild(scriptLunr);
-    }
+    if (document.getElementById('search-results') && !searchInitialized) {
+      searchInitialized = true;
 
-    if (!dataLoaded) {
-      fetch('/data.json')
-        .then(response => response.json())
-        .then(data => {
-          dataLoaded = true;
-          storeData(data);
-          if (lunrLoaded) {
+      if (!lunrLoaded) {
+        const scriptLunr = document.createElement('script');
+        scriptLunr.src = '/assets/js/lunr.min.js';
+        scriptLunr.onload = function () {
+          lunrLoaded = true;
+          if (dataLoaded) {
             initializeSearch();
+            processDeferredSearches();
           }
-        })
-        .catch(error => console.error('Error fetching the data.json file:', error));
+        };
+        document.head.appendChild(scriptLunr);
+      }
+
+      if (!dataLoaded) {
+        fetch('/data.json')
+          .then(response => response.json())
+          .then(data => {
+            dataLoaded = true;
+            storeData(data);
+            if (lunrLoaded) {
+              initializeSearch();
+              processDeferredSearches();
+            }
+          })
+          .catch(error => console.error('Error fetching the data.json file:', error));
+      }
     }
   }
 
@@ -333,11 +341,7 @@ function initSearch() {
       });
     });
 
-    const initialSearchTerm = getQueryVariable('query');
-    if (initialSearchTerm) {
-      document.getElementById('search-box').setAttribute("value", initialSearchTerm);
-      performSearch(initialSearchTerm);
-    }
+    handleInitialSearch();
   }
 
   function storeData(data) {
@@ -346,37 +350,44 @@ function initSearch() {
     });
   }
 
+  function handleInitialSearch() {
+    const initialSearchTerm = getQueryVariable('query');
+    if (initialSearchTerm) {
+      searchDeferred.push(() => performSearch(initialSearchTerm));
+    } else {
+      processDeferredSearches();
+    }
+  }
+
+  function processDeferredSearches() {
+    searchDeferred.forEach(searchFn => searchFn());
+    searchDeferred = [];
+  }
+
   function displaySearchResults(results, query) {
     const searchResults = document.getElementById('search-results');
     if (results.length) {
       let appendString = '';
-      for (let i = 0; i < results.length; i++) {
-        const item = store[results[i].ref];
+      results.forEach(result => {
+        const item = store[result.ref];
         const highlightedTitle = highlightMatch(item.title, query);
         const highlightedContent = highlightMatchInContent(item.content, query);
 
         appendString += `<li><a href="${item.url}" data-swup-link><h3>${highlightedTitle}</h3></a>`;
         appendString += `<p>${highlightedContent}</p></li>`;
-      }
+      });
       searchResults.innerHTML = appendString;
-
-      // Notify Swup.js of content update
-      swup.triggerEvent('contentReplaced');
     } else {
       searchResults.innerHTML = '<li>No results found</li>';
     }
+    updatePageTitle(query);
   }
 
   function performSearch(query) {
+    if (!idx || !store) return;
     const results = idx.search(query);
     displaySearchResults(results, query);
-    updateURL(query);
-  }
-
-  function updateURL(query) {
-    const url = new URL(window.location);
-    url.searchParams.set('query', query);
-    history.replaceState(null, '', url.toString());
+    // No need to manually update URL, Swup handles this.
   }
 
   function getQueryVariable(variable) {
@@ -412,18 +423,60 @@ function initSearch() {
     }
   }
 
+  function updatePageTitle(query) {
+    document.title = `Search results for "${query}"`;
+  }
+
+  function handleSwupEvents() {
+    document.addEventListener('swup:contentReplaced', () => {
+      const query = getQueryVariable('query');
+      if (query) {
+        performSearch(query);
+      } else {
+        // Reset search results if there’s no query in the URL
+        document.getElementById('search-results').innerHTML = '';
+      }
+    });
+  }
+
+  function handleSwupIntegration() {
+    if (window.swup) {
+      handleSwupEvents();
+    } else {
+      const checkSwup = setInterval(() => {
+        if (window.swup) {
+          clearInterval(checkSwup);
+          handleSwupEvents();
+        }
+      }, 100);
+    }
+  }
+
+  loadLunrAndData();
+
   const searchBox = document.getElementById('search-box');
   if (searchBox) {
-    searchBox.addEventListener('input', function(event) {
+    searchBox.addEventListener('input', function (event) {
       const query = event.target.value;
       performSearch(query);
     });
 
-    if (getQueryVariable('query')) {
-      loadLunrAndData();
-    }
+    handleInitialSearch();
   }
+
+  handleSwupIntegration();
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 // copy clipboard
