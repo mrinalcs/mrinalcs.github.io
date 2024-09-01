@@ -7,10 +7,13 @@
     <title>{% if page.url == "/" %}{{ site.title }}{% else %}{{ page.title }}{% unless page.layout == "post" %} | {{ site.title }}{% endunless %}{% endif %}</title>
     {%- seo title=false -%}
 
+    {% if jekyll.environment == 'production' %}
     {% include icons.html %}
-
     
-    {%- feed_meta -%}
+    {%- feed_meta -%}    
+    {% endif %}
+
+
   
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
     <script type="module" src="{{ "/assets/js/script.js" | relative_url }}"></script>
@@ -22,7 +25,7 @@
     <header>
 
       <a href="{% if page.layout == 'post' %}/blog{% else %}/{% endif %}" class="logo backlink">
-        Mrinal Chandra Sarkar 
+        Mrinal
       </a>
 
         <h1>{{ page.title }}</h1>
