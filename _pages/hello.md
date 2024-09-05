@@ -8,13 +8,13 @@ sitemap: false
 **Hello**—a word so simple, yet it carries immense weight in everyday communication. Whether it's the first word uttered in a conversation or a friendly greeting, the word *hello* has become a universal symbol of connection. But where does it come from, and how has its use evolved over time? This article takes a deep dive into the history, linguistic significance, and cultural variations of the word.
 
 ## Table of Contents
-1. [The Origins of "Hello"](##the-origins-of-hello)
-2. [Linguistic Significance](##linguistic-significance)
-3. [Cultural Variations](##cultural-variations)
-4. [The Role of "Hello" in Technology](##the-role-of-hello-in-technology)
-5. [Hello in Pop Culture](##hello-in-pop-culture)
-6. [Fun Facts About "Hello"](##fun-facts-about-hello)
-7. [Conclusion](##conclusion)
+1. [The Origins of "Hello"](#the-origins-of-hello)
+2. [Linguistic Significance](#linguistic-significance)
+3. [Cultural Variations](#cultural-variations)
+4. [The Role of "Hello" in Technology](#the-role-of-hello-in-technology)
+5. [Hello in Pop Culture](#hello-in-pop-culture)
+6. [Fun Facts About "Hello"](#fun-facts-about-hello)
+7. [Conclusion](#conclusion)
 
 ---
 
@@ -102,6 +102,29 @@ As simple as it may seem, the word *hello* carries deep significance and power i
 Thank you for reading, and... Hello!
 
 <style>
+
+p {
+    color: #ffffff;
+}
+main > h2 {
+    padding-top: 30px;
+    color: #ffffff;
+}
+body {
+    background-color: var(--b);
+    color: #ffffff;
+}
+a {
+    color: #00ffec;
+    text-decoration: underline;
+    text-decoration-color: var(--h);
+    text-decoration-thickness: 1px;
+    text-underline-position: under;
+}
+element.style {
+    padding-top: 70vh;
+}
+
 
   header { z-index: 100 }
 @font-face {
