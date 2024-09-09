@@ -1,7 +1,9 @@
 <footer>
    
-    <p>Last Updated at {{ page.last_modified_at | date: "%I:%M %P On %d/%m/%Y" }}</p>
- 
+{% if jekyll.environment == "production" %}
+  <p>Last Updated at {{ page.last_modified_at | date: "%I:%M %P On %d/%m/%Y" }}</p>
+{% endif %}
+
 <!-- tags -->
 
 {% if page.tags.size > 0 %}
@@ -14,10 +16,12 @@
 {% endif %}
 
 
+{% if jekyll.environment == "production" %}
 <p class="suggestion-link">Any Suggestion or corrections ? &#9998;
   <a title="Github link" href="https://github.com/{{ site.github.username }}/{{ site.github.repo }}/blob/main/{{ page.path }}">
       edit 
   </a>.
 </p>
+{% endif %}
 
 </footer>
