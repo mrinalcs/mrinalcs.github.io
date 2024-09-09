@@ -1,7 +1,7 @@
 ---
 title: "Generate Random Numbers in R"
 description: "A quick and simple way to generating random numbers in R for statistical analysis and simulations."
-date: 24-09-08
+date: 2024-09-08
 image: "ggi6k8gja6k8gja6k.jpg"
 tags: [r-programming]
 ---
