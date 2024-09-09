@@ -1,3 +1,4 @@
+if Jekyll.env == "production"
 [:documents, :pages].each do |hook|
   Jekyll::Hooks.register hook, :post_init do |doc|
   git_dates_log_command = `git log --follow --format=%ad --date=iso-strict -- "#{doc.path}"`
@@ -8,4 +9,5 @@
     doc.data["date"] ||= git_dates.last unless doc.data.key?("date")
   end
  end
+end
 end
