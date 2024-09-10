@@ -1,0 +1,13 @@
+{% if jekyll.environment != "production" %}
+  {% assign fields = "title,description,date,image" | split: "," %}
+  
+  {% for field in fields %}
+    {% if page[field] == "" or page[field] == nil %}
+      <p><mark><strong>Warning:</strong></mark> The <mark>{{ field }}</mark> field is missing or blank!</p>
+    {% endif %}
+  {% endfor %}
+
+  {%- if page.tags == nil or page.tags.size == 0 -%}
+    <p><mark><strong>Warning:</strong></mark> The <mark>tags</mark> field is missing or empty!</p>
+  {%- endif -%}
+{% endif %}
