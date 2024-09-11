@@ -74,6 +74,7 @@ https://placehold.co/600x400
 - [Sitemap Generator](https://www.xml-sitemaps.com/)
 - [PageSpeed Insights](https://pagespeed.web.dev/)
 - [QuickLaTeX](https://www.quicklatex.com/)
+- [Webdemo.myscript](https://webdemo.myscript.com/)
 
 ![x^2 + y^2 &= 1  y &= \sqrt 1 - x^2](https://quicklatex.com/cache3/e7/ql_110e5cad1eee9b5a09a324acb953bae7_l3.png)
 
