@@ -7,6 +7,13 @@
     {% endif %}
   {% endfor %}
 
+  <!-- warning if the date and the build time (current time when the site is built) are the same -->
+  {%- if page.date == site.time -%}
+  <p><mark><strong>Warning:</strong></mark> The <mark>date</mark> field is missing or blank!</p>
+  {%- endif -%}
+  
+
+
   {%- if page.tags == nil or page.tags.size == 0 -%}
     <p><mark><strong>Warning:</strong></mark> The <mark>tags</mark> field is missing or empty!</p>
   {%- endif -%}
