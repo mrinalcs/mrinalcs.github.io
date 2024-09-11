@@ -136,7 +136,7 @@ pre {
 
 header {
   > a {
-      display: contents;
+      display: contents;transform: scale(0.9);
       > img {
           border-radius: 100rem;
           display: block;
