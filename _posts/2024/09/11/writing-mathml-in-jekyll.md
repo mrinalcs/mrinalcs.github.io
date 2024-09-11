@@ -143,3 +143,40 @@ c_n &amp; c_{n+1} &amp; c_{n+2} &amp; \dots &amp; c_{2n}
 }
 </style>  
  
+
+
+Binomial Probability Density Function (PDF) 
+
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mo>P</mo>
+    <mo>(</mo>
+    <mi>X</mi>
+    <mo>=</mo>
+    <mi>x</mi>
+    <mo>)</mo>
+    <mo>=</mo>
+    <mfrac>
+      <mrow>
+        <msub><mi>n</mi><mi>x</mi></msub>
+        <mo>&#8290;</mo>
+        <msup><mi>p</mi><mi>x</mi></msup>
+        <mo>&#8290;</mo>
+        <msup><mi>q</mi><mrow><mo>(</mo><mi>n</mi><mo>-</mo><mi>x</mi><mo>)</mo></mrow></msup>
+      </mrow>
+      <mrow>
+        <msup><mi>n</mi><mi>x</mi></msup>
+      </mrow>
+    </mfrac>
+  </mrow>
+</math>
+
+<p>
+  Where:
+  <ul>
+    <li><mi>n</mi> = number of trials</li>
+    <li><mi>x</mi> = number of successes</li>
+    <li><mi>p</mi> = probability of success on a single trial</li>
+    <li><mi>q</mi> = probability of failure on a single trial (i.e., <mi>q = 1 - p</mi>)</li>
+  </ul>
+</p>
