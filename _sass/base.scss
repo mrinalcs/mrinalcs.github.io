@@ -140,7 +140,7 @@ header {
       transition: transform 0.2s ease-in-out;
    
     
-    &:hover {
+    &:active {
       transform: scale(0.85);
     }
     
