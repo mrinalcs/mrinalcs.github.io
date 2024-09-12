@@ -137,7 +137,16 @@ pre {
 header {
   > a {
       display: contents;transform: scale(0.9);
-      > img {
+      transition: transform 0.2s ease-in-out;
+   
+    
+    &:active {
+      transform: scale(0.85);
+    }
+    
+    
+    
+    > img {
           border-radius: 100rem;
           display: block;
       }
