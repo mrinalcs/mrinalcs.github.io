@@ -14,17 +14,26 @@
   }
   
   .modal-content {
-    background-color: var(--bs);
+    background-color: var(--b);
     color: var(--ts);
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid var(--h);
     width: 80%;
     opacity: 0;
     transition: opacity 0.2s ease, transform 0.2s ease;
     transform: translateY(-10px);
     max-width: 550px;
     border-radius: 10px;
+
+    p{
+      a {
+        background: #2500ff;
+        color: #ffffff;
+        padding: 5px 7px;
+        text-decoration: none;
+      }
+    }
   }
   
   .close {
