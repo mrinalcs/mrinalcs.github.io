@@ -4,7 +4,6 @@ layout: default
 
 {% include validate-front-matter.html %}
 
-
 <article>
 
     {% if page.toc %}
@@ -19,15 +18,13 @@ layout: default
 </article>
 
 
-{% include contact-form.html %}
-
-
 {% if jekyll.environment == 'production' %}
-{% include comment-section.html url=page.url %} 
+
+{% include contact-form.html %}
+{% include comment-section.html url=page.url %}
+
 {% endif %}
 
-
 {% include footer.html %}
-
 
 <p>&copy; 2023-{{ "now" | date: "%y" }} Mrinal Chandra Sarkar.</p>
