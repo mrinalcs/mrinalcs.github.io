@@ -839,6 +839,8 @@ function initExtLinkHandler() {
   // Function to open modal and handle link click
   function openModal(link) {
     modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Disable body scroll
+    
     setTimeout(function() {
       modal.style.opacity = '1';
       modalContent.style.opacity = '1';
@@ -890,6 +892,7 @@ function initExtLinkHandler() {
     modalContent.style.transform = 'translateY(-10px)';
     setTimeout(function() {
       modal.style.display = 'none';
+      document.body.style.overflow = ''; // Re-enable body scroll
     }, 200); // Adjust the timeout to match the transition duration
   }
 
