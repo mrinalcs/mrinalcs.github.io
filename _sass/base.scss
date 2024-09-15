@@ -294,6 +294,7 @@ article {
   overflow: hidden; // text under logo
   -webkit-tap-highlight-color: transparent; /* for removing the highlight */
   text-decoration: none;
+  box-shadow: var(--h) 0px 0px 5px;
   &:hover {
     text-decoration: none;
   }
