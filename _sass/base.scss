@@ -153,6 +153,10 @@ header {
   }
   time{
     color: var(--ts);
+    transition: color 0.2s ease; 
+    &:hover{
+      color: var(--t);
+    }
   }
   @media screen and (min-width: 1200px) {
       padding-top: 100px;
@@ -254,6 +258,10 @@ footer {
 }
 .copyright {
   color: var(--ts);
+  transition: color 0.2s ease; 
+  &:hover{
+    color: var(--t);
+  }
 }
 article {
   
