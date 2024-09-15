@@ -140,6 +140,8 @@ c_n &amp; c_{n+1} &amp; c_{n+2} &amp; \dots &amp; c_{2n}
   math {
     padding: 10px;
     font-size: 120%;
+    overflow: scroll;
+
 }
 </style>  
  
