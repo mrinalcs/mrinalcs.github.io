@@ -151,6 +151,9 @@ header {
           display: block;
       }
   }
+  time{
+    color: var(--ts);
+  }
   @media screen and (min-width: 1200px) {
       padding-top: 100px;
   }
@@ -249,7 +252,9 @@ footer {
   padding: 20px 0;
   border-top: solid var(--h) 1px;
 }
-
+.copyright {
+  color: var(--ts);
+}
 article {
   
     h1,h2,h3,h4 {
