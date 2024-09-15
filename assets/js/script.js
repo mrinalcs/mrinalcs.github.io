@@ -589,17 +589,13 @@ function initComments() {
           const diffHours = Math.floor(diffMinutes / 60);
 
           if (diffHours >= 24) {
-              // More than a day ago, format as date and time
               const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' };
               return date.toLocaleDateString(undefined, options);
           } else if (diffHours >= 1) {
-              // Hours ago
               return `(${diffHours} ${diffHours === 1 ? 'hour' : 'hours'} ago)`;
           } else if (diffMinutes >= 1) {
-              // Minutes ago
               return `(${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago)`;
           } else {
-              // Less than a minute ago
               return `(just now)`;
           }
       }
@@ -641,9 +637,9 @@ function initComments() {
               const values = comment.match(/(?:[^,"']+|"(?:\\.|[^"])*"|'(?:\\.|[^'])*')+/g);
               if (values.length < 3) return null; // Skip rows with insufficient columns
 
-              const timestamp = values[0].replace(/"/g, ''); // Remove double quotes around timestamp
-              const name = values[1].replace(/"/g, ''); // Remove double quotes around name
-              const commentText = values.slice(2).join(',').replace(/"/g, '').replace(/\\n/g, '\n'); // Remove double quotes around comment and handle multiline
+              const timestamp = values[0].replace(/"/g, '');
+              const name = values[1].replace(/"/g, '');
+              const commentText = values.slice(2).join(',').replace(/"/g, '').replace(/\\n/g, '\n');
 
               return { timestamp, name, comment: commentText };
           }).filter(comment => comment !== null);
@@ -657,7 +653,7 @@ function initComments() {
           if (!comments) {
               if (visibleComments.length === 0) {
                   noComments.style.display = 'block';
-                  noComments.textContent = "There are currently no comments on this post, be the first to add one below";
+                  noComments.textContent = "There are currently no comments on this post. Be the first to add one below.";
               }
               return;
           }
@@ -717,11 +713,48 @@ function initComments() {
           document.cookie = `${name}=${value};${expires};path=/`;
       }
 
+      // Function to check banned words
+      async function checkBannedWords(comment) {
+          const bannedWords = await fetch('/assets/js/bannedwords.json').then(res => res.json());
+          const lowerComment = comment.toLowerCase();
+          const foundWords = bannedWords.filter(word => lowerComment.includes(word));
+          return foundWords;
+      }
+
+      // Function to limit comments (2 in 5 minutes)
+      function canPostComment() {
+          const commentHistory = JSON.parse(getCookie('commentHistory') || '[]');
+          const now = Date.now();
+          const fiveMinutesAgo = now - 5 * 60 * 1000;
+
+          const recentComments = commentHistory.filter(time => time > fiveMinutesAgo);
+
+          if (recentComments.length >= 2) {
+              return false;
+          }
+
+          recentComments.push(now);
+          setCookie('commentHistory', JSON.stringify(recentComments), 1);
+
+          return true;
+      }
+
       // Function to post a comment
-      function postComment(event) {
+      async function postComment(event) {
           event.preventDefault();
           const username = document.getElementById('comment-name').value;
           const comment = document.getElementById('comment-comment').value;
+
+          const bannedWords = await checkBannedWords(comment);
+          if (bannedWords.length > 0) {
+              alert(`Please avoid using the following words: ${bannedWords.join(', ')}. Kindly modify your comment and try again.`);
+              return;
+          }
+
+          if (!canPostComment()) {
+              alert("You've reached the limit of 2 comments in 5 minutes. Please wait for 5 minutes before commenting again.");
+              return;
+          }
 
           setCookie('commenterName', username, 365);
 
@@ -750,24 +783,22 @@ function initComments() {
 
       reloadComments();
 
-      // Reload comments when navigating with Swup.js
       document.addEventListener('swup:contentReplaced', () => {
           reloadComments();
       });
 
-      // Attach submit event listener to comment form
       const commentForm = document.getElementById('comment-form');
       if (commentForm) {
           commentForm.addEventListener('submit', postComment);
       }
 
-      // Pre-fill the username field if the cookie exists
       const commenterName = getCookie('commenterName');
       if (commenterName) {
           document.getElementById('comment-name').value = commenterName;
       }
   }
 }
+
 
 
 
