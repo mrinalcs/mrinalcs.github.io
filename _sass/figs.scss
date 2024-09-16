@@ -46,3 +46,10 @@ p {
       opacity: .85;
     }
   }
+
+
+  figure > img:not(:first-of-type),
+  p > img:not(:first-of-type) {
+    padding-top: 10px;
+  }
+  
