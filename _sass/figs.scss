@@ -46,3 +46,15 @@ p {
       opacity: .85;
     }
   }
+
+
+// add gap b/w img
+
+
+figure:has(img), 
+p:has(img) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
