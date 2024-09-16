@@ -38,7 +38,18 @@
         {% if page.layout == 'post' %}
         <time datetime="{{ page.date | date_to_xmlschema }}">
           {{ page.date | date: "%B %-d, %Y" }}
-        </time>        
+        </time>
+        
+
+        <!-- {% capture words %}
+        {{ content | number_of_words | minus: 180 }}
+        {% endcapture %}
+        {% unless words contains '-' %}
+        {{ words | strip | prepend: '(' | append: ' Words, ' }}
+        {{ words | plus: 180 | divided_by: 180 | append: ' Minutes)' }}
+        {% endunless %}
+         -->
+        
         {% endif %}
 
 
