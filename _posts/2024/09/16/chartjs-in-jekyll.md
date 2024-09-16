@@ -4,6 +4,7 @@ description: Setup cjij
 date: 2024-09-16
 image:  
 tags: [lib,jekyll]
+published: false
 ---
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
