@@ -10,7 +10,7 @@
     background-color: rgba(0, 0, 0, 0.4);
     opacity: 0;
     transition: opacity 0.2s ease;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(5px);
   }
   
   .modal-content {
@@ -18,14 +18,14 @@
     color: var(--ts);
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid var(--h);
+    // border: 1px solid var(--h);
     width: 80%;
     opacity: 0;
     transition: opacity 0.2s ease, transform 0.2s ease;
     transform: translateY(-10px);
     max-width: 550px;
     border-radius: 10px;
-
+    box-shadow: #0000006b 0px 0px 10px 0px;
     p{
       a {
         background: #2500ff;
@@ -64,4 +64,9 @@
     &:hover{
       color: var(--ts);
     }
+}
+
+p#modalMessage {
+  font-size: large;
+  font-weight: bold;
 }
