@@ -43,6 +43,7 @@
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    display: none; // 😅
   }
   
   .close:hover,
@@ -53,7 +54,7 @@
   
   .modal-content p {
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0;
   }
   
   .modal-content p a {
