@@ -47,6 +47,12 @@ Comic Neue is a casual typeface for everyone. The typeface family includes both 
 **License:** SIL Open Font License (OFL)  
 **Link:** [Comic Neue License](https://github.com/crozynski/comicneue/blob/master/OFL.txt)
 
+## Manrope
+Manrope is a modern, geometric sans-serif typeface designed for optimal readability across various platforms and screen sizes. It features variable font weights and is designed to be highly versatile for both display and body text.
+
+**License:** SIL Open Font License (OFL)  
+**Link:** [Manrope License](https://github.com/sharanda/manrope/blob/master/OFL.txt)
+
 
 ## Lunr.js
 Lunr.js is a lightweight, full-text search engine for client-side search in JavaScript. It indexes JSON documents and allows fast, flexible searches.
