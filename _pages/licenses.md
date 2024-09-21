@@ -47,6 +47,18 @@ Comic Neue is a casual typeface for everyone. The typeface family includes both 
 **License:** SIL Open Font License (OFL)  
 **Link:** [Comic Neue License](https://github.com/crozynski/comicneue/blob/master/OFL.txt)
 
+## Manrope
+Manrope is a modern, geometric sans-serif typeface designed for optimal readability across various platforms and screen sizes. It features variable font weights and is designed to be highly versatile for both display and body text.
+
+**License:** SIL Open Font License (OFL)  
+**Link:** [Manrope License](https://github.com/sharanda/manrope/blob/master/OFL.txt)
+
+## Hey
+Hey is a minimalist WordPress theme designed by Automattic, ideal for personal blogs or small websites. It features a clean and straightforward design, with focus on readability and simplicity. The theme’s layout is optimized for quick loading times and great performance on both desktop and mobile devices.
+
+**License:** GNU General Public License v2.0  
+**Link:** [Hey WordPress Theme](https://wordpress.com/theme/hey)
+
 
 ## Lunr.js
 Lunr.js is a lightweight, full-text search engine for client-side search in JavaScript. It indexes JSON documents and allows fast, flexible searches.
