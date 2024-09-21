@@ -344,3 +344,13 @@ blockquote {
   border-left: .25em solid var(--ts)
 }
 
+// classes
+
+.sm {
+  display: none;
+}
+@media (max-width: 768px) {
+  .lg {
+    display: none;
+  }
+}
