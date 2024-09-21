@@ -51,12 +51,23 @@ Let's consider a simple dataset of five pairs of values:
 
 Using a Scientific Calculator that have a statistics mode (look for a "STAT" or "SD" mode). Switch to this  mode. Enter your data pairs $x$ and $y$ and find following values:
 
-
+<!-- 
    - $\sum x = 1 + 2 + 3 + 4 + 5 = 15$
    - $\sum y = 2 + 3 + 5 + 7 + 11 = 28$
    - $\sum xy = (1 \times 2) + (2 \times 3) + (3 \times 5) + (4 \times 7) + (5 \times 11) = 106$
    - $\sum x^2 = 1^2 + 2^2 + 3^2 + 4^2 + 5^2 = 55$
    - $\sum y^2 = 2^2 + 3^2 + 5^2 + 7^2 + 11^2 = 208$
+ -->
+ 
+$$
+\begin{align*}
+\sum x & = 1 + 2 + 3 + 4 + 5 = 15 \\
+\sum y & = 2 + 3 + 5 + 7 + 11 = 28 \\
+\sum xy & = (1 \times 2) + (2 \times 3) + (3 \times 5) + (4 \times 7) + (5 \times 11) = 106 \\
+\sum x^2 & = 1^2 + 2^2 + 3^2 + 4^2 + 5^2 = 55 \\
+\sum y^2 & = 2^2 + 3^2 + 5^2 + 7^2 + 11^2 = 208
+\end{align*}
+$$
 
 Number of pairs  $n = 5$
 
