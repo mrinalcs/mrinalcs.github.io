@@ -1,5 +1,7 @@
 ---
 title: Me
+description: Me with my friends 
+image: "/assets/img/62r.png"
 ---
  
 <div class="container-me">
