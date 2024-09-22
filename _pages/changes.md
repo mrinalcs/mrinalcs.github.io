@@ -14,3 +14,5 @@ This page highlights the updates, improvements, and changes made to the website 
 - **External Links:** Implemented a plugin `html.rb` to add `ref` attributes and set all external links to open in a new tab using `target="_blank"`.
 This includes the features you've a
  
+- **Swup.js** Integration: For page transitions and enhanced user experience.
+- **Email form and Comment**: Google Forms integration for handling comments.
