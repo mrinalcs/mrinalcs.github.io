@@ -1,5 +1,5 @@
 ---
-title: "What Is P Value ?"
+title: "P-value in Statistics"
 description: "The p-value tells how likely it is that your results happened by chance"
 date: 2024-09-21
 image:  "Annotation 2024-09-22 112534.jpg"
