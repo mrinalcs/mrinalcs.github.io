@@ -20,7 +20,7 @@ Data Source : <https://www.kaggle.com/datasets/shenba/time-series-datasets?selec
 
 By looking at the above plot we can see, there is an upward trend over the period of time.
 
-
+![](rplot2692404.png)
 
 ```output
  summary(Electric_Production$IPG2211A2N)
@@ -49,10 +49,19 @@ alternative hypothesis: stationary
 
 The p-value of 0.01 is less than the common significance level of 0.05. This indicates that we can reject the null hypothesis.This implies that the time series is stationary.
 
+![R plot of Electric Production Index Diff data](279241.png)
+
+from above plot of difference data  we can it better stationary.
+
 <!-- ## Transform the Data
 
 ![](rplot2692404.png) -->
 
 
 ## Model Selection
-## Forecasting
+
+![acf and pacf of the dataset](279242.png)
+
+## Forecasting 
+
+incomplete
