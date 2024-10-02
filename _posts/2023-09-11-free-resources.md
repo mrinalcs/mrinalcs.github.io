@@ -1,8 +1,10 @@
 ---
-title: Free web Resources
+title: Free Resources
 description: Heres free resources I used for web devlopment. 
 image: /assets/img/free-web-resources/free-resources-for-web-devs.jpg
 tags: [tool,web]
+redirect_from:
+  - /free-web-resources
 ---
 
 Resources I've Used:
@@ -26,6 +28,9 @@ body {
 - [Bootstrap Icon](https://icons.getbootstrap.com)
 - [Flowerbite](https://flowbite.com/icons)
 - [Lordicon](https://lordicon.com)
+- [Hugeicons](https://hugeicons.com)
+- [Lucide](https://lucide.dev)
+- [Heroicons](https://heroicons.com)
 
 ```
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
