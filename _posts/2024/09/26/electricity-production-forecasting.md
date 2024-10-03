@@ -2,11 +2,11 @@
 title: "Electricity Production Forecasting"
 description: "Forecasting methods for electricity production, including short-term, medium-term, and long-term approaches, and their relevance for managing renewable and non-renewable energy sources."
 date: 2024-09-26
-tags: [stat,time-series]
+tags: [stat,time-series,analysis,r-programming]
 ---
 
 
-The dataset **Electric_Production** contains time series data spans from *January 1985 to January 2018* related to electricity production in the U.S., as represented by the Industrial Production Index (IPI) for the Electric Power sector. It consists of two columns:
+The dataset **Electric Production** contains time series data spans from January 1985 to January 2018  related to electricity production in the U.S., as represented by the Industrial Production Index (IPI) for the Electric Power sector. It consists of two columns:
 
 **DATE:** This column contains dates in a month/day/year format (e.g., 1/1/1985). It represents the time period corresponding to the monthly measurements of electricity production.
 
