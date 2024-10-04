@@ -258,7 +258,8 @@ footer {
 }
 .copyright {
   color: var(--ts);
-  transition: color 0.2s ease; 
+  transition: color 0.2s ease;
+  display: inline; 
   &:hover{
     color: var(--t);
   }
