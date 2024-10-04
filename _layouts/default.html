@@ -24,7 +24,7 @@
 
     <header>
 
-      <a href="{% if page.layout == 'post' %}/blog{% else %}/{% endif %}" class="logo backlink">
+      <a href="{% if page.layout == 'post' %}/blog{% elsif page.layout == 'tag' %}/tags{% else %}/{% endif %}" class="logo backlink">
         Mrinal
       </a>
 
