@@ -27,19 +27,24 @@ module Jekyll
         period_slug = period.downcase.tr(' ', '-')
 
         if period_type == "monthly"
+          year, month = period.split('/')
+          short_month_name = Date::ABBR_MONTHNAMES[month.to_i] # Get short month name
+          full_month_name = Date::MONTHNAMES[month.to_i] # Get full month name
+          period_display = "#{short_month_name} #{year}"  # Format as "Oct 2024"
           period_path = "#{period}.html"
         else
+          period_display = period
           period_path = "#{period}.html"
         end
 
-        archive_page = ArchivePage.new(site, site.source, period_path, period, period_type, posts)
+        archive_page = ArchivePage.new(site, site.source, period_path, period_display, period_type, posts, full_month_name)
         site.pages << archive_page
       end
     end
   end
 
   class ArchivePage < Page
-    def initialize(site, base, dir, period, period_type, posts)
+    def initialize(site, base, dir, period, period_type, posts, full_month_name)
       @site = site
       @base = base
       @dir = '' # No directory needed
@@ -51,8 +56,8 @@ module Jekyll
       self.data['period_type'] = period_type
       self.data['posts'] = posts
       self.data['sitemap'] = false # Add sitemap: false to front matter
-      self.data['title'] = "#{period_type.capitalize} Archive : #{period}"
-      self.data['description'] = "Archive #{period}"
+      self.data['title'] = "Archive : #{period}" # Use short month name for title
+      self.data['description'] = "Archive for #{full_month_name} #{period.split('/').first}" # Full month name for description
     end
   end
 end
