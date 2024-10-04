@@ -8,7 +8,9 @@ description: All post and pages
 {% assign pages = site.pages %}
 <ul>
   {% for page in pages %}
-    <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+    {% unless page.url == '/archive' %}
+     <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+    {% endunless %}
   {% endfor %}
 </ul>
 
