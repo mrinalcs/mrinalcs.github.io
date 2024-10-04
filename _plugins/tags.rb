@@ -28,8 +28,10 @@ module Jekyll
   
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'tag.html')
+
+      formatted_tag = tag.gsub('-', ' ').capitalize
       self.data['tag'] = tag
-      self.data['title'] = "Tag : #{tag}"
+      self.data['title'] = "Tag : #{formatted_tag}"
       self.data['description'] = description if description
       self.data['permalink'] = "/#{tag.downcase}" # Set the permalink without the 'tags/' prefix
   
