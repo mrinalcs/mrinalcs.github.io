@@ -46,9 +46,6 @@ We first obtain an initial feasible solution using methods such as **North-West 
 
 ## Initial Feasible Solution (North-West Corner Rule)
 
-
-![North-West Corner method handout](410242.jpg)
-
 $$
 \begin{array}{|c|c|c|c|}
 \hline
