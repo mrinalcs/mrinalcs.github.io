@@ -9,8 +9,8 @@ image: "/assets/img/62r.png"
   {% for image in site.static_files %}
     {% if image.path contains image_dir %}
       <div class="image-container">
-        <img src="{{ site.baseurl }}{{ image.path }}" class="img-fluid" alt="{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: ' me ', ' Mrinal' | capitalize }}">
-        <em>{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: ' me ', ' Mrinal' | capitalize_all }}</em>
+        <img src="{{ site.baseurl }}{{ image.path }}" class="img-fluid" alt="{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: ' me ', ' Mrinal ' | capitalize }}">
+        <em>{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: ' me ', ' Mrinal ' | capitalize_all }}</em>
       </div>
     {% endif %}
   {% endfor %}
