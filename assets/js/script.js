@@ -928,7 +928,7 @@ function initExtLinkHandler() {
   }
 
   // Add click event listeners to external links
-  document.querySelectorAll('a[href^="http"], a[href^="mailto:"], a[href^="tel:"]').forEach(function(link) {
+  document.querySelectorAll('a[href^="http"][target="_blank"], a[href^="mailto:"], a[href^="tel:"]').forEach(function(link) {
     link.addEventListener('click', function(event) {
       event.preventDefault();
       openModal(link);
