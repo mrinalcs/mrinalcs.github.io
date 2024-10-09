@@ -263,6 +263,10 @@ footer {
   &:hover{
     color: var(--t);
   }
+  a{
+    color: inherit; 
+    text-decoration: none;
+  }
 }
 article {
   
