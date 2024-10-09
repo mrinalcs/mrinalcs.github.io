@@ -1,7 +1,7 @@
 ---
 title: "LaTeX in R Markdown"
 description: "How to incorporate LaTeX into your R Markdown documents for mathematical notation." 
-image:  
+date: 2024-06-30
 tags: [latex,r-programming]
 ---
  

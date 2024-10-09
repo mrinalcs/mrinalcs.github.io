@@ -1,6 +1,7 @@
 ---
 title: "Fixing Swup.js URL Not Changing When Shared"
 description: "Explore a common issue with Swup.js where the URL doesn't change when shared in a browser, and learn a simple way to fix it by updating canonical URLs."
+date: 2024-07-18
 tags: [web, tips]
 image: "11851835.jpg"
 ---
