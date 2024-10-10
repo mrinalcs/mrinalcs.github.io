@@ -7,8 +7,10 @@ module Jekyll
     def generate(site)
       # Define your redirects array here
       redirects = [
-        { from: '/ts', to: '/timeseries' },
-        { from: '/op.html', to: '/operationresearch' },
+        { from: '/ts.html', to: '/time-series' },
+{ from: '/r', to: '/r-programming' },
+
+        { from: '/or.html', to: '/operations-research' },
       ]
 
       redirects.each do |redirect|
