@@ -2,12 +2,14 @@ require 'jekyll'
 
 module Jekyll
   class RedirectsGenerator < Generator
+    safe true  # Make this generator safe for use in sites
+    priority :low  # Set priority if needed
+
     def generate(site)
       # Define your redirects array here
       redirects = [
-        { from: '/ts', to: '/time-series' },
-        { from: '/r', to: '/r-programming' },
-        { from: '/op', to: '/operations-research' },
+        { from: '/t', to: '/time-series' },
+        { from: '/op', to: '/operationresearch' },
       ]
 
       redirects.each do |redirect|
@@ -16,7 +18,10 @@ module Jekyll
     end
 
     def create_redirect_page(site, from, to)
-      page = Page.new(site, site.source, '', 'index.html')
+      # Extract the page name from the `from` path
+      page_name = from.tr('/', '_') + '.html'  # Replace '/' with '_' to create a valid filename
+
+      page = Page.new(site, site.source, '', page_name)  # Use the page name for the HTML file
 
       page.data['layout'] = 'none'  # Use no layout for redirect pages
       page.data['redirect_to'] = to
@@ -28,8 +33,8 @@ module Jekyll
         <title>Redirecting...</title>
       HTML
 
-      # Set the directory for the redirect page
-      page.dir = from
+      # Set the directory for the redirect page (set to an empty string)
+      page.dir = File.dirname(from)  # Keep it in the root directory
 
       # Add the redirect page to the site's pages
       site.pages << page
