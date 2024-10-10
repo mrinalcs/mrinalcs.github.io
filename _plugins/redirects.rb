@@ -7,7 +7,7 @@ module Jekyll
     def generate(site)
       # Define your redirects array here
       redirects = [
-        { from: '/ts.html', to: '/timeseries' },
+        { from: '/ts', to: '/timeseries' },
         { from: '/op.html', to: '/operationresearch' },
       ]
 
@@ -22,7 +22,8 @@ module Jekyll
 
       page.data['layout'] = 'none'  # Use no layout for redirect pages
       page.data['redirect_to'] = to
-
+page.data['sitemap'] = false
+      
       # Create a meta refresh redirect
       page.content = <<~HTML
         <meta http-equiv="refresh" content="0; URL='#{to}'" />
