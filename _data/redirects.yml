@@ -1,0 +1,6 @@
+- from: '/ts'  
+  to: '/time-series'
+- from: 'r'    
+  to: '/r-programming'
+- from: ['or','lpp']
+  to: '/operations-research'
