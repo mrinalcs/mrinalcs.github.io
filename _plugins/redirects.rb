@@ -34,11 +34,22 @@ module Jekyll
       page.data['redirect_to'] = to
       page.data['sitemap'] = false  # Exclude from sitemap
 
+      # Use the base URL from the site's config
+      base_url = site.config['url']
+      
       # Create a meta refresh redirect
       page.content = <<~HTML
-        <meta http-equiv="refresh" content="0; URL='#{to}'" />
-        <link rel="canonical" href="#{to}'" />
-        <title>Redirecting...</title>
+        <!DOCTYPE html>
+        <html lang="en-US">
+          <meta charset="utf-8">
+          <title>Redirecting&hellip;</title>
+          <link rel="canonical" href="#{base_url}#{to}">
+          <script>location="#{base_url}#{to}"</script>
+          <meta http-equiv="refresh" content="0; url=#{base_url}#{to}">
+          <meta name="robots" content="noindex">
+          <h1>Redirecting&hellip;</h1>
+          <a href="#{base_url}#{to}">Click here if you are not redirected.</a>
+        </html>
       HTML
 
       # Add the redirect page to the site's pages
