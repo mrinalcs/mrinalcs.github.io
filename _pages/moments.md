@@ -1,11 +1,14 @@
 ---
-title: Me
+title: Moments
 description: Me with my friends 
 image: "/assets/img/62r.png"
+redirect_from:
+  - /me
+  - /friends
 ---
  
-<div class="container-me">
-  {% assign image_dir = "assets/img/me/" %}
+<div class="container-moments">
+  {% assign image_dir = "assets/img/moments/" %}
   {% for image in site.static_files %}
     {% if image.path contains image_dir %}
       <div class="image-container">
@@ -18,7 +21,7 @@ image: "/assets/img/62r.png"
 
  
 <style>
-.container-me {
+.container-moments {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +36,7 @@ image: "/assets/img/62r.png"
   overflow: hidden;
 }
 
-.container-me img {
+.container-moments img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -59,7 +62,7 @@ image: "/assets/img/62r.png"
   opacity: 1;
 }
 
-.container-me img:hover {
+.container-moments img:hover {
   transform: scale(1.05);
 }
 
