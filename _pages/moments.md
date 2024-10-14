@@ -1,6 +1,6 @@
 ---
-title: Moments
-description: Me with my friends 
+title: "Moments"
+description: "Memorable Moments"
 image: "/assets/img/62r.png"
 redirect_from:
   - /me
