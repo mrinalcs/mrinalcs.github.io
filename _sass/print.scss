@@ -1,0 +1,18 @@
+@media print {
+    nav,footer,#comment-section>.comments,div#formContainer {
+      display: none !important;
+    }
+    .lg{
+        display:inline;
+    }
+    figure,p:has(img) { 
+        border: none;
+        margin: 20px auto;
+    }
+    img {
+        width: 50%;
+        border: none;
+        margin: 0 auto;
+    }
+  }
+  
