@@ -47,9 +47,9 @@
     object-fit: cover; /* Ensure the image covers the container without stretching */
   }
 
-//   .pswp.pswp--open {
-//     backdrop-filter: blur(3px);
-// }
+  .pswp.pswp--open {
+    backdrop-filter: blur(1px);
+}
 .pswp__caption__center {
   > a{
     color: #CCC;
