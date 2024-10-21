@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Neuzeit Grotesk';
+    src: url('../font/NeuzeitGro/NeuzeitGroExt-Bla.eot');
+    src: local('Neuzeit Grotesk Extra-condensed Black'), local('NeuzeitGroExt-Bla'),
+        url('../font/NeuzeitGro/NeuzeitGroExt-Bla.eot?#iefix') format('embedded-opentype'),
+        url('../font/NeuzeitGro/NeuzeitGroExt-Bla.woff2') format('woff2'),
+        url('../font/NeuzeitGro/NeuzeitGroExt-Bla.woff') format('woff'),
+        url('../font/NeuzeitGro/NeuzeitGroExt-Bla.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuzeit Grotesk';
+    src: url('../font/NeuzeitGro/NeuzeitGro-Bla.eot');
+    src: local('Neuzeit Grotesk Black'), local('NeuzeitGro-Bla'),
+        url('../font/NeuzeitGro/NeuzeitGro-Bla.eot?#iefix') format('embedded-opentype'),
+        url('../font/NeuzeitGro/NeuzeitGro-Bla.woff2') format('woff2'),
+        url('../font/NeuzeitGro/NeuzeitGro-Bla.woff') format('woff'),
+        url('../font/NeuzeitGro/NeuzeitGro-Bla.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuzeit Grotesk';
+    src: url('../font/NeuzeitGro/NeuzeitGro-Reg.eot');
+    src: local('Neuzeit Grotesk Regular'), local('NeuzeitGro-Reg'),
+        url('../font/NeuzeitGro/NeuzeitGro-Reg.eot?#iefix') format('embedded-opentype'),
+        url('../font/NeuzeitGro/NeuzeitGro-Reg.woff2') format('woff2'),
+        url('../font/NeuzeitGro/NeuzeitGro-Reg.woff') format('woff'),
+        url('../font/NeuzeitGro/NeuzeitGro-Reg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuzeit Grotesk';
+    src: url('../font/NeuzeitGro/NeuzeitGro-Lig.eot');
+    src: local('Neuzeit Grotesk Light'), local('NeuzeitGro-Lig'),
+        url('../font/NeuzeitGro/NeuzeitGro-Lig.eot?#iefix') format('embedded-opentype'),
+        url('../font/NeuzeitGro/NeuzeitGro-Lig.woff2') format('woff2'),
+        url('../font/NeuzeitGro/NeuzeitGro-Lig.woff') format('woff'),
+        url('../font/NeuzeitGro/NeuzeitGro-Lig.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuzeit Grotesk';
+    src: url('../font/NeuzeitGro/NeuzeitGro-Bol.eot');
+    src: local('Neuzeit Grotesk Bold'), local('NeuzeitGro-Bol'),
+        url('../font/NeuzeitGro/NeuzeitGro-Bol.eot?#iefix') format('embedded-opentype'),
+        url('../font/NeuzeitGro/NeuzeitGro-Bol.woff2') format('woff2'),
+        url('../font/NeuzeitGro/NeuzeitGro-Bol.woff') format('woff'),
+        url('../font/NeuzeitGro/NeuzeitGro-Bol.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuzeit Grotesk';
+    src: url('../font/NeuzeitGro/NeuzeitGroCon-Bla.eot');
+    src: local('Neuzeit Grotesk Condensed Black'), local('NeuzeitGroCon-Bla'),
+        url('../font/NeuzeitGro/NeuzeitGroCon-Bla.eot?#iefix') format('embedded-opentype'),
+        url('../font/NeuzeitGro/NeuzeitGroCon-Bla.woff2') format('woff2'),
+        url('../font/NeuzeitGro/NeuzeitGroCon-Bla.woff') format('woff'),
+        url('../font/NeuzeitGro/NeuzeitGroCon-Bla.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+*{
+    font-family: 'Neuzeit Grotesk';
+}
