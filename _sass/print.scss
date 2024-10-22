@@ -1,5 +1,5 @@
 @media print {
-    nav,footer,#comment-section>.comments,div#formContainer {
+    nav,footer,#comment-section>.comments-form,div#formContainer {
       display: none !important;
     }
     .lg{
@@ -15,4 +15,6 @@
         margin: 0 auto;
     }
   }
-  
+  h3.post-subtitle{
+    display: none;
+  }
