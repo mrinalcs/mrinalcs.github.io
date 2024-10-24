@@ -11,7 +11,14 @@ sitemap: false
         <input type="submit" value="search">
       </form>
       
-      <ul id="search-results"></ul>
+      <ul id="search-results">
+        {% for tag in site.tags %}
+        <li> <h2>Topics</h2>
+          <a href="{{ site.baseurl }}/{{ tag[0] }}">{{ tag[0] }} <span>({{ tag[1].size }})</span></a> 
+          
+        </li>
+      {% endfor %}
+      </ul>
       
         
 </div>
