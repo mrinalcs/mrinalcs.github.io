@@ -41,8 +41,10 @@ body {
 //   font-family: "Syne", sans-serif;
 // }
 nav {
-    gap: 15px;
+    // gap: 15px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding-bottom: 30px;
     border-bottom: solid var(--h) 1px;
     a {
@@ -56,6 +58,9 @@ nav {
     }
     .active {
       color: var(--t);
+    }
+    >div>a {
+      margin-right: 10px;
     }
     
 }
