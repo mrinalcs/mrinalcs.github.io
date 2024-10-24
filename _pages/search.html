@@ -11,10 +11,10 @@ sitemap: false
         <input type="submit" value="search">
       </form>
       
-      <ul id="search-results">
+      <ul id="search-results"><h2 >Topics</h2> 
         {% for tag in site.tags %}
-        <li> <h2>Topics</h2>
-          <a href="{{ site.baseurl }}/{{ tag[0] }}">{{ tag[0] }} <span>({{ tag[1].size }})</span></a> 
+        <li style="    list-style: none;"> 
+          <a href="{{ site.baseurl }}/{{ tag[0] }}">{{ tag[0] | replace: '-', ' ' | capitalize }} <span>({{ tag[1].size }})</span></a> 
           
         </li>
       {% endfor %}
