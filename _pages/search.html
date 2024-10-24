@@ -9,20 +9,24 @@ sitemap: false
     <form action="/search" method="get"> 
         <input type="text" id="search-box" name="query" placeholder="Type here">
         <input type="submit" value="search">
-      </form>
-      
-      <ul id="search-results"><h2 >Topics</h2> 
+      </form> 
+      <ul id="search-results" style="padding-inline-start:0;"><h2 >Topics</h2> 
         {% for tag in site.tags %}
-        <li style="    list-style: none;"> 
+        <li class="tags"> 
           <a href="{{ site.baseurl }}/{{ tag[0] }}">{{ tag[0] | replace: '-', ' ' | capitalize }} <span>({{ tag[1].size }})</span></a> 
           
         </li>
       {% endfor %}
-      </ul>
-      
+      </ul> 
         
 </div>
 
+<style>
+    ul>li{
+         list-style:none; 
+         padding-inline-start: 0;
+    }  
+</style>
 
 <style>
     ul#search-results {
