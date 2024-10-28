@@ -1,6 +1,6 @@
 ---
-title: "Install and Use Chrome Extensions Removed from the Chrome Web Store"
-description: "Methods for reinstalling Chrome extensions that have been removed from the Chrome Web Store."
+title: "Use Extension Removed from Chrome Store"
+description: "How to install Chrome extensions removed from the Chrome Web Store different methods"
 date: 2024-10-21 
 tags: [extension, tips]
 image: "2110242.jpeg"
