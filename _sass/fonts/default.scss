@@ -1,53 +1,9 @@
-@font-face {
-    font-family: 'Manrope';
-    font-weight: 200;
-    font-style: normal;
-    src: url('../font/manrope/static/Manrope-ExtraLight.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Manrope';
-    font-weight: 300;
-    font-style: normal;
-    src: url('../font/manrope/static/Manrope-Light.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Manrope';
-    font-weight: 400;
-    font-style: normal;
-    src: url('../font/manrope/static/Manrope-Regular.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Manrope';
-    font-weight: 500;
-    font-style: normal;
-    src: url('../font/manrope/static/Manrope-Medium.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Manrope';
-    font-weight: 600;
-    font-style: normal;
-    src: url('../font/manrope/static/Manrope-SemiBold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Manrope';
-    font-weight: 700;
-    font-style: normal;
-    src: url('../font/manrope/static/Manrope-Bold.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Manrope';
-    font-weight: 800;
-    font-style: normal;
-    src: url('../font/manrope/static/Manrope-ExtraBold.ttf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 html {
+    h1,h2,h3 {
+        font-family: "Playfair Display", serif;
+    }
     font-family: 'Manrope', sans-serif;
     line-height: 1.5;
     h1,h2{
