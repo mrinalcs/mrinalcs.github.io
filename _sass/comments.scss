@@ -6,8 +6,9 @@
     margin: 20px auto;
     padding: 20px;
     border: none;
-    // border-radius: 10px;
-    background-color: var(--bs);
+    border-radius: 6px;
+    background-color: var(--b); /* Background color for comments section */
+    border: 1px solid var(--ts); 
     color: var(--t);
 }
 
@@ -59,7 +60,7 @@
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid var(--h);
-    // border-radius:10px;
+    border-radius: 4px; 
     font-size: 16px;
 }
 
