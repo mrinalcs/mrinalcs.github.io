@@ -193,7 +193,7 @@ Calculating each term:
 Thus,
 
 $$
-\text{Total Cost} = 95 + 60 + 360 + 48 + 840 = 1477
+\text{Total Cost} = 95 + 60 + 360 + 48 + 840 = 1403
 $$
 
 ### Step 6: Recalculate Opportunity Costs
