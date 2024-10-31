@@ -117,9 +117,8 @@ To adjust the allocation, we need to form a closed loop. We will increase the al
 
 1. Increase $ (S_3, D_2) $.
 2. Decrease $ (S_2, D_2) $.
-3. Decrease $ (S_2, D_3) $.
-4. Decrease $ (S_1, D_2) $.
-5. Decrease $ (S_1, D_1) $.
+3. Increase $ (S_2, D_3) $.
+4. Decrease $ (S_3, D_3) $.
 
 Assume we increase the allocation at $ (S_3, D_2) $ by $ x $.
 
@@ -127,12 +126,12 @@ Assume we increase the allocation at $ (S_3, D_2) $ by $ x $.
 
 Starting from the current allocations, let’s denote the new allocations as follows:
 
-1. **Increase**: $ (S_3, D_2) = x $
+1. **Increase**:
+   - $ (S_3, D_2) = x $
+   - $ (S_2, D_3 = 3 + x $
 2. **Decrease**:
    - $ (S_2, D_2) = 6 - x $ (can decrease up to 6)
-   - $ (S_2, D_3) = 3 - x $
-   - $ (S_1, D_2) = 2 - x $
-   - $ (S_1, D_1) = 5 - x $
+   - $ (S_3, D_3) = 18 - x $
 
 To maintain the non-negativity of allocations, we need to choose $ x $ carefully.
 
@@ -141,21 +140,19 @@ To maintain the non-negativity of allocations, we need to choose $ x $ carefully
 To find the maximum possible value of $ x $:
 
 - For $ (S_2, D_2) $: maximum is $ 6 $.
-- For $ (S_2, D_3) $: maximum is $ 3 $.
-- For $ (S_1, D_2) $: maximum is $ 2 $.
-- For $ (S_1, D_1) $: maximum is $ 5 $.
+- For $ (S_2, D_3) $: maximum is $ 6 $.
+- For $ (S_3, D_3) $: maximum is $ 18 $.
 
-The smallest value among these is $ 2 $ (from $ (S_1, D_2) $), so we can increase the allocation to $ 2 $.
+The smallest value among these is $ 6 $ (from $ (S_2, D_3) $), so we can increase the allocation to $ 6 $.
 
 ### New Allocations
 
 The new allocations will be:
 
-- $ (S_3, D_2) = 2 $
-- $ (S_2, D_2) = 6 - 2 = 4 $
-- $ (S_2, D_3) = 3 - 2 = 1 $
-- $ (S_1, D_2) = 2 - 2 = 0 $
-- $ (S_1, D_1) = 5 - 2 = 3 $
+- $ (S_3, D_2) = 6 $
+- $ (S_2, D_2) = 6 - 6 = 0 $
+- $ (S_2, D_3) = 3 + 6 = 9 $
+- $ (S_3, D_3) = 18 - 6 = 12 $
 
 ### Updated Allocation Table
 
@@ -166,9 +163,9 @@ $$
 \hline
  & D_1 & D_2 & D_3 \\
 \hline
-S_1 & 3 & 0 & 0 \\
-S_2 & 0 & 4 & 1 \\
-S_3 & 0 & 2 & 18 \\
+S_1 & 5 & 2 & 0 \\
+S_2 & 0 & 0 & 9 \\
+S_3 & 0 & 6 & 12 \\
 \hline
 \end{array}
 $$
@@ -183,18 +180,20 @@ $$
 
 Calculating each term:
 
-- $ 19 \times 3 = 57 $
-- $ 30 \times 0 = 0 $
+- $ 19 \times 5 = 95 $
+- $ 30 \times 2 = 60 $
 - $ 50 \times 0 = 0 $
 - $ 70 \times 0 = 0 $
-- $ 30 \times 4 = 120 $
-- $ 40 \times 1 = 40 $
-- $ 70 \times 18 = 1260 $
+- $ 30 \times 0 = 0 $
+- $ 40 \times 9 = 360 $
+- $ 40 \times 0 = 0 $
+- $ 8 \times 6 = 48 $
+- $ 70 \times 12 = 840 $
 
 Thus,
 
 $$
-\text{Total Cost} = 57 + 0 + 0 + 0 + 120 + 40 + 1260 = 1477
+\text{Total Cost} = 95 + 60 + 360 + 48 + 840 = 1477
 $$
 
 ### Step 6: Recalculate Opportunity Costs
