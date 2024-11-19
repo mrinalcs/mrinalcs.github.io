@@ -1,93 +1,99 @@
+ 
+/* Comment Section Container */
 #comment-section {
-    margin-top: 60px;
-} 
-
-.comments {
-    margin: 20px auto;
-    padding: 20px;
-    border: none;
-    border-radius: 6px;
-    background-color: var(--b); /* Background color for comments section */
-    border: 1px solid var(--ts); 
-    color: var(--t);
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: var(--bs); 
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#comments-list p {
-    margin: 0;
-    padding: 10px;
-    color: var(--t);
-    font-size: 14px;
-    text-align: center;
+/* Section Headers */
+#comment-section .post-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #444;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+/* Comments Container */
+#commentSection {
+    margin-top: 1rem;
 }
 
 .comment-item {
-    margin-bottom: 20px;
-    padding: 10px;
-    border-bottom: 1px solid var(--h);
+    margin-bottom: 1rem;
+    padding: 0.8rem; 
+    border-radius: 5px;
+    background: var(--bc);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
 
 .commenter-name {
-    margin: 0;
     font-weight: bold;
-    color: #333;
+    margin-bottom: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #555;
 }
 
 .commenter-name small {
-    margin-left: 10px;
     font-weight: normal;
-    color: var(--tl);
-    font-size: 12px;
+    color: #999;
 }
 
 .comment-item p {
-    margin: 5px 0 0 0;
-    color: var(--t);
-    font-size: 14px;
+    margin: 0.3rem 0;
 }
 
+/* Add Comment Section */
 .comments-form {
-    margin-top: 20px;
+    margin-top: 1.5rem;
 }
 
 #comment-form {
     display: flex;
     flex-direction: column;
+    gap: 0.8rem;
 }
 
 #comment-form input[type="text"],
 #comment-form textarea {
-    background: var(--b);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid var(--h);
-    border-radius: 4px; 
-    font-size: 16px;
+     
+    padding: 0.6rem;
+    font-size: 1rem; 
+    border-radius: 5px;
+    background: var(--bc);
+    transition: border-color 0.2s ease;
 }
 
 #comment-form input[type="text"]:focus,
 #comment-form textarea:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #007BFF;
     outline: none;
 }
 
 #comment-form textarea {
+    resize: none;
     height: 100px;
-    resize: vertical;
 }
 
 #comment-submit {
-    align-self: flex-start;
-    // padding: 10px 20px;
-    // font-size: 16px;
-    // color: #fff;
-    // background-color: #007bff;
-    // border: none;
-    // border-radius:10px;
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background: #007BFF;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 #comment-submit:hover {
-    background-color: #0056b3;
+    background: #0056b3;
 }
