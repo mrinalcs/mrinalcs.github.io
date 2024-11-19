@@ -1,6 +1,6 @@
 ---
 title: "Statistical Analysis on Body Performance"
-description: "Basic analysis on different factors and classes"
+description: "Analysis of body performance metrics, including age, gender, height, weight, body fat percentage, blood pressure, and performance metrics like grip force and sit-ups using R Programming"
 date: "2024-06-21"
 tags: ["stat", "project", "analysis"]
 ---
