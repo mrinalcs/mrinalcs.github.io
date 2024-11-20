@@ -14,7 +14,21 @@
          url('../font/manrope/static/Manrope-Bold.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'RobotoCondensed';
+    font-weight: 700;
+    font-style: normal;
+    src: url('../font/default/robotocondensed.woff2') format('woff2'),
+         url('../font/default/robotocondensed.ttf') format('truetype');
+}
+
 html {
     font-family: 'Manrope', sans-serif;
     line-height: 1.6em;
+}
+h1,h2,h3{
+    font-family: 'RobotoCondensed', sans-serif;
+}
+code{
+    font-family: 'Manrope', sans-serif;
 }

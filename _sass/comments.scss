@@ -4,17 +4,17 @@
     max-width: 600px;
     margin: 2rem auto;
    // padding: 1rem;
-    background: var(--bs); 
+    //background: var(--bs); 
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    //box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Section Headers */
 #comment-section .post-subtitle {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #444;
-    border-bottom: 1px solid #ddd;
+   // color: #444;
+    border-bottom: 1px solid var(--h);
     padding-bottom: 0.5rem;
 }
 
