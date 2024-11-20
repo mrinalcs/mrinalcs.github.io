@@ -666,13 +666,16 @@ function initNotes() {
                   return;
               }
 
-              const authorBadge = element.isAuthor === "TRUE" ? ` (Author)` : '';
+              // Determine the appropriate badge
+              const authorBadge = element.isAuthor === "TRUE" 
+                  ? `<span class="name">${escapeHtml(element.name)} <span class="author-badge">Author</span></span>` 
+                  : `<span class="name">${escapeHtml(element.name)}</span>`;
 
               const newItem = document.createElement('div');
               newItem.className = 'note-item';
               newItem.innerHTML = `
                   <p class="note-name">
-                      <span class="author-badge">${escapeHtml(element.name)}${authorBadge}</span>
+                      ${authorBadge}
                       <small>${formatDate(element.timestamp)}</small>
                   </p>
                   <div>
@@ -802,6 +805,7 @@ function initNotes() {
       }
   }
 }
+
 
 
 
