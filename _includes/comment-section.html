@@ -1,25 +1,25 @@
-{% if site.comment-read %}
+{% if site.note-read %}
  
-<div id="comment-section">
-	<h2 class="post-subtitle">Add Your Note</h2>
-<div id="commentSection" class="comments">
-	<div id="comments-list" class="post-info"><noscript>This requires JavaScript to function properly. Please enable JavaScript in your browser settings</noscript></div>
+<div id="note-section">
+    <h2 class="post-subtitle">Add Your Note</h2>
+    <div id="noteSection" class="notes">
+        <div id="notes-list" class="post-info">
+            <noscript>This requires JavaScript to function properly. Please enable JavaScript in your browser settings</noscript>
+        </div>
+    </div>
+    <div class="notes">
+        <div class="post-info">
+            <p></p>
+        </div>
+        <div class="notes-form">
+            <form id="note-form">
+                <input id="note-name" name="username" type="text" placeholder="Name" required autocomplete="username">
+                <textarea id="note-content" name="note" placeholder="Type Your Note Here..." required></textarea>
+                <input id="note-submit" type="submit" value="Post">
+            </form>
+        </div>
+    </div>
 </div>
-<!-- <h3 class="post-subtitle">Add a Comment</h3> -->
-<div class="comments">
-	<div class="post-info">
-		<p> </p>
-	</div>	
-	<div class="comments-form">
-		<form id="comment-form"  >
-			 
-				<input id="comment-name" name="username" type="text" placeholder="Name" required autocomplete="username">
-				<textarea id="comment-comment" name="comment" placeholder="Type Your Note Here..." required></textarea>
-				<input id="comment-submit" type="submit" value="Post">
-			 
-		</form>
-	</div>
-</div>
-</div>
+
 
 {% endif %}

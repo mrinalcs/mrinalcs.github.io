@@ -576,10 +576,10 @@ function initTimeAgo() {
   });
 }
 
-function initComments() {
-  const commentSection = document.getElementById('comment-section');
-  if (commentSection) {
-      // Function to format the comment's date to our desired format
+function initNotes() {
+  const noteSection = document.getElementById('note-section');
+  if (noteSection) {
+      // Format note timestamp
       function formatDate(stringDate) {
           const date = new Date(stringDate);
           const now = new Date();
@@ -600,112 +600,111 @@ function initComments() {
           }
       }
 
-      // Function to escape HTML special characters
+      // Escape HTML characters
       function escapeHtml(text) {
-          var map = {
+          const map = {
               '&': '&amp;',
               '<': '&lt;',
               '>': '&gt;',
               '"': '&quot;',
               "'": '&#039;'
           };
-          return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+          return text.replace(/[&<>"']/g, (m) => map[m]);
       }
 
-      // Function to parse CSV data
+      // Parse CSV to note objects
       function parseCsv(data) {
           const lines = data.trim().split('\n');
           const result = [];
-          let currentComment = [];
+          let currentNote = [];
 
           lines.forEach(line => {
               if (line.startsWith('"')) {
-                  if (currentComment.length > 0) {
-                      result.push(currentComment.join('\n'));
+                  if (currentNote.length > 0) {
+                      result.push(currentNote.join('\n'));
                   }
-                  currentComment = [line];
+                  currentNote = [line];
               } else {
-                  currentComment.push(line);
+                  currentNote.push(line);
               }
           });
 
-          if (currentComment.length > 0) {
-              result.push(currentComment.join('\n'));
+          if (currentNote.length > 0) {
+              result.push(currentNote.join('\n'));
           }
 
-          return result.map(comment => {
-              const values = comment.match(/(?:[^,"']+|"(?:\\.|[^"])*"|'(?:\\.|[^'])*')+/g);
-              if (values.length < 3) return null; // Skip rows with insufficient columns
+          return result.map(note => {
+              const values = note.match(/(?:[^,"']+|"(?:\\.|[^"])*"|'(?:\\.|[^'])*')+/g);
+              if (values.length < 4) return null;
 
               const timestamp = values[0].replace(/"/g, '');
               const name = values[1].replace(/"/g, '');
-              const commentText = values.slice(2).join(',').replace(/"/g, '').replace(/\\n/g, '\n');
+              const noteText = values[2].replace(/"/g, '').replace(/\\n/g, '\n');
+              const isAuthor = values[3].replace(/"/g, '');
 
-              return { timestamp, name, comment: commentText };
-          }).filter(comment => comment !== null);
+              return { timestamp, name, note: noteText, isAuthor };
+          }).filter(note => note !== null);
       }
 
-      // Function to display comments
-      function displayComments(comments) {
-          const noComments = document.getElementById('comments-list');
-          const commentSection = document.getElementById('commentSection');
+      // Display notes
+      function displayNotes(notes) {
+          const noNotes = document.getElementById('notes-list');
+          const noteSection = document.getElementById('noteSection');
 
-          if (!comments) {
-              if (visibleComments.length === 0) {
-                  noComments.style.display = 'block';
-                  noComments.textContent = "There are currently no comments on this post. Be the first to add one below.";
+          if (!notes) {
+              if (visibleNotes.length === 0) {
+                  noNotes.style.display = 'block';
+                  noNotes.textContent = "There are currently no notes on this post. Be the first to add one below.";
               }
               return;
           }
 
-          const commentList = parseCsv(comments);
+          const noteList = parseCsv(notes);
 
-          commentList.forEach(element => {
-              if (visibleComments.includes(JSON.stringify(element))) {
+          noteList.forEach(element => {
+              if (visibleNotes.includes(JSON.stringify(element))) {
                   return;
               }
 
+              const authorBadge = element.isAuthor === "TRUE" ? ` (Author)` : '';
+
               const newItem = document.createElement('div');
-              newItem.className = 'comment-item';
+              newItem.className = 'note-item';
               newItem.innerHTML = `
-                  <p class="commenter-name">${escapeHtml(element.name)}<small>${formatDate(element.timestamp)}</small></p>
+                  <p class="note-name">
+                      <span class="author-badge">${escapeHtml(element.name)}${authorBadge}</span>
+                      <small>${formatDate(element.timestamp)}</small>
+                  </p>
                   <div>
-                      <p>${escapeHtml(element.comment).replace(/\r?\n/g, '<br />')}</p>
+                      <p>${escapeHtml(element.note).replace(/\r?\n/g, '<br />')}</p>
                   </div>
               `;
 
               newItem.style.display = 'none';
-              commentSection.appendChild(newItem);
+              noteSection.appendChild(newItem);
               newItem.style.display = 'block';
-              visibleComments.push(JSON.stringify(element));
+              visibleNotes.push(JSON.stringify(element));
 
-              noComments.style.display = 'none';
+              noNotes.style.display = 'none';
           });
       }
 
-      // Function to reload comments
-      function reloadComments() {
+      // Reload notes
+      function reloadNotes() {
           const sqlStatement = encodeURIComponent(`SELECT A, C, D, E WHERE B = '${thisPageUrl}'`);
-          fetch(`{{ site.comment-read }}/gviz/tq?tqx=out:csv&sheet=comments&tq=${sqlStatement}&headers=0`)
+          fetch(`https://docs.google.com/spreadsheets/d/1hVRP9tYl8f4bsBjJP52hv74DwZ2pYpatxaNMG2rNY_M/gviz/tq?tqx=out:csv&sheet=notes&tq=${sqlStatement}&headers=0`)
               .then(response => response.text())
-              .then(response => displayComments(response));
+              .then(response => displayNotes(response));
       }
 
-      // Function to encode form data
-      function encodeFormData(data) {
-          return Object.keys(data)
-              .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-              .join('&');
-      }
-
-      // Function to get a cookie value by name
+      // Get cookie by name
       function getCookie(name) {
           const value = `; ${document.cookie}`;
           const parts = value.split(`; ${name}=`);
           if (parts.length === 2) return parts.pop().split(';').shift();
       }
 
-      // Function to set a cookie
+      // Set a cookie
       function setCookie(name, value, days) {
           const d = new Date();
           d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -713,91 +712,97 @@ function initComments() {
           document.cookie = `${name}=${value};${expires};path=/`;
       }
 
-      // Function to check banned words
-      async function checkBannedWords(comment) {
+      // Check for banned words
+      async function checkBannedWords(note) {
           const bannedWords = await fetch('/assets/js/bannedwords.json').then(res => res.json());
-          const lowerComment = comment.toLowerCase();
-          const foundWords = bannedWords.filter(word => lowerComment.includes(word));
+          const lowerNote = note.toLowerCase();
+          const foundWords = bannedWords.filter(word => lowerNote.includes(word));
           return foundWords;
       }
 
-      // Function to limit comments (2 in 5 minutes)
-      function canPostComment() {
-          const commentHistory = JSON.parse(getCookie('commentHistory') || '[]');
+      // Rate limit notes (2 in 5 minutes)
+      function canPostNote() {
+          const noteHistory = JSON.parse(getCookie('noteHistory') || '[]');
           const now = Date.now();
           const fiveMinutesAgo = now - 5 * 60 * 1000;
 
-          const recentComments = commentHistory.filter(time => time > fiveMinutesAgo);
+          const recentNotes = noteHistory.filter(time => time > fiveMinutesAgo);
 
-          if (recentComments.length >= 2) {
+          if (recentNotes.length >= 2) {
               return false;
           }
 
-          recentComments.push(now);
-          setCookie('commentHistory', JSON.stringify(recentComments), 1);
+          recentNotes.push(now);
+          setCookie('noteHistory', JSON.stringify(recentNotes), 1);
 
           return true;
       }
 
-      // Function to post a comment
-      async function postComment(event) {
+      // Post a new note
+      async function postNote(event) {
           event.preventDefault();
-          const username = document.getElementById('comment-name').value;
-          const comment = document.getElementById('comment-comment').value;
+          const username = document.getElementById('note-name').value;
+          const note = document.getElementById('note-content').value;
 
-          const bannedWords = await checkBannedWords(comment);
+          const bannedWords = await checkBannedWords(note);
           if (bannedWords.length > 0) {
-              alert(`Please avoid using the following words: ${bannedWords.join(', ')}. Kindly modify your comment and try again.`);
+              alert(`Please avoid using the following words: ${bannedWords.join(', ')}. Kindly modify your note and try again.`);
               return;
           }
 
-          if (!canPostComment()) {
-              alert("You've reached the limit of 2 comments in 5 minutes. Please wait for 5 minutes before commenting again.");
+          if (!canPostNote()) {
+              alert("You've reached the limit of 2 notes in 5 minutes. Please wait for 5 minutes before posting again.");
               return;
           }
 
-          setCookie('commenterName', username, 365);
+          setCookie('notePosterName', username, 365);
 
-          fetch(`{{ site.comment-post }}/formResponse`, {
+          fetch(`https://docs.google.com/forms/d/e/1FAIpQLSehE6misroMb1QUK57ReR8JeO_eVxztTlojKRcXCbWDwYtHTQ/formResponse`, {
               method: 'POST',
               mode: 'no-cors',
               headers: {
                   "Content-Type": "application/x-www-form-urlencoded"
               },
               body: encodeFormData({
-                  "{{ site.comment-post-fields[0] }}": thisPageUrl,
-                  "{{ site.comment-post-fields[1] }}": username,
-                  "{{ site.comment-post-fields[2] }}": comment
+                  "entry.46315812": thisPageUrl,
+                  "entry.361353560": username,
+                  "entry.1184144290": note
               })
           }).then(() => {
-              document.getElementById('comment-comment').value = '';
-              reloadComments();
+              document.getElementById('note-content').value = '';
+              reloadNotes();
           }).catch(error => console.log(error));
-          return false;
       }
 
-      // Initialize comments on initial page load
+      // Encode form data
+      function encodeFormData(data) {
+          return Object.keys(data)
+              .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+              .join('&');
+      }
+
+      // Initialize notes on load
       const thisPageUrl = window.location.href.split(/[?#]/)[0];
+      let visibleNotes = [];
 
-      let visibleComments = [];
-
-      reloadComments();
+      reloadNotes();
 
       document.addEventListener('swup:contentReplaced', () => {
-          reloadComments();
+          reloadNotes();
       });
 
-      const commentForm = document.getElementById('comment-form');
-      if (commentForm) {
-          commentForm.addEventListener('submit', postComment);
+      const noteForm = document.getElementById('note-form');
+      if (noteForm) {
+          noteForm.addEventListener('submit', postNote);
       }
 
-      const commenterName = getCookie('commenterName');
-      if (commenterName) {
-          document.getElementById('comment-name').value = commenterName;
+      const notePosterName = getCookie('notePosterName');
+      if (notePosterName) {
+          document.getElementById('note-name').value = notePosterName;
       }
   }
 }
+
 
 
 
@@ -968,7 +973,7 @@ function initExtLinkHandler() {
       initSearch();
       initCodeCopyBtn();
       initTimeAgo();
-      initComments();
+      initNotes();
       initExtLinkHandler();
       {% if jekyll.environment == 'production' %}
       initGoogleTagManager();

@@ -1,29 +1,24 @@
- 
-/* Comment Section Container */
-#comment-section {
+/* Note Section Container */
+#note-section {
     max-width: 600px;
     margin: 2rem auto;
-   // padding: 1rem;
-    //background: var(--bs); 
     border-radius: 8px;
-    //box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Section Headers */
-#comment-section .post-subtitle {
+#note-section .post-subtitle {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-   // color: #444;
     border-bottom: 1px solid var(--h);
     padding-bottom: 0.5rem;
 }
 
-/* Comments Container */
-#commentSection {
+/* Notes Container */
+#noteSection {
     margin-top: 1rem;
 }
 
-.comment-item {
+.note-item {
     margin-bottom: 1rem;
     padding: 0.8rem; 
     border-radius: 5px;
@@ -31,7 +26,7 @@
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
 }
 
-.commenter-name {
+.note-name {
     font-weight: bold;
     margin-bottom: 0.3rem;
     display: flex;
@@ -40,29 +35,34 @@
     color: #555;
 }
 
-.commenter-name small {
+.note-name small {
     font-weight: normal;
     color: #999;
 }
 
-.comment-item p {
+.note-item p {
     margin: 0.3rem 0;
 }
 
-/* Add Comment Section */
-.comments-form {
+/* Add Note Section */
+.notes-form {
     margin-top: 1.5rem;
 }
 
-#comment-form {
+#note-form {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
 }
 
-#comment-form input[type="text"],
-#comment-form textarea {
-     
+#note-form .input-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
+#note-form input[type="text"],
+#note-form textarea {
     padding: 0.6rem;
     font-size: 1rem; 
     border-radius: 5px;
@@ -70,19 +70,22 @@
     transition: border-color 0.2s ease;
 }
 
-#comment-form input[type="text"]:focus,
-#comment-form textarea:focus {
+#note-form input[type="text"]:focus,
+#note-form textarea:focus {
     border-color: #007BFF;
     outline: none;
 }
 
-#comment-form textarea {
+#note-form textarea {
     resize: none;
     height: 100px;
 }
 
-#comment-submit {
-    width: 100%;
+#note-form input[type="text"] {
+    flex: 1;
+}
+
+#note-submit {
     padding: 0.7rem;
     font-size: 1rem;
     font-weight: bold;
@@ -94,6 +97,6 @@
     transition: background-color 0.3s ease;
 }
 
-#comment-submit:hover {
+#note-submit:hover {
     background: #0056b3;
 }

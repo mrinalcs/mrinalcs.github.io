@@ -79,10 +79,6 @@ defaults:
         type: WebPage
 
 
-comment-read: https://docs.google.com/spreadsheets/d/1hVRP9tYl8f4bsBjJP52hv74DwZ2pYpatxaNMG2rNY_M
-comment-post: https://docs.google.com/forms/d/e/1FAIpQLSehE6misroMb1QUK57ReR8JeO_eVxztTlojKRcXCbWDwYtHTQ
-comment-post-fields: [ entry.46315812, entry.361353560, entry.1184144290]
-
 
 exclude:
   - README.md
