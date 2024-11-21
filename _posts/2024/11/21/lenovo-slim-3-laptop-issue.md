@@ -3,6 +3,7 @@ title: "Trouble with My Lenovo Slim 3 Laptop"
 description: "Lenovo Slim 3 laptop suddenly failed issue related to Graphics card, the repair challenges have to faced."
 date: 2024-11-21
 tags: [laptop,issues]
+image: "q015ea87.jpg"
 ---
 
 
@@ -16,7 +17,9 @@ After shutting down my laptop the previous night, I powered it up the next morni
 I tried restarting it several times, but the same thing kept happening—everything would power up fine, but the screen would go black after a few moments.
 
 
-
+![Automatic repair after turn on the laptop](ea9a8b86.jpg)
+![After sometime automatically display glitch](q015ea87.jpg)
+*The Laptop start and work for few second and with some display glitch it stop working and eventualy screen goes black, though indicator light on*
 
 
 
@@ -36,4 +39,9 @@ After a week, they told me that the integrated graphics card on the motherboard 
 
 I found another repair shop there and explained the situation. They informed me that repairs of this complexity couldn’t be handled locally and would require the laptop to be sent to Kolkata. I agreed, hoping they could find a solution.
 
-But finally the situation is still same.
+
+## Worsening Condition
+
+Despite the repair efforts, the condition of my laptop worsened. It has now reached a point where it doesn’t even turn on anymore. The power indicator doesn’t light up, and the system is completely unresponsive.
+
+😔
