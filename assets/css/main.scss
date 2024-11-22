@@ -1,17 +1,17 @@
 ---
 ---
 
-@import "fonts/default";
-@import "base"; 
-@import "modals";
-@import 'photos';
-@import 'transitions';
-@import 'form';
-@import 'syntax';
-@import 'scrollbar';
-@import 'pages';
-@import 'clipboard';
-@import 'figs';
-@import 'comments';
-@import 'toc';
-@import 'print';
+@use "fonts/default";
+@use "base"; 
+@use "modals";
+@use 'photos';
+@use 'transitions';
+@use 'form';
+@use 'syntax';
+@use 'scrollbar';
+@use 'pages';
+@use 'clipboard';
+@use 'figs';
+@use 'comments';
+@use 'toc';
+@use 'print';
