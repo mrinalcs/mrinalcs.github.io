@@ -8,6 +8,7 @@
 
   --bc:#e5e5e5;
   --h:rgb(134 134 134 / 50%);
+  --c:rgb(25, 0, 255);;
 }
 
 
@@ -20,6 +21,7 @@
     --tl: #a3a3a3;
     --bc: #2b2b2b;
     --h:rgba(238, 238, 238, 0.5);
+    --c:#a5ea20;
   }
 }
 
@@ -79,7 +81,7 @@ header,main {
 
  a{
 //  text-decoration: none;
-  color: var(--t);
+  color: var(--c);
   text-decoration: underline;
   text-decoration-color: var(--h);
   text-decoration-thickness: 1px;
