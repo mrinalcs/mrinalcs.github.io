@@ -2,6 +2,7 @@
 :root {
   --b:white;
   --bs:#ebebeb;
+  --bt:#ebebeb;
   --t:black;
   --ts: #6b6b6b;
   --tl:#4d4d4d;
@@ -16,6 +17,7 @@
   :root {
     --b:rgb(31,31,31);
     --bs:#171717;
+    --bt:#383838;
     --t:white;
     --ts: #989898;
     --tl: #a3a3a3;
@@ -332,7 +334,7 @@ code {
   margin: 0;
   font-size: 85%;
   white-space: break-spaces;
-  background-color: var(--bs);
+  background-color: var(--bt);
   border-radius: 6px;
 }
 
