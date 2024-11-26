@@ -978,7 +978,7 @@ function initExtLinkHandler() {
       initCodeCopyBtn();
       initTimeAgo();
       initNotes();
-     // initExtLinkHandler();
+      initExtLinkHandler();
       {% if jekyll.environment == 'production' %}
       initGoogleTagManager();
       {% endif %}
