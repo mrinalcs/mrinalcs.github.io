@@ -121,7 +121,8 @@ pre {
   code{
     padding: 0;
     background-color: transparent;
-    white-space: unset;    
+    white-space: unset;
+    line-height: initial;   
   }
   color: var(--t);
 
