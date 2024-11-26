@@ -821,73 +821,60 @@ function initNotes() {
 
 
 
-
 function initExtLinkHandler() {
   // Check if the modal already exists
   var existingModal = document.getElementById('extLink');
   if (!existingModal) {
-    // Create the modal elements
     var modal = document.createElement('div');
     modal.id = 'extLink';
     modal.className = 'modal';
-    
+
     var modalContent = document.createElement('div');
     modalContent.className = 'modal-content';
-    
+
     var closeSpan = document.createElement('span');
     closeSpan.className = 'close';
     closeSpan.innerHTML = '&times;';
     modalContent.appendChild(closeSpan);
-    
+
     var messageP = document.createElement('p');
     messageP.id = 'modalMessage';
     modalContent.appendChild(messageP);
-    
+
     var linkInfoP = document.createElement('p');
     linkInfoP.id = 'linkInfo';
     modalContent.appendChild(linkInfoP);
-    
+
     var buttonContainer = document.createElement('p');
-    
+
     var cancelLink = document.createElement('span');
-     
     cancelLink.id = 'modalCancel';
     cancelLink.innerHTML = 'Cancel';
     buttonContainer.appendChild(cancelLink);
-    
+
     var confirmLink = document.createElement('a');
     confirmLink.href = '#';
     confirmLink.id = 'modalConfirm';
     confirmLink.textContent = 'Yes, Proceed';
-    confirmLink.target = '_blank'; // Open in a new tab
+    confirmLink.target = '_blank';
     buttonContainer.appendChild(confirmLink);
-    
+
     modalContent.appendChild(buttonContainer);
     modal.appendChild(modalContent);
     document.body.appendChild(modal);
   }
 
-  // Get the modal and its elements
   var modal = document.getElementById('extLink');
-  var modalContent = modal.querySelector('.modal-content');
   var closeSpan = modal.querySelector('.close');
   var modalMessage = document.getElementById('modalMessage');
   var modalConfirm = document.getElementById('modalConfirm');
   var modalCancel = document.getElementById('modalCancel');
   var linkInfo = document.getElementById('linkInfo');
 
-  // Function to open modal and handle link click
   function openModal(link) {
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Disable body scroll
-    
-    setTimeout(function() {
-      modal.style.opacity = '1';
-      modalContent.style.opacity = '1';
-      modalContent.style.transform = 'translateY(0)';
-    }, 50);
+    modal.style.display = 'flex'; // Set to flex for centering
+    document.body.style.overflow = 'hidden';
 
-    // Determine the message based on the link type
     if (link.href.startsWith('mailto:')) {
       modalMessage.textContent = 'Do you want to send an email to this address?';
       linkInfo.textContent = link.href.replace('mailto:', '');
@@ -896,73 +883,52 @@ function initExtLinkHandler() {
       linkInfo.textContent = link.href.replace('tel:', '');
     } else {
       modalMessage.textContent = 'Do you want to proceed to this link?';
-      var displayText = link.textContent.trim();
-      var urlWithoutParams = link.href.replace(/\?ref=.*$/,''); // Get URL without query parameters
-      var params = link.href.split('?')[1]; // Get query parameters
-
-      // Check if display text matches the URL and decide whether to show parentheses
-      if (displayText === urlWithoutParams) {
-        linkInfo.textContent = displayText;
-      } else {
-        linkInfo.textContent = displayText + ' (' + urlWithoutParams + ')';
-      }
+      linkInfo.textContent = link.href;
     }
 
-    // Set the href of modalConfirm to the clicked link
     modalConfirm.href = link.href;
 
-    // Handle click on modalConfirm (proceed to external link)
-    modalConfirm.onclick = function(event) {
-      event.preventDefault(); // Prevent default action to handle it manually
+    modalConfirm.onclick = function (event) {
+      event.preventDefault();
       closeModal();
-      window.open(link.href, '_blank'); // Open link in a new tab
+      window.open(link.href, '_blank');
     };
 
-    // Handle click on modalCancel
-    modalCancel.onclick = function(event) {
+    modalCancel.onclick = function (event) {
       event.preventDefault();
       closeModal();
     };
   }
 
-  // Function to close modal
   function closeModal() {
-    modal.style.opacity = '0';
-    modalContent.style.opacity = '0';
-    modalContent.style.transform = 'translateY(-10px)';
-    setTimeout(function() {
-      modal.style.display = 'none';
-      document.body.style.overflow = ''; // Re-enable body scroll
-    }, 200); // Adjust the timeout to match the transition duration
+    modal.style.display = 'none'; // Hide modal
+    document.body.style.overflow = ''; // Re-enable scrolling
   }
 
-  // Add click event listeners to external links
-  document.querySelectorAll('a[href^="http"][target="_blank"], a[href^="mailto:"], a[href^="tel:"]').forEach(function(link) {
-    link.addEventListener('click', function(event) {
+  document.querySelectorAll('a[href^="http"][target="_blank"], a[href^="mailto:"], a[href^="tel:"]').forEach(function (link) {
+    link.addEventListener('click', function (event) {
       event.preventDefault();
       openModal(link);
     });
   });
 
-  // Close modal if clicked outside the modal content
-  window.addEventListener('click', function(event) {
+  window.addEventListener('click', function (event) {
     if (event.target === modal) {
       closeModal();
     }
   });
 
-  // Close modal if ESC key is pressed
-  document.addEventListener('keydown', function(event) {
+  document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
       closeModal();
     }
   });
 
-  // Close modal when clicking the close icon (×)
-  closeSpan.addEventListener('click', function() {
+  closeSpan.addEventListener('click', function () {
     closeModal();
   });
 }
+
 
 
 
