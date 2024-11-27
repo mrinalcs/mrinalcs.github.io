@@ -5,8 +5,20 @@ layout: default
 <!-- <h2>{{ page.tag | replace: '-', ' ' | replace: '_', ' ' | capitalize }}</h2> -->
 <p style="margin-top: 5px; margin-bottom: 20px;">{{page.description}}</p>
 
-<ul style="margin-top: 30px;">
+<ul style="margin-top: 30px;" class="post-list">
   {% for post in site.tags[page.tag] %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a> 
+    <span class="lg">
+    {% capture words %}
+      {{ post.content | number_of_words }}
+    {% endcapture %}
+    
+    {% assign read_time = words | divided_by:180 %}
+    ({{ read_time | ceil }} min read)
+     </span>
+    <!-- {{post.description}} -->
+  </li>
   {% endfor %}
 </ul>
