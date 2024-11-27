@@ -835,10 +835,7 @@ function initExtLinkHandler() {
       const modalContent = document.createElement('div');
       modalContent.className = 'modal-content';
 
-      const closeSpan = document.createElement('span');
-      closeSpan.className = 'close';
-      closeSpan.innerHTML = '&times;';
-      modalContent.appendChild(closeSpan);
+
 
       const messageP = document.createElement('p');
       messageP.id = 'modalMessage';
@@ -865,8 +862,7 @@ function initExtLinkHandler() {
       modal.appendChild(modalContent);
       document.body.appendChild(modal);
 
-      // Event listeners for dynamically created elements
-      closeSpan.addEventListener('click', closeModal);
+      // Event listeners for dynamically created elements 
       cancelLink.addEventListener('click', closeModal);
 
       // Close modal on outside click

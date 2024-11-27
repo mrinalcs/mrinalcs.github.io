@@ -34,19 +34,6 @@
   text-align: center;
 }
 
-.close {
-  color: var(--t);
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: var(--ts);
-  text-decoration: none;
-}
 
 .modal-content p {
   text-align: center;
