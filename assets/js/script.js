@@ -948,11 +948,66 @@ function initExtLinkHandler() {
   });
 }
 
+function initInlineScript(container = document) {
+  // Clear previously executed scripts
+  container.querySelectorAll('script[data-executed="true"]').forEach(script => {
+    script.removeAttribute('data-executed'); // Reset the executed attribute
+  });
+
+  // Find all script tags within the given container (default: entire document)
+  const scriptElements = container.querySelectorAll('script:not([data-executed])');
+
+  scriptElements.forEach((script) => {
+    // Mark the script as executed to avoid re-execution
+    script.setAttribute('data-executed', 'true');
+
+    // Check the script type (default: 'text/javascript')
+    const scriptType = script.getAttribute('type') || 'text/javascript';
+
+    // Skip known non-executable script types silently
+    if (['application/ld+json', 'module'].includes(scriptType)) {
+      return;
+    }
+
+    // Handle inline scripts
+    if (!script.src) {
+      try {
+        eval(script.textContent);
+      } catch (error) {
+        console.error('Error executing inline script:', error);
+      }
+    } else {
+      // Handle external scripts
+      const newScript = document.createElement('script');
+      newScript.src = script.src;
+      newScript.type = scriptType;
+      newScript.async = script.async || false;
+      newScript.defer = script.defer || false;
+
+      if (scriptType === 'module') {
+        newScript.type = 'module'; // Handle ES module scripts
+      }
+
+      newScript.onload = () => {
+        console.log(`External script loaded: ${script.src}`);
+      };
+
+      newScript.onerror = (error) => {
+        console.error(`Error loading external script: ${script.src}`, error);
+      };
+
+      document.head.appendChild(newScript);
+    }
+  });
+}
+
+
 
 
 
     // Function to initialize on initial page load
     function init() {
+      initInlineScript(document.body); 
       initMathJax();
       initMermaid();
       initFormSubmission();
