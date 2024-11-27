@@ -1,71 +1,72 @@
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    backdrop-filter: blur(1px);
-  }
-  
-  .modal-content {
-    background-color: var(--b);
-    color: var(--ts);
-    margin: 15% auto;
-    padding: 20px;
-    // border: 1px solid var(--h);
-    width: 80%;
-    opacity: 0;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    transform: translateY(-10px);
-    max-width: 550px;
-    border-radius: 10px;
-    box-shadow: #0000006b 0px 0px 10px 0px;
-    margin-top: 250px;
-    p{
-      a {
-        background: var(--c);
-        color: var(--bs);
-        padding: 5px 7px;
-        text-decoration: none;
-      }
-    }
-  }
-  
-  .close {
-    color: var(--t);
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    display: none; // 😅
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: var(--ts);
-    text-decoration: none;
-  }
-  
-  .modal-content p {
-    text-align: center;
-    margin: 20px 0;
-  }
-  
-  .modal-content p a {
-    margin: 0 10px;
-  }
-  
-  span#modalCancel {
-    cursor: pointer;
-    &:hover{
-      color: var(--ts);
-    }
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  backdrop-filter: blur(1px);
+
+  /* Center the modal content with flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var(--b);
+  color: var(--ts);
+  padding: 20px;
+  width: 80%;
+  max-width: 550px;
+  border-radius: 10px;
+  box-shadow: #0000006b 0px 0px 10px 0px;
+
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(-10px);
+
+  /* Ensure content alignment */
+  text-align: center;
+}
+
+.close {
+  color: var(--t);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--ts);
+  text-decoration: none;
+}
+
+.modal-content p {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.modal-content p a {
+  margin: 0 10px;
+  background: var(--c);
+  color: var(--bs);
+  padding: 5px 7px;
+  text-decoration: none;
+}
+
+span#modalCancel {
+  cursor: pointer;
+}
+
+span#modalCancel:hover {
+  color: var(--ts);
 }
 
 p#modalMessage {
