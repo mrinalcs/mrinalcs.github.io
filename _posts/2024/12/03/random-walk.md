@@ -1,5 +1,5 @@
 ---
-title: "Random walk"
+title: "Random Walk"
 description: "Random walk process and its simulation and visualise it using JavaScript and HTML canvas"
 date: "2024-12-03"
 tags: ["stat"]
