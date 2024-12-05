@@ -43,8 +43,7 @@ This function describes the likelihood of a random variable $ x $ falling at a p
 <style>
    
 
-    .normal-dist-container {
-        text-align: center;
+    .normal-dist-container { 
         margin: 0 auto;
         max-width: 100%;
         padding: 10px;
@@ -61,7 +60,6 @@ This function describes the likelihood of a random variable $ x $ falling at a p
     }
 
     .controls {
-        text-align: center;
         margin: 20px auto;
     }
 
