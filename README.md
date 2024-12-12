@@ -1,4 +1,4 @@
-## CMDs
+## Setup
 
 ```
 gem install jekyll
@@ -17,11 +17,11 @@ $env:JEKYLL_ENV="production"; bundle exec jekyll serve
 
 ```md
 ---
-title: 
-description:
-date:  
-image:  
-tags: []
+title: "Post Title"
+description: "Short description"
+image: "path_to_image"
+date: YYYY-MM-DD HH:MM:SS
+tags: [tag1, tag2]
 ---
 ```
 
