@@ -92,6 +92,55 @@ This function describes the likelihood of a random variable $ x $ falling at a p
     button:hover {
         background-color: #2980b9;
     }
+
+
+
+
+
+
+    input[type="range"] { 
+  -webkit-appearance: none;
+  appearance: none;  
+  width: 100%;
+  cursor: pointer;
+  outline: none; 
+  overflow: hidden;
+  border-radius: 16px;
+} 
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+ 
+input[type="range"]::-moz-range-track {
+  height: 15px;
+  background: #ccc;
+  border-radius: 16px;
+}
+ 
+input[type="range"]::-webkit-slider-thumb { 
+  -webkit-appearance: none;
+  appearance: none;  
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #f50; 
+  box-shadow: -407px 0 0 400px #f50;
+}
+
+ 
+input[type="range"]::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #f50; 
+  box-shadow: -407px 0 0 400px #f50;
+}
+
+ 
 </style>
 
 <script>
