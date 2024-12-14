@@ -2,7 +2,7 @@
 title: "How to Convert Data to Time Series Format"
 description: "Different methods for converting different format raw data into time series format in R"
 image: "1312241.jpg"
-date: 2024-12-13
+date: 2024-12-14
 tags: [time-series,r-programming]
 ---
 
