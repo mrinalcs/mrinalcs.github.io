@@ -10,8 +10,12 @@ h3, h2, p, li,pre {
 }
 
 
-.modal {
+.modal, #note-section {
   p{
     opacity: 1;
   }
+}
+
+#search-results, #search-results>li , #search-results>li>p ,#search-results>li>a>h3{
+  opacity: 1;
 }
