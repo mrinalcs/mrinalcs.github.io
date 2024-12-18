@@ -1002,7 +1002,22 @@ function initInlineScript(container = document) {
 }
 
 
+function initAnimatePageContent(container = document) {
+    // Intersection Observer for animations
+    const elements = document.querySelectorAll('h3, h2, p, li,pre');
 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    elements.forEach(element => {
+      observer.observe(element);
+    });
+}
 
 
     // Function to initialize on initial page load
@@ -1017,6 +1032,7 @@ function initInlineScript(container = document) {
       initCodeCopyBtn();
       initTimeAgo();
       initNotes();
+      initAnimatePageContent();
       initExtLinkHandler();
       {% if jekyll.environment == 'production' %}
       initGoogleTagManager();
