@@ -44,6 +44,8 @@
       # Convert <p><img><em> to <figure><img><figcaption><em>
       content.gsub!(/<p><img((?:(?!<\/p>|<em>).)*)<em>((?:(?!<\/p>|<em>).)*)<\/em><\/p>/m, '<figure><img\1<figcaption>\2</figcaption></figure>')
 
+      # Replace <p><img> -> <img> if no <em> inside
+      # content.gsub!(/<p>(\s*(<img[^>]*>\s*)+)<\/p>(?!.*<em>)/m, '\1')
 
       # Update the item content
       item.output = content
