@@ -3,7 +3,7 @@ title: "Massanjore Dam Picnic"
 description: "A delightful day spent at the scenic Massanjor Dam."
 image: "0712243.jpg"
 date: 2024-12-20 00:00:00
-tags: [travel]
+tags: [picnic]
 toc: false
 ---
 
