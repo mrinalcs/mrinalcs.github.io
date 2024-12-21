@@ -29,9 +29,42 @@ Some of us decided to go boating, though I opted not to. The water was chilly, a
 
 ![Boating Mayurakshi River](0712244.gif)
 
-
-![A dirt path winds its way towards the dam. A palm tree stands in the foreground, with two white goats grazing](0712245.jpg)
-
+ 
 ![A scenic view of Massanjore Dam and its surroundings.](0712247.jpg)
 
 The most memorable part of the trip was climbing the hills and taking photos 😄 . We ventured to a rock formation in the middle of the river where the water was low, surrounded by large rocks. It made for the perfect photoshoot spot. Everyone got a chance to strike a pose and capture some great memories!
+
+ 
+<style>
+    .collage {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+        max-width: 90%;margin: 30px 0;
+    }
+
+     img {
+        border:none;
+        padding:0;
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+     img:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+    p:has(img) {
+      padding:0; 
+    background-color: var(--bs);
+    border: none;
+    border-radius: 10px; 
+}
+</style>
+<div class="collage">
+    <img src="/0712245.jpg" alt="A dirt path winds its way towards the dam. A palm tree stands in the foreground, with two white goats grazing" title="by me">
+    <img src="/0712248.jpg" alt="A dirt path with wooden steps and handrails winds through a lush, green forest. Sunlight filters through the trees, casting dappled shadows on the ground" title="By my friend Snehanshu">
+</div>
+ 
