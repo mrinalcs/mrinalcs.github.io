@@ -25,7 +25,7 @@ require 'fastimage'
           if dimensions
             width, height = dimensions
             # Add width and height attributes to the <img> tag
-            %(<img #{attributes_before} src="#{src}" width="#{width}" height="#{height}" #{attributes_after}>)
+            %(<img#{attributes_before} src="#{src}" width="#{width}" height="#{height}" #{attributes_after}>)
           else
             match # Keep the original tag if dimensions can't be determined
           end
