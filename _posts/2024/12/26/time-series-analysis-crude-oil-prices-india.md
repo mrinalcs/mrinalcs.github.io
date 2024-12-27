@@ -52,15 +52,44 @@ alternative hypothesis: stationary
 
 Differencing was applied to the data, resulting in a **stationary series** with a **p-value of 0.01568**, which is less than 0.05 .
 
+## ACF & PACF
+Based on ACF and PACF depends the order of ARIMA model.
 
 ![Line graph showing ACF of Crude Oil Prices with significant spikes at lags 1, 12, and 13](2612244.png)
 
 ![Line graph showing PACF of Crude Oil Prices with significant spikes at lags 1, 2, 7, 12, and 13](2612245.png)
 
+Based on above ACF and PACF choose ARIMA(2,1,1) is a time series model with 2 autoregressive terms, first-order differencing, and 1 moving average term. 
+
+## Forecast using ARIMA
+
+![ARIMA 2,1,1  model forecast with crude oil price data and prediction interval](2712241.png)
 
 
+But here Wider error bands suggest higher uncertainty in the forecast.
 
- 
+![Decomposition of additive time series showing observed, trend, seasonal, and random components of the data.](2712243.png)
+
+There is seasonal patternt in the data, including seasonal components Auto ARIMA in R
+
+![Auto ARIMA 3,0,0  model forecast with historical data and prediction interval](2712242.png)
+
+```output
+> print(forecast_values)
+         Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+Jun 2021       4835.478 4395.331 5275.624 4162.332 5508.623
+Jul 2021       4646.724 3901.259 5392.188 3506.635 5786.813
+Aug 2021       4459.424 3554.567 5364.281 3075.565 5843.283
+Sep 2021       4327.160 3350.202 5304.119 2833.031 5821.289
+Oct 2021       4239.321 3226.697 5251.944 2690.647 5787.995
+Nov 2021       4173.800 3139.547 5208.053 2592.047 5755.553
+```
+
+## Conclusion
+Forecast results from the model predicted a decline in crude oil prices in the upcoming 6 months of 2021.
+
+Limitations of the study include that the model does not integrate external factors, such as global events and OPEC output, which can significantly influence crude oil prices. The study suggests that future research should focus on incorporating external variables and extending the historical dataset to improve accuracy.
+
 ## References
 - [https://www.investopedia.com/terms/c/crude-oil.asp](https://www.investopedia.com/terms/c/crude-oil.asp)
 - [https://www.mcxindia.com/products/energy/crude-oil](https://www.mcxindia.com/products/energy/crude-oil)
