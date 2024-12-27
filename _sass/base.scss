@@ -135,6 +135,13 @@ pre {
   // font-size: 85%; 
 }
 
+pre:not(.highlight) { 
+  // background-color: var(--t); 
+  // color: var(--b);  
+  border: solid 1px var(--ts);
+}
+
+
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
