@@ -37,4 +37,4 @@ Connect with me on [LinkedIn](https://www.linkedin.com/in/mrinalcs).
 
 Feel free to reach out at [mrinalcs@yahoo.com](mailto:mrinalcs@yahoo.com)
 
-<p>Download CV<a href="/assets/doc/cv.pdf" target="_blank" download="Mrinal Chandra Sarkar CV.pdf"><img src="/assets/img/cv.png" alt=""></a></p>
+<p>Download CV<a style="padding: 10px;" href="/assets/doc/cv.pdf" target="_blank" download="Mrinal Chandra Sarkar CV.pdf"><img src="/assets/img/cv.png" alt=""></a></p>

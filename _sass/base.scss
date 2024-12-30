@@ -400,7 +400,8 @@ svg.bi {
 
 nav a, main a:not(#my-gallery a) {
   background-color: var(--bs);
-  padding: 0 10px;
+  padding: 2px 10px;
+  font-size: 90%;
   border-radius: 5px;
   &:hover {
     background-color: var(--bc);
