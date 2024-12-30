@@ -398,12 +398,12 @@ svg.bi {
 //   background-attachment: fixed;
 // }
 
-// nav a, main a {
-//   background-color: var(--bs);
-//   padding: 0 5px;
-//   border-radius: 5px;
-//   &:hover {
-//     background-color: var(--bc);
-//     text-decoration: none;
-//   }
-// }
+nav a, main a:not(#my-gallery a) {
+  background-color: var(--bs);
+  padding: 0 10px;
+  border-radius: 5px;
+  &:hover {
+    background-color: var(--bc);
+    text-decoration: none;
+  }
+}
