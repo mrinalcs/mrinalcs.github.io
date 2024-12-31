@@ -4,3 +4,5 @@
   to: '/r-programming'
 - from: ['or','lpp']
   to: '/operations-research'
+- from: ['picture', 'pics']
+  to: '/pic'
