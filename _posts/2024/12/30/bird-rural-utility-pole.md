@@ -3,8 +3,8 @@ title: "Birds on a Rural Utility Pole"
 description: "A photo of birds perched on a rural utility pole."
 image: "3012242.jpg"
 date: 2024-12-30
-#tags: [p] 
-#last_modified_at: 2024-12-31
+tags: [pic] 
+last_modified_at: 2024-12-31
 toc: false
 ---
 
