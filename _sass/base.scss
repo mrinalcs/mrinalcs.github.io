@@ -198,6 +198,18 @@ img {
   max-height: max-content;
   // border-radius: 10px;
   height: auto; 
+  background: linear-gradient(90deg, #e0e0e0, #f5f5f5, #e0e0e0);
+  background-size: 200% 100%;
+  animation: imgLoadingBg 1s infinite linear;
+}
+
+@keyframes imgLoadingBg {
+  0% {
+      background-position: 200% 0;
+  }
+  100% {
+      background-position: -200% 0;
+  }
 }
 
 img+em,a+em {
