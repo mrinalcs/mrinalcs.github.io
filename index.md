@@ -33,8 +33,7 @@ Explore my projects on [Github](https://github.com/mrinalcs) to see what I've be
 
 
 ## Contact
-Connect with me on [LinkedIn](https://www.linkedin.com/in/mrinalcs).
 
 Feel free to reach out at [mrinalcs@yahoo.com](mailto:mrinalcs@yahoo.com)
 
-<p>Download CV<a title="Download Mrinal Chandra Sarkar's CV" style="padding: 10px;" href="/assets/doc/cv.pdf" target="_blank" download="Mrinal Chandra Sarkar CV.pdf"><img src="/assets/img/cv.png" alt="Mrinal Chandra Sarkar CV"></a></p>
+Connect me on LinkedIn[![Mrinal Chandra Sarkar CV](/assets/img/cv.png)](https://www.linkedin.com/in/mrinalcs "Connect with me on LinkedIn")

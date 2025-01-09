@@ -4,7 +4,7 @@ description: This page lists the licenses for various libraries and fonts used o
 sitemap: false
 ---
 
-Hreres libraries tools and fonts used on this website.
+Here are the libraries, tools, and fonts used on this website.  
 
 ## MathJax
 MathJax is an open-source JavaScript display engine for LaTeX, MathML, and AsciiMath notation that works in all modern browsers.
@@ -52,6 +52,13 @@ Manrope is a modern, geometric sans-serif typeface designed for optimal readabil
 
 **License:** SIL Open Font License (OFL)  
 **Link:** [Manrope License](https://github.com/sharanda/manrope/blob/master/OFL.txt)
+
+## Roboto Condensed  
+Roboto Condensed is a sans-serif typeface designed by Google as part of the Roboto family. It features a clean, modern look and is optimized for readability across both digital and print mediums.  
+
+**License:** Apache License 2.0  
+**Link:** [Roboto Condensed License](https://fonts.google.com/specimen/Roboto+Condensed)  
+
 
 ## Hey
 Hey is a minimalist WordPress theme designed by Automattic, ideal for personal blogs or small websites. It features a clean and straightforward design, with focus on readability and simplicity. The theme’s layout is optimized for quick loading times and great performance on both desktop and mobile devices.
