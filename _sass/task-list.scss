@@ -1,0 +1,44 @@
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  
+    .task-list-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 8px;
+      border: 1px solid var(--bt);
+      border-radius: 5px;
+      background-color: var(--b);
+      color: var(--t);
+      transition: background-color 0.3s, box-shadow 0.3s;
+  
+      &:hover {
+        background-color: var(--bc);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+  
+      input[type="checkbox"] {
+        margin-right: 10px;
+        accent-color: var(--c);
+        width: 18px;
+        height: 18px;
+  
+        &:checked::after {
+          color: var(--tl); /* Use --tl for the check icon color */
+        }
+  
+        &:disabled {
+          opacity: 0.6;
+        }
+      }
+  
+      &.checked {
+        text-decoration: line-through;
+        color: var(--ts);
+        background-color: var(--bc);
+      }
+    }
+  }
+  
