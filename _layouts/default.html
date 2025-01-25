@@ -3,13 +3,9 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    
-    {% include prefetch.html %}
     <!-- Default theme color -->
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#1f1f1f" media="(prefers-color-scheme: dark)">
-
-    
 
     <title>{% if page.url == "/" %}{{ site.title }}{% else %}{{ page.title }}{% unless page.layout == "post" %} | {{ site.title }}{% endunless %}{% endif %}</title>
     {%- seo title=false -%}
@@ -20,14 +16,10 @@
     {%- feed_meta -%}    
     {% endif %}
 
-
-  
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
     <script type="module" src="{{ "/assets/js/script.js" | relative_url }}"></script>
-      
   </head>
   <body>
-
     <header>
 
       <a href="{% if page.layout == 'post' %}/blog{% elsif page.layout == 'tag' %}/tags{% else %}/{% endif %}" class="logo backlink">
@@ -57,18 +49,11 @@
          -->
         
         {% endif %}
-
-
     </header> 
-    
-
-    
     <main>
 
     {{ content }}
     
     </main>
-
-     
   </body>
 </html>
