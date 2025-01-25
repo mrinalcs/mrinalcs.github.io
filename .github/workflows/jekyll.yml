@@ -1,51 +1,59 @@
 name: Deploy site
+
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-x64
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42 # v1.161.0
-        with:
-          ruby-version: '3.1' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          cache-version: 0 # Increment this number if you need to re-download cached gems
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y rbenv
+        rbenv init
+        rbenv install 3.1.4
+        rbenv global 3.1.4
+        mkdir -p /opt/hostedtoolcache/Ruby/3.1.4/x64
+        touch /opt/hostedtoolcache/Ruby/3.1.4/x64.complete
+
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install
+
+    - name: Build site
+      run: |
+        bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-      - name: Upload artifact
-        # Automatically uploads an artifact from the './_site' directory by default
-        uses: actions/upload-pages-artifact@v3
 
-  # Deployment job
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-x64
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
