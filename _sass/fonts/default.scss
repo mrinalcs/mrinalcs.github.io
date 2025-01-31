@@ -15,11 +15,11 @@
 }
 
 @font-face {
-    font-family: 'RobotoCondensed';
+    font-family: 'Ubuntu';
     font-weight: 700;
     font-style: normal;
-    src: url('../font/Roboto-Condensed/Roboto-Condensed-Bold.woff2') format('woff2'),
-         url('../font/Roboto-Condensed/Roboto-Condensed-Bold.ttf') format('truetype');
+    src: url('../font/Ubuntu/Ubuntu-Bold.woff2') format('woff2'),
+         url('../font/Ubuntu/Ubuntu-Bold.ttf') format('truetype');
 }
 
 html {
@@ -27,7 +27,7 @@ html {
     line-height: 1.6em;
 }
 h1,h2,h3{
-    font-family: 'RobotoCondensed', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 code{
     font-family: 'Manrope', sans-serif;
