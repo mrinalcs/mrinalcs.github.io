@@ -24,6 +24,7 @@
     border-radius: 5px;
     background: var(--bc);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #007bff;
 }
 
 .note-name {
@@ -33,11 +34,18 @@
     justify-content: space-between;
     font-size: 0.9rem;
     color: #555;
+    transition: color 0.2sease;
+    &:hover{
+        color: var(--t);
+    }
 }
 
 .note-name small {
     font-weight: normal;
     color: #999;
+    &:hover{
+        color: var(--t);
+    }
 }
 
 .note-item p {
