@@ -44,25 +44,14 @@ In English grammar, prepositions seems as one of the most perplexing areas for l
 
 Unlike conventional grammar guides that rely heavily on repetitive examples, this book dives deep into the underlying logic behind the use of prepositions. Instead of asking, “Which preposition fits here?” the book encourages us to think: “Why does this preposition work here?” This shift from memorization to comprehension not only demystifies the use of words like *on*, *in*, *by*, and *with* but also illuminates the subtle nuances that often get lost in translation.
 
-For example, consider the sentence: 
+For example:  **There is a village on/by the river.**
 
-*There is a village on/by the river.*
-
-Both prepositions are correct, yet each evokes a distinct image. When **on** is used, the focus shifts to the surrounding plain—downplaying the river's presence. In contrast, **by** emphasizes the river itself, suggesting proximity and prominence.
-
-![Visual Illustration of the Example page 68](252103.jpg)
+Both prepositions are correct, yet each evokes a distinct image. When **on** is used, the focus shifts to the surrounding plain—downplaying the river's presence. In contrast, **by** emphasizes the river itself, suggesting proximity and prominence. [a snippet from the book page 68](252103.jpg).
 
 ## Breaking the Chains of Rote Learning
 
 What makes *Mechanism Of Preposition* stand out is its clear message: the English we use isn’t arbitrary or random; it’s a heritage built on centuries of logic and reasoning by modern scholars. The book delves into why we say “I know him” rather than “I know him by” or “He is moved at the sight” instead of “by the sight.” Each explanation is backed by logic, urging readers to move away from mechanical learning and to embrace a deeper understanding of language.
-
-This book doesn’t just list rules encourages to ask questions. For instance:
-
-- *Why does “I go home” not require a preposition?*
-- *Why do we say “She invites me for dinner” rather than using another preposition?*
-
-By exploring these queries, the book transforms the often-daunting task of mastering prepositions into an engaging intellectual exercise.
-
+ 
 ## Personal Reflections
 
 I still remember being in class 12 when Sir, was writting this book. The way he explained prepositions—detailing why a particular preposition is used in a specific context and how even a slight change can completely alter the meaning of a sentence—was absolutely captivating. Although I could not engage with the book back then, I have recently read it.  
@@ -77,12 +66,12 @@ Whether you are an English medium student, a teacher, or simply someone passiona
 
 ## Final Thoughts
 
-*Mechanism Of Preposition* is more than just a grammar guide; it’s an invitation to reimagine how we learn and use language. By unveiling the logic behind prepositions, Bapi Sarkar has provided us with a tool that promotes clarity, critical thinking, and a deeper appreciation for English.
+**Mechanism Of Preposition** is more than just a grammar guide; it’s an invitation to reimagine how we learn and use language.This promotes clarity, critical thinking, and a deeper appreciation for English.
 
 If you’ve ever felt bogged down by the rigid rules of prepositions or simply yearn for a more meaningful grasp of English, I highly recommend giving this book a try. You can find the book on [Amazon](https://amzn.in/d/gYISc4C)
 
 
-
+ 
 <style>
     .collage {
         display: grid;
