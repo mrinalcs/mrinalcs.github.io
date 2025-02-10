@@ -17,7 +17,7 @@ In English grammar, prepositions seems as one of the most perplexing areas for l
 
 <figure>
   <img src="252102.jpg" width="689" height="1080" alt="List of chapters in the book Mechanism of Preposition including topics such as passive voice, Latin influences, and basic usage, designed for logical learning of prepositions.">
-  <figcaption>Contents Page: Mechanism of Preposition</figcaption>
+  <figcaption>Contents: Mechanism of Preposition</figcaption>
 </figure>
 </div>
 
@@ -46,7 +46,7 @@ Unlike conventional grammar guides that rely heavily on repetitive examples, thi
 
 For example:  **There is a village on/by the river.**
 
-Both prepositions are correct, yet each evokes a distinct image. When **on** is used, the focus shifts to the surrounding plain—downplaying the river's presence. In contrast, **by** emphasizes the river itself, suggesting proximity and prominence. [a snippet from the book page 68](252103.jpg).
+Both prepositions are correct, yet each evokes a distinct image. When **on** is used, the focus shifts to the surrounding plain—downplaying the river's presence. In contrast, **by** emphasizes the river itself, suggesting proximity and prominence. [A snippet, page 68](252103.jpg).
 
 ## Breaking the Chains of Rote Learning
 
@@ -54,7 +54,7 @@ What makes *Mechanism Of Preposition* stand out is its clear message: the Englis
  
 ## Personal Reflections
 
-I still remember being in class 12 when Sir, was writting this book. The way he explained prepositions—detailing why a particular preposition is used in a specific context and how even a slight change can completely alter the meaning of a sentence—was absolutely captivating. Although I could not engage with the book back then, I have recently read it.  
+I still remember being in class 12 when Sir, was writting this book. The way he explained prepositions detailing why a particular preposition is used in a specific context and how even a slight change can completely alter the meaning of a sentence was absolutely captivating. Although I could not engage with the book back then, I have recently read it.  
 
 ## Who Should Read This Book?
 
