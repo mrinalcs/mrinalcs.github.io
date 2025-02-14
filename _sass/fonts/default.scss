@@ -15,11 +15,11 @@
 }
 
 @font-face {
-    font-family: 'Ubuntu';
+    font-family: 'BOONE';
     font-weight: 700;
     font-style: normal;
-    src: url('../font/Ubuntu/Ubuntu-Bold.woff2') format('woff2'),
-         url('../font/Ubuntu/Ubuntu-Bold.ttf') format('truetype');
+    src: url('../font/default/BOONE.woff2') format('woff2'),
+         url('../font/default/BOONE.ttf') format('truetype');
 }
 
 html {
@@ -27,8 +27,5 @@ html {
     line-height: 1.6em;
 }
 h1,h2,h3{
-    font-family: 'Ubuntu', sans-serif;
-}
-code{
-    font-family: 'Manrope', sans-serif;
-}
+    font-family: 'BOONE', sans-serif;
+} 
