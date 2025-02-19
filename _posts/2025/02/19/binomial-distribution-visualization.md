@@ -2,7 +2,7 @@
 title: "Binomial Distribution Visualization"
 description: "An interactive Shiny app to visualize the Binomial distribution with adjustable parameters."
 image: "19225.png"
-date: 2025-02-18
+date: 2025-02-19
 tags: [stat]
 toc: false
 ---
