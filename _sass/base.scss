@@ -301,7 +301,9 @@ footer {
   }
 }
 article {
-  
+  hr{
+    border: solid 1px var(--bt);
+  }
     h1,h2,h3,h4 {
       a {
         text-decoration: none;
