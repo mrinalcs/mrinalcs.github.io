@@ -1,6 +1,6 @@
 ---
 title: "Probability and Likelihood"
-date: 2025-02-20
+date: 2025-02-22
 tags: [stat]
 image: '222251.png'
 description: "Differences between probability and likelihood in statistics and data analysis."
