@@ -1019,12 +1019,58 @@ function initAnimatePageContent(container = document) {
     });
 }
 
+function initRoughNotation() {
+  if (typeof RoughNotation === 'undefined') {
+      const script = document.createElement('script');
+      script.src = "/assets/js/rough-notation.iife.js";
+      script.onload = applyRoughNotation;
+      document.head.appendChild(script);
+  } else {
+      applyRoughNotation();
+  }
+
+  function applyRoughNotation() {
+      const { annotate } = RoughNotation;
+      const links = document.querySelectorAll('main a');
+
+      // Get the CSS variable value
+      const computedStyle = getComputedStyle(document.documentElement);
+      const underlineColor = computedStyle.getPropertyValue('--c').trim() || 'white';
+
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  const link = entry.target;
+                  const href = link.getAttribute('href');
+
+                  // Apply only if the link is external (starts with http)
+                  if (href && href.startsWith('http')) {
+                      const annotation = annotate(link, { 
+                          type: 'underline', 
+                          color: underlineColor,  
+                          animationDuration: 800 
+                      });
+                      annotation.show();
+                  }
+              }
+          });
+      }, { threshold: 0.1 });
+
+      // Observe only external links
+      links.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('http')) {
+              observer.observe(link);
+          }
+      });
+  }
+}
 
     // Function to initialize on initial page load
     function init() {
       initInlineScript(document.body); 
       initMathJax();
-      initMermaid();
+      initMermaid();initRoughNotation();
       initFormSubmission();
       initLightenseImages();
       initPhotoswipe(); 
