@@ -239,13 +239,13 @@ table {
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid var(--ts); 
+  border: 1px solid var(--h); 
   
 td, th {
-  padding: 8px;
+  padding: 5px 10px;
   text-align: left;
-  border-right: 1px solid var(--ts);  
-  border-bottom: 1px solid var(--ts);  
+  border-right: 1px solid var(--h);  
+  border-bottom: 1px solid var(--h);  
 }
  
 tr:nth-child(even) {
@@ -254,9 +254,9 @@ tr:nth-child(even) {
 
 /* Header styles */
 th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  background-color: var(--bs);
+  // padding-top: 12px;
+  // padding-bottom: 12px;
+  background-color: var(--h);
 //  color: white;
   border-top: none; 
 }
@@ -355,6 +355,7 @@ main {
 }
 
 code {
+  font-family: system-ui;
   padding: .2em .4em;
   margin: 0;
   font-size: 85%;
