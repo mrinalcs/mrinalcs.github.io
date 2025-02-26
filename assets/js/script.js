@@ -1021,48 +1021,85 @@ function initAnimatePageContent(container = document) {
 
 function initRoughNotation() {
   if (typeof RoughNotation === 'undefined') {
-      const script = document.createElement('script');
-      script.src = "/assets/js/rough-notation.iife.js";
-      script.onload = applyRoughNotation;
-      document.head.appendChild(script);
+    const script = document.createElement('script');
+    script.src = "/assets/js/rough-notation.iife.js";
+    script.onload = applyRoughNotation;
+    document.head.appendChild(script);
   } else {
-      applyRoughNotation();
+    applyRoughNotation();
   }
 
   function applyRoughNotation() {
-      const { annotate } = RoughNotation;
-      const links = document.querySelectorAll('main a');
+    const { annotate } = RoughNotation;
+    const links = document.querySelectorAll('main a');
 
-      // Get the CSS variable value
-      const computedStyle = getComputedStyle(document.documentElement);
-      const underlineColor = computedStyle.getPropertyValue('--c').trim() || 'white';
+    // Get the CSS variable value for the color (--c)
+    const computedStyle = getComputedStyle(document.documentElement);
+    const underlineColor = computedStyle.getPropertyValue('--c').trim() || 'white';
 
-      const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  const link = entry.target;
-                  const href = link.getAttribute('href');
-
-                  // Apply only if the link is external (starts with http)
-                  if (href && href.startsWith('http')) {
-                      const annotation = annotate(link, { 
-                          type: 'underline', 
-                          color: underlineColor,  
-                          animationDuration: 800 
-                      });
-                      annotation.show();
-                  }
-              }
-          });
-      }, { threshold: 0.1 });
-
-      // Observe only external links
-      links.forEach(link => {
+    // Intersection Observer for the underline effect on external links
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const link = entry.target;
           const href = link.getAttribute('href');
+
+          // Only apply underline if the link is external (starts with http)
           if (href && href.startsWith('http')) {
-              observer.observe(link);
+            if (!link._underlineAnnotation) {
+              const annotation = annotate(link, { 
+                type: 'underline', 
+                color: underlineColor,  
+                animationDuration: 800 
+              });
+              annotation.show();
+              link._underlineAnnotation = annotation;
+            }
           }
+        }
       });
+    }, { threshold: 0.1 });
+
+    // Process each link in <main>
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+
+      // For external links, observe them to trigger the underline on scroll
+      if (href && href.startsWith('http')) {
+        observer.observe(link);
+      }
+
+      // Apply hover events to all links for the box effect
+      link.addEventListener('mouseenter', () => {
+        // Hide the underline annotation if it exists
+        if (link._underlineAnnotation) {
+          link._underlineAnnotation.hide();
+        }
+        // Create or show the box annotation on hover
+        if (!link._boxAnnotation) {
+          const boxAnnotation = annotate(link, { 
+            type: 'box', 
+            color: underlineColor,  
+            animationDuration: 800 
+          });
+          boxAnnotation.show();
+          link._boxAnnotation = boxAnnotation;
+        } else {
+          link._boxAnnotation.show();
+        }
+      });
+
+      link.addEventListener('mouseleave', () => {
+        // Hide the box annotation
+        if (link._boxAnnotation) {
+          link._boxAnnotation.hide();
+        }
+        // Restore the underline for external links if it exists
+        if (link._underlineAnnotation) {
+          link._underlineAnnotation.show();
+        }
+      });
+    });
   }
 }
 
@@ -1070,7 +1107,8 @@ function initRoughNotation() {
     function init() {
       initInlineScript(document.body); 
       initMathJax();
-      initMermaid();initRoughNotation();
+      initMermaid();
+      initRoughNotation();
       initFormSubmission();
       initLightenseImages();
       initPhotoswipe(); 
