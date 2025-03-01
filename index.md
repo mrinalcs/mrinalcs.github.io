@@ -7,7 +7,7 @@ seo:
     type: WebSite
 ---
 
-Student of M.Sc in Statistics at Visva Bharati, Shantiniketan.
+M.Sc. Statistics student at Visva Bharati, Shantiniketan, with background in data analysis, statistical modeling, and programming. Passionate about extracting insights from data using R, Python, and SQL.
  
 ## Skills
 
