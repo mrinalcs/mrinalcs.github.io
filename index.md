@@ -1,7 +1,7 @@
 ---
 title: "Mrinal Chandra Sarkar"
 description: "Student of M.Sc in Statistics at Visva Bharati, Shantiniketan."
-image: "/assets/img/og/mrinal_vv2mkl_Thumbnail.jpg"
+image: "/assets/img/og/profile.jpg"
 date: 2024-12-29 
 seo:
     type: WebSite
