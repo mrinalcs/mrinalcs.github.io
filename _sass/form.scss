@@ -7,6 +7,10 @@
     display: none;
 }
 #formContainer,#sendingMessage,#responseMessage {
+    h2{
+        background: #a5ea20;
+    color: black;
+    }
 margin: 100px 0;
 //additional
 border-radius: 5px;
