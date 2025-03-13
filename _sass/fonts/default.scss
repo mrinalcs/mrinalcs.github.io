@@ -2,30 +2,30 @@
     font-family: 'Manrope';
     font-weight: 500;
     font-style: normal;
-    src: url('../font/manrope/static/Manrope-Regular.woff2') format('woff2'),
-         url('../font/manrope/static/Manrope-Regular.ttf') format('truetype');
+    src: url('../font/manrope/Manrope-Regular.woff2') format('woff2'),
+         url('../font/manrope/Manrope-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Manrope';
     font-weight: 700;
     font-style: normal;
-    src: url('../font/manrope/static/Manrope-ExtraBold.woff2') format('woff2'),
-         url('../font/manrope/static/Manrope-ExtraBold.ttf') format('truetype');
+    src: url('../font/manrope/Manrope-ExtraBold.woff2') format('woff2'),
+         url('../font/manrope/Manrope-ExtraBold.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Ubuntu';
+    font-family: 'RobotoCondensed';
     font-weight: 700;
     font-style: normal;
-    src: url('../font/Ubuntu/Ubuntu-Bold.woff2') format('woff2'),
-         url('../font/Ubuntu/Ubuntu-Bold.ttf') format('truetype');
+    src: url('../font/roboto-condensed/Roboto-Condensed-Bold.woff2') format('woff2'),
+         url('../font/roboto-condensed/Roboto-Condensed-Bold.ttf') format('truetype');
 }
 
 html {
-    font-family: 'Manrope', sans-serif;
-    line-height: 1.6em;
+    font-family: 'Manrope', sans-serif; 
 }
 h1,h2,h3{
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'RobotoCondensed', sans-serif;
+    line-height: 1;
 } 
