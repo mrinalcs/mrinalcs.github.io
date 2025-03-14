@@ -6,12 +6,20 @@ sitemap: false
 
 1.  **MathJax:** Added MathJax for rendering mathematical equations. Supports inline math using `$` and display math using `$$`.
 2. **Mermaid.js** Integrated Mermaid.js for creating diagrams and flowcharts. Added support for both dark and light themes, which automatically adjust based on the user's system settings.
-3. **External Links:** Implemented a plugin `html.rb` to add `ref` attributes and set all external links to open in a new tab using `target="_blank"`.
+3. **Links:** Implemented a plugin `html.rb` to add `ref,rel,target` attributes and set all external links to open in a new tab.
  
 4. **Swup.js** Integration: For page transitions and enhanced user experience.
 5. **Email form and Comment**: Google Forms integration for handling comments.
-6. 
- 
+6. **Rough Notation:**  for annotating content with hand-drawn-style highlights underline.
+
+7. **Google Analytics:** Added Google Analytics.
+
+8. **Code Copy Button:** Copy-to-clipboard button for quickly copy code snippets with a single click.
+
+9. **TimeAgo:**  feature to dynamically display human-readable timestamps (e.g.“2 days ago”) for posts, comments, or updates.
+
+10. **PhotoSwipe:**  for better image gallery experiences responsive for High res image.
+
 
 <picture>
   <source srcset="/assets/img/ss/2025-03-14-085519-dark.png" media="(prefers-color-scheme: dark)">
