@@ -6,10 +6,9 @@ date: 2025-02-08
 tags: [jekyll,web,tips]
 ---
  
-Jekyll’s default pagination plugin is great for generating paginated pages, but it has a major limitation—it only works with URLs like `/page/2/` instead of `/2.html`. If you want pagination with custom page filenames like `2.html`, `3.html`, and so on, you need a custom pagination plugin. 
+Jekyll’s default pagination plugin is great for generating paginated pages, but it has a major limitation—it only works with URLs like `/page/2/` instead of `/2.html`. For pagination with custom page filenames like 2.html, 3.html , and so on can be created with a custom pagination plugin. 
 
-Pagination for categories, tags and collections `jekyll-paginate-v2` plugin can be used but this plugin is not supported by GitHub Pages. I you have blog page `/blog` and want clean pagination like `/blog/2`, `/blog/3` you can use this plugin. 
- 
+Pagination for categories, tags and collections `jekyll-paginate-v2` plugin can be used but this plugin is not supported by GitHub Pages. The following plugin creat blog page /blog and clean pagination.
   
 ## Create Jekyll Plugin  
 
