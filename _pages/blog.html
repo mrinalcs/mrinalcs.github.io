@@ -14,7 +14,7 @@ redirect_from:
   {% for year_group in posts_by_year %}
     <div>
       <h2 id="{{year_group.name}}">{{ year_group.name }}</h2>
-      <ul class="post-list">
+      <ul class="post-list"  style="list-style: none; padding-left: 0;">
         {% for post in year_group.items %}
           <li>
             <a href="{{ post.url }}">{{ post.title }}</a> 

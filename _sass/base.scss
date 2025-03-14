@@ -372,16 +372,21 @@ a.footnote,a.reversefootnote {
 
 ul.post-list {
   >li {
-    margin: 10px 0;
+    margin-bottom: 1rem;
   }
   a{
     text-decoration: none;
     font-weight: bold;
     color:var(--t);
+    line-height: 1;
   }
 
 }
-
+.posts{
+  div{
+    margin-bottom:40px;
+  }
+}
 .suggestion-link{
   margin: 10px 0;
 }
