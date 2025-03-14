@@ -333,10 +333,10 @@ article {
   overflow: hidden; // text under logo
   -webkit-tap-highlight-color: transparent; /* for removing the highlight */
   text-decoration: none;
-  // &:hover {
-  //   text-decoration: none;
-  //   background: url(../img/profile-square-100-glass.png) no-repeat 0% 0%;background-size: cover;
-  // }
+  &:hover {
+    text-decoration: none;
+    background: url(../img/profile-square-100-glass.webp) no-repeat 0% 0%;background-size: cover;
+  }
 }
  
 
