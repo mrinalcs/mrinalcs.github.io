@@ -7,15 +7,8 @@ seo:
     type: WebSite
 ---
 
-M.Sc. Statistics student at Visva Bharati, Shantiniketan, with background in data analysis, statistical modeling, and programming. Passionate about extracting insights from data using R, Python, and SQL.
- 
-## Skills
-
-<ul style="list-style-type: none;padding-left: 0;list-style-position: inside;">
-  <li> <strong>Statistical Analysis</strong>: Descriptive, ANOVA, Regression Analysis, Time Series, Principal Component Analysis, Stochastic Processes</li>
-  <li> <strong>Programming Languages:</strong> R Programming, C, Python, SQL</li>
-  <li> <strong>Tools:</strong> R Studio, Jupyter Notebook, MS Excel, Word, Overleaf (LaTeX), Git</li>
-</ul>
+M.Sc. Statistics student at Visva Bharati, Shantiniketan.
+  
 
 
 ## Projects
@@ -36,6 +29,4 @@ Explore my projects on [Github](https://github.com/mrinalcs) to see what I've be
 
 Connect with me on [LinkedIn](https://www.linkedin.com/in/mrinalcs/) 
 
-Feel free to reach out at [mrinalcs@yahoo.com](mailto:mrinalcs@yahoo.com)
-
-Download CV[![Mrinal Chandra Sarkar CV](/assets/img/cv.png)](/assets/doc/cv.pdf "Download Mrinal Chandra Sarkar CV")
+Feel free to reach out at [mrinalcs@yahoo.com](mailto:mrinalcs@yahoo.com) 
