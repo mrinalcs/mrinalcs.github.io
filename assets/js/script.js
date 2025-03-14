@@ -1047,10 +1047,10 @@ function initRoughNotation() {
           // Only apply underline if the link is external (starts with http)
           if (href && href.startsWith('http')) {
             if (!link._underlineAnnotation) {
-              const annotation = annotate(link, { 
-                type: 'underline', 
-                color: underlineColor,  
-                animationDuration: 800 
+              const annotation = annotate(link, {
+                type: 'underline',
+                color: underlineColor,
+                animationDuration: 800
               });
               annotation.show();
               link._underlineAnnotation = annotation;
@@ -1069,31 +1069,15 @@ function initRoughNotation() {
         observer.observe(link);
       }
 
-      // Apply hover events to all links for the box effect
+      // Hover events only restore/hide underline if it exists (box effect removed)
       link.addEventListener('mouseenter', () => {
         // Hide the underline annotation if it exists
         if (link._underlineAnnotation) {
           link._underlineAnnotation.hide();
         }
-        // Create or show the box annotation on hover
-        if (!link._boxAnnotation) {
-          const boxAnnotation = annotate(link, { 
-            type: 'box', 
-            color: underlineColor,  
-            animationDuration: 800 
-          });
-          boxAnnotation.show();
-          link._boxAnnotation = boxAnnotation;
-        } else {
-          link._boxAnnotation.show();
-        }
       });
 
       link.addEventListener('mouseleave', () => {
-        // Hide the box annotation
-        if (link._boxAnnotation) {
-          link._boxAnnotation.hide();
-        }
         // Restore the underline for external links if it exists
         if (link._underlineAnnotation) {
           link._underlineAnnotation.show();
@@ -1102,6 +1086,7 @@ function initRoughNotation() {
     });
   }
 }
+
 
     // Function to initialize on initial page load
     function init() {
