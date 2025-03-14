@@ -10,15 +10,16 @@ sitemap: false
  
 4. **Swup.js** Integration: For page transitions and enhanced user experience.
 5. **Email form and Comment**: Google Forms integration for handling comments.
-6. **Rough Notation:**  for annotating content with hand-drawn-style highlights underline.
-
-7. **Google Analytics:** Added Google Analytics.
+6. **Rough Notation:**  for annotating content with hand-drawn-style highlights underline. 
 
 8. **Code Copy Button:** Copy-to-clipboard button for quickly copy code snippets with a single click.
 
 9. **TimeAgo:**  feature to dynamically display human-readable timestamps (e.g.“2 days ago”) for posts, comments, or updates.
 
 10. **PhotoSwipe:**  for better image gallery experiences responsive for High res image.
+
+
+<time datetime="2025-03-14T00:00:00+05:30">&#128197; March 14, 2025</time>
 
 
 <picture>
