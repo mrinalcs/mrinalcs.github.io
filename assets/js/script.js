@@ -7,8 +7,7 @@ import SwupPreloadPlugin from './swup/@swup/preload-plugin@3.2.10/dist/index.mod
 // import SwupScrollPlugin from './swup/@swup/scroll-plugin@3.3.2/dist/index.module.js?module';
 
 const swup = new Swup({
-  animationSelector: null,
-
+  animationSelector: '[class*="transition-"]',
 
   containers: ["header","main", "link[rel='canonical']"],
   plugins: [new SwupPreloadPlugin({ preloadVisibleLinks: true }),

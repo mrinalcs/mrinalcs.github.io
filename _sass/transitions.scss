@@ -64,3 +64,7 @@
 //     transition-delay: calc(0ms + (2 - var(--index, 0)) * 75ms);
 //   }
 // }
+
+html.is-changing .transition-fade {
+    transition: 0.1s; 
+  }
