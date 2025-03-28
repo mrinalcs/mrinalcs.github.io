@@ -1,7 +1,7 @@
 ---
 title: "Growing Up and Seeing the Flaws"
 date: 2025-03-29
-description: "A reflection on the bittersweet process of growing up and losing the magic of childhood, while gaining a more realistic perspective."
+description: "TGrowing up and losing the magic of childhood, while gaining a more realistic perspective."
 image: "image.jpg"
 tags: []
 toc: false
