@@ -3,6 +3,7 @@ title: "Data Wrangling in R"
 description: "Essential techniques of data wrangling in R includes importing datasets, handling missing values and outliers, renaming columns, filtering and subsetting data, to merging datasets and creating new variables."
 date: 2025-03-15
 image: '153251.png'
+tags: [r-programming]
 ---
 
 > In data science, clean data is half the battle won.
