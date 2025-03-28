@@ -2,7 +2,7 @@
 title: "Growing Up and Seeing the Flaws"
 date: 2025-03-29
 description: "TGrowing up and losing the magic of childhood, while gaining a more realistic perspective."
-image: "image.jpg"
+image: "293251.jpg"
 tags: []
 toc: false
 ---
