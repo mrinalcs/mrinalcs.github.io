@@ -88,22 +88,18 @@ header,main {
 
  a{
 //  text-decoration: none;
-  color: var(--ts);
-  text-decoration: underline;
+  color: var(--t);
+  text-decoration: none;
   transition: color 0.2s ease; 
   // text-decoration-color: var(--h);
   // text-decoration-thickness: 1px;
   // text-underline-position: under;
    &:hover{
-    color: var(--t);
+    color: var(--c);
  }
  }
 
- .social-link {
-  text-decoration: none;  
-  color: var(--t);
-   font-weight: bold;
-}
+ 
 
 
  article {
