@@ -345,6 +345,7 @@ article {
   -webkit-tap-highlight-color: transparent; /* for removing the highlight */
   text-decoration: none;
   &:hover {
+    color: transparent;
     text-decoration: none;
     background: url(../img/profile-square-100-glass.webp) no-repeat 0% 0%;background-size: cover;
   }
