@@ -1030,7 +1030,7 @@ function initRoughNotation() {
 
   function applyRoughNotation() {
     const { annotate } = RoughNotation;
-    const links = document.querySelectorAll('main a');
+    const links = document.querySelectorAll('.social-link');
 
     // Get the CSS variable value for the color (--c)
     const computedStyle = getComputedStyle(document.documentElement);

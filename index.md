@@ -30,5 +30,5 @@ Explore the projects I’ve been working on:
 
 Feel free to reach out at [mrinalcs@yahoo.com](mailto:mrinalcs@yahoo.com)
  
-Connect with me on [LinkedIn](https://www.linkedin.com/in/mrinalcs/) & [Github](https://github.com/mrinalcs) 
+Connect with me on <a href="https://www.linkedin.com/in/mrinalcs/" class="social-link" title="Connect with me on LinkedIn">LinkedIn</a> & <a href="https://github.com/mrinalcs" class="social-link" title="Check out my GitHub">GitHub</a> 
 

@@ -88,15 +88,21 @@ header,main {
 
  a{
 //  text-decoration: none;
-  color: var(--c);
-  text-decoration: none;
+  color: var(--ts);
+  text-decoration: underline;
   // text-decoration-color: var(--h);
   // text-decoration-thickness: 1px;
   // text-underline-position: under;
-//    &:hover{
-//      text-decoration: 1px var(--t) underline;
-//  }
+   &:hover{
+    color: var(--t);
  }
+ }
+
+ .social-link {
+  text-decoration: none;  
+  color: var(--t);
+}
+
 
  article {
   
