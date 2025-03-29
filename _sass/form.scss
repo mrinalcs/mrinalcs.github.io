@@ -7,8 +7,7 @@
     display: none;
 }
 #formContainer,#sendingMessage,#responseMessage {
-    h2{
-        background: #a5ea20;
+    h2{ 
     color: black;
     }
 margin: 100px 0;
@@ -108,9 +107,7 @@ input#\32 094455528 {
 /* Input Styling */
 input[type="text"] {
     flex: 1; /* Takes up remaining space */
-    padding: 10px;
-    background-color: white;
-    color: black;
+    padding: 10px;  
     border: none;
     border-radius: 5px 0 0 5px;
     transition: background-color 0.3s ease, transform 0.2s ease-in-out;
