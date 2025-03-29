@@ -90,6 +90,7 @@ header,main {
 //  text-decoration: none;
   color: var(--ts);
   text-decoration: underline;
+  transition: color 0.2s ease; 
   // text-decoration-color: var(--h);
   // text-decoration-thickness: 1px;
   // text-underline-position: under;
