@@ -52,3 +52,92 @@ outline: none;
 input#\32 094455528 {
     width: 100%;
 }
+
+// grid
+
+/* Form container */
+#formContainer, #sendingMessage, #responseMessage {
+    margin: 100px 0;
+    border-radius: 5px;
+    background: #a5ea20;
+    color: black;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Grid Background */
+#formContainer::before, 
+#sendingMessage::before, 
+#responseMessage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    animation: gridMove 6s linear infinite;
+    z-index: 0;
+}
+
+/* Moving Grid Animation */
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-40px, -40px); }
+}
+
+/* Ensure content is above animation */
+#formContainer > *, 
+#sendingMessage > *, 
+#responseMessage > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Form Group (Aligns Input & Button in One Line) */
+.form-group {
+    display: flex;
+    width: 100%;
+    gap: 5px; /* Small spacing */
+}
+
+/* Input Styling */
+input[type="text"] {
+    flex: 1; /* Takes up remaining space */
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background-color: #1A611A; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 5px 5px 0; /* Matches input field */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover Effects */
+input[type="submit"]:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Focus Effects */
+input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.02);
+}
+
+
