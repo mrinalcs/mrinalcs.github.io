@@ -20,7 +20,8 @@ Explore the projects I’ve been working on:
 <ul style="list-style-position: inside; padding-left: 0;">
   {% for post in posts_with_project_tag limit:3 %}
     <li style="margin-bottom: 10px;list-style-type: '&#128193;'">
-      <span style="font-weight: bold;">{{ post.title }}</span> : {{ post.description | truncate: 150 }} <a href="{{ post.url }}">read</a>
+    <a href="{{ post.url }}" style='text-decoration:none'>
+      <span style="font-weight: bold;color: var(--t);">{{ post.title }}</span> : {{ post.description | truncate: 150 }} <span style="color: var(--t);">read</span></a>
     </li>
   {% endfor %}
 </ul>
