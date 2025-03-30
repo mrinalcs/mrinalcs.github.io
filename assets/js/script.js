@@ -1085,12 +1085,35 @@ function initRoughNotation() {
     });
   }
 }
+function initShare() {
+  const shareButton = document.querySelector('#shareButton'); // Add a button with this ID to your HTML
 
+  if (!shareButton) return;
+
+  shareButton.addEventListener('click', () => {
+    const currentUrl = window.location.href;
+
+    // Check if the Web Share API is supported
+    if (navigator.share) {
+      navigator.share({
+        title: document.title,
+        url: currentUrl,
+      })
+        .then(() => console.log('Page shared successfully!'))
+        .catch((error) => console.error('Error sharing the page:', error));
+    } else {
+      // Fallback: Copy the URL to the clipboard
+      navigator.clipboard.writeText(currentUrl)
+        .then(() => alert('URL copied to clipboard!'))
+        .catch((error) => console.error('Error copying URL to clipboard:', error));
+    }
+  });
+}
 
     // Function to initialize on initial page load
     function init() {
       initInlineScript(document.body); 
-      initMathJax();
+      initMathJax();initShare();
       initMermaid();
       initRoughNotation();
       initFormSubmission();
