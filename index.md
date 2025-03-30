@@ -20,7 +20,7 @@ Explore the projects I’ve been working on:
 <ul style="list-style-position: inside; padding-left: 0;">
   {% for post in posts_with_project_tag limit:3 %}
     <li style="margin-bottom: 10px;list-style-type: none;">
-      <span class="icon-doc" style="margin-right: 5px;"></span>
+      <span class="icon-doc"></span>
       <span style="font-weight: bold;color:var(--t)">{{ post.title }}</span> : {{ post.description | truncate: 150 }}  <a href="{{ post.url }}" >read </a>
     </li>
   {% endfor %}
