@@ -21,7 +21,7 @@ Explore the projects I’ve been working on:
   {% for post in posts_with_project_tag limit:3 %}
     <li style="margin-bottom: 10px;list-style-type: '&#128193;'">
     
-      <span style="font-weight: bold;">{{ post.title }}</span> : {{ post.description | truncate: 150 }}  <a href="{{ post.url }}" style='text-decoration:none'>read </a>
+      <span style="font-weight: bold;">{{ post.title }}</span> : {{ post.description | truncate: 150 }}  <a href="{{ post.url }}">read </a>
     </li>
   {% endfor %}
 </ul>
@@ -31,5 +31,5 @@ Explore the projects I’ve been working on:
 
 Feel free to reach out at [mrinalcs@yahoo.com](mailto:mrinalcs@yahoo.com)
  
-Connect with me on <a href="https://www.linkedin.com/in/mrinalcs/" class="social-link" title="Connect with me on LinkedIn">LinkedIn</a> & <a href="https://github.com/mrinalcs" class="social-link" title="Check out my GitHub">GitHub</a> 
+Connect with me on <a href="https://www.linkedin.com/in/mrinalcs/" class="social-link" title="Connect with me on LinkedIn"  style='text-decoration:none'>LinkedIn</a> & <a href="https://github.com/mrinalcs" class="social-link" title="Check out my GitHub"  style='text-decoration:none'>GitHub</a> 
 
