@@ -19,9 +19,9 @@ Explore the projects I’ve been working on:
 
 <ul style="list-style-position: inside; padding-left: 0;">
   {% for post in posts_with_project_tag limit:3 %}
-    <li style="margin-bottom: 10px;list-style-type: '&#128193;'">
-    
-      <span style="font-weight: bold;">{{ post.title }}</span> : {{ post.description | truncate: 150 }}  <a href="{{ post.url }}" >read </a>
+    <li style="margin-bottom: 10px;list-style-type: none;">
+      <span class="icon-doc" style="margin-right: 5px;"></span>
+      <span style="font-weight: bold;color:var(--t)">{{ post.title }}</span> : {{ post.description | truncate: 150 }}  <a href="{{ post.url }}" >read </a>
     </li>
   {% endfor %}
 </ul>
@@ -29,7 +29,7 @@ Explore the projects I’ve been working on:
 
 ## Contact
 
-Feel free to reach out at <a href="mailto:mrinalcs@yahoo.com"  style='text-decoration:none'>mrinalcs@yahoo.com</a>
+Feel free to reach out at <a href="mailto:mrinalcs@yahoo.com"  style='text-decoration:none'  class="icon-mail"> mrinalcs@yahoo.com</a>
  
-Connect with me on <a href="https://www.linkedin.com/in/mrinalcs/" class="social-link" title="Connect with me on LinkedIn"  style='text-decoration:none'>LinkedIn</a> & <a href="https://github.com/mrinalcs" class="social-link" title="Check out my GitHub"  style='text-decoration:none'>GitHub</a> 
+Connect with me on <a href="https://www.linkedin.com/in/mrinalcs/" class="social-link" title="Connect with me on LinkedIn"  style='text-decoration:none'  class="icon-linkedin-squared">LinkedIn</a> & <a href="https://github.com/mrinalcs" class="social-link" title="Check out my GitHub"  style='text-decoration:none'  class="icon-github-circled">GitHub</a> 
 
