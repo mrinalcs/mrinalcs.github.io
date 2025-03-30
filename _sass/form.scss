@@ -131,7 +131,7 @@ input[type="submit"]:hover {
 }
 
 /* Focus Effects */
-input:focus {
+input:focus,textarea:focus {
     outline: none; 
     transform: scale(1.02);
 }
