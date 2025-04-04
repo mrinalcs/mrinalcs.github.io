@@ -613,36 +613,39 @@ function initNotes() {
 
       // Parse CSV to note objects
       function parseCsv(data) {
-          const lines = data.trim().split('\n');
-          const result = [];
-          let currentNote = [];
-
-          lines.forEach(line => {
-              if (line.startsWith('"')) {
-                  if (currentNote.length > 0) {
-                      result.push(currentNote.join('\n'));
-                  }
-                  currentNote = [line];
-              } else {
-                  currentNote.push(line);
-              }
-          });
-
-          if (currentNote.length > 0) {
-              result.push(currentNote.join('\n'));
+        const rows = [];
+        let insideQuotes = false, field = '', row = [];
+    
+        for (let i = 0; i < data.length; i++) {
+          const char = data[i], next = data[i + 1];
+    
+          if (char === '"' && next === '"' && insideQuotes) {
+            field += '"'; i++;
+          } else if (char === '"') {
+            insideQuotes = !insideQuotes;
+          } else if (char === ',' && !insideQuotes) {
+            row.push(field); field = '';
+          } else if ((char === '\n' || char === '\r') && !insideQuotes) {
+            if (char === '\r' && next === '\n') i++;
+            row.push(field);
+            if (row.length >= 4) {
+              rows.push({ timestamp: row[0], name: row[1], note: row[2], isAuthor: row[3] });
+            }
+            field = ''; row = [];
+          } else {
+            field += char;
           }
-
-          return result.map(note => {
-              const values = note.match(/(?:[^,"']+|"(?:\\.|[^"])*"|'(?:\\.|[^'])*')+/g);
-              if (values.length < 4) return null;
-
-              const timestamp = values[0].replace(/"/g, '');
-              const name = values[1].replace(/"/g, '');
-              const noteText = values[2].replace(/"/g, '').replace(/\\n/g, '\n');
-              const isAuthor = values[3].replace(/"/g, '');
-
-              return { timestamp, name, note: noteText, isAuthor };
-          }).filter(note => note !== null);
+        }
+    
+        // Final line
+        if (field || row.length > 0) {
+          row.push(field);
+          if (row.length >= 4) {
+            rows.push({ timestamp: row[0], name: row[1], note: row[2], isAuthor: row[3] });
+          }
+        }
+    
+        return rows;
       }
 
       // Display notes
