@@ -29,7 +29,7 @@ Explore the projects I’ve been working on:
 
 ## Contact
 
-Feel free to reach out at <a href="mailto:mrinalcs@yahoo.com"  style='text-decoration:none'  class="icon-mail"> mrinalcs@yahoo.com</a>
+Feel free to reach out at <a href="mailto:mrinalcs@yahoo.com"  style='text-decoration:none;color:var(--t)'  class="icon-mail-alt"> mrinalcs@yahoo.com</a>
  
-Connect with me on <a href="https://www.linkedin.com/in/mrinalcs/" class="social-link" title="Connect with me on LinkedIn"  style='text-decoration:none'  class="icon-linkedin-squared">LinkedIn</a> & <a href="https://github.com/mrinalcs" class="social-link" title="Check out my GitHub"  style='text-decoration:none'  class="icon-github-circled">GitHub</a> 
+Connect with me on <a href="https://www.linkedin.com/in/mrinalcs/" class="social-link" title="Connect with me on LinkedIn"  style='text-decoration:none'  class="icon-linkedin">LinkedIn</a> & <a href="https://github.com/mrinalcs" class="social-link" title="Check out my GitHub"  style='text-decoration:none'  class="icon-github-circled">GitHub</a> 
 
