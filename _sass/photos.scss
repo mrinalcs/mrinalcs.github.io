@@ -37,7 +37,7 @@
     height: 0;
     padding-bottom: 75%; /* Adjust the aspect ratio (e.g., 75% for 4:3) */
     position: relative;
-    overflow: hidden;
+    overflow: hidden;border-radius: 10px;
   }
   .container img {
     position: absolute;
@@ -48,9 +48,9 @@
     object-fit: cover; /* Ensure the image covers the container without stretching */
   }
 
-//   .pswp.pswp--open {
-//     backdrop-filter: blur(1px);
-// }
+  .pswp.pswp--open {
+    backdrop-filter: blur(1px);
+}
 .pswp__caption__center {
   > a{
     color: #CCC;
