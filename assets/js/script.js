@@ -1089,13 +1089,29 @@ function initRoughNotation() {
   }
 }
 
+function initProjetBacklink() {
+  const backlink = document.querySelector('.logo.backlink');
+  if (!backlink) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get('ref');
+
+  // Redirect based on ref query
+  if (ref === 'home') {
+    backlink.setAttribute('href', '/');
+  } else if (ref === 'blog') {
+    backlink.setAttribute('href', '/blog');
+  }
+}
+
+
 
     // Function to initialize on initial page load
     function init() {
       initInlineScript(document.body); 
       initMathJax();
       initMermaid();
-      initRoughNotation();
+      initRoughNotation();initProjetBacklink();
       initFormSubmission();
       initLightenseImages();
       initPhotoswipe(); 
