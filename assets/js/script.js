@@ -1111,7 +1111,8 @@ function initProjetBacklink() {
       initInlineScript(document.body); 
       initMathJax();
       initMermaid();
-      initRoughNotation();initProjetBacklink();
+      initRoughNotation();
+      initProjetBacklink();
       initFormSubmission();
       initLightenseImages();
       initPhotoswipe(); 
