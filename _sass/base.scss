@@ -45,7 +45,10 @@ body {
   background-color: var(--b);
   color: var(--tc);
 }
-
+hr{
+  margin-top: 30px;border: none;
+  border-bottom: solid var(--hs) 1.5px;
+}
 // header {
 //   font-family: "Syne", sans-serif;
 // }
@@ -54,8 +57,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 30px;
-    border-bottom: solid var(--hs) 1.5px;
+
     a {
         text-decoration: none;
         color: var(--ts);
