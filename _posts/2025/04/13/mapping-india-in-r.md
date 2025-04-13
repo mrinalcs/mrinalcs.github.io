@@ -1,6 +1,7 @@
 --- 
 title: Mapping India in R 
-description: Mapping India’s 36 Divisions Including Jammu & Kashmir and Ladakh in R, In this example shown literacy rate.
+description: Mapping India’s 36 Divisions Including Jammu & Kashmir and Ladakh  in R, In this example shown literacy rate.
+image: '134251.png'
 date: 2025-04-13 
 tags: [r-programming, ggplot2] 
 ---
