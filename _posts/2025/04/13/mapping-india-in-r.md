@@ -6,6 +6,15 @@ date: 2025-04-13
 tags: [r-programming, ggplot2] 
 ---
 
+![GADM India Map without Jammu & Kashmir](134252.png)
+
+In R struggled to find a map of India that aligns with Indian government standards. GADM offer disputed territories inaccurately. Using these unofficial versions may lead to issues, especially in professional or governmental contexts.
+
+Here's a map created using a GeoJSON file that closely follows India's official state and union territory boundaries. This example visualizes the **literacy rate** across the 36 divisions.
+
+
+![India’s 36 Divisions Including Jammu & Kashmir and Ladakh](134251.png)
+
 ```r
 # required libraries
 library(sf)
@@ -45,4 +54,6 @@ ggplot(india_merged) +
     panel.grid.minor = element_blank()  # Remove minor grid lines
   )
 ```
-
+ 
+Ensure The `ST_NM` column must match exactly in both the GeoJSON and datasets.
+ 
