@@ -56,4 +56,5 @@ ggplot(india_merged) +
 ```
  
 Ensure The `ST_NM` column must match exactly in both the GeoJSON and datasets.
- 
+
+[code](https://github.com/mrinalcs/mapping-india-in-r)
