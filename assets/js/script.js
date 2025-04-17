@@ -1093,15 +1093,16 @@ function initProjetBacklink() {
   const backlink = document.querySelector('.logo.backlink');
   if (!backlink) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const ref = params.get('ref');
+  // Get the previous page from sessionStorage
+  const previousPage = sessionStorage.getItem('previousPage');
 
-  // Redirect based on ref query
-  if (ref === 'home') {
+  // Set backlink href to '/' if previous page was the homepage
+  if (previousPage === '/') {
     backlink.setAttribute('href', '/');
-  } else if (ref === 'blog') {
-    backlink.setAttribute('href', '/blog');
   }
+
+  // Store the current page as the previous page for the next navigation
+  sessionStorage.setItem('previousPage', window.location.pathname);
 }
 
 
