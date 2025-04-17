@@ -291,7 +291,6 @@ function initSearch() {
   function loadLunrAndData() {
     if (document.getElementById('search-results') && !searchInitialized) {
       searchInitialized = true;
-
       if (!lunrLoaded) {
         const scriptLunr = document.createElement('script');
         scriptLunr.src = '/assets/js/lunr.min.js';
@@ -304,7 +303,6 @@ function initSearch() {
         };
         document.head.appendChild(scriptLunr);
       }
-
       if (!dataLoaded) {
         fetch('/data.json')
           .then(response => response.json())
@@ -329,7 +327,6 @@ function initSearch() {
       this.field('tags');
       this.field('content');
     });
-
     Object.keys(store).forEach(index => {
       idx.add({
         'id': index,
@@ -339,7 +336,6 @@ function initSearch() {
         'content': store[index].content
       });
     });
-
     handleInitialSearch();
   }
 
@@ -350,9 +346,18 @@ function initSearch() {
   }
 
   function handleInitialSearch() {
-    const initialSearchTerm = getQueryVariable('query');
-    if (initialSearchTerm) {
-      searchDeferred.push(() => performSearch(initialSearchTerm));
+    const urlQuery = getQueryVariable('query');
+    const storedQuery = sessionStorage.getItem('searchQuery');
+    const query = urlQuery || storedQuery;
+    if (query) {
+      const cachedResults = sessionStorage.getItem('searchResults');
+      if (cachedResults && storedQuery === query) {
+        document.getElementById('search-results').innerHTML = cachedResults;
+        document.getElementById('search-box').value = query;
+        updatePageTitle(query);
+      } else {
+        searchDeferred.push(() => performSearch(query));
+      }
     } else {
       processDeferredSearches();
     }
@@ -365,20 +370,23 @@ function initSearch() {
 
   function displaySearchResults(results, query) {
     const searchResults = document.getElementById('search-results');
+    let appendString = '';
     if (results.length) {
-      let appendString = '';
       results.forEach(result => {
         const item = store[result.ref];
         const highlightedTitle = highlightMatch(item.title, query);
         const highlightedContent = highlightMatchInContent(item.content, query);
-
         appendString += `<li><a href="${item.url}" data-swup-link><h3>${highlightedTitle}</h3></a>`;
         appendString += `<p>${highlightedContent}</p></li>`;
       });
-      searchResults.innerHTML = appendString;
     } else {
-      searchResults.innerHTML = '<li>No results found</li>';
+      appendString = '<li>No results found</li>';
     }
+    searchResults.innerHTML = appendString;
+    sessionStorage.setItem('searchResults', appendString); // Cache results
+    sessionStorage.setItem('searchQuery', query); // Cache query
+    const searchBox = document.getElementById('search-box');
+    if (searchBox) searchBox.value = query;
     updatePageTitle(query);
   }
 
@@ -386,7 +394,6 @@ function initSearch() {
     if (!idx || !store) return;
     const results = idx.search(query);
     displaySearchResults(results, query);
-    // No need to manually update URL, Swup handles this.
   }
 
   function getQueryVariable(variable) {
@@ -408,7 +415,6 @@ function initSearch() {
 
   function highlightMatchInContent(content, query) {
     const index = content.toLowerCase().indexOf(query.toLowerCase());
-
     if (index === -1) {
       return content.length > 150 ? `${content.substring(0, 150)}...` : content;
     } else {
@@ -417,7 +423,6 @@ function initSearch() {
       const beforeMatch = content.substring(start, index);
       const match = content.substring(index, index + query.length);
       const afterMatch = content.substring(index + query.length, end);
-      
       return `${start > 0 ? '...' : ''}${beforeMatch}<mark>${match}</mark>${afterMatch}${end < content.length ? '...' : ''}`;
     }
   }
@@ -428,12 +433,21 @@ function initSearch() {
 
   function handleSwupEvents() {
     document.addEventListener('swup:contentReplaced', () => {
-      const query = getQueryVariable('query');
-      if (query) {
-        performSearch(query);
-      } else {
-        // Reset search results if there’s no query in the URL
-        document.getElementById('search-results').innerHTML = '';
+      const query = getQueryVariable('query') || sessionStorage.getItem('searchQuery');
+      const searchResults = document.getElementById('search-results');
+      if (query && searchResults) {
+        const cachedResults = sessionStorage.getItem('searchResults');
+        if (cachedResults && sessionStorage.getItem('searchQuery') === query) {
+          searchResults.innerHTML = cachedResults;
+          document.getElementById('search-box').value = query;
+          updatePageTitle(query);
+        } else {
+          performSearch(query);
+        }
+      } else if (searchResults) {
+        searchResults.innerHTML = '';
+        sessionStorage.removeItem('searchQuery');
+        sessionStorage.removeItem('searchResults');
       }
     });
   }
@@ -452,17 +466,25 @@ function initSearch() {
   }
 
   loadLunrAndData();
-
   const searchBox = document.getElementById('search-box');
   if (searchBox) {
     searchBox.addEventListener('input', function (event) {
       const query = event.target.value;
       performSearch(query);
     });
-
-    handleInitialSearch();
+    const storedQuery = sessionStorage.getItem('searchQuery');
+    if (storedQuery) {
+      const cachedResults = sessionStorage.getItem('searchResults');
+      if (cachedResults) {
+        document.getElementById('search-results').innerHTML = cachedResults;
+        searchBox.value = storedQuery;
+        updatePageTitle(storedQuery);
+      } else {
+        searchBox.value = storedQuery;
+        performSearch(storedQuery);
+      }
+    }
   }
-
   handleSwupIntegration();
 }
 
