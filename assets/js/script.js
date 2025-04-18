@@ -1127,120 +1127,18 @@ function initProjetBacklink() {
   sessionStorage.setItem('previousPage', window.location.pathname);
 }
 
-function initChart() {
-  const chartBlocks = document.querySelectorAll('pre code.language-chartjs');
-  if (chartBlocks.length === 0) return;
 
-  const renderCharts = () => {
-    const computedStyle = getComputedStyle(document.documentElement);
-    const textColor = computedStyle.getPropertyValue('--t').trim(); // Primary text (--t)
-    const backgroundColor = computedStyle.getPropertyValue('--bc').trim(); // Background contrast (--bc)
-    const gridColor = computedStyle.getPropertyValue('--c').trim(); // Accent color (--c) for grids
-
-    chartBlocks.forEach((codeBlock, index) => {
-      const parentPre = codeBlock.parentNode;
-      const chartContainer = document.createElement('div');
-      chartContainer.className = 'chart-container';
-      chartContainer.style.position = 'relative';
-      chartContainer.style.width = '100%';
-      chartContainer.style.margin = '20px 0';
-
-      const canvas = document.createElement('canvas');
-      const canvasId = `chart-${index}-${Date.now()}`;
-      canvas.id = canvasId;
-      chartContainer.appendChild(canvas);
-
-      // Replace the codeblock with the chart container
-      parentPre.replaceWith(chartContainer);
-
-      let chartCode = codeBlock.textContent.trim();
-
-      // Fix for horizontalBar in Chart.js 4.x
-      if (chartCode.includes("type: 'horizontalBar'") || chartCode.includes('type: "horizontalBar"')) {
-        chartCode = chartCode.replace(
-          /type:\s*['"]horizontalBar['"]/,
-          "type: 'bar'"
-        );
-        if (!chartCode.includes('indexAxis')) {
-          chartCode = chartCode.replace(
-            /options:\s*\{/,
-            "options: {\n    indexAxis: 'y',"
-          );
-        }
-      }
-
-      // Inject theme-aware and responsive options
-      const themeOptions = `
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: {
-          legend: {
-            labels: {
-              color: '${textColor}'
-            }
-          },
-          title: {
-            color: '${textColor}'
-          }
-        },
-        scales: {
-          x: {
-            ticks: { color: '${textColor}' },
-            grid: { color: '${gridColor}' }
-          },
-          y: {
-            ticks: { color: '${textColor}' },
-            grid: { color: '${gridColor}' }
-          }
-        },
-        backgroundColor: '${backgroundColor}'
-      `;
-
-      chartCode = chartCode.replace(
-        /options:\s*\{/,
-        `options: {\n    ${themeOptions},`
-      );
-
-      try {
-        const modifiedChartCode = chartCode.replace(
-          /document\.getElementById\(['"](.*?)['"]\)/,
-          `document.getElementById('${canvasId}')`
-        );
-
-        const chartFunction = new Function(`
-          return function(Chart) {
-            ${modifiedChartCode}
-          };
-        `)();
-
-        chartFunction(Chart);
-      } catch (error) {
-        console.error('Error rendering Chart.js chart:', error);
-        chartContainer.innerHTML = `<p style="color: red;">Error rendering chart: ${error.message}</p>`;
-      }
-    });
-  };
-
-  if (typeof Chart === 'undefined') {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';
-    script.async = true;
-    document.head.appendChild(script);
-    script.onload = renderCharts;
-  } else {
-    renderCharts();
-  }
-}
 
     // Function to initialize on initial page load
     function init() {
       initInlineScript(document.body); 
       initMathJax();
       initMermaid();
-        initChart();
+      initRoughNotation();
       initProjetBacklink();
       initFormSubmission();
-       
+      initLightenseImages();
+      initPhotoswipe(); 
       initSearch();
       initCodeCopyBtn();
       initTimeAgo();
