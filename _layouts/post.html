@@ -6,11 +6,14 @@ layout: default
 
 <article>
 
-    {% if page.toc %}
+    {% if page.toc %}  <!-- if toc true -->
+    {% assign headings = page.content | split: '<h' | size %}
+    {% if headings > 2 %}  <!-- if toc true page have atleast 2 heading  -->
     <details>
         <summary>On This Page</summary>
         {% toc %}
     </details>
+    {% endif %}
     {% endif %}
 
 {{ content }}
