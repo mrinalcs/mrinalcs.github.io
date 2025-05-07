@@ -20,14 +20,13 @@ layout: default
 
 </article>
 
-
+{% if page.url contains "submit-html-form-to-google-form" %}
+{% include contact-form.html %}
+{% endif %}
 {% if jekyll.environment == 'production' %}
 
-{% include contact-form.html %}
 {% include comment-section.html url=page.url %}
 
 {% endif %}
 
 {% include footer.html %}
-
-<p class="copyright">&copy; 2023-{{ "now" | date: "%y" }} Mrinal Chandra Sarkar.</p>
