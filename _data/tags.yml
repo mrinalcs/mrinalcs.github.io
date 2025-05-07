@@ -18,3 +18,8 @@ laptop: "Posts related to laptops and their usage."
 issues: "Solutions and discussions on common technical issues."
 picnic: "Posts related to picnic and outdoor activities."
 pic: "A collection of posts featuring beautiful pictures and images."
+
+ggplot2: "Posts about creating visualizations with ggplot2."
+code: "Snippets and guides for coding."
+pandas: "Posts about data manipulation and analysis using pandas in python."
+python: "Posts covering Python programming and data science."
