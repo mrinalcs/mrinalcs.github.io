@@ -10,7 +10,7 @@
   <p>Tags:
   
     {% for tag in page.tags %}
-      <span> <a title="Tag {{ tag }}" href="/{{ tag }}" class="tags">{{ tag }}</a></span>{% unless forloop.last %},{% endunless %}
+      <span> <a title="Tag {{ tag }}" href="/{{ tag }}" class="tags-b">{{ tag }}</a></span>{% unless forloop.last %},{% endunless %}
     {% endfor %}
    </p>
 {% endif %}
