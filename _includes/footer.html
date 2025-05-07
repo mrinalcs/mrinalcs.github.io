@@ -10,23 +10,19 @@
   <p>Tags:
   
     {% for tag in page.tags %}
-      <span> <a title="Tag {{ tag }}" href="/{{ tag }}" >{{ tag }}</a></span>{% unless forloop.last %},{% endunless %}
+      <span> <a title="Tag {{ tag }}" href="/{{ tag }}" class="tags">{{ tag }}</a></span>{% unless forloop.last %},{% endunless %}
     {% endfor %}
    </p>
 {% endif %}
 
 
-{% if jekyll.environment == "production" %}
-
-   
 <p class="suggestion-link">
-Note: This is personal note, so there may be errors or misunderstandings.
-   <br>
-   Any Suggestion or corrections ? &#9998;
-  <a target="_blank" title="Github link" href="https://github.com/{{ site.github.username }}/{{ site.github.repo }}/blob/main/{{ page.path }}" style="text-decoration: none;">
-      edit here
-  </a>.
+  Note: This is personal note, so there may be errors or misunderstandings.
+     <br>
+     Any Suggestion or corrections ? &#9998;
+    <a target="_blank" title="Github link" href="https://github.com/{{ site.github.username }}/{{ site.github.repo }}/blob/main/{{ page.path }}" style="text-decoration: none;">
+        edit on github
+    </a>.
 </p>
-{% endif %}
 
 </footer>
