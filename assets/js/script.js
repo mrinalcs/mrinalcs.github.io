@@ -1128,11 +1128,33 @@ function initProjetBacklink() {
 }
 
 
+function initApplyPngClass(container = document) {
+  // Select all images within the given container
+  const images = container.querySelectorAll('img');
 
+  images.forEach(img => {
+    // Ensure the image is loaded to check its source
+    if (img.complete) {
+      applyPngClass(img);
+    } else {
+      img.onload = () => applyPngClass(img);
+    }
+  });
+
+  function applyPngClass(img) {
+    const src = img.src;
+    const extension = src.split('.').pop().toLowerCase();
+    
+    if (extension === 'png') {
+      img.classList.add('png-image');
+    }
+  }
+}
     // Function to initialize on initial page load
     function init() {
       initInlineScript(document.body); 
       initMathJax();
+      initApplyPngClass();
       initMermaid();
       initRoughNotation();
       initProjetBacklink();

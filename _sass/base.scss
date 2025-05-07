@@ -460,3 +460,9 @@ img {
     border-radius: 6px;
  padding: 2px 8px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .png-image {
+    filter: invert(0.9);  
+  }
+}
