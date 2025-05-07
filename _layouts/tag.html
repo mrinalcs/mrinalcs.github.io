@@ -16,7 +16,11 @@ layout: default
     {% endcapture %}
     
     {% assign read_time = words | divided_by:180 %}
-    ({{ read_time | ceil }} min read)
+    {% if read_time == 0 %}
+            (&lt; 1 min read)
+          {% else %}
+            ({{ read_time | ceil }} min read)
+          {% endif %}
      </span>
     <!-- {{post.description}} -->
   </li>

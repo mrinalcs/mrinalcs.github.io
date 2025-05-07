@@ -24,7 +24,11 @@ redirect_from:
             {% endcapture %}
             
             {% assign read_time = words | divided_by:180 %}
+            {% if read_time == 0 %}
+            (&lt; 1 min read)
+          {% else %}
             ({{ read_time | ceil }} min read)
+          {% endif %}
              </span>
             <!-- {{post.description}} -->
           </li>
