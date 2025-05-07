@@ -462,7 +462,7 @@ img {
 }
 
 @media (prefers-color-scheme: dark) {
-  .png-image {
+  img[src$=".png"] {
     filter: invert(0.9);  
   }
 }
