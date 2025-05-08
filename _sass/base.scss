@@ -452,14 +452,6 @@ img {
 }
 }
 
-.tags-b{
-  text-decoration: none;
-  font-size: 85%;
-    white-space: break-spaces;
-    background-color: var(--bt);
-    border-radius: 6px;
- padding: 2px 8px;
-}
 
 @media (prefers-color-scheme: dark) {
   img[src$=".png"] {
