@@ -92,4 +92,4 @@ Artist Prediction: The SVM classifier successfully demonstrated the feasibility 
 
 By amalgamating the strength of scientific methods with the essence of art and aesthetics, this project offers a unique lens into Kolkata's rich cultural heritage.
 
-[![Link to Google Drive](durga-idol-analysis-gdrive.jpg)](link-url)
+[![Link to Google Drive](durga-idol-analysis-gdrive.jpg)](https://drive.google.com/drive/folders/1G5ZwnlKDldaYz72w1I-w6WUivTTFm7vy?usp=sharing)
