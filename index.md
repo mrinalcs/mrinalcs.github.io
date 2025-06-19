@@ -21,7 +21,7 @@ Explore the projects I’ve been working on:
   {% for post in posts_with_project_tag limit:3 %}
     <li style="margin-bottom: 10px;list-style-type: '&#128193;'">
     
-      <span style="font-weight: bold;"><a style="text-decoration:none; color: var(--t);" href="{{ post.url }}" >{{ post.title }}</a></span> : {{ post.description | truncate: 150 }}  <a href="{{ post.url }}" >read </a>
+      <span style="font-weight: bold;"><a style="text-decoration:none; color: var(--tc);" href="{{ post.url }}" >{{ post.title }}</a></span> : {{ post.description | truncate: 150 }}  <a href="{{ post.url }}" >read </a>
     </li>
   {% endfor %}
 </ul>
