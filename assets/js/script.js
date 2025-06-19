@@ -153,24 +153,28 @@ function initFormSubmission() {
 
 
         // Function to initialize Lightense Images
-        function initLightenseImages() {
-          if (document.querySelector('article img')) {
-              if (typeof Lightense === 'undefined') {
-                  const script = document.createElement('script');
-                  script.src = '{{ "/assets/js/lightense.min.js" | relative_url }}';
-                  script.onload = () => {
-                      Lightense('article img', {
-                        background: 'var(--b)'
-                    });
-                  };
-                  document.head.appendChild(script);
-              } else {
-                  Lightense('article img', {
-                    background: 'var(--b)'
-                });
-              }
-          }
-      }
+function initLightenseImages() {
+  const allImages = document.querySelectorAll('article img');
+  const filteredImages = Array.from(allImages).filter(img => !img.closest('a'));
+
+  if (filteredImages.length > 0) {
+    if (typeof Lightense === 'undefined') {
+      const script = document.createElement('script');
+      script.src = '{{ "/assets/js/lightense.min.js" | relative_url }}';
+      script.onload = () => {
+        Lightense(filteredImages, {
+          background: 'var(--b)'
+        });
+      };
+      document.head.appendChild(script);
+    } else {
+      Lightense(filteredImages, {
+        background: 'var(--b)'
+      });
+    }
+  }
+}
+
 
 
 
