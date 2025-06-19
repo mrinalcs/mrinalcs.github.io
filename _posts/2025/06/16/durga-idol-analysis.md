@@ -3,7 +3,8 @@ title: "Exploring Similarity Between Durga Idols and Idol Artists Over the Years
 description: "An image-processing based statistical approach to analyze visual similarity and artist styles in Durga idols across different years."
 image: "146.jpg"
 date: 2025-06-16
-tags: [stat, project, image-processing] 
+tags: [stat, project, image-processing]
+toc: false
 ---
 
 
