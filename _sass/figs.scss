@@ -78,3 +78,12 @@ picture:has(img){
         margin: 0 auto;
       }
 }
+//  img with links
+p:has(a img) { 
+  display: flex;
+  flex-direction: unset;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  margin: 1em 0;
+}
