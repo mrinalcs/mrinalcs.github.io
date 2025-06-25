@@ -5,12 +5,13 @@ sitemap: false
 import Swup from './swup/swup@4.6.1/dist/Swup.module.js?module';
 import SwupPreloadPlugin from './swup/@swup/preload-plugin@3.2.10/dist/index.module.js?module';
 // import SwupScrollPlugin from './swup/@swup/scroll-plugin@3.3.2/dist/index.module.js?module';
+import SwupProgressPlugin from './swup/@swup/progress-plugin@3.2.0/dist/index.module.js';
 
 const swup = new Swup({
   animationSelector: '[class*="transition-"]',
 
   containers: ["header","main", "link[rel='canonical']"],
-  plugins: [new SwupPreloadPlugin({ preloadVisibleLinks: true }),new SwupProgressPlugin()
+  plugins: [new SwupPreloadPlugin({ preloadVisibleLinks: true }),new SwupProgressPlugin(),
     
   // new SwupScrollPlugin({
   //   animateScroll: false,
