@@ -696,8 +696,8 @@ function initNotes() {
 
               // Determine the appropriate badge
               const authorBadge = element.isAuthor === "TRUE" 
-                  ? `<span class="name">${escapeHtml(element.name)} <span class="author-badge">Author</span></span>` 
-                  : `<span class="name">${escapeHtml(element.name)}</span>`;
+                  ? `<span class="name icon-user">${escapeHtml(element.name)} <span class="author-badge">Author</span></span>` 
+                  : `<span class="name icon-user">${escapeHtml(element.name)}</span>`;
 
               const newItem = document.createElement('div');
               newItem.className = 'note-item';
