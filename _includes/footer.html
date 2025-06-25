@@ -1,16 +1,17 @@
 <footer>
-<!--    
+   
 {% if jekyll.environment == "production" %}
-  <p>Last Updated at {{ page.last_modified_at | date: "%I:%M %P On %d/%m/%Y" }}</p>
-{% endif %} -->
+  <p>Revised at {{ page.last_modified_at | date: "%I:%M %P on %d/%m/%Y" }}</p>
+{% endif %}
+
 
 <!-- tags -->
 
 {% if page.tags.size > 0 %}
-  <p>Tags:
+  <p class="icon-tags">Tags:
   
     {% for tag in page.tags %}
-      <span> <a title="Tag {{ tag }}" href="/{{ tag }}">{{ tag }}</a></span>{% unless forloop.last %},{% endunless %}
+      <span> <a class="tag" title="Tag {{ tag }}" href="/{{ tag }}">{{ tag }}</a></span>{% unless forloop.last %},{% endunless %}
     {% endfor %}
    </p>
 {% endif %}
