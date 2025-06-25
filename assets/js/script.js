@@ -10,7 +10,7 @@ const swup = new Swup({
   animationSelector: '[class*="transition-"]',
 
   containers: ["header","main", "link[rel='canonical']"],
-  plugins: [new SwupPreloadPlugin({ preloadVisibleLinks: true }),
+  plugins: [new SwupPreloadPlugin({ preloadVisibleLinks: true }),new SwupProgressPlugin()
     
   // new SwupScrollPlugin({
   //   animateScroll: false,
@@ -696,8 +696,8 @@ function initNotes() {
 
               // Determine the appropriate badge
               const authorBadge = element.isAuthor === "TRUE" 
-                  ? `<span class="name icon-user">${escapeHtml(element.name)} <span class="author-badge">Author</span></span>` 
-                  : `<span class="name icon-user">${escapeHtml(element.name)}</span>`;
+                  ? `<span class="name">${escapeHtml(element.name)} <span class="author-badge">Author</span></span>` 
+                  : `<span class="name">${escapeHtml(element.name)}</span>`;
 
               const newItem = document.createElement('div');
               newItem.className = 'note-item';
