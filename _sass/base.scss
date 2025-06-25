@@ -93,6 +93,9 @@ header,main {
   color: var(--ts);
   text-decoration: underline;
   transition: color 0.2s ease; 
+      text-decoration-color: var(--hs);
+    text-decoration-thickness: 1px;
+    text-underline-position: under;
   // text-decoration-color: var(--h);
   // text-decoration-thickness: 1px;
   // text-underline-position: under;
@@ -297,7 +300,7 @@ pre::-webkit-scrollbar {
 footer {
   margin: 40px 0;
   padding: 20px 0;
-  border-top: solid var(--h) 1px;
+  border-top: solid var(--hs) 1.5px;
 }
 .copyright {
   color: var(--ts);
