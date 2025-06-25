@@ -20,7 +20,7 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1em;
-  margin-left: .2em;
+  // margin-left: .2em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -42,9 +42,9 @@
 .icon-briefcase:before { content: '\e80e'; }
 .icon-comment:before { content: '\e80f'; }
 .icon-tag:before { content: '\e810'; }
-.icon-tags:before { content: '\e811'; }
+.icon-tags-1:before { content: '\e811'; }
 .icon-tag-1:before { content: '\e812'; }
-.icon-tags-1:before { content: '\e813'; }
+.icon-tags:before { content: '\e813'; }
 .icon-tag-2:before { content: '\e814'; }
 .icon-calendar-outlilne:before { content: '\e815'; }
 .icon-calendar-1:before { content: '\e816'; }
