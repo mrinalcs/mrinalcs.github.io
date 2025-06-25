@@ -253,24 +253,24 @@ table {
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid var(--h); 
+  border: solid var(--hs) 1.5px; 
   
 td, th {
   padding: 5px 10px;
   text-align: left;
-  border-right: 1px solid var(--h);  
-  border-bottom: 1px solid var(--h);  
+  border-right: solid var(--hs) 1.5px;  
+  border-bottom: solid var(--hs) 1.5px;  
 }
  
 tr:nth-child(even) {
-  background-color: var(--bs); 
+  background-color: color-mix(in srgb, var(--bc) 30%, transparent); 
 }
 
 /* Header styles */
 th {
   // padding-top: 12px;
   // padding-bottom: 12px;
-  background-color: var(--h);
+  background-color: var(--bc);
 //  color: white;
   border-top: none; 
 }
