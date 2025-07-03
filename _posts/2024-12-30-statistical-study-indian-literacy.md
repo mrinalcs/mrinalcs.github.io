@@ -1,6 +1,6 @@
 ---
 title: "Statistical Study on Indian Literacy: Insights from the 2011 Census"
-description: "A deep dive into India's literacy rates using 2011 Census data, exploring disparities across states, genders, religions, and urban-rural divides."
+description: "India's literacy rates using 2011 Census data, exploring disparities across states, genders, religions, and urban-rural divides."
 image: "/assets/img/statistical-study-indian-literacy/thumb.jpg"
 date: 2024-12-30
 tags: [stat, project] 
@@ -21,10 +21,9 @@ The project’s objectives were threefold:
  
 
 The analysis employed a combination of descriptive and inferential statistical techniques, implemented using R. Key methods included:
-
-- **Descriptive Statistics**: Bar plots were used to visualize state-wise population and literacy rates, highlighting disparities across regions. Box plots further illustrated literacy distributions by gender, religion, and location.
-- **Shapiro-Wilk Test**: This test was conducted to check the normality of literacy rate data for males and females. With p-values of 0.3104 (male) and 0.3773 (female), the data was assumed to follow a normal distribution, allowing for parametric tests.
-- **One-Way ANOVA**: Used to compare means across groups (e.g., states or religions) to identify significant differences in literacy rates.
+ 
+- **Shapiro-Wilk Test**: This test is conducted to check the normality of literacy rate data for males and females. 
+- **One-Way ANOVA**: Used to compare means across groups (e.g., states and religions) to identify significant differences in literacy rates.
 - **Two-Way ANOVA**: Applied to assess the effects of religion and location (urban/rural) on literacy rates, including their interaction. The results showed significant effects of both religion (p-value = 3.48e-15) and location (p-value < 2e-16), but no significant interaction effect (p-value = 0.587).
 - **T-Test**: Conducted to compare male and female literacy rates, confirming significant gender disparities.
 
