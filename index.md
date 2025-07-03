@@ -7,7 +7,7 @@ seo:
     type: WebSite
 ---
 
-M.Sc. in Statistics student at Visva-Bharati, Shantiniketan.
+M.Sc. in Statistics, Visva-Bharati University, Shantiniketan.
   
 
 
