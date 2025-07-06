@@ -54,9 +54,10 @@ Based on the findings, the project proposes several strategies to improve litera
   
 This statistical study provides valuable insights into India’s literacy landscape, highlighting disparities across states, genders, religions, and locations. By identifying high-performing states like Kerala and lagging regions like Bihar, the project offers a roadmap for targeted educational interventions.
 
+[Final Project Report](https://drive.google.com/drive/folders/1DgPTm5jvRlimD80-HjIT6CK9elssA9zO)
+
 **References**
 - [A Peek into Literacy in India: Statistical Learning with R](https://gigadom.wordpress.com/2015/01/05/a-peek-into-literacy-inindia-statistical-learning-with-r/)
 - [Kaggle: India Census 2011](https://www.kaggle.com/datasets/danofer/india-census?select=india-districts-census-2011.csv)
 - [IndiaStat: State-Wise Literacy Rate](https://www.indiastat.com/table/education/state-wise-literacy-rate-religious-communities-res/953566)
-- [Project Repository](https://github.com/mrinalcs/india-literacy)
-- [Final Project Report](https://drive.google.com/drive/folders/1DgPTm5jvRlimD80-HjIT6CK9elssA9zO)
+- [Project Repository](https://github.com/mrinalcs/india-literacy) 
