@@ -1,24 +1,28 @@
 ---
-title: Building Vbstat
-description: The making of VBSTAT a github page using jekyll to list Handouts and Notes
-image: /assets/img/building-vbstat/vbstat-home-page.jpg
+title: "Vbstat: Building an Academic Resource Site"
+description: "The making of VBSTAT a github page using jekyll to list Handouts and Notes of Department of Statistics Visva-Bharati by Students."
+image: "/assets/img/building-vbstat/vbstat-home-page.jpg"
+date: 2023-12-02
+revised: 2025-07-20
 ---
 
-<!-- I initially started with [vbstat.epizy.com](https://vbstat.epizy.com){:rel="nofollow" target="_blank"} and later on [vbstat.ml](https://vbstat.ml){:rel="nofollow" target="_blank"} which domain no more exist rather not free. So I've migrated to GitHub Pages. -->
-
-
-My first commit was on **<time datetime="2023-09-24">September 24, 2023</time>** Initially, the aim was to compile handouts and notes from both students and faculty. Later on I learnt Jekyll and wanted to built  webpages. Earlier tried to modified a template from github which available in Branch [v1](https://github.com/mrinalcs/vbstat/tree/v1) . Later on I have created from scratch which you can see in this [commit](https://github.com/mrinalcs/vbstat/blob/baa4d3e6a9fd3d492257f123efd7e2277c2c147f). Followings are pdf notes which available in the page from previous.
-
-[Calculus](https://vbstat.github.io/notes#calculus), [Demography and Vital Statistics](https://vbstat.github.io/notes#demography-and-vital-statistics), [Mathematical Analysis](https://vbstat.github.io/notes#mathematical-analysis), [Multivariate Analysis and Nonparametric](https://vbstat.github.io/notes#multivariate-analysis-and-nonparametric), [Operations Research](https://vbstat.github.io/notes#operations-research), [Probability](https://vbstat.github.io/notes#probability), [R Programming](https://vbstat.github.io/notes#r-programming), [Sample Survey](https://vbstat.github.io/notes#sample-survey), [Stochastic Process](https://vbstat.github.io/notes#stochastic-process), [Testing of Hypothesis](https://vbstat.github.io/notes#testing-of-hypothesis), [Time Series Analysis](https://vbstat.github.io/notes#time-series-analysis)
+<!-- Initially started with [vbstat.epizy.com](https://vbstat.epizy.com){:rel="nofollow" target="_blank"} and later on [vbstat.ml](https://vbstat.ml){:rel="nofollow" target="_blank"} which domain no more exist rather not free. -->
 
 
 
-## Pages
+Vbstat is a GitHub Pages website built with Jekyll to centralize handouts and notes for students and faculty. Initially hosted on vbstat.epizy.com and vbstat.ml, the site was migrated to GitHub Pages at vbstat.github.io due to domain constraints. The project began with a first commit on <time datetime="2023-09-24">September 24, 2023</time>, evolving from a simple repository of academic resources to a fully functional website with dynamic features and a custom design.
+
+## Development Journey
+The project started with the goal of compiling academic handouts and notes. Early development involved experimenting with a pre-existing GitHub template (available in the [v1 branch](https://github.com/mrinalcs/vbstat/tree/v1)). Over time, the site was rebuilt from scratch, as documented in a key [commit](https://github.com/mrinalcs/vbstat/blob/baa4d3e6a9fd3d492257f123efd7e2277c2c147f), to achieve greater customization and functionality. The site now hosts a collection of PDF notes covering topics such as [Calculus](https://vbstat.github.io/notes#calculus), [Demography and Vital Statistics](https://vbstat.github.io/notes#demography-and-vital-statistics), [Mathematical Analysis](https://vbstat.github.io/notes#mathematical-analysis), [Multivariate Analysis and Nonparametric](https://vbstat.github.io/notes#multivariate-analysis-and-nonparametric), [Operations Research](https://vbstat.github.io/notes#operations-research), [Probability](https://vbstat.github.io/notes#probability), [R Programming](https://vbstat.github.io/notes#r-programming), [Sample Survey](https://vbstat.github.io/notes#sample-survey), [Stochastic Process](https://vbstat.github.io/notes#stochastic-process), [Testing of Hypothesis](https://vbstat.github.io/notes#testing-of-hypothesis), [Time Series Analysis](https://vbstat.github.io/notes#time-series-analysis), accessible via the Notes page.
+ 
+ 
+
+## Key Pages and Features
 
 Heres are some special pages with functionality .
 
 ### Home page
-The home page includes a hero section with image carousel and a blockquote , another section which have an accordion and about section.
+The home page features a hero section with an image carousel, a blockquote, an accordion for interactive content, and an about section, creating an engaging entry point.
 
 ![Home Page Screen Short](/assets/img/building-vbstat/vbstat-home-page.jpg)
 *Vbstat home page*
@@ -41,133 +45,46 @@ The layout is designed to feature promoted faculties at the top, followed by a c
 This page is for listing all notes files by folders and a little addition adding file count. Later made every paper name as link to share a specefic section like [r-programming](https://vbstat.github.io/notes#r-programming)
 
 ```
-<ul class="list-group">
-    {% assign folder_counts = "" %}
-    {% for folder in site.static_files %}
-      {% if folder.path contains '/note/' and folder.path != '/note/' %}
-        {% assign parts = folder.path | split: '/' %}
-        {% assign foldername = parts[2] %}
-        {% unless folder_counts contains foldername %}
-          {% assign file_count = 0 %}
-          {% for file in site.static_files %}
-            {% if file.path contains '/note/' and file.path contains foldername %}
-              {% assign file_count = file_count | plus: 1 %}
-            {% endif %}
-          {% endfor %}
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-           <a href="?p={{ foldername }}">{{ foldername }}</a>
-            <span class="badge badge-primary badge-pill">{{ file_count }}</span>
-          </li>
-          {% assign folder_counts = folder_counts | append: foldername | append: ";" %}
-        {% endunless %}
-      {% endif %}
-    {% endfor %}
-  </ul>
+initialize folder_counts as empty
+for each file in static_files
+  if file is in /notes/ and not root /notes/
+    extract folder_name from file path
+    if folder_name not in folder_counts
+      count files in folder_name
+      display folder_name as link with file count
+      append folder_name to folder_counts
+    end if
+  end if
+end for
 ```
 
 ### Question Papers
-This page dynamically list all question papers catagoried by sem and year based on folder. Additionaly there is filter to sort them out. Questionpaper > Year > Sem .
+This page organizes question papers by semester and year, with a filterable interface for sorting by year, semester, or file name. The layout uses a table structure with dynamic filtering, implemented as follows: . `QP > Year > Sem `
 
 ```
-<div class="row">
-  <div class="col-md-6">
-    <input type="text" id="filter-input" class="form-control" placeholder="Filter by Year, Semester, or Files">
-  </div>
-  <div class="col-md-3">
-    <select id="year-dropdown" class="form-control">
-      <option value="">Filter by Year</option>
-      {% assign years = "" | split: "" %}
-      {% for file in site.static_files %}
-        {% if file.path contains '/question-papers/' %}
-          {% assign parts = file.path | split: '/' %}
-          {% if parts.size == 5 %}
-            {% assign year = parts[2] %}
-            {% unless years contains year %}
-              <option value="{{ year }}">{{ year }}</option>
-              {% capture years %}{{ years }}{{ year }}{% endcapture %}
-            {% endunless %}
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-    </select>
-  </div>
-  <div class="col-md-3">
-    <select id="semester-dropdown" class="form-control">
-      <option value="">Filter by Semester</option>
-      {% assign semesters = "" | split: "" %}
-      {% for file in site.static_files %}
-        {% if file.path contains '/question-papers/' %}
-          {% assign parts = file.path | split: '/' %}
-          {% if parts.size == 5 %}
-            {% assign semester = parts[3] %}
-            {% unless semesters contains semester %}
-              <option value="{{ semester }}">{{ semester }}</option>
-              {% capture semesters %}{{ semesters }}{{ semester }}{% endcapture %}
-            {% endunless %}
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-    </select>
-  </div>
-</div>
-<br>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Year</th>
-      <th>Semester</th>
-      <th>Files</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% assign folder_path = '/question-papers/' %}
-    {% for file in site.static_files %}
-      {% if file.path contains folder_path %}
-        {% assign parts = file.path | split: '/' %}
-        {% if parts.size == 5 %}
-          <tr>
-            <td>{{ parts[2] }}</td>
-            <td>{{ parts[3] }}</td>
-            <td><a href="{{ file.path }}">{{ parts[4] }}</a></td>
-          </tr>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  </tbody>
-</table>
+display filter input for text search
+display dropdown for year filter
+display dropdown for semester filter
+for each file in /question-papers/
+  extract year, semester, and file name from path
+  if path has valid structure
+    add year to year dropdown (unique)
+    add semester to semester dropdown (unique)
+    display file in table with year, semester, and link
+  end if
+end for
 
-
-<script>
-document.getElementById('filter-input').addEventListener('keyup', filterTable);
-document.getElementById('year-dropdown').addEventListener('change', filterTable);
-document.getElementById('semester-dropdown').addEventListener('change', filterTable);
-
-function filterTable() {
-  var searchText = document.getElementById('filter-input').value.toLowerCase();
-  var yearFilter = document.getElementById('year-dropdown').value.toLowerCase();
-  var semesterFilter = document.getElementById('semester-dropdown').value.toLowerCase();
-  var rows = document.querySelectorAll('.table tbody tr');
-
-  for (var i = 0; i < rows.length; i++) {
-    var year = rows[i].querySelector('td:nth-child(1)').textContent.toLowerCase();
-    var semester = rows[i].querySelector('td:nth-child(2)').textContent.toLowerCase();
-    var files = rows[i].querySelector('td:nth-child(3)').textContent.toLowerCase();
-
-    var yearMatch = year.includes(yearFilter) || yearFilter === '';
-    var semesterMatch = semester.includes(semesterFilter) || semesterFilter === '';
-    var textMatch = year.includes(searchText) || semester.includes(searchText) || files.includes(searchText);
-
-    if (yearMatch && semesterMatch && textMatch) {
-      rows[i].style.display = 'table-row';
-    } else {
-      rows[i].style.display = 'none';
-    }
-  }
-}
-</script>
+on filter input or dropdown change
+  for each table row
+    if row matches text, year, and semester filters
+      show row
+    else
+      hide row
+    end if
+  end for
 ```
 
-![](/assets/img/building-vbstat/vbstat-question-paper-page.jpg)
+![Question paper page](/assets/img/building-vbstat/vbstat-question-paper-page.jpg)
 *Sortable quesion paper page*
 
 ### Student page
@@ -175,56 +92,44 @@ This page automatically list student in this page by year based on the admissio 
 
 
 ```
-ug alumni
-  {% for student in site.students %}
-    {% if student.ug %}
-      {% capture current_year %}{{ "now" | date: "%Y" }}{% endcapture %}
-      {% assign current_year = current_year | plus: 0 %}
-      {% assign pass_out_year = student.ug | plus: 3 %}
-    
-      {% if current_year >= pass_out_year %}
-        <li>{{ student.title }} (UG: {{ student.ug }})</li>
-      {% endif %}
-    {% endif %}
-  {% endfor %}
+for each student in students
+  if student has admission_year
+    calculate pass_out_year = admission_year + 3
+    if current_year >= pass_out_year
+      display student as alumnus
+    else
+      display student as current
+    end if
+  end if
+end for
 ```
 
 ### Scholars page
-This page is incomplete as I didn't have much information about. I didn't find any information on the Internet.
+The scholars page remains incomplete due to limited information to populate it.
 
-
-## Features
-
-Heres few things added to this site .
+## Additional Features 
 
 ### Offline
-This works if ones loaded the webpage it works offline as well. I intentionally add this as when offline I can access pdf files without downloading.
+The site is designed to function offline after initial loading, allowing access to PDF files without downloading, enhancing usability in low-connectivity scenarios.
 
 ### Hotwire: Turbo
-For smooth transition I have added HOTWIRE TURBO which  make possible pag e transition wihout refresh which I liked so added to this project. 
+Hotwire Turbo is integrated for seamless page transitions without full refreshes, improving navigation speed and user experience.
 
 ### Normalization of Url
-
-For Student, Alumni page to fix username and url problem i write this plugin for GitHub, Facebook, Twitter, LinkedIn, Instagram, Google Scholar, personal websites, and YouTube.
+A custom plugin normalizes URLs for social media and academic platforms (e.g., GitHub, Google Scholar), ensuring consistent linking across student and alumni pages.
 
 ### DistFilter
-
 The purpose of this filter is to remove HTML comments from the default layout. Using gsub method with a regular expression to replace all HTML comment.
 
 
 
 ## Deploying
-This reposetory [vbstat](https://github.com/mrinalcs/vbstat) was created by [me](/) and forked it from [@vbstat](https://github.com/vbstat) github account and deployed to [https://vbstat.github.io](https://vbstat.github.io/)
-
-## Seo
-Used Jekyll-seo-tag for seo. I have added all infromation which are already available on the Internet. One thing just do is bring all of them in one place.
+This reposetory [vbstat](https://github.com/mrinalcs/vbstat) was created and forked it from [@vbstat](https://github.com/vbstat) github account and deployed to [https://vbstat.github.io](https://vbstat.github.io/). Multiple branches are maintained for safe experimentation, with the main branch serving as the primary contribution point.
+ 
 
 ![Google search result](/assets/img/building-vbstat/vbstat-google-search-result.jpg)
 *vbstat google search*
-
-## Branches
-I have created multiple branches only to keep revert if anything goes wrong when large changes done. So only contribute or check main branch.
-
+ 
 
 ##  Resources
 
