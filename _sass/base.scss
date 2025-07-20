@@ -478,10 +478,10 @@ header {
     background-color: #a5e922;
     color: #1b1a1b;
     border-radius: 1rem;
-    border-bottom-left-radius: 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 0; 
     z-index: 10;
     font-size: small; 
+    font-family: "RobotoCondensed", sans-serif;
 }
 .archived::after {
     content: "";
