@@ -28,6 +28,10 @@
   <body>
     <header>
 
+{% if page.archived %}
+  {% include archived.html %}
+{% endif %}
+
       <a href="{% if page.layout == 'post' %}/blog{% elsif page.layout == 'tag' %}/tags{% else %}/{% endif %}" class="logo backlink">
         Mrinal
       </a>

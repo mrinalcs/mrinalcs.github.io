@@ -4,6 +4,7 @@ description: "The making of VBSTAT a github page using jekyll to list Handouts a
 image: "/assets/img/building-vbstat/vbstat-home-page.jpg"
 date: 2023-12-02
 revised: 2025-07-20
+archived: True
 ---
 
 <!-- Initially started with [vbstat.epizy.com](https://vbstat.epizy.com){:rel="nofollow" target="_blank"} and later on [vbstat.ml](https://vbstat.ml){:rel="nofollow" target="_blank"} which domain no more exist rather not free. -->
