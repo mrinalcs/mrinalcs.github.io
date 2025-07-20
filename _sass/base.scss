@@ -465,9 +465,38 @@ img {
 .tag{
   text-decoration: none; 
 }
+header {
+  position: relative;  
+}
+
+.archived {
+    position: absolute;
+    top: .25rem;
+    left: 4.5rem;
+    max-width: 300px;
+    padding: 0.5rem 0.7rem;
+    background-color: #a5e922;
+    color: #1b1a1b;
+    border-radius: 1rem;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+.archived::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: -1px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid #a5e922;
+    border-right: 20px solid transparent;
+    transform: rotate(10deg);
+}
+
+@media  (min-width: 1200px) {
 .archived { 
-  margin: 1rem 0;
-  padding: 1rem;
-  background-color: #fff3cd; 
-  color: #856404;  
+    top: 4.25rem;
+    left: 4.2rem; 
+}
 }
