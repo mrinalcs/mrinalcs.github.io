@@ -481,6 +481,8 @@ header {
     border-bottom-left-radius: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
+    font-size: small;
+    font-family: cursive;
 }
 .archived::after {
     content: "";
@@ -492,6 +494,7 @@ header {
     border-top: 15px solid #a5e922;
     border-right: 20px solid transparent;
     transform: rotate(10deg);
+    z-index: 9;
 }
 
 @media  (min-width: 1200px) {
