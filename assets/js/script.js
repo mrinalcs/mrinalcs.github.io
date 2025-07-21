@@ -1141,7 +1141,7 @@ function initPageViewCount() {
   viewCountElement.textContent = ''; // Clear placeholder text
 
   const workerUrl = 'https://page-view-counter-cloudflare-d1.mrinalcs.workers.dev';
-  const pageUrl = document.location.href;
+  const pageUrl = location.pathname;
 
   fetch(`${workerUrl}/count?url=${encodeURIComponent(pageUrl)}`)
     .then(response => {
