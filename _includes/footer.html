@@ -8,16 +8,14 @@
 <!-- tags -->
 
 {% if page.tags.size > 0 %}
-  <p class="icon-tags-1">Tags:
+  <p class="icon-tags">Tags:
   
     {% for tag in page.tags %}
       <span> <a class="tag" title="Tag {{ tag }}" href="/{{ tag }}">{{ tag }}</a></span>{% unless forloop.last %},{% endunless %}
     {% endfor %}
    </p>
 {% endif %}
-<!-- <span class="dot-separator">•</span> -->
-  <span class="view-counter">Views: <span id="view-count" class="skeleton"></span></span>
-
+ 
 <p class="suggestion-link">
   Note: This is personal note, so there may be errors or misunderstandings.
      <!-- <br>
