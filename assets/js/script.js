@@ -1132,12 +1132,44 @@ function initProjetBacklink() {
   sessionStorage.setItem('previousPage', window.location.pathname);
 }
 
+function initPageViewCount() {
+  const viewCountElement = document.getElementById('view-count');
+  if (!viewCountElement) return; // Exit if the element is not found
+
+  // Add the skeleton loading class initially
+  viewCountElement.classList.add('skeleton');
+  viewCountElement.textContent = ''; // Clear placeholder text
+
+  const workerUrl = 'https://page-view-counter-cloudflare-d1.mrinalcs.workers.dev';
+  const pageUrl = document.location.href;
+
+  fetch(`${workerUrl}/count?url=${encodeURIComponent(pageUrl)}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      viewCountElement.classList.remove('skeleton');
+      viewCountElement.textContent = data.count;
+    })
+    .catch(error => {
+      console.error('Error with view count:', error);
+      viewCountElement.classList.remove('skeleton');
+      viewCountElement.classList.add('error');
+      viewCountElement.textContent = `Error (${error.message})`;
+    });
+}
 
 
     // Function to initialize on initial page load
     function init() {
       initInlineScript(document.body); 
-      initMathJax();
+      initMathJax();initPageViewCount();
       initMermaid();
       initRoughNotation();
       initProjetBacklink();

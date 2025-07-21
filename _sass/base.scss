@@ -504,3 +504,65 @@ header {
     left: 4.2rem; 
 }
 }
+.dot-separator {
+  margin: 0 0.4em;
+  color: var(--ts);
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+/* View counter block */
+.view-counter {
+  padding: 6px 10px;
+  background-color: var(--bt);  
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: var(--t);
+  font-size: 0.95em;
+  line-height: 1.2;
+}
+
+/* Optional bold label */
+.view-label {
+  font-weight: 500;
+}
+
+/* Skeleton loading bar */
+.skeleton {
+  display: inline-block;
+  height: 1em;
+  width: 2em;
+  background: linear-gradient(90deg, var(--b), var(--bt), var(--bs));
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 5px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.error {
+  color: red;
+  animation: none;
+  background: none;
+}
+.view-counter::after {
+  content: "Newly added";
+  margin-left: 0.6em;
+  padding: 2px 6px;
+  background-color: var(--c); /* Accent color */
+  color: var(--b); /* Background color for contrast */
+  font-size: 0.7em;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+}
