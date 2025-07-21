@@ -103,6 +103,10 @@ Now deploy the worker js and get the endpoint and implement in any page to check
 ![deply page cloudflare](151724.jpg) 
 
 
+
+## Add the Counter to Website
+Here’s a simple example to show the view count on any page:
+
 ```html 
 <div id="view-count">Views: Loading...</div>
 
@@ -130,3 +134,58 @@ Now deploy the worker js and get the endpoint and implement in any page to check
   }
 </script>
 ```
+
+## Prevent Repeat Counts
+To keep things simple and privacy-friendly, we can prevent repeat view increments using the browser’s localStorage. When a user visits a page, we store the view timestamp locally and only allow a new count after a certain amount of time.
+
+```html
+<div id="view-count">Views: Loading...</div>
+
+<script>
+  const workerUrl = 'https://your-worker-subdomain.workers.dev';
+  const pageUrl = window.location.href;
+  const viewCountEl = document.getElementById('view-count');
+
+  // Unique key for this page in localStorage
+  const storageKey = `viewed-${pageUrl}`;
+  const cooldownHours = 12;
+
+  function shouldSendViewRequest() {
+    const lastViewed = localStorage.getItem(storageKey);
+    if (!lastViewed) return true;
+
+    const lastTime = new Date(parseInt(lastViewed, 10));
+    const now = new Date();
+    const hoursPassed = (now - lastTime) / (1000 * 60 * 60);
+    return hoursPassed >= cooldownHours;
+  }
+
+  if (viewCountEl) {
+    if (shouldSendViewRequest()) {
+      fetch(`${workerUrl}/?url=${encodeURIComponent(pageUrl)}`)
+        .then(response => {
+          if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+          return response.json();
+        })
+        .then(data => {
+          if (data.error) throw new Error(data.error);
+          viewCountEl.textContent = `Views: ${data.count}`;
+          localStorage.setItem(storageKey, Date.now().toString());
+        })
+        .catch(error => {
+          console.error('Error fetching view count:', error);
+          viewCountEl.classList.add('error');
+          viewCountEl.textContent = `Views: Error (${error.message})`;
+        });
+    } else {
+      // Optionally fetch the current count without incrementing
+      // Or just show a static message until cooldown ends
+      viewCountEl.textContent = `Views: Recently viewed`;
+    }
+  }
+</script>
+```
+
+Else we can 
+## Add Non-Incrementing Endpoint 
+If you want to separate read-only vs increment logic, you could extend your Worker with a GET /count-only?url=... endpoint that only fetches the current count without increasing it.
