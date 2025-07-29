@@ -1,7 +1,7 @@
 ---
 title: "Cloudflare Workers View Counter Badge"
 description: "A fast, serverless badge system to count page views using Cloudflare Workers, D1, and Badgen."
-date: 2025-07-27 
+date: 2025-07-29 
 tags: [web]
 image: "297251.jpg"
 toc: false
@@ -17,9 +17,9 @@ Here’s an example of what the default badge looks like:
  -->
 
 
-  <img id="badgeImage" src="" alt="Badge Output" style="border-radius: 0px;" />
+  <img id="badgeImage" src="" alt="Badge Output" style="border-radius: 0px;margin-top: 5rem;" />
 
-  <div class="controls" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1rem;">
+  <div class="controls" style="display: flex; flex-wrap: wrap;gap: 0.5rem; margin-bottom: 5rem;">
     <select id="label">
       <option value="Views">Views</option>
       <option value="Visitors">Visitors</option>
@@ -101,7 +101,35 @@ Here’s an example of what the default badge looks like:
     updateBadge();
   </script>
 
-   
+<style> 
+
+/* Dropdowns and button styling */
+.controls select,
+.controls button {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--bt);
+  background-color: var(--b);
+  color: var(--t);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Hover and focus */
+.controls select:hover,
+.controls button:hover {
+  background-color: var(--hs);
+}
+
+.controls select:focus,
+.controls button:focus {
+  outline: none;
+  border-color: var(--tc);
+}
+
+</style>
+
 ## Repository
 
 [GitHub Repo](https://github.com/mrinalcs/view-counter-badge)
