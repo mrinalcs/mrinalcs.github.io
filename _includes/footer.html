@@ -2,8 +2,11 @@
    
 {% if jekyll.environment == "production" %}
   <p class="icon-back-in-time">Revised at {{ page.last_modified_at | date: "%I:%M %P on %d/%m/%Y" }}</p>
-{% endif %}
 
+
+<!-- <span class="dot-separator">•</span> -->
+  <span class="view-counter icon-eye-1" title="Views since July 21, 2025">Views<span id="view-count" class="skeleton"></span></span>
+{% endif %}
 
 <!-- tags -->
 

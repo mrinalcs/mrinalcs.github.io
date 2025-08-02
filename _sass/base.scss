@@ -507,12 +507,10 @@ header {
 
 
 
-.view-counter {
-      padding-left: 15px;
+.view-counter { 
   display: inline-flex;
   align-items: center;
-  gap: 0.4em; 
-  font-size: 0.95em;
+  gap: 0.4em;  
   line-height: 1.2;
   &:hover {
     color: var(--t);
