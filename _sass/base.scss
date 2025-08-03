@@ -509,8 +509,7 @@ header {
 
 .view-counter { 
   display: inline-flex;
-  align-items: center;
-  gap: 0.4em;  
+  align-items: center; 
   line-height: 1.2;
   &:hover {
     color: var(--t);
