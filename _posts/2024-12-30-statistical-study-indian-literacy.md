@@ -6,9 +6,11 @@ date: 2024-12-30
 tags: [stat, project] 
 ---
  
-[literacy as tree causes](thumb2.jpg) 
- 
+
 Reading and writing skills are essential for personal growth, social mobility, and economic development. In India, a country with a rich literary heritage and a complex social structure, improving literacy rates presents significant challenges. There are disparities in literacy rates across various social groups, regions, and genders.
+
+![uneven literacy in india](/assets/img/statistical-study-indian-literacy/thumb2.jpg) 
+ 
 
 The last population census in India was conducted in February 2011, with a revisional round in March 2011. The next census was due in 2021, but it was postponed due to the COVID-19 pandemic. To carry out statistical analysis, I will be using a dataset from Kaggle, which contains census data from 2011. The census, conducted in two phases—house listing and population enumeration—covered 640 districts, 5,924 sub-districts, 7,935 towns, and over 600,000 villages. It provides a comprehensive dataset, including information on gender, religion, education, and occupation, making it a robust foundation for statistical analysis.
 
