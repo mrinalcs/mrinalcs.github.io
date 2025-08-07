@@ -6,6 +6,7 @@ date: 2024-12-30
 tags: [stat, project] 
 ---
  
+[literacy as tree causes](thumb2.jpg) 
  
 Reading and writing skills are essential for personal growth, social mobility, and economic development. In India, a country with a rich literary heritage and a complex social structure, improving literacy rates presents significant challenges. There are disparities in literacy rates across various social groups, regions, and genders.
 
