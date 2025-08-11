@@ -1,0 +1,70 @@
+---
+title: Words
+layout: page
+--- 
+<style>
+  body { font-family: sans-serif; padding: 20px; }
+  #status { margin-bottom: 10px; font-weight: bold; }
+  #cloud span { display: inline-block; margin: 3px; }
+</style> 
+<div id="status">Starting...</div> 
+<div id="cloud"></div>
+
+<script>
+(async function() {
+  const statusEl = document.getElementById('status');
+  const cloudEl = document.getElementById('cloud');
+
+  const stopWords = new Set([
+    "the","and","for","you","with","that","are","was","this","from","have","not","bps",
+    "all","can","get","one","about","how","use","see","may","end","new","like","true",
+    "only","any","out","some","key","most","per","let","same","due","non","part","off",
+    "got","feel","final","those","list","help","meet","hide","past","lots","big","low","high",
+    "com","net","org","www","null","png","jpg","jpeg","gif","svg","css","js","ttf","otf","eot",
+    "pdf","doc","txt","csv","ico","xml","yml","md","min","max","zip","rar",
+    "assets","img","data","photos","font","https","github","mathjax","page","read",
+    "using","jekyll","mrinalcs","time","html","note","amp","your"
+  ]);
+
+  function cleanText(text) {
+    return text
+      .replace(/[\W_]+/g, ' ')
+      .toLowerCase()
+      .trim()
+      .split(/\s+/)
+      .filter(w => w.length > 2 && !stopWords.has(w) && !/^\d+$/.test(w));
+  }
+
+  function renderCloud(wordCounts) {
+    cloudEl.innerHTML = '';
+    const maxCount = Math.max(...Object.values(wordCounts));
+    Object.entries(wordCounts).sort((a,b) => b[1]-a[1]).forEach(([word,count]) => {
+      const size = 10 + (count / maxCount) * 40;
+      const span = document.createElement('span');
+      span.textContent = word;
+      span.style.fontSize = size + 'px';
+      cloudEl.appendChild(span);
+    });
+  }
+
+  statusEl.textContent = 'Fetching data.json...';
+  let jsonData;
+  try {
+    jsonData = await fetch('/data.json').then(r => r.json());
+  } catch (e) {
+    statusEl.textContent = 'Failed to load data.json';
+    return;
+  }
+
+  let wordCounts = {};
+  jsonData.forEach((entry, index) => {
+    statusEl.textContent = `Processing entry ${index + 1}/${jsonData.length}...`;
+    const words = cleanText(entry.content);
+    words.forEach(w => wordCounts[w] = (wordCounts[w] || 0) + 1);
+    renderCloud(wordCounts);
+  });
+
+  statusEl.textContent = 'This are the words used in this web';
+  renderCloud(wordCounts);
+})();
+</script> 

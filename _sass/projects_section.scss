@@ -39,7 +39,7 @@
   line-height: 1.4;
 }
 
-/* Large screens: image left, title+desc together */
+/*  title+desc  */
 @media (min-width: 768px) {
   .project-link {
     grid-template-columns: auto 1fr;
@@ -47,14 +47,21 @@
     align-items: flex-start;
   }
   .text-wrap {
-    display: block; /* Title and desc stack naturally */
+    display: block;  
   }
   .desc {
     grid-column: auto;
+    font-size: 95%;
   }
+  .project-thumbnail {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
-
-/* Small screens: desc full width below both */
+}
+ 
 @media (max-width: 767px) {
   .project-link {
     grid-template-columns: auto 1fr;
@@ -65,6 +72,6 @@
     display: contents; 
   }
   .desc {
-    grid-column: 1 / span 2; /* Full width below */
+    grid-column: 1 / span 2; 
   }
 }

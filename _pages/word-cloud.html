@@ -1,0 +1,94 @@
+---
+title: Word Cloud
+description: Visualize key themes and terms from dataset content, including topics like data science, regression modeling, and feature engineering, through an interactive word cloud.
+--- 
+<style>
+  body { font-family: sans-serif; padding: 20px; }
+  #status { margin-bottom: 10px; font-weight: bold; }
+  #cloud span { display: inline-block; margin: 3px; }
+</style>
+ 
+<div id="status">Starting...</div>
+<div id="cloud"></div>
+
+<script>
+(async function() {
+  const statusEl = document.getElementById('status');
+  const cloudEl = document.getElementById('cloud');
+
+  const stopWords = new Set([
+    "the","and","for","you","with","that","are","was","this","from","have","not","bps",
+    "all","can","get","one","about","how","use","see","may","end","new","like","true",
+    "only","any","out","some","key","most","per","let","same","due","non","part","off",
+    "got","feel","final","those","list","help","meet","hide","past","lots","big","low","high",
+    "com","net","org","www","null","png","jpg","jpeg","gif","svg","css","js","ttf","otf","eot",
+    "pdf","doc","txt","csv","ico","xml","yml","md","min","max","zip","rar",
+    "assets","img","data","photos","font","https","github","mathjax","page","read",
+    "using","jekyll","mrinalcs","static","html","note","posts","your","there"
+  ]);
+
+  function cleanText(html) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const main = doc.querySelector('main');
+    let text = main ? main.textContent : doc.body.textContent;
+    
+    let extraText = [];
+    if (main) {
+      main.querySelectorAll('img[src]').forEach(img => extraText.push(img.getAttribute('src')));
+      main.querySelectorAll('a[href]').forEach(a => extraText.push(a.getAttribute('href')));
+    } else {
+      doc.querySelectorAll('img[src]').forEach(img => extraText.push(img.getAttribute('src')));
+      doc.querySelectorAll('a[href]').forEach(a => extraText.push(a.getAttribute('href')));
+    }
+
+    text = text + " " + extraText.join(" ");
+    return text
+      .replace(/[\W_]+/g, ' ')
+      .toLowerCase()
+      .trim()
+      .split(/\s+/)
+      .filter(w => w.length > 2 && !stopWords.has(w) && !/^\d+$/.test(w));
+  }
+
+  function renderCloud(wordCounts) {
+    cloudEl.innerHTML = '';
+    const maxCount = Math.max(...Object.values(wordCounts));
+    Object.entries(wordCounts).sort((a,b) => b[1]-a[1]).forEach(([word,count]) => {
+      const size = 10 + (count / maxCount) * 40;
+      const span = document.createElement('span');
+      span.textContent = word;
+      span.style.fontSize = size + 'px';
+      cloudEl.appendChild(span);
+    });
+  }
+
+  statusEl.textContent = 'Fetching sitemap...';
+  let sitemapText;
+  try {
+    sitemapText = await fetch('/sitemap.xml').then(r => r.text());
+  } catch (e) {
+    statusEl.textContent = 'Failed to load sitemap.xml';
+    return;
+  }
+
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(sitemapText, 'application/xml');
+  const urls = Array.from(xml.getElementsByTagName('loc')).map(el => el.textContent);
+  
+  let wordCounts = {};
+  for (let i = 0; i < urls.length; i++) {
+    statusEl.textContent = `Processing ${i+1}/${urls.length}...`;
+    try {
+      const html = await fetch(urls[i]).then(r => r.text());
+      const words = cleanText(html);
+      words.forEach(w => wordCounts[w] = (wordCounts[w] || 0) + 1);
+      if (i % 3 === 0) renderCloud(wordCounts);
+    } catch (e) {
+      console.warn('Error fetching', urls[i], e);
+    }
+  }
+
+  statusEl.textContent = 'Done!';
+  renderCloud(wordCounts);
+})();
+</script> 
