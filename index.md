@@ -16,7 +16,6 @@ M.Sc. in Statistics, Visva-Bharati University, Shantiniketan.
 Explore the projects I’ve been working on:
 
 {% assign posts_with_project_tag = site.posts | where: "tags", "project" %}
-
 <style>
 .project-list {
   list-style: none;
@@ -28,9 +27,9 @@ Explore the projects I’ve been working on:
 }
 
 .project-link {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 12px;
   text-decoration: none;
   color: var(--tc);
   border-radius: 8px;
@@ -39,7 +38,7 @@ Explore the projects I’ve been working on:
 }
 
 .project-link:hover {
-  background: rgba(0, 0, 0, 0.05); /* light hover effect */
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .project-thumbnail {
@@ -50,13 +49,43 @@ Explore the projects I’ve been working on:
   flex-shrink: 0;
 }
 
-.project-content {
-  max-width: 100%;
-}
-
-.project-content .title {
+.title {
   font-weight: bold;
   margin-bottom: 4px;
+}
+
+.desc {
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+ 
+@media (min-width: 768px) {
+  .project-link {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
+    align-items: flex-start;
+  }
+  .text-wrap {
+    display: block;  
+  }
+  .desc {
+    grid-column: auto;
+  }
+}
+
+/* Small screens: 
+@media (max-width: 767px) {
+  .project-link {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-items: start;
+  }
+  .text-wrap {
+    display: contents; 
+  }
+  .desc {
+    grid-column: 1 / span 2;  
+  }
 }
 </style>
 
@@ -67,10 +96,10 @@ Explore the projects I’ve been working on:
         {% if post.image %}
           <img src="{{ post.image }}" alt="{{ post.title }}" class="project-thumbnail">
         {% else %}
-          <img src="/assets/default-thumbnail.jpg" alt="default" class="project-thumbnail">
+          No Image
         {% endif %}
-        
-        <div class="project-content">
+
+        <div class="text-wrap">
           <div class="title">{{ post.title }}</div>
           <div class="desc">{{ post.description | truncate: 150 }}</div>
         </div>
@@ -78,6 +107,7 @@ Explore the projects I’ve been working on:
     </li>
   {% endfor %}
 </ul>
+
 
 
 
