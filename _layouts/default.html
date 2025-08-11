@@ -47,18 +47,10 @@
         <time datetime="{{ page.date | date_to_xmlschema }}" class=" icon-calendar-outlilne">
           {{ page.date | date: "%B %-d, %Y" }}
         </time>
-          
-        <!-- <span class="dot-separator">•</span> -->
-  <span class="view-counter icon-eye" title="Views since July 21, 2025">Views: <span id="view-count" class="skeleton"></span></span>
-
-        <!-- {% capture words %}
-        {{ content | number_of_words | minus: 180 }}
-        {% endcapture %}
-        {% unless words contains '-' %}
-        {{ words | strip | prepend: '(' | append: ' Words, ' }}
-        {{ words | plus: 180 | divided_by: 180 | append: ' Minutes)' }}
-        {% endunless %}
-         -->
+    {% if jekyll.environment == "production" %}
+        <span class="dot-separator">•</span>
+       <span class="view-counter" title="Views since July 21, 2025">Views: <span id="view-count" class="skeleton"></span></span>
+    {% endif %} 
         
         {% endif %}
     </header> 
