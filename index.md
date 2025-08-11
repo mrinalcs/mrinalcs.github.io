@@ -58,7 +58,8 @@ Explore the projects I’ve been working on:
   font-size: 0.9em;
   line-height: 1.4;
 }
- 
+
+/* Large screens: image left, title+desc together */
 @media (min-width: 768px) {
   .project-link {
     grid-template-columns: auto 1fr;
@@ -66,14 +67,14 @@ Explore the projects I’ve been working on:
     align-items: flex-start;
   }
   .text-wrap {
-    display: block;  
+    display: block; /* Title and desc stack naturally */
   }
   .desc {
     grid-column: auto;
   }
 }
 
-/* Small screens: 
+/* Small screens: desc full width below both */
 @media (max-width: 767px) {
   .project-link {
     grid-template-columns: auto 1fr;
@@ -84,7 +85,7 @@ Explore the projects I’ve been working on:
     display: contents; 
   }
   .desc {
-    grid-column: 1 / span 2;  
+    grid-column: 1 / span 2; /* Full width below */
   }
 }
 </style>
