@@ -39,7 +39,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   overflow-wrap: break-word;
-  // scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  line-height: 1.5;
 }
 body {
   background-color: var(--b);
