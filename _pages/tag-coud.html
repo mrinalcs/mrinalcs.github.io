@@ -1,0 +1,33 @@
+---
+title: Tag Cloud
+description: Browse the complete tag cloud for this site, covering topics from web development, statistics, R programming, and AI to LaTeX, time series analysis, operations research, and more
+  - /tags-cloud
+---
+<div class="tag-cloud">
+  {% assign tags = site.tags %}
+  {% assign max = 0 %}
+  
+  {% for tag in tags %}
+    {% if tag[1].size > max %}
+      {% assign max = tag[1].size %}
+    {% endif %}
+  {% endfor %}
+
+  {% for tag in tags %}
+    {% assign tag_name = tag[0] %}
+    {% assign count = tag[1].size %}
+    
+    {%- comment -%}
+    Calculate font size based on usage:
+    font_size = 100 + (count * 100 / max)
+    {%- endcomment -%}
+    
+    {% assign scale = count | times: 100 %}
+    {% assign ratio = scale | divided_by: max %}
+    {% assign font_size = 100 | plus: ratio %}
+    
+    <a href="/tag/{{ tag_name | slugify }}/" style="font-size: {{ font_size }}%;">
+      {{ tag_name }} ({{ count }})
+    </a>
+  {% endfor %}
+</div>
