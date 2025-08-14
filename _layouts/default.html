@@ -44,12 +44,12 @@
         {% endif %}
 
         {% if page.layout == 'post' %}
-        <time datetime="{{ page.date | date_to_xmlschema }}" class=" icon-calendar-outlilne">
+        <time datetime="{{ page.date | date_to_xmlschema }}">
           {{ page.date | date: "%B %-d, %Y" }}
         </time>
     {% if jekyll.environment == "production" %}
         <span class="dot-separator">•</span>
-       <span class="view-counter" title="Views since July 21, 2025">Views: <span id="view-count" class="skeleton"></span></span>
+       <span class="view-counter" title="Views since July 21, 2025"><span id="view-count" class="skeleton">&nbsp;views</span></span>
     {% endif %} 
         
         {% endif %}

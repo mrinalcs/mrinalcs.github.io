@@ -187,6 +187,7 @@ header {
   time,.view-counter{
     color: var(--ts);
     transition: color 0.2s ease; 
+    font-size: 90%;
     &:hover{
       color: var(--t);
     }
