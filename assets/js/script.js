@@ -1131,38 +1131,121 @@ function initProjetBacklink() {
   // Store the current page as the previous page for the next navigation
   sessionStorage.setItem('previousPage', window.location.pathname);
 }
+ 
+ 
+
+const workerUrl = 'https://page-view-counter-cloudflare-d1.mrinalcs.workers.dev';
+const CACHE_KEY = 'pageViewCache';
+const CACHE_TTL = 10 * 60 * 1000; // 10 minutes in ms
+let pageViewCache = null;
 
 function initPageViewCount() {
   const viewCountElement = document.getElementById('view-count');
-  if (!viewCountElement) return; // Exit if the element is not found
+  if (!viewCountElement) return;
 
-  // Add the skeleton loading class initially
-  viewCountElement.classList.add('skeleton');
-  viewCountElement.textContent = ''; // Clear placeholder text
-
-  const workerUrl = 'https://page-view-counter-cloudflare-d1.mrinalcs.workers.dev';
   const pageUrl = location.pathname;
+  viewCountElement.classList.add('skeleton');
+  viewCountElement.textContent = '';
 
+  // Load cache from localStorage
+  loadCache();
+
+  // If offline → show cached value (if available) and exit
+  if (!navigator.onLine) {
+    if (pageViewCache?.counts[pageUrl] !== undefined) {
+      viewCountElement.classList.remove('skeleton');
+      viewCountElement.textContent = pageViewCache.counts[pageUrl];
+    } else {
+      viewCountElement.classList.remove('skeleton');
+      viewCountElement.textContent = '0';
+    }
+    return;
+  }
+
+  // Cache exists and is fresh → show instantly and increment in background
+  if (pageViewCache && Date.now() - pageViewCache.timestamp < CACHE_TTL) {
+    if (pageViewCache.counts[pageUrl] !== undefined) {
+      viewCountElement.classList.remove('skeleton');
+      viewCountElement.textContent = pageViewCache.counts[pageUrl];
+    } else {
+      viewCountElement.classList.remove('skeleton');
+      viewCountElement.textContent = '0';
+    }
+    incrementInBackground(pageUrl);
+  }
+  // Cache missing or stale → fetch all counts
+  else {
+    fetch(`${workerUrl}/all`)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        const counts = {};
+        data.forEach(item => counts[item.url] = item.count);
+
+        // Save new cache with timestamp
+        pageViewCache = {
+          counts,
+          timestamp: Date.now()
+        };
+        saveCache();
+
+        // Show current page count
+        viewCountElement.classList.remove('skeleton');
+        viewCountElement.textContent = counts[pageUrl] || 0;
+
+        incrementInBackground(pageUrl);
+      })
+      .catch(err => {
+        console.error("Error fetching all counts:", err);
+        // Fallback: fetch only this page
+        fetch(`${workerUrl}/count?url=${encodeURIComponent(pageUrl)}`)
+          .then(res => res.json())
+          .then(data => {
+            viewCountElement.classList.remove('skeleton');
+            viewCountElement.textContent = data.count;
+          })
+          .catch(error => {
+            console.error("Error with fallback count:", error);
+            viewCountElement.classList.remove('skeleton');
+            viewCountElement.classList.add('error');
+            viewCountElement.textContent = `Error (${error.message})`;
+          });
+      });
+  }
+}
+
+function incrementInBackground(pageUrl) {
   fetch(`${workerUrl}/count?url=${encodeURIComponent(pageUrl)}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
+    .then(res => res.json())
     .then(data => {
-      if (data.error) {
-        throw new Error(data.error);
+      if (pageViewCache) {
+        pageViewCache.counts[pageUrl] = data.count;
+        pageViewCache.timestamp = Date.now();
+        saveCache();
       }
-      viewCountElement.classList.remove('skeleton');
-      viewCountElement.textContent = data.count;
     })
-    .catch(error => {
-      console.error('Error with view count:', error);
-      viewCountElement.classList.remove('skeleton');
-      viewCountElement.classList.add('error');
-      viewCountElement.textContent = `Error (${error.message})`;
-    });
+    .catch(err => console.warn("Background increment failed:", err));
+}
+
+function loadCache() {
+  const stored = localStorage.getItem(CACHE_KEY);
+  if (!stored) return;
+  try {
+    const parsed = JSON.parse(stored);
+    if (parsed && typeof parsed === 'object' && parsed.counts) {
+      pageViewCache = parsed;
+    } else {
+      localStorage.removeItem(CACHE_KEY); // invalid structure
+    }
+  } catch {
+    localStorage.removeItem(CACHE_KEY); // invalid JSON
+  }
+}
+
+function saveCache() {
+  localStorage.setItem(CACHE_KEY, JSON.stringify(pageViewCache));
 }
 
 
