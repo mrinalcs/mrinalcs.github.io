@@ -26,7 +26,7 @@ description: Browse the complete tag cloud for this site, covering topics from w
     {% assign ratio = scale | divided_by: max %}
     {% assign font_size = 100 | plus: ratio %}
     
-    <a href="/tag/{{ tag_name | slugify }}/" style="font-size: {{ font_size }}%;">
+    <a href="/{{ tag_name | slugify }}" style="font-size: {{ font_size }}%;">
       {{ tag_name }} ({{ count }})
     </a>
   {% endfor %}
