@@ -1,4 +1,8 @@
 @media print {
+
+    h3, h2, p, li,pre {
+     opacity: 1!important; 
+    }
     nav,footer,#comment-section>.comments-form,div#formContainer {
       display: none !important;
     }
