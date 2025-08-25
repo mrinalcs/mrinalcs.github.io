@@ -5,11 +5,11 @@ date: 2025-08-02
 tags: ['project','python']
 ---
 
-![taken from from: Kaggle](kaggle_5407_media_housesbanner.png) 
-*from: Kaggle*
 
+The Ames Housing Dataset, created by Dean De Cock, is a dataset used in the Kaggle competition House Prices - Advanced Regression Techniques. It contains 81 features that describe different aspects of houses in Ames. The main goal is to predict the Sale Price of the houses. In this project Ihave performed exploratory data analysis (EDA), feature engineering, handling of missing data and outliers, regression assumptions, and applied multiple linear regression ridge regression and Lasso regression models. I have also discuss the theoretical underpinnings and assumptions of these models to provide a understanding. Its hard to make a app using lots of features so I have selected few features which have strong relation with target variable sales price and fit a linear regression and deployed to streamlit app.
 
-The Ames Housing Dataset, curated by Dean De Cock, is a cornerstone dataset for the Kaggle competition "House Prices - Advanced Regression Techniques." With 81 features spanning numerical and categorical variables, it captures detailed characteristics of residential homes in Ames, Iowa. The goal is to predict the `SalePrice` of houses, a continuous target variable present in the training set. In this project Ihave performed exploratory data analysis (EDA), feature engineering, handling of missing data and outliers, regression assumptions, and applied multiple linear regression ridge regression and Lasso regression models. I have also discuss the theoretical underpinnings and assumptions of these models to provide a understanding. Its hard to make a app using lots of features so I have selected few features which have strong relation with target variable sales price and fit a linear regression and deployed to streamlit app.
+![taken from from: Kaggle](kaggle_5407_media_housesbanner.png)  
+
 
 ## Why This Approach?
 The dataset’s complexity—81 features with missing values, skewed distributions, and potential multicollinearity—demands a systematic approach. My strategy emphasizes:
