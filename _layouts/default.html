@@ -45,7 +45,7 @@
 
         {% if page.layout == 'post' %}
         <time datetime="{{ page.date | date_to_xmlschema }}">
-          {{ page.date | date: "%B %-d, %Y" }}
+          {{ page.date | date: "%b %-d, %Y" }}
         </time>
     {% if jekyll.environment == "production" %}
         <span class="dot-separator">•</span>

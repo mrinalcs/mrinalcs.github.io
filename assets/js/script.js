@@ -564,7 +564,7 @@ function initCodeCopyBtn() {
 
 function initTimeAgo() {
   // Select all time elements
-  var postTimeElements = document.querySelectorAll('time');
+  var postTimeElements = document.querySelectorAll('main time');
   
   // Loop through each time element
   postTimeElements.forEach(function (postTimeElem) {
