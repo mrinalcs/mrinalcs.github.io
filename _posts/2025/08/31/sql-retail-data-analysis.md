@@ -154,6 +154,7 @@ ORDER BY Total_Customers DESC;
 ### Q9. Find total revenue for Electronics and Books
  
 Retailers need to know which product categories generate the most income.
+In this query, I wanted to find the total revenue made from the Electronics and Books categories. I joined the **Transactions** table with **Prod_Cat_Info** so that I could get the product category names. Then, I used a `WHERE` condition to keep only the rows where the category is either Books or Electronics. Finally, I grouped the results by category and calculated the total revenue for each using `SUM(Total_Amt)`.
 
 ```sql
 SELECT PCI.prod_cat, SUM(CAST(Total_Amt AS FLOAT)) AS Total_Revenue
@@ -170,6 +171,7 @@ GROUP BY PCI.prod_cat;
 
 ### Q10. Find combined revenue for Electronics and Clothing at flagship stores
 
+To solve this, I wanted to check the total revenue for Electronics and Clothing categories, but only from flagship stores. For that, I joined the **Transactions** table with **Prod_Cat_Info** to get the category details. Then, I used a `WHERE` condition to select only the rows where the store type is ‘FLAGSHIP STORE’ and the product category is either Clothing or Electronics. Finally, I grouped the results by product category and calculated the total revenue using `SUM(Total_Amt)` for each.
 
 ```sql
 SELECT prod_cat, SUM(CAST(Total_Amt AS FLOAT)) AS Total_Revenue
@@ -187,7 +189,7 @@ GROUP BY prod_cat;
 
 ### Q11. Find top 5 product subcategories by sales & return percentage 
 
-This identifies best-selling products and highlights categories causing most returns.
+To solve this, I wanted to find the top 5 product subcategories that sell the most and also see how much they contribute to returns. I joined the **Transactions** table with **Prod_Cat_Info** to get the subcategory names. Then, I calculated the **total sales** for each subcategory using `SUM(Total_Amt)` and worked out the **sales percentage** by comparing each subcategory’s sales with the total sales. For returns, I used a `CASE` statement to add up only the negative quantities (returns) and then calculated their percentage of total returns. Finally, I grouped the results by subcategory and picked the top 5 based on sales.
 
 
 ```sql
@@ -203,9 +205,13 @@ GROUP BY PCI.prod_subcat
 ORDER BY Total_Sales DESC;
 ```
 
+This identifies best-selling products and highlights categories causing most returns.
+
 
 
 ### Q12. Find customers who made more than 10 purchases
+
+To identify customers who were frequent buyers, I analyzed the **Transactions** table. I grouped the data by `Cust_Id` so that all purchases made by each customer could be aggregated. Next, I counted the total number of transactions for each customer using the `COUNT(*)` function, while ensuring only valid purchases were considered by adding the condition `WHERE Qty > 0`. Finally, I used the `HAVING` clause to filter only those customers whose transaction count exceeded 10, giving me the list of customers who made more than 10 purchases.
 
 
 ```sql
@@ -221,6 +227,7 @@ HAVING COUNT(*) > 10;
 
 ### Q13. Find the store type with the highest sales and transactions
 
+To solve this, I needed to determine which store type performed the best in terms of revenue and transactions. Since both pieces of information are available in the **Transactions** table, I grouped the records by `Store_Type`. Then, I calculated the **total sales** using the `SUM()` function on `Total_Amt` and counted the **total number of transactions** using `COUNT(*)`. Finally, I sorted the results in descending order of sales with `ORDER BY Total_Sales DESC` and used `TOP 1` to select only the store type with the highest overall sales and corresponding transaction count.
 
 ```sql
 SELECT TOP 1 Store_Type,
@@ -236,6 +243,7 @@ ORDER BY Total_Sales DESC;
 
 ### Q14. Find product categories with above-average revenue
 
+To approach this problem, I needed to find which product categories generated revenue higher than the overall average revenue. For this, I joined the Transactions table with `Prod_Cat_Info` so that each transaction could be linked to its respective product category. Then, I calculated the average revenue per category using the `AVG()` function on `Total_Amt` . To filter only those categories performing above the overall average, I used the HAVING clause with a subquery that calculates the average revenue across all transactions. Finally, the query returns only those product categories whose average revenue is greater than this overall benchmark.
 
 ```sql
 SELECT PCI.prod_cat, 
@@ -254,6 +262,7 @@ HAVING AVG(CAST(Total_Amt AS FLOAT)) >
 
 ### Q15. Find average and total revenue by subcategory for top categories
 
+To solve this, I first identified that the Transactions table contains the sales amounts while the `Prod_Cat_Info` table contains the category and subcategory details. Since the revenue had to be grouped by subcategory within each top category, I joined both tables using the matching prod_cat_code and prod_subcat_code. Then, I calculated the average sales using AVG(), the total revenue using `SUM()` , and also counted the number of transactions with `COUNT(*)` . Finally, I grouped the results by prod_cat and prod_subcat to get values at the category–subcategory level and ordered them in descending order of total sales to highlight the top-performing categories.
 
 ```sql
 SELECT prod_cat, prod_subcat,
