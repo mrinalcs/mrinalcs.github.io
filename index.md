@@ -17,7 +17,7 @@ Explore the projects I’ve been working on:
 
 {% assign posts_with_project_tag = site.posts | where: "tags", "project" %} 
 <ul class="project-list">
-  {% for post in posts_with_project_tag limit:3 %}
+  {% for post in posts_with_project_tag limit:4 %}
     <li>
       <a href="{{ post.url }}" class="project-link">
         {% if post.image %}
