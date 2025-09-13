@@ -511,7 +511,8 @@ header {
   
 .skeleton {
   display: inline-block;
-  height: 1em;
+  vertical-align: middle;
+  height: 0.9em;
   width: 2em;
   background: linear-gradient(90deg, var(--b), var(--bt), var(--bs));
   background-size: 200% 100%;
