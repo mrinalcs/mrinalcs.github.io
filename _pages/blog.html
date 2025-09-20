@@ -16,6 +16,7 @@ redirect_from:
       <h2 id="{{year_group.name}}">{{ year_group.name }}</h2>
       <ul class="post-list"  style="list-style: none; padding-left: 0;">
         {% for post in year_group.items %}
+          {% unless post.tags contains "project" %}
           <li>
             <a href="{{ post.url }}">{{ post.title }}</a> 
             <span class="lg">
@@ -32,6 +33,7 @@ redirect_from:
              </span>
             <!-- {{post.description}} -->
           </li>
+            {% endunless %}
         {% endfor %}
       </ul>
     </div>
