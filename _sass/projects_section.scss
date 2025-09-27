@@ -1,6 +1,7 @@
 .project-list {
   list-style: none;
   padding-left: 0;
+  margin-top:10px ;
 }
 
 .project-list li {
@@ -14,7 +15,7 @@
   text-decoration: none;
   color: var(--tc);
   border-radius: 8px;
-  padding: 10px;
+  padding-top: 10px;
   transition: background 0.2s;
 }
 
