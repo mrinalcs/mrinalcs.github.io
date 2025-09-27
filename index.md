@@ -7,6 +7,8 @@ seo:
     type: WebSite
 ---
 
+**Data Analyst Intern** at IDEAS-TIH, Kolkata.
+
 M.Sc. in Statistics, Visva-Bharati University, Shantiniketan.
   
 
