@@ -509,25 +509,25 @@ header {
 
  
   
-.skeleton {
-  display: inline-block;
-  vertical-align: middle;
-  height: 1em;
-  width: 2em;
-  background: linear-gradient(90deg, var(--b), var(--bt), var(--bs));
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-  border-radius: 5px;
-}
+// .skeleton {
+//   display: inline-block;
+//   vertical-align: middle;
+//   height: 1em;
+//   width: 2em;
+//   background: linear-gradient(90deg, var(--b), var(--bt), var(--bs));
+//   background-size: 200% 100%;
+//   animation: loading 1.5s infinite;
+//   border-radius: 5px;
+// }
 
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
+// @keyframes loading {
+//   0% {
+//     background-position: 200% 0;
+//   }
+//   100% {
+//     background-position: -200% 0;
+//   }
+// }
 
 .error {
   color: red;
