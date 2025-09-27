@@ -8,8 +8,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: "Inter", sans-serif;
     font-weight: 600; 
-    line-height: 1.2; 
+    line-height: 1.2!important; 
 }
 h1{
     font-size: 1.6rem!important;
+}
+nav a { 
+    font-weight: normal!important;
 }
