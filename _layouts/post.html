@@ -10,7 +10,7 @@ layout: default
     {% assign headings = page.content | split: '<h' | size %}
     {% if headings > 2 %}  <!-- if toc true page have atleast 2 heading  -->
     <details>
-        <summary>On This Page</summary>
+        <summary>Overview</summary>
         {% toc %}
     </details>
     {% endif %}
