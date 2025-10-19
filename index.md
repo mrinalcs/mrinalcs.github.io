@@ -1,7 +1,7 @@
 ---
 title: "Mrinal Chandra Sarkar"
 description: "Student of M.Sc in Statistics at Visva Bharati, Shantiniketan."
-image: "/assets/img/og/profile.jpg"
+image: "/assets/img/tech-stack.jpg"
 date: 2024-12-29 
 seo:
     type: WebSite
@@ -38,6 +38,7 @@ Explore the projects I’ve been working on:
 </ul>
 
 
+<img src="assets/img/tech-stack.png" width="1080" height="720" alt="my tech stack" style="background: none;border:none; border-radius: 0;">
 
 
 ## Contact
