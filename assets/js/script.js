@@ -608,14 +608,10 @@ function initNotes() {
       // Format note timestamp
       function formatDate(stringDate) {
           const date = new Date(stringDate); 
-          const now = new Date();
-          const istOffset = 5.5 * 60 * 60 * 1000; // IST = UTC+5:30
-          const localOffset = now.getTimezoneOffset() * 60 * 1000;
-          const istNow = new Date(now.getTime() + localOffset + istOffset);
- 
-          const istDate = new Date(new Date(stringDate).getTime() + localOffset + istOffset);
-
-          const diffMs = istNow - istDate;
+           const deviceUtc = new Date(new Date().toUTCString());
+          const deviceIst = new Date(deviceUtc.getTime() + 5.5 * 60 * 60 * 1000);
+          
+          const diffMs = deviceIst - date;
           const diffSeconds = Math.floor(diffMs / 1000);
           const diffMinutes = Math.floor(diffSeconds / 60);
           const diffHours = Math.floor(diffMinutes / 60);
