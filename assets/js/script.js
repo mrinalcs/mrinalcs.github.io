@@ -743,14 +743,7 @@ function initNotes() {
           const expires = `expires=${d.toUTCString()}`;
           document.cookie = `${name}=${value};${expires};path=/`;
       }
-
-      // Check for banned words
-      async function checkBannedWords(note) {
-          const bannedWords = await fetch('/assets/js/bannedwords.json').then(res => res.json());
-          const lowerNote = note.toLowerCase();
-          const foundWords = bannedWords.filter(word => lowerNote.includes(word));
-          return foundWords;
-      }
+ 
 
       // Rate limit notes (2 in 5 minutes)
       function canPostNote() {
@@ -775,13 +768,7 @@ function initNotes() {
           event.preventDefault();
           const username = document.getElementById('note-name').value;
           const note = document.getElementById('note-content').value;
-
-          const bannedWords = await checkBannedWords(note);
-          if (bannedWords.length > 0) {
-              alert(`Please avoid using the following words: ${bannedWords.join(', ')}. Kindly modify your note and try again.`);
-              return;
-          }
-
+ 
           if (!canPostNote()) {
               alert("You've reached the limit of 2 notes in 5 minutes. Please wait for 5 minutes before posting again.");
               return;
@@ -835,20 +822,7 @@ function initNotes() {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 function initExtLinkHandler() {
   // Function to open the modal
