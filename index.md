@@ -1,8 +1,9 @@
 ---
 title: "Mrinal Chandra Sarkar"
-description: "Student of M.Sc in Statistics at Visva Bharati, Shantiniketan."
+description: "Data Analyst Intern at IDEAS-TIH, Kolkata, M.Sc Statistics at Visva Bharati, Shantiniketan."
 image: "/assets/img/tech-stack.jpg"
 date: 2024-12-29 
+last_modified_at: 2025-10-26
 seo:
     type: WebSite
 ---
@@ -38,7 +39,6 @@ Explore the projects I’ve been working on:
 </ul>
 
 
-<img src="assets/img/tech-stack.png" width="1080" height="720" alt="my tech stack" style="background: none;border:none; border-radius: 0;">
 
 
 ## Contact
@@ -48,3 +48,5 @@ Feel free to reach out at <a href="mailto:mrinalcs@yahoo.com"  style='text-decor
  
 
 Looking for something specific? Try <a href="/search" class="icon-search" style='text-decoration:none'>search</a>
+
+<img src="assets/img/tech-stack.png" width="1080" height="720" alt="my tech stack" style="background: none;border:none; border-radius: 0;width: 50%;">
