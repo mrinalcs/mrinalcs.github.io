@@ -117,4 +117,4 @@ tags: [python]
 
 </div>
 
-rich not replicated i know 
+rich not replicated i know. going to update
