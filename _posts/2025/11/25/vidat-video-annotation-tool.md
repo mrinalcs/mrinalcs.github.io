@@ -1,5 +1,5 @@
 --- 
-title: "VIDAT Video Annotation Tool" 
+title: "Vidat Video Annotation Tool" 
 description: "A Fast, Offline, Open-Source Video Annotation Tool introduction It is an efficient offline video annotation tool designed for building datasets for object detection, tracking, and other computer vision applications"
 date: 2025-11-25 
 last_modified_at: 2025-11-25 
@@ -7,28 +7,28 @@ tags: [open-source, computer-vision, video-analytics]
 image: '251125.jpg'
 ---
  
-During my internship at IDEAS, my guide introduced me to VIDAT (Video Annotation Tool) — and it quickly became one of my favorite discoveries. If you've ever struggled with setting up complex annotation software, VIDAT feels like a breath of fresh air. It's lightweight, browser-based, and runs completely offline, making it one of the easiest tools I've worked with.
+During my internship at IDEAS, my guide introduced me to Vidat (Video Annotation Tool) — and it quickly became one of my favorite discoveries. If you've ever struggled with setting up complex annotation software, Vidat feels like a breath of fresh air. It's lightweight, browser-based, and runs completely offline, making it one of the easiest tools I've worked with.
  
-## What Is VIDAT?
+## What Is Vidat?
 
-VIDAT is an open-source annotation tool developed by **ANU CVML**. It's designed for computer vision tasks where you need to label video frames with precision. Whether you're working on object detection, segmentation, or pose estimation, VIDAT has you covered.
+Vidat is an open-source annotation tool developed by **ANU CVML**. It's designed for computer vision tasks where you need to label video frames with precision. Whether you're working on object detection, segmentation, or pose estimation, Vidat has you covered.
 
 Here's what makes it stand out:
  
 - **No installation required**: Just host it locally or use deployed one and open in your browser. Offline support perfect for secure environments or limited internet access.
-- **Interpolation feature**: Annotate key frames and let VIDAT automatically generate annotations for intermediate frames saving huge amounts of time. 
+- **Interpolation feature**: Annotate key frames and let Vidat automatically generate annotations for intermediate frames saving huge amounts of time. 
 - **Flexible annotations**: Create bounding boxes, polygons, skeletons, and segments.
 - **Frame-level tagging**: Label objects or regions across video frames with ease.
  
-![OSU Color and Thermal Database Annotating using VIDAT](2511251.gif)
-*OSU Color Database Annotating using VIDAT*
+![OSU Color and Thermal Database Annotating using Vidat](2511251.gif)
+*OSU Color Database Annotating using Vidat*
 
 ## Why Found It Interesting
 
-While using VIDAT, I discovered a few practical details that make the tool both powerful and a little tricky if you're not careful:
+While using Vidat, I discovered a few practical details that make the tool both powerful and a little tricky if you're not careful:
 
 ### Frame rate configuration 
-This is critical. By default, VIDAT uses **10 FPS**, and once you start annotating you cannot revert the frame rate. I learned this the hard way always configure the frame rate properly before beginning, or you'll have to redo your work.
+This is critical. By default, Vidat uses **10 FPS**, and once you start annotating you cannot revert the frame rate. I learned this the hard way always configure the frame rate properly before beginning, or you'll have to redo your work.
 
 ### Performance 
 Since everything runs in the frontend, annotating **Full HD videos** can feel laggy. A smart workaround is to use moderate-quality versions of your video for annotation, then later map or expand back to the original resolution.
