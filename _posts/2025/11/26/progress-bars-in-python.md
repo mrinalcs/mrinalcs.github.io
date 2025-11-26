@@ -1,8 +1,8 @@
----  
+---
 title: "Progress Bars In Python"
-date: 2025-11-25 
-last_modified_at: 2025-11-25 
-tags: [python]  
+date: 2025-11-25
+last_modified_at: 2025-11-25
+tags: [python]
 ---
 
 <div style="padding:10px;font-family:ui-monospace,Menlo,monospace;border: solid 1px;border-radius:10px;line-height:1.4;">
@@ -19,7 +19,7 @@ tags: [python]
     Reset
   </button>
 
-  <pre id="out" style="padding:0;border:none;margin-top:15px;font-size:15px;white-space:pre;"></pre>
+  <pre id="out" style="padding:10px;border:none;margin-top:15px;font-size:15px;white-space:pre;"></pre>
 
   <script>
     (function(){
@@ -52,26 +52,36 @@ tags: [python]
           const remain = total - i;
           const eta = remain/speed;
 
-          // ---- tqdm ----
+          /* --------------------- TQDM --------------------- */
           if(t === "tqdm"){
             const blocks = 10;
             const p = Math.round((i/total)*100);
             const f = Math.round((p/100)*blocks);
             out.textContent =
-              `${p}%|${"█".repeat(f)}${"░".repeat(blocks-f)}| ${i}/${total} `
-              + `[${fmt(elapsed)}<${fmt(eta)}, ${speed.toFixed(2)}it/s]`;
+              `${p}%|${"█".repeat(f)}${"░".repeat(blocks-f)}| ${i}/${total} ` +
+              `[${fmt(elapsed)}<${fmt(eta)}, ${speed.toFixed(2)}it/s]`;
           }
 
-          // ---- rich ----
+          /* --------------------- RICH (Exact Python-style) --------------------- */
           if(t === "rich"){
-            const barWidth = 30;
-            const done = Math.round((i/total)*barWidth);
+            const percent = i / total;
+            const pctStr = String(Math.round(percent * 100)).padStart(3);
+
+            const width = 34;   // Rich default bar width
+            const full = Math.floor(percent * width);
+            const remainder = Math.floor((percent * width - full) * 8);
+
+            // thin bar style similar to: ━━╺━━━
+            const bar =
+              "━".repeat(full) +
+              (remainder > 0 ? "╺" : "") +
+              " ".repeat(width - full - 1);
+
             out.textContent =
-              `Processing…\n[${"█".repeat(done)}${" ".repeat(barWidth-done)}] `
-              + `${Math.round((i/total)*100)}%`;
+              ` ${pctStr}% ${bar}  ${i}/${total} • ${fmt(elapsed)} • ${fmt(eta)}`;
           }
 
-          // ---- alive_progress ----
+          /* --------------------- alive_progress --------------------- */
           if(t === "alive"){
             const spinners = ["⠋","⠙","⠹","⠸","⠼","⠴","⠦","⠧","⠇","⠏"];
             const s = spinners[i % spinners.length];
@@ -81,7 +91,7 @@ tags: [python]
               `${s} |${"█".repeat(fill)}${" ".repeat(w-fill)}| ${i}/${total}`;
           }
 
-          // ---- progressbar2 ----
+          /* --------------------- progressbar2 --------------------- */
           if(t === "pb2"){
             const full = 40;
             const done = Math.round((i/total)*full);
@@ -89,17 +99,21 @@ tags: [python]
               `[${"=".repeat(done)}${" ".repeat(full-done)}] ${i}%`;
           }
 
+          /* --------------------- END --------------------- */
           if(i >= total){
             clearInterval(timer);
 
             if(t === "tqdm")
               out.textContent = "100%|██████████| 100/100 [00:05<00:00, 19.53it/s]";
+
             if(t === "rich")
-              out.textContent += "\n✓ Completed";
+              out.textContent += `\n ✔ Completed`;
+
             if(t === "alive")
-              out.textContent += "\n✔ done";
+              out.textContent += `\n ✔ done`;
+
             if(t === "pb2")
-              out.textContent = "[========================================] 100%";
+              out.textContent = `[${"=".repeat(40)}] 100%`;
           }
 
         }, 50);
@@ -108,13 +122,9 @@ tags: [python]
       resetBtn.onclick = startBar;
       barType.onchange = startBar;
 
-      // ---- Start with tqdm only ----
       barType.value = "tqdm";
       startBar();
-
     })();
   </script>
 
 </div>
-
-rich not replicated i know. going to update
