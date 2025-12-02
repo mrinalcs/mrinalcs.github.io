@@ -1,6 +1,7 @@
 ---
 title: "Progress Bars In Python"
 date: 2025-11-25
+image: "31225.png"
 last_modified_at: 2025-11-25
 tags: [python]
 ---
