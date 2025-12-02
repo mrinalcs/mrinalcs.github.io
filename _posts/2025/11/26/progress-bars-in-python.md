@@ -5,10 +5,10 @@ last_modified_at: 2025-11-25
 tags: [python]
 ---
 
-<div style="padding:10px;font-family:ui-monospace,Menlo,monospace;border: solid 1px;border-radius:10px;line-height:1.4;">
+<div style="padding:10px;font-family:ui-monospace,Menlo,monospace;border:solid 1px var(--hs);border-radius:8px;line-height:1.4;">
   
   <label>Select Progress Bar: </label>
-  <select id="barType" style="padding:5px;border-radius:6px;margin-right:10px;">
+  <select id="barType" style="padding:5px;border-radius:6px;margin-right:10px;border:solid 1px var(--hs)">
     <option value="tqdm">tqdm</option>
     <option value="rich">rich</option>
     <option value="alive">alive_progress</option>
