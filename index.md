@@ -3,7 +3,7 @@ title: "Mrinal Chandra Sarkar"
 description: "Data Analyst Intern at IDEAS-TIH, Kolkata, M.Sc Statistics at Visva Bharati, Shantiniketan."
 image: "/assets/img/profile-square.png"
 date: 2024-12-29 
-last_modified_at: 2025-10-26
+last_modified_at: 2025-12-03
 seo:
     type: WebSite
 ---
