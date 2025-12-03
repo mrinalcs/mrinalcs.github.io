@@ -1215,7 +1215,7 @@ function initTLDR() {
 
   const btn = document.createElement("button");
   btn.className = "tldr-btn";
-  btn.textContent = "TL;DR";
+  btn.textContent = "TL?";
   document.body.appendChild(btn);
 
   btn.addEventListener("click", () => {
@@ -1231,7 +1231,7 @@ function initTLDR() {
     const content = mainEl.textContent.trim();
     const fullText = title + "\n\n" + content;
 
-    showTLDRModal("Loading summary...");
+    showTLDRModal("Summarizing...");
 
     fetch(TLDR_WORKER_URL, {
       method: "POST",
