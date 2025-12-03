@@ -1,0 +1,99 @@
+/* TLDR Button */
+.tldr-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--bs);
+  color: var(--t);
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+  border: 1px solid var(--bt);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.tldr-btn:hover {
+  background: var(--h);
+  transform: translateY(-2px);
+}
+
+/* TLDR Modal Background */
+.tldr-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+/* TLDR Modal Box */
+.tldr-box {
+  background: var(--b);
+  width: 90%;
+  max-width: 600px;
+  border-radius: 12px;
+  border: 1px solid var(--bt);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+/* Header */
+.tldr-header {
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bs);
+  border-bottom: 1px solid var(--bt);
+  color: var(--t);
+  font-weight: 600;
+}
+
+/* Close Button */
+.tldr-close {
+  background: none;
+  border: none;
+  color: var(--t);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.tldr-close:hover {
+  background: var(--h);
+}
+
+/* Content area */
+.tldr-content {
+  padding: 16px;
+  max-height: 60vh;
+  overflow-y: auto;
+  color: var(--t);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Make inline code look nice */
+.tldr-content code {
+  background: var(--bc);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--tc);
+}
+
+/* Markdown strong + emphasis */
+.tldr-content strong {
+  color: var(--t);
+  font-weight: 600;
+}
+
+.tldr-content em {
+  color: var(--tc);
+}

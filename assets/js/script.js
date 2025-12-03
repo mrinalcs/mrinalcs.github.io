@@ -1197,11 +1197,113 @@ function saveCache() {
 }
 
 
+
+
+
+
+
+
+
+/* TLDR */
+
+const TLDR_WORKER_URL = "https://letssummarise.mrinalcs-51b.workers.dev/";
+
+/* Initialize TLDR Floating Button */
+function initTLDR() {
+  // Avoid duplicate button
+  if (document.querySelector(".tldr-btn")) return;
+
+  const btn = document.createElement("button");
+  btn.className = "tldr-btn";
+  btn.textContent = "TL;DR";
+  document.body.appendChild(btn);
+
+  btn.addEventListener("click", () => {
+    const titleEl = document.querySelector("header h1");
+    const mainEl = document.querySelector("main");
+
+    if (!mainEl) {
+      alert("Main content not found!");
+      return;
+    }
+
+    const title = titleEl ? titleEl.textContent.trim() : "";
+    const content = mainEl.textContent.trim();
+    const fullText = title + "\n\n" + content;
+
+    showTLDRModal("Loading summary...");
+
+    fetch(TLDR_WORKER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: fullText })
+    })
+      .then(res => res.json())
+      .then(data => {
+        const summary = data.summary || "No response.";
+        updateTLDRModal(renderMarkdown(summary));
+      })
+      .catch(err => {
+        updateTLDRModal("Error: " + err.message);
+      });
+  });
+}
+
+/* TLDR MODAL UI */
+
+function showTLDRModal(initialText = "") {
+  let modal = document.querySelector(".tldr-modal");
+
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.className = "tldr-modal";
+    modal.innerHTML = `
+      <div class="tldr-box">
+        <div class="tldr-header">
+          <strong>TL;DR Summary</strong>
+          <button class="tldr-close">✕</button>
+        </div>
+        <div class="tldr-content"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    modal.querySelector(".tldr-close").onclick = () => {
+      modal.remove();
+    };
+  }
+
+  modal.querySelector(".tldr-content").innerHTML = initialText;
+  modal.style.display = "flex";
+}
+
+function updateTLDRModal(htmlContent) {
+  const modal = document.querySelector(".tldr-modal");
+  if (modal) {
+    modal.querySelector(".tldr-content").innerHTML = htmlContent;
+  }
+}
+
+/* Markdown Renderer */
+function renderMarkdown(md) {
+  return md
+    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // bold
+    .replace(/\*(.*?)\*/g, "<em>$1</em>") // italic
+    .replace(/`([^`]+)`/g, "<code>$1</code>") // inline code
+    .replace(/\n/g, "<br>"); // new line
+}
+
+
+
+
+
+
+
     // Function to initialize on initial page load
     function init() {
       initInlineScript(document.body); 
       initMathJax();initPageViewCount();
-      initMermaid();
+      initMermaid();initTLDR();
       initRoughNotation();
       initProjetBacklink();
       initFormSubmission();
