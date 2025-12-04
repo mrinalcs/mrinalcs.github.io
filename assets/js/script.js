@@ -1203,35 +1203,69 @@ function saveCache() {
 
 
 
-
-/* TLDR */
-
-const TLDR_WORKER_URL = "https://letssummarise.mrinalcs-51b.workers.dev/";
-
-/* Initialize TLDR Floating Button */
 function initTLDR() {
-  // Avoid duplicate button
   if (document.querySelector(".tldr-btn")) return;
 
+  const TLDR_WORKER_URL = "https://letssummarise.mrinalcs-51b.workers.dev/";
+
+  // ----- Create button -----
   const btn = document.createElement("button");
   btn.className = "tldr-btn";
-  btn.textContent = "TL?";
+  btn.textContent = "Too Long? Summarise";
   document.body.appendChild(btn);
 
-  btn.addEventListener("click", () => {
-    const titleEl = document.querySelector("header h1");
-    const mainEl = document.querySelector("main");
+  // Animate → TL?
+  setTimeout(() => {
+    btn.style.transition = "all 0.4s ease";
+    btn.style.opacity = "0";
 
-    if (!mainEl) {
+    setTimeout(() => {
+      btn.textContent = "TL?";
+      btn.style.opacity = "1";
+    }, 350);
+  }, 1000);
+
+  // ---- Click Action ----
+  btn.onclick = () => {
+    const title = document.querySelector("header h1")?.textContent.trim() || "";
+    const main = document.querySelector("main");
+    if (!main) {
       alert("Main content not found!");
       return;
     }
 
-    const title = titleEl ? titleEl.textContent.trim() : "";
-    const content = mainEl.textContent.trim();
-    const fullText = title + "\n\n" + content;
+    const fullText = title + "\n\n" + main.textContent.trim();
 
-    showTLDRModal("Summarizing...");
+    // --- Show modal ---
+    let modal = document.querySelector(".tldr-modal");
+
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.className = "tldr-modal";
+      modal.innerHTML = `
+        <div class="tldr-box">
+          <div class="tldr-header">
+            <strong>TL;DR Summary</strong>
+            <button class="tldr-close">✕</button>
+          </div>
+          <div class="tldr-content"></div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      modal.querySelector(".tldr-close").onclick = () => modal.remove();
+      modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
+    }
+
+    modal.querySelector(".tldr-content").innerHTML = "Summarizing...";
+    modal.style.display = "flex";
+
+    const mdRender = (md) =>
+      md
+        .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+        .replace(/\*(.*?)\*/g, "<em>$1</em>")
+        .replace(/`([^`]+)`/g, "<code>$1</code>")
+        .replace(/\n/g, "<br>");
 
     fetch(TLDR_WORKER_URL, {
       method: "POST",
@@ -1240,57 +1274,14 @@ function initTLDR() {
     })
       .then(res => res.json())
       .then(data => {
-        const summary = data.summary || "No response.";
-        updateTLDRModal(renderMarkdown(summary));
+        modal.querySelector(".tldr-content").innerHTML =
+          mdRender(data.summary || "No response.");
       })
       .catch(err => {
-        updateTLDRModal("Error: " + err.message);
+        modal.querySelector(".tldr-content").innerHTML =
+          "Error: " + err.message;
       });
-  });
-}
-
-/* TLDR MODAL UI */
-
-function showTLDRModal(initialText = "") {
-  let modal = document.querySelector(".tldr-modal");
-
-  if (!modal) {
-    modal = document.createElement("div");
-    modal.className = "tldr-modal";
-    modal.innerHTML = `
-      <div class="tldr-box">
-        <div class="tldr-header">
-          <strong>TL;DR Summary</strong>
-          <button class="tldr-close">✕</button>
-        </div>
-        <div class="tldr-content"></div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-
-    modal.querySelector(".tldr-close").onclick = () => {
-      modal.remove();
-    };
-  }
-
-  modal.querySelector(".tldr-content").innerHTML = initialText;
-  modal.style.display = "flex";
-}
-
-function updateTLDRModal(htmlContent) {
-  const modal = document.querySelector(".tldr-modal");
-  if (modal) {
-    modal.querySelector(".tldr-content").innerHTML = htmlContent;
-  }
-}
-
-/* Markdown Renderer */
-function renderMarkdown(md) {
-  return md
-    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // bold
-    .replace(/\*(.*?)\*/g, "<em>$1</em>") // italic
-    .replace(/`([^`]+)`/g, "<code>$1</code>") // inline code
-    .replace(/\n/g, "<br>"); // new line
+  };
 }
 
 
