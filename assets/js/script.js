@@ -1220,7 +1220,7 @@ function initTLDR() {
     btn.style.opacity = "0";
 
     setTimeout(() => {
-      btn.textContent = "TL?";
+      btn.textContent = "Summarise";
       btn.style.opacity = "1";
     }, 350);
   }, 1000);
