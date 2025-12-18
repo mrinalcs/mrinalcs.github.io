@@ -5,6 +5,7 @@ date: 2025-11-25
 last_modified_at: 2025-11-25 
 tags: [open-source, computer-vision, video-analytics] 
 image: '251125.jpg'
+published: false
 ---
  
 During my internship at IDEAS, my guide introduced me to Vidat (Video Annotation Tool) — and it quickly became one of my favorite discoveries. If you've ever struggled with setting up complex annotation software, Vidat feels like a breath of fresh air. It's lightweight, browser-based, and runs completely offline, making it one of the easiest tools I've worked with.
