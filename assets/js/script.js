@@ -1293,8 +1293,10 @@ function initTLDR() {
     // Function to initialize on initial page load
     function init() {
       initInlineScript(document.body); 
-      initMathJax();initPageViewCount();
-      initMermaid();initTLDR();
+      initMathJax();
+      initPageViewCount();
+      initMermaid();
+      // initTLDR();
       initRoughNotation();
       initProjetBacklink();
       initFormSubmission();
