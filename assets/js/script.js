@@ -686,7 +686,7 @@ function initNotes() {
                 if (visibleNotes.includes(JSON.stringify(element))) return;
 
                 const authorBadge = element.isAuthor === "TRUE"
-                    ? `<span class="name">${escapeHtml(element.name)} <span class="author-badge">Author</span></span>`
+                    ? `<span class="name">${escapeHtml(element.name)} <span class="author-badge">It\'s Me</span></span>`
                     : `<span class="name">${escapeHtml(element.name)}</span>`;
 
                 const newItem = document.createElement('div');
