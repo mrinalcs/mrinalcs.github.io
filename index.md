@@ -30,8 +30,8 @@ Explore the projects I’ve been working on:
         {% endif %}
 
         <div class="text-wrap">
-          <div class="title">{{ post.title }}</div>
-          <div class="desc"><p>{{ post.description | truncate: 150 }}</p></div>
+          <p class="title">{{ post.title }}</p>
+          <p class="desc">{{ post.description | truncate: 150 }}</p>
         </div>
       </a>
     </li>
