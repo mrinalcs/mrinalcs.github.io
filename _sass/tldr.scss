@@ -5,11 +5,12 @@
   right: 20px;
   background: var(--bs);
   color: var(--t);
-  padding: 12px 20px;
+  padding: 12px 18px;
   border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
-  z-index: 9999;
+  z-index: 99;
+  user-select: none;
   border: 1px solid var(--bt);
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   transition: background 0.2s, transform 0.2s;
@@ -41,6 +42,11 @@
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0,0,0,0.25);
 }
+
+.tldr-box *{
+opacity: 1;
+}
+
 
 /* Header */
 .tldr-header {
@@ -96,4 +102,12 @@
 
 .tldr-content em {
   color: var(--tc);
+}
+
+main{
+  padding-bottom: 30px;
+}
+.tldr-btn::before {
+  content: "✦ ";
+  margin-right: 1px;
 }

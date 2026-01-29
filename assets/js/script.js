@@ -1202,7 +1202,6 @@ function saveCache() {
 
 
 
-
 function initTLDR() {
   if (document.querySelector(".tldr-btn")) return;
 
@@ -1214,21 +1213,26 @@ function initTLDR() {
   btn.textContent = "Too Long? Summarise";
   document.body.appendChild(btn);
 
-  // Animate → TL?
+  // ----- Backspace animation (remove "Too Long? ") -----
   setTimeout(() => {
-    btn.style.transition = "all 0.4s ease";
-    btn.style.opacity = "0";
+    const removeText = "Too Long? ";
+    let i = removeText.length;
 
-    setTimeout(() => {
-      btn.textContent = "Summarise";
-      btn.style.opacity = "1";
-    }, 350);
+    const backspace = setInterval(() => {
+      if (i <= 0) {
+        clearInterval(backspace);
+        return;
+      }
+      btn.textContent = btn.textContent.slice(0, -1);
+      i--;
+    }, 60);
   }, 1000);
 
   // ---- Click Action ----
   btn.onclick = () => {
     const title = document.querySelector("header h1")?.textContent.trim() || "";
     const main = document.querySelector("main");
+
     if (!main) {
       alert("Main content not found!");
       return;
@@ -1236,7 +1240,7 @@ function initTLDR() {
 
     const fullText = title + "\n\n" + main.textContent.trim();
 
-    // --- Show modal ---
+    // --- Modal ---
     let modal = document.querySelector(".tldr-modal");
 
     if (!modal) {
@@ -1260,12 +1264,67 @@ function initTLDR() {
     modal.querySelector(".tldr-content").innerHTML = "Summarizing...";
     modal.style.display = "flex";
 
-    const mdRender = (md) =>
-      md
-        .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-        .replace(/\*(.*?)\*/g, "<em>$1</em>")
-        .replace(/`([^`]+)`/g, "<code>$1</code>")
+    // ----- Enhanced Markdown Renderer -----
+    const mdRender = (md) => {
+      let html = md;
+
+      // Escape HTML
+      html = html
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+      // Headings
+      html = html.replace(/^### (.*)$/gm, "<h3>$1</h3>");
+      html = html.replace(/^## (.*)$/gm, "<h2>$1</h2>");
+      html = html.replace(/^# (.*)$/gm, "<h1>$1</h1>");
+
+      // Bold / Italic
+      html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+      html = html.replace(/\*(.*?)\*/g, "<em>$1</em>");
+
+      // Inline code
+      html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+
+      // Bullet lists
+      html = html.replace(/^\s*-\s+(.*)$/gm, "<li>$1</li>");
+      html = html.replace(/(<li>.*<\/li>)/gs, "<ul>$1</ul>");
+      html = html.replace(/<\/ul>\s*<ul>/g, "");
+
+      // Tables
+      html = html.replace(
+        /^\|(.+)\|\n\|([-:\s|]+)\|\n((?:\|.*\|\n?)*)/gm,
+        (_, header, __, rows) => {
+          const th = header
+            .split("|")
+            .map(h => `<th>${h.trim()}</th>`)
+            .join("");
+
+          const trs = rows
+            .trim()
+            .split("\n")
+            .map(r =>
+              "<tr>" +
+              r
+                .split("|")
+                .slice(1, -1)
+                .map(c => `<td>${c.trim()}</td>`)
+                .join("") +
+              "</tr>"
+            )
+            .join("");
+
+          return `<table><thead><tr>${th}</tr></thead><tbody>${trs}</tbody></table>`;
+        }
+      );
+
+      // Paragraphs / line breaks
+      html = html
+        .replace(/\n{2,}/g, "</p><p>")
         .replace(/\n/g, "<br>");
+
+      return `<p>${html}</p>`;
+    };
 
     fetch(TLDR_WORKER_URL, {
       method: "POST",
