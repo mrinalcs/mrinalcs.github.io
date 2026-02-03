@@ -111,3 +111,8 @@ main{
   content: "✦ ";
   margin-right: 1px;
 }
+
+.tldr-btn::after {
+  content: " ";
+  margin-right: 3px;
+}
