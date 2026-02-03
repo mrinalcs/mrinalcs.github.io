@@ -1210,17 +1210,28 @@ function initTLDR() {
   // ----- Create button -----
   const btn = document.createElement("button");
   btn.className = "tldr-btn";
-  btn.textContent = "Too Long? Summarise";
+  btn.textContent = "Too Long?";
+  btn.style.transition = "opacity 0.3s ease, transform 0.3s ease";
   document.body.appendChild(btn);
 
-  // ----- Backspace animation (remove "Too Long? ") -----
+  // ----- Animation: Too Long? → backspace → Summarise -----
   setTimeout(() => {
-    const removeText = "Too Long? ";
-    let i = removeText.length;
+    let i = btn.textContent.length;
 
     const backspace = setInterval(() => {
       if (i <= 0) {
         clearInterval(backspace);
+
+        const finalText = "Summarise";
+        let j = 0;
+        const type = setInterval(() => {
+          if (j >= finalText.length) {
+            clearInterval(type);
+            return;
+          }
+          btn.textContent += finalText[j++];
+        }, 70);
+
         return;
       }
       btn.textContent = btn.textContent.slice(0, -1);
@@ -1256,69 +1267,66 @@ function initTLDR() {
         </div>
       `;
       document.body.appendChild(modal);
-
-      modal.querySelector(".tldr-close").onclick = () => modal.remove();
-      modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
     }
+
+    // ----- Smooth hide button -----
+    btn.style.opacity = "0";
+    btn.style.transform = "scale(0.9)";
+    setTimeout(() => {
+      btn.style.display = "none";
+    }, 300);
+
+    // ----- Close handler -----
+    const closeModal = () => {
+      modal.remove();
+
+      btn.style.display = "";
+      requestAnimationFrame(() => {
+        btn.style.opacity = "1";
+        btn.style.transform = "scale(1)";
+      });
+    };
+
+    modal.querySelector(".tldr-close").onclick = closeModal;
+    modal.onclick = (e) => {
+      if (e.target === modal) closeModal();
+    };
 
     modal.querySelector(".tldr-content").innerHTML = "Summarizing...";
     modal.style.display = "flex";
 
-    // ----- Enhanced Markdown Renderer -----
+    // ----- Markdown Renderer -----
     const mdRender = (md) => {
-      let html = md;
-
-      // Escape HTML
-      html = html
+      let html = md
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;");
 
-      // Headings
       html = html.replace(/^### (.*)$/gm, "<h3>$1</h3>");
       html = html.replace(/^## (.*)$/gm, "<h2>$1</h2>");
       html = html.replace(/^# (.*)$/gm, "<h1>$1</h1>");
 
-      // Bold / Italic
       html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
       html = html.replace(/\*(.*?)\*/g, "<em>$1</em>");
-
-      // Inline code
       html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
 
-      // Bullet lists
       html = html.replace(/^\s*-\s+(.*)$/gm, "<li>$1</li>");
       html = html.replace(/(<li>.*<\/li>)/gs, "<ul>$1</ul>");
       html = html.replace(/<\/ul>\s*<ul>/g, "");
 
-      // Tables
       html = html.replace(
         /^\|(.+)\|\n\|([-:\s|]+)\|\n((?:\|.*\|\n?)*)/gm,
         (_, header, __, rows) => {
-          const th = header
-            .split("|")
-            .map(h => `<th>${h.trim()}</th>`)
-            .join("");
-
-          const trs = rows
-            .trim()
-            .split("\n")
-            .map(r =>
-              "<tr>" +
-              r
-                .split("|")
-                .slice(1, -1)
-                .map(c => `<td>${c.trim()}</td>`)
-                .join("") +
-              "</tr>"
-            )
-            .join("");
-
+          const th = header.split("|").map(h => `<th>${h.trim()}</th>`).join("");
+          const trs = rows.trim().split("\n").map(r =>
+            "<tr>" +
+            r.split("|").slice(1, -1).map(c => `<td>${c.trim()}</td>`).join("") +
+            "</tr>"
+          ).join("");
           return `<table><thead><tr>${th}</tr></thead><tbody>${trs}</tbody></table>`;
         }
       );
 
-      // Paragraphs / line breaks
       html = html
         .replace(/\n{2,}/g, "</p><p>")
         .replace(/\n/g, "<br>");
@@ -1342,6 +1350,8 @@ function initTLDR() {
       });
   };
 }
+
+
 
 
 

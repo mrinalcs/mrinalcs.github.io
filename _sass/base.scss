@@ -218,7 +218,7 @@ img {
   background-size: 200% 100%;
   animation: imgLoadingBg 1s infinite linear;
   border: solid 1px var(--bs);
-  border-radius: 10px;
+  // border-radius: 10px;
 }
 
 @keyframes imgLoadingBg {
