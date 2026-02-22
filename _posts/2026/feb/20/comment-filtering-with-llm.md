@@ -72,16 +72,14 @@ export default {
       "Content-Type": "application/json"
     };
 
-    /* ---------------- CORS ---------------- */
+    /* CORS */
     if (request.method === "OPTIONS") {
       return new Response(null, { headers: cors });
     }
 
     const url = new URL(request.url);
 
-    /* ==============================
-       GET → Fetch comments
-    ============================== */
+    /* GET -> Fetch comments */
     if (request.method === "GET") {
 
       const post = url.searchParams.get("post");
@@ -101,9 +99,7 @@ export default {
       });
     }
 
-    /* ==============================
-       POST → Add comment
-    ============================== */
+    /* POST -> Add comment */
     if (request.method === "POST") {
 
       try {
@@ -120,15 +116,13 @@ export default {
           );
         }
 
-        /* ---------- IST DATE ---------- */
+        /*   IST DATE   */
         const created_at =
           new Date().toLocaleString("en-IN", {
             timeZone: "Asia/Kolkata"
           });
 
-        /* ==================================
-           GROQ MODERATION
-        ================================== */
+        /* MODERATION  */
 
         let approved = 2; // default unsure
 
@@ -173,7 +167,7 @@ export default {
           approved = 2;
         }
 
-        /* ---------- INSERT ---------- */
+        /*   INSERT   */
         await env.DB.prepare(`
           INSERT INTO comments
           (uname, content, approved, post_url, created_at)
