@@ -136,3 +136,6 @@
 @media (prefers-color-scheme: dark) {
   @include dm-highlight;
 }
+pre * {
+    font-weight: normal!important;
+}
