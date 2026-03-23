@@ -42,7 +42,7 @@ Further Gooogling
 
 In my case, I had been running training jobs using `DataLoader(num_workers > 0)`. PyTorch spawns multiple worker processes (`pt_data_worker`) for faster data loading. The problem starts when a script crashes or I interrupt it using `Ctrl + C`. These worker processes don’t always terminate properly and continue running silently in the background, still holding GPU memory.
   
-```bash
+```Bash
 $ sudo fuser -v /dev/nvidia* 
 
                      USER        PID    ACCESS COMMAND
