@@ -27,5 +27,10 @@
     article>details>summary {
         display: none;
     }
-  }
-  
+    svg.rough-annotation {
+    display: none;
+    }
+    button.tldr-btn {
+    display: none;
+   }
+}

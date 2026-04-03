@@ -1008,7 +1008,7 @@ function initRoughNotation() {
 
   function applyRoughNotation() {
     const { annotate } = RoughNotation;
-    const links = document.querySelectorAll('.social-link');
+    const links = document.querySelectorAll('.underline');
 
     // Get the CSS variable value for the color (--c)
     const computedStyle = getComputedStyle(document.documentElement);
@@ -1022,7 +1022,7 @@ function initRoughNotation() {
           const href = link.getAttribute('href');
 
           // Only apply underline if the link is external (starts with http)
-          if (href && href.startsWith('http')) {
+          if (href) {
             if (!link._underlineAnnotation) {
               const annotation = annotate(link, {
                 type: 'underline',
@@ -1042,7 +1042,7 @@ function initRoughNotation() {
       const href = link.getAttribute('href');
 
       // For external links, observe them to trigger the underline on scroll
-      if (href && href.startsWith('http')) {
+      if (href) {
         observer.observe(link);
       }
 

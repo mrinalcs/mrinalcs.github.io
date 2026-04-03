@@ -1,12 +1,14 @@
 ---
 title: "Mrinal Chandra Sarkar"
-description: "Data Analyst Intern at IDEAS-TIH, Kolkata, M.Sc Statistics at Visva Bharati, Shantiniketan."
+description: "Project Linked Person at the Sampling and Official Statistics Unit, Indian Statistical Institute, Kolkata, M.Sc Statistics at Visva Bharati, Shantiniketan."
 image: "/assets/img/profile-square.png"
 date: 2024-12-29 
-last_modified_at: 2025-12-03
+last_modified_at: 2026-04-03
 seo:
     type: WebSite
 ---
+
+Project Linked Person at SOSU, ISI, Kolkata  
 
 Data Analyst Trainee Intern at IDEAS-TIH, Kolkata.
 
@@ -47,7 +49,7 @@ Feel free to reach out at <a href="mailto:mrinalcs@yahoo.com"  style='text-decor
  
  
 
-Looking for something specific? Try <a href="/search" class="icon-search" style='text-decoration:none'>search</a>
+Looking for something specific? Try <a href="/search" class="icon-search underline" style='text-decoration:none'>search</a>
 
 <!-- 
 <img src="assets/img/tech-stack.png" width="1080" height="720" alt="my tech stack" style="background: none;border:none; border-radius: 0;width: 50%;">
