@@ -1,103 +1,124 @@
 ---
-layout: empty
+layout: default
+title: Redirect
+description: Encode URLs and create simple redirect links to share.
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirect</title>
-  <meta name="description" content="Encode URLs and create simple redirect links to share.">
-  <style> 
-    body {
-      scrollbar-gutter: stable;
-      font-family: system-ui, sans-serif;
-      background: #111;
-      color: #eee;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .box {
-      width: 280px;
-    }
-    input, button { 
-      padding: 8px;
-      margin-top: 8px;
-      border: none;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-    input {
-      background: #222;
-      color: #eee;
-    }
-    button {
-      background: #444;
-      color: #eee;
-      cursor: pointer;
-      transition: transform 0.15s ease;
-    }
-     
-    .result {
-      margin-top: 10px;
-      font-size: 12px;
-      word-break: break-all;
-      color: #aaa;
-    }
-  </style>
+<style> 
+  .box {
+    width: 280px;
+  }
 
-  <script>
-    let currentLink = "";
+  input, button { 
+    padding: 8px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+  }
 
-    function redirect() {
-      const p = new URLSearchParams(location.search);
-      const u = p.get("url");
+  input {
+    background: var(--bt);
+    color: var(--t);
+  }
 
-      if (u) {
-        try {
-          const d = atob(u);
-          if (!d.startsWith("http")) throw "";
-          location.replace(d);
-        } catch {
-          document.body.textContent = "invalid link";
-        }
-        return true;
+  button {
+    background: var(--bt);
+    color: var(--t);
+    cursor: pointer;
+  }
+
+  .result {
+    margin-top: 10px;
+    font-size: 12px;
+    word-break: break-all;
+    color: var(--t);
+  }
+
+   
+
+  .confirm-actions {
+    display: flex;
+    gap: 10px; 
+    margin-top: 12px;
+  }
+
+  .danger {
+    background: #ff4d4f;
+    color: white;
+  }
+</style>
+
+<script>
+(function () {
+  let currentLink = "";
+
+  function init() {
+    const app = document.getElementById("app");
+    const confirmBox = document.getElementById("confirm");
+    const input = document.getElementById("i");
+    const result = document.getElementById("r");
+    const target = document.getElementById("target");
+    const btn = document.getElementById("actionBtn");
+
+    if (!app || !confirmBox) return;
+
+    //  Reset UI (important for Swup)
+    app.style.display = "none";
+    confirmBox.style.display = "none";
+    result.textContent = "";
+    input.value = "";
+    currentLink = "";
+    window.__goDecodedUrl = "";
+
+    const params = new URLSearchParams(location.search);
+    const encoded = params.get("url");
+
+    // Redirect mode (confirmation instead of auto redirect)
+    if (encoded) {
+      try {
+        const decoded = atob(encoded);
+        if (!decoded.startsWith("http")) throw "";
+
+        window.__goDecodedUrl = decoded;
+
+        confirmBox.style.display = "block";
+        target.textContent = decoded;
+
+        return;
+      } catch {
+        document.body.textContent = "invalid link";
+        return;
       }
-      return false;
     }
 
-    function update() {
-      const input = document.getElementById("i");
-      const btn = document.querySelector("button");
+    // Generator mode
+    app.style.display = "block";
+
+    input.oninput = function () {
       let v = input.value.trim();
 
       if (!v) {
         currentLink = "";
-        document.getElementById("r").textContent = "";
+        result.textContent = "";
         btn.textContent = "paste url";
         return;
       }
 
       if (!v.startsWith("http")) v = "https://" + v;
-      const e = btoa(v);
-      currentLink = location.origin + location.pathname + "?url=" + e;
 
-      document.getElementById("r").textContent = currentLink;
+      const encoded = btoa(v);
+      currentLink = location.origin + location.pathname + "?url=" + encoded;
+
+      result.textContent = currentLink;
       btn.textContent = "copy";
-    }
+    };
 
-    function action() {
-      const input = document.getElementById("i");
-      const btn = document.querySelector("button");
-
+    btn.onclick = function () {
       if (!input.value.trim()) {
         navigator.clipboard.readText().then(text => {
           input.value = text;
-          update();
+          input.oninput();
         }).catch(() => {});
         return;
       }
@@ -105,29 +126,71 @@ layout: empty
       navigator.clipboard.writeText(currentLink);
 
       btn.textContent = "copied";
-      btn.classList.add("copied");
 
       setTimeout(() => {
         btn.textContent = "copy";
-        btn.classList.remove("copied");
       }, 1200);
+    };
+  }
+
+  // Global click handler (Swup-safe)
+  document.addEventListener("click", function (e) {
+
+    // Proceed
+    if (e.target.id === "proceedBtn") {
+  let url = window.__goDecodedUrl;
+  if (!url) return;
+
+  try {
+    const u = new URL(url);
+
+    // add only if NOT already present
+    if (!u.searchParams.has("ref")) {
+      u.searchParams.set("ref", "mrinalcs.github.io");  
     }
 
-    onload = () => {
-      if (!redirect()) {
-        document.getElementById("app").style.display = "block";
-        document.getElementById("i").addEventListener("input", update);
-      }
-    };
-  </script>
-</head>
+    url = u.toString();
+  } catch {}
 
-<body>
-  <div class="box" id="app" style="display:none;"> 
-    <p>Create shareable links.</p>
-    <input id="i" placeholder="url">
-    <button onclick="action()">paste</button>
-    <div id="r" class="result"></div>
+  const isInternal = url.startsWith(location.origin);
+
+  if (isInternal && window.swup && typeof window.swup.navigate === "function") {
+    window.swup.navigate(url);
+  } else {
+    location.href = url;
+  }
+}
+
+    // Cancel
+    if (e.target.id === "cancelBtn") {
+      if (history.length > 1) {
+        history.back();
+      } else {
+        location.href = "/";
+      }
+    }
+  });
+
+  // Run immediately  
+  init();
+})();
+</script>
+
+<!-- Generator UI -->
+<div class="box" id="app" style="display:none;"> 
+  <p>Create shareable links.</p>
+  <input id="i" placeholder="url">
+  <button id="actionBtn">paste</button>
+  <div id="r" class="result"></div>
+</div>
+
+<!-- Confirmation UI -->
+<div class="box confirm-box" id="confirm" style="display:none;">
+  <p>You're about to visit:</p>
+  <div id="target" class="result"></div>
+
+  <div class="confirm-actions">
+    <button id="cancelBtn">Cancel</button>
+    <button id="proceedBtn" class="danger">Proceed</button>
   </div>
-</body>
-</html>
+</div>
