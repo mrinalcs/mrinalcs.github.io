@@ -1,0 +1,133 @@
+---
+layout: empty
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirect</title>
+  <meta name="description" content="Encode URLs and create simple redirect links to share.">
+  <style> 
+    body {
+      scrollbar-gutter: stable;
+      font-family: system-ui, sans-serif;
+      background: #111;
+      color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .box {
+      width: 280px;
+    }
+    input, button { 
+      padding: 8px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    input {
+      background: #222;
+      color: #eee;
+    }
+    button {
+      background: #444;
+      color: #eee;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+     
+    .result {
+      margin-top: 10px;
+      font-size: 12px;
+      word-break: break-all;
+      color: #aaa;
+    }
+  </style>
+
+  <script>
+    let currentLink = "";
+
+    function redirect() {
+      const p = new URLSearchParams(location.search);
+      const u = p.get("url");
+
+      if (u) {
+        try {
+          const d = atob(u);
+          if (!d.startsWith("http")) throw "";
+          location.replace(d);
+        } catch {
+          document.body.textContent = "invalid link";
+        }
+        return true;
+      }
+      return false;
+    }
+
+    function update() {
+      const input = document.getElementById("i");
+      const btn = document.querySelector("button");
+      let v = input.value.trim();
+
+      if (!v) {
+        currentLink = "";
+        document.getElementById("r").textContent = "";
+        btn.textContent = "paste url";
+        return;
+      }
+
+      if (!v.startsWith("http")) v = "https://" + v;
+      const e = btoa(v);
+      currentLink = location.origin + location.pathname + "?url=" + e;
+
+      document.getElementById("r").textContent = currentLink;
+      btn.textContent = "copy";
+    }
+
+    function action() {
+      const input = document.getElementById("i");
+      const btn = document.querySelector("button");
+
+      if (!input.value.trim()) {
+        navigator.clipboard.readText().then(text => {
+          input.value = text;
+          update();
+        }).catch(() => {});
+        return;
+      }
+
+      navigator.clipboard.writeText(currentLink);
+
+      btn.textContent = "copied";
+      btn.classList.add("copied");
+
+      setTimeout(() => {
+        btn.textContent = "copy";
+        btn.classList.remove("copied");
+      }, 1200);
+    }
+
+    onload = () => {
+      if (!redirect()) {
+        document.getElementById("app").style.display = "block";
+        document.getElementById("i").addEventListener("input", update);
+      }
+    };
+  </script>
+</head>
+
+<body>
+  <div class="box" id="app" style="display:none;"> 
+    <p>Create shareable links.</p>
+    <input id="i" placeholder="url">
+    <button onclick="action()">paste</button>
+    <div id="r" class="result"></div>
+  </div>
+</body>
+</html>
