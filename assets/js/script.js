@@ -1203,7 +1203,16 @@ function saveCache() {
 
 
 function initTLDR() {
-  if (document.querySelector(".tldr-btn")) return;
+  const existingBtn = document.querySelector(".tldr-btn");
+
+   //  as easier and only blog and home page dont have
+  if (document.title.includes('| Mrinal Chandra Sarkar')) {
+  if (existingBtn) existingBtn.remove(); // remove if exists
+  return;
+  }
+
+  // prevent duplicate
+  if (existingBtn) return;
 
   const TLDR_WORKER_URL = "https://letssummarise.mrinalcs-51b.workers.dev/";
 
