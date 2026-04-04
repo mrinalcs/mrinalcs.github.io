@@ -1207,9 +1207,16 @@ function initTLDR() {
 
    //  as easier and only blog and home page dont have
   if (document.title.includes('| Mrinal Chandra Sarkar')) {
-  if (existingBtn) existingBtn.remove(); // remove if exists
-  return;
+  if (existingBtn) {
+    existingBtn.style.opacity = "0";
+    existingBtn.style.transform = "scale(0.5)";
+
+    setTimeout(() => {
+      existingBtn.remove();
+    }, 300); // match transition time
   }
+  return;
+}
 
   // prevent duplicate
   if (existingBtn) return;
