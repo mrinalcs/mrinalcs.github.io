@@ -1381,7 +1381,7 @@ function initTLDR() {
       initMathJax();
       initPageViewCount();
       initMermaid();
-      initTLDR();
+      // initTLDR();
       initRoughNotation();
       initProjetBacklink();
       initFormSubmission();
