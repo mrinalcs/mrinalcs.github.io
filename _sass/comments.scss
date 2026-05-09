@@ -110,3 +110,10 @@
     margin-bottom: 1rem; 
     padding-bottom: 0.5rem;
 }
+
+span.author-badge {
+    background: var(--c);
+    color: var(--cc);
+    border-radius: var(--br);
+    padding: 0 10px;
+}
