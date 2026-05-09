@@ -1,4 +1,4 @@
-# _plugins/add_tags.rb
+# _plugins/add-tags.rb
 
 module Jekyll
   class AddTagsGenerator < Generator
@@ -8,7 +8,7 @@ module Jekyll
     def generate(site)
 
       # Load YAML data file
-      tag_map = site.data['add_tags'] || {}
+      tag_map = site.data['add-tags'] || {}
 
       site.posts.docs.each do |post|
 
