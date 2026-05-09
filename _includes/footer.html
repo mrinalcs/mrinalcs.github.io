@@ -1,7 +1,7 @@
 <footer>
    
 {% if jekyll.environment == "production" %}
-  <p class="icon-calendar-1">Updated • {{ page.last_modified_at | date: "%d %b %Y"  }}</p>
+  <p class="icon-calendar-1">Updated • {{ page.last_modified_at | date: "%b %-d, %Y" }}</p>
   {% endif %}
 
 <!-- tags -->
