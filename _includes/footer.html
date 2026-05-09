@@ -1,7 +1,7 @@
 <footer>
    
 {% if jekyll.environment == "production" %}
-  <p class="icon-calendar-1">Updated · {{ page.last_modified_at | date: "%d %b %Y"  }}</p>
+  <p class="icon-calendar-1">Updated • {{ page.last_modified_at | date: "%d %b %Y"  }}</p>
   {% endif %}
 
 <!-- tags -->
@@ -10,7 +10,7 @@
   <p class="icon-tag-1"> 
   
     {% for tag in page.tags %}
-      <span> <a class="tag" title="Tag {{ tag }}" href="/{{ tag }}">{{ tag | replace: '-', ' ' | capitalize }}</a></span>{% unless forloop.last %} · {% endunless %}
+      <span> <a class="tag" title="Tag {{ tag }}" href="/{{ tag }}">{{ tag | replace: '-', ' ' | capitalize }}</a></span>{% unless forloop.last %} • {% endunless %}
     {% endfor %}
    </p>
 {% endif %}
