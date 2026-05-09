@@ -15,7 +15,7 @@
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
-  margin-right: .2em;
+  margin-right: .3em;
   text-align: center;
   font-variant: normal;
   text-transform: none;
@@ -23,6 +23,7 @@
   // margin-left: .2em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
 }
 
 .icon-mail:before { content: '\e800'; }

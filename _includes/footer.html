@@ -1,29 +1,29 @@
 <footer>
    
 {% if jekyll.environment == "production" %}
-  <p class="icon-back-in-time">Revised at {{ page.last_modified_at | date: "%I:%M %P on %d/%m/%Y" }}</p>
-{% endif %}
+  <p class="icon-calendar-1">Updated · {{ page.last_modified_at | date: "%d %b %Y"  }}</p>
+  {% endif %}
 
 <!-- tags -->
 
 {% if page.tags.size > 0 %}
-  <p class="icon-tags">Tags:
+  <p class="icon-tag-1"> 
   
     {% for tag in page.tags %}
-      <span> <a class="tag" title="Tag {{ tag }}" href="/{{ tag }}">{{ tag }}</a></span>{% unless forloop.last %},{% endunless %}
+      <span> <a class="tag" title="Tag {{ tag }}" href="/{{ tag }}">{{ tag | replace: '-', ' ' | capitalize }}</a></span>{% unless forloop.last %} · {% endunless %}
     {% endfor %}
    </p>
 {% endif %}
 
 <!-- additional notes -->
 
-<p class="suggestion-link">
+<!-- <p class="suggestion-link">
   Note: This is personal note, so there may be errors or misunderstandings.
      <br>
          Suggestions or corrections? 
     <a class="icon-github-circled" target="_blank" rel="nofollow noopener noreferrer" title="Github link" href="https://github.com/{{ site.github.username }}/{{ site.github.repo }}/blob/main/{{ page.path }}" style="text-decoration: none;">
         Edit on GitHub
     </a>
-</p>
+</p> -->
 
 </footer>
