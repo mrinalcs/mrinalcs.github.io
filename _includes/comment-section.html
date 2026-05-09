@@ -13,10 +13,32 @@
         </div>
         <div class="notes-form">
             <form id="note-form">
-                <input id="note-name" name="username" type="text" placeholder="Name" required autocomplete="username">
-                <textarea id="note-content" name="note" placeholder="Type Here..." required></textarea>
-                <input id="note-submit" type="submit" value="Post">
-            </form>
+
+    <div class="note-box">
+
+        <textarea
+            id="note-content"
+            name="note"
+            placeholder="Write a note..."
+            required
+        ></textarea>
+
+        <div class="note-actions">
+            <input
+                id="note-name"
+                name="username"
+                type="text"
+                placeholder="Your name"
+                autocomplete="username"
+                required
+            >
+
+            <input id="note-submit" type="submit" value="Send">
+        </div>
+
+    </div>
+
+</form>
         </div>
     </div>
 </div>

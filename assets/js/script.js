@@ -792,6 +792,19 @@ function initNotes() {
 
         const notePosterName = getCookie('notePosterName');
         if (notePosterName) document.getElementById('note-name').value = notePosterName;
+
+        /* Show actions when typing */
+
+const noteBox = document.querySelector('.note-box');
+const textarea = document.getElementById('note-content');
+
+textarea.addEventListener('input', () => {
+    if (textarea.value.trim() !== '') {
+        noteBox.classList.add('active');
+    } else {
+        noteBox.classList.remove('active');
+    }
+});
     }
 }
 
