@@ -8,7 +8,7 @@
 
 .note-box {
     border: var(--bw) solid var(--hs);
-    border-radius: 14px;
+    border-radius: var(--br);
     background: var(--b);
     overflow: hidden;
     transition: border-color .2s ease;
@@ -100,12 +100,13 @@
 .note-item {
     margin-bottom: 1rem;
     padding: 0.8rem;
-    border-radius: 5px;
+    border-radius: var(--br);
     border: var(--bw) solid var(--hs);
     border-left: 5px solid var(--c);
 }
 #note-section .post-subtitle {
     font-size: 1.5rem;
+    margin-top: 4rem;
     margin-bottom: 1rem; 
     padding-bottom: 0.5rem;
 }
