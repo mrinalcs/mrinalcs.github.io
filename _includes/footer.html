@@ -7,7 +7,7 @@
 <!-- tags -->
 
 {% if page.tags.size > 0 %}
-  <p class="icon-tag-1"> 
+  <p class="icon-tags-1"> 
   
     {% for tag in page.tags %}
       <span> <a class="tag" title="Tag {{ tag }}" href="/{{ tag }}">{{ tag | replace: '-', ' ' | capitalize }}</a></span>{% unless forloop.last %} • {% endunless %}

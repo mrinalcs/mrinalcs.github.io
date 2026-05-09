@@ -309,7 +309,7 @@ pre::-webkit-scrollbar {
 footer {
   margin: 40px 0;
   padding: 20px 0;
-  border-top: solid var(--hs) 1.5px;
+  // border-top: solid var(--hs) var(--br);
 }
 .copyright {
   color: var(--ts);
