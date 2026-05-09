@@ -23,8 +23,8 @@
   padding: 20px;
   width: 80%;
   max-width: 550px;
-  border-radius: 10px;
-  box-shadow: #0000006b 0px 0px 10px 0px;
+  border-radius: var(--br);
+  // box-shadow: #0000006b 0px 0px 10px 0px;
 
   opacity: 0;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -43,7 +43,7 @@
 .modal-content p a {
   margin: 0 10px;
   background: var(--c);
-  color: var(--bs);
+  color: var(--t);
   padding: 5px 7px;
   text-decoration: none;
 }
