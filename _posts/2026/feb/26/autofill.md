@@ -111,7 +111,7 @@ Anyway we can achive this by selecting section... But it can be implemented. I w
     margin:24px;
     padding:10px;
 
-   margin-top: 100px;
+   margin-top: 70px;
 }
 
 .afx-title {
@@ -492,7 +492,7 @@ i.icon-doc.afx-upload-doc {
               type="submit"
               class="afx-btn afx-btn-dark"
             >
-              Confirm & Save
+              Save
             </button>
 
           </form>
