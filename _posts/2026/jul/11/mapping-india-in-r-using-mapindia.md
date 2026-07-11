@@ -3,7 +3,9 @@ title: 'Mapping India in R (Part 2): With the mapindia Package'
 description: Mapping India’s 36 Divisions accurately using the mapindia package, skipping the hassle of manual GeoJSON files.
 image: 'mapindia_cover.png'
 date: 2026-07-11 
-tags: [r-programming, ggplot2, mapindia] 
+tags: [r-programming, ggplot2] 
+redirect_from:
+  - /mapping-india-in-r2
 ---
 
 In [Part 1](/mapping-india-in-r), we discussed the challenges of finding an accurate map of India that correctly represents the official government boundaries, including Jammu & Kashmir and Ladakh. We solved this by manually sourcing a reliable GeoJSON file and merging it with our data using the `sf` package.
