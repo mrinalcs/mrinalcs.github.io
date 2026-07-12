@@ -3,6 +3,7 @@ title: "Chrome Remote Desktop on Linux: Desktop Problems and Fixes"
 description: "Troubleshoot Chrome Remote Desktop on Linux by fixing black screens, login loops, blank desktops, and session issues using Xorg and XFCE." 
 date: 2026-07-02
 tags: [linux, ubuntu] 
+published: false
 ---
 
  
