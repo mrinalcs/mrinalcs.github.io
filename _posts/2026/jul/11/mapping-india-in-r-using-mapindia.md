@@ -1,82 +1,68 @@
 ---
-title: 'Mapping India in R (Part 2): With the mapindia Package' 
+title: 'Mapping India in R: With the mapindia Package' 
 description: Mapping India’s 36 Divisions accurately using the mapindia package, skipping the hassle of manual GeoJSON files.
-image: 'mapindia_cover.png'
+image: '12762.jpg'
 date: 2026-07-11 
 tags: [r-programming, ggplot2] 
 redirect_from:
   - /mapping-india-in-r2
 ---
 
-In [Part 1](/mapping-india-in-r), we discussed the challenges of finding an accurate map of India that correctly represents the official government boundaries, including Jammu & Kashmir and Ladakh. We solved this by manually sourcing a reliable GeoJSON file and merging it with our data using the `sf` package.
+ 
 
-While that method works perfectly, managing external spatial files and manually handling CRS (Coordinate Reference System) transformations can get tedious. 
+This is Part 2 of [Part 1](/mapping-india-in-r), which covered the challenges of obtaining an accurate map of India that follows the official government boundaries, including Jammu & Kashmir and Ladakh. The solution involved sourcing a reliable GeoJSON file and merging it with the data using the sf package. Although that approach works well, managing external spatial files and handling Coordinate Reference System (CRS) transformations adds extra complexity to the workflow.
 
-What if there was a package that handled all of this natively? Enter **`mapindia`**.
+The mapindia package provides a simpler alternative by handling these tasks internally.
 
-### The mapindia Package
-Created by Shubham Dutta, the `mapindia` package (backed by the `mapindiatools` data container) is designed specifically to solve this problem. It provides ready-to-use, official boundaries for India’s states and districts right out of the box, and it is built to integrate seamlessly with `ggplot2`.
+
+**The mapindia Package**
+
+The `mapindia` package (backed by the `mapindiatools` data container) is designed specifically to solve this problem. It provides ready-to-use, official boundaries for India’s states and districts right out of the box, and it is built to integrate seamlessly with `ggplot2`.
 
 Because it borrows design philosophies from popular spatial packages like `usmap`, mapping demographics becomes a one-liner rather than a complex spatial join process.
 
-### Installation
+## Installation
 
-Currently, you can install the required packages directly from GitHub using `pak` or `devtools`:
+Install from `Tools > Install Packages > mapindia` or just run following r code.
 
-```r
-# Install pak if you haven't already
-# install.packages("pak")
-
-# Install the data backend and the main plotting package
-pak::pak("shubhamdutta26/mapindiatools")
-pak::pak("shubhamdutta26/mapindia")
+```R
+# Install mapindia
+install.packages("mapindia")
 ```
- 
+  
+## Usage
 
-### Recreating the Literacy Map
+```R
+library(mapindia)
+plot_india()
+```
 
-Let's recreate the exact same literacy rate map from Part 1. Notice how we no longer need the `sf` library, the external GeoJSON file, or the `st_transform()` step to fix longitude/latitude distortions. `mapindia` handles the spatial geometry internally.
+![default map in r indiamap](12761.jpg)
 
-```r
-# required libraries
+
+
+
+```R
 library(mapindia)
 library(ggplot2)
-library(readxl)
 
-# Read Excel literacy data (same as before)
-literacy_data <- read_excel("India_Literacy_Rate_By_State.xlsx")
+# Create simple data
+state_data <- data.frame(
+  state = c("West Bengal"),
+  value = c("Highlighted")
+)
 
-# Plot the map directly using plot_india
 plot_india(
-  data = literacy_data, 
-  regions = "states", 
-  values = "Literacy Rate (%)"
+  data = state_data,
+  regions = "states",
+  values = "value"
 ) +
-  scale_fill_gradient(low = "yellow", high = "blue") +  # gradient from yellow to blue
-  labs(
-    title = "Map of India with Literacy Rate by State",
-    fill = "Literacy Rate (%)"
+  scale_fill_manual(
+    values = c("Highlighted" = "red"),
+    na.value = "lightgrey"
   ) +
-  theme_minimal() +
-  theme(
-    legend.position = "right",
-    # plot_india removes axes by default, keeping your code even cleaner!
-    panel.grid.major = element_blank(),  
-    panel.grid.minor = element_blank()  
-  )
-
+  labs(title = "West Bengal Highlighted") +
+  theme_void()
 ```
 
-### Why use this over the manual GeoJSON method?
-
-1. **Lightweight & Fast:** The heavy spatial data is stored efficiently in the `mapindiatools` backend using `.gpkg` formats, making your main scripts lighter.
-2. **Standardized Codes:** It internally manages 2-digit state codes and 5-digit district codes, making it much harder to mess up merges due to slight spelling differences in state names (e.g., "Orissa" vs. "Odisha").
-3. **No CRS Headaches:** The mapping coordinates are pre-calculated and projected correctly for the Indian subcontinent.
-
-If you are regularly working with Indian demographic or geographical data in R, transitioning to `mapindia` will make your workflow significantly cleaner.
-
-[code](https://github.com/mrinalcs/mapping-india-in-r)
-
-```
-
-```
+![west bengal hilighted in india map in r](12762.jpg)
