@@ -23,10 +23,9 @@ layout: default
 {% if page.url contains "submit-html-form-to-google-form" %}
 {% include contact-form.html %}
 {% endif %}
-{% if jekyll.environment == 'production' %}
 
 {% include comment-section.html url=page.url %}
 
-{% endif %}
-
-<!-- {% include footer.html %} -->
+{% comment %}
+{% include footer.html %}
+{% endcomment %}
