@@ -17,6 +17,13 @@ nav:
   - title: Photos
     url: /photos
 
+
+pinned_project:
+  - /durga-idol-analysis
+  - /house-price-prediction
+  - /statistical-study-indian-literacy
+
+
 author:
   name: Mrinal Chandra Sarkar
   url: https://mrinalcs.github.io

@@ -20,23 +20,30 @@ M.Sc. in Statistics, Visva-Bharati University, Shantiniketan.
 
 Explore the projects I’ve been working on:
 
-{% assign posts_with_project_tag = site.posts | where: "tags", "project" %} 
-<ul class="project-list">
-  {% for post in posts_with_project_tag limit:4 %}
-    <li>
-      <a href="{{ post.url }}" class="project-link">
-        {% if post.image %}
-          <img src="{{ post.image }}" alt="{{ post.title }}" class="project-thumbnail">
-        {% else %}
-          No Image
-        {% endif %}
 
-        <div class="text-wrap">
-          <p class="title">{{ post.title }}</p>
-          <p class="desc">{{ post.description | truncate: 150 }}</p>
-        </div>
-      </a>
-    </li>
+
+{% assign pinned_project = site.pinned_project %}
+
+{% assign posts_with_project_tag = site.posts | where_exp: "post", "post.tags contains 'project'" %}
+
+<ul class="project-list">
+  {% for post in posts_with_project_tag %}
+    {% if pinned_project contains post.url %}
+      <li>
+        <a href="{{ post.url }}" class="project-link">
+          {% if post.image %}
+            <img src="{{ post.image }}" alt="{{ post.title }}" class="project-thumbnail">
+          {% else %}
+            No Image
+          {% endif %}
+
+          <div class="text-wrap">
+            <p class="title">{{ post.title }}</p>
+            <p class="desc">{{ post.description | truncate: 150 }}</p>
+          </div>
+        </a>
+      </li>
+    {% endif %}
   {% endfor %}
 </ul>
 
