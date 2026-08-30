@@ -10,7 +10,7 @@ seo:
 
 Project Linked Person at SOSU, ISI, Kolkata  
 
-Data Analyst Trainee Intern at IDEAS-TIH, Kolkata.
+Previously, Data Analyst Trainee Intern at IDEAS-TIH, Kolkata.
 
 M.Sc. in Statistics, Visva-Bharati University, Shantiniketan.
   
@@ -27,8 +27,9 @@ Explore the projects I’ve been working on:
 {% assign posts_with_project_tag = site.posts | where_exp: "post", "post.tags contains 'project'" %}
 
 <ul class="project-list">
+ {% for pinned_url in pinned_project %}
   {% for post in posts_with_project_tag %}
-    {% if pinned_project contains post.url %}
+    {% if post.url == pinned_url %}
       <li>
         <a href="{{ post.url }}" class="project-link">
           {% if post.image %}
@@ -43,8 +44,9 @@ Explore the projects I’ve been working on:
           </div>
         </a>
       </li>
-    {% endif %}
+     {% endif %}
   {% endfor %}
+{% endfor %}
 </ul>
 
 
