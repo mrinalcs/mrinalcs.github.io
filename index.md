@@ -8,17 +8,17 @@ seo:
     type: WebSite
 ---
 
-Project Linked Person at SOSU, ISI, Kolkata  
+Project Linked Person at <span title="Sampling and Official Statistics Unit">SOSU</span>, <span title="Indian Statistical Institute, Kolkata">ISI, Kolkata</span>  
 
-Previously, Data Analyst Trainee Intern at IDEAS-TIH, Kolkata.
+Previously, Data Analyst Trainee Intern at <span title="Institute of Data Engineering, Analytics and Science Foundation Technology Innovation Hub">IDEAS-TIH</span>, Kolkata.
 
-M.Sc. in Statistics, Visva-Bharati University, Shantiniketan.
+<span title="Master of Science">M.Sc.</span> in Statistics, Visva-Bharati University, Shantiniketan.
   
 
 
 ## Projects
 
-Explore the projects I’ve been working on:
+Explore some projects I’ve been working on:
 
 
 
