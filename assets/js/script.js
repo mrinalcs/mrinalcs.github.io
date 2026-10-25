@@ -602,59 +602,81 @@ function initTimeAgo() {
   });
 }
 
+ 
 function initNotes() {
     const noteSection = document.getElementById('note-section');
     if (noteSection) {
-        // Format note timestamp
+        const max_note_length = 300;
+        const max_number_of_posts = 5;
+        const older_first = false;
+
         function formatDate(stringDate) {
             const date = new Date(stringDate);
-
-            // Convert device local time to IST
             const now = new Date();
-            const utcMs = now.getTime() + now.getTimezoneOffset() * 60 * 1000; // UTC timestamp
-            const nowIst = new Date(utcMs + 5.5 * 60 * 60 * 1000); // IST timestamp
-
+            const utcMs = now.getTime() + now.getTimezoneOffset() * 60 * 1000;
+            const nowIst = new Date(utcMs + 5.5 * 60 * 60 * 1000);
             const diffMs = nowIst - date;
             const diffSeconds = Math.floor(diffMs / 1000);
             const diffMinutes = Math.floor(diffSeconds / 60);
             const diffHours = Math.floor(diffMinutes / 60);
 
             if (diffHours >= 24) {
-                const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+                const options = {
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric'
+                };
                 return date.toLocaleDateString(undefined, options);
             } else if (diffHours >= 1) {
                 return `(${diffHours} ${diffHours === 1 ? 'hour' : 'hours'} ago)`;
             } else if (diffMinutes >= 1) {
                 return `(${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago)`;
             } else {
-                return `(just now)`;
+                return '(just now)';
             }
         }
 
-        // Escape HTML characters
         function escapeHtml(text) {
-            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
-            return text.replace(/[&<>"']/g, (m) => map[m]);
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            };
+            return String(text).replace(/[&<>"']/g, m => map[m]);
         }
 
-        // Parse CSV to note objects
         function parseCsv(data) {
             const rows = [];
             let insideQuotes = false, field = '', row = [];
 
             for (let i = 0; i < data.length; i++) {
                 const char = data[i], next = data[i + 1];
+
                 if (char === '"' && next === '"' && insideQuotes) {
-                    field += '"'; i++;
+                    field += '"';
+                    i++;
                 } else if (char === '"') {
                     insideQuotes = !insideQuotes;
                 } else if (char === ',' && !insideQuotes) {
-                    row.push(field); field = '';
+                    row.push(field);
+                    field = '';
                 } else if ((char === '\n' || char === '\r') && !insideQuotes) {
                     if (char === '\r' && next === '\n') i++;
                     row.push(field);
-                    if (row.length >= 4) rows.push({ timestamp: row[0], name: row[1], note: row[2], isAuthor: row[3] });
-                    field = ''; row = [];
+                    if (row.length >= 4) {
+                        rows.push({
+                            timestamp: row[0],
+                            name: row[1],
+                            note: row[2],
+                            isAuthor: row[3]
+                        });
+                    }
+                    field = '';
+                    row = [];
                 } else {
                     field += char;
                 }
@@ -662,63 +684,125 @@ function initNotes() {
 
             if (field || row.length > 0) {
                 row.push(field);
-                if (row.length >= 4) rows.push({ timestamp: row[0], name: row[1], note: row[2], isAuthor: row[3] });
+                if (row.length >= 4) {
+                    rows.push({
+                        timestamp: row[0],
+                        name: row[1],
+                        note: row[2],
+                        isAuthor: row[3]
+                    });
+                }
             }
 
             return rows;
         }
 
-        // Display notes
         function displayNotes(notes) {
             const noNotes = document.getElementById('notes-list');
             const noteSectionEl = document.getElementById('noteSection');
-            if (!notes) {
-                if (visibleNotes.length === 0) {
-                    noNotes.style.display = 'block';
-                    noNotes.textContent = "There are currently no notes on this post. Be the first to add one below.";
-                }
-                return;
+
+            if (!notes || !noteSectionEl || !noNotes) return;
+
+            let noteList = parseCsv(notes);
+
+            if (!older_first) {
+                noteList.reverse();
             }
 
-            const noteList = parseCsv(notes);
-
             noteList.forEach(element => {
-                if (visibleNotes.includes(JSON.stringify(element))) return;
+                const noteKey = JSON.stringify(element);
+                if (visibleNotes.includes(noteKey)) return;
 
                 const authorBadge = element.isAuthor === "TRUE"
-                    ? `<span class="name">${escapeHtml(element.name)} <span class="author-badge">It\'s Me</span></span>`
+                    ? `<span class="name">${escapeHtml(element.name)} <span class="author-badge">It's Me</span></span>`
                     : `<span class="name">${escapeHtml(element.name)}</span>`;
 
                 const newItem = document.createElement('div');
                 newItem.className = 'note-item';
+
+                const noteText = String(element.note || '');
+                const isLong = noteText.length > max_note_length;
+                const noteId = 'note-' + Math.random().toString(36).slice(2);
+
                 newItem.innerHTML = `
                     <p class="note-name">
                         ${authorBadge}
                         <small>${formatDate(element.timestamp)}</small>
                     </p>
                     <div>
-                        <p>${escapeHtml(element.note).replace(/\r?\n/g, '<br />')}</p>
+                        <p class="note-text">${escapeHtml(
+                            isLong ? noteText.slice(0, max_note_length) : noteText
+                        ).replace(/\r?\n/g, '<br>')}${isLong ? '...' : ''}</p>
+                        ${isLong ? `<button type="button" class="read-more" data-note-id="${noteId}">Read more</button>` : ''}
                     </div>
                 `;
 
+                if (isLong) {
+                    const button = newItem.querySelector('.read-more');
+                    button.addEventListener('click', function () {
+                        const paragraph = newItem.querySelector('.note-text');
+
+                        if (button.textContent === 'Read more') {
+                            paragraph.innerHTML = escapeHtml(noteText).replace(/\r?\n/g, '<br>');
+                            button.textContent = 'Read less';
+                        } else {
+                            paragraph.innerHTML = escapeHtml(noteText.slice(0, max_note_length)).replace(/\r?\n/g, '<br>') + '...';
+                            button.textContent = 'Read more';
+                        }
+                    });
+                }
+
                 newItem.style.display = 'none';
                 noteSectionEl.appendChild(newItem);
-                newItem.style.display = 'block';
-                visibleNotes.push(JSON.stringify(element));
-
+                visibleNotes.push(noteKey);
                 noNotes.style.display = 'none';
             });
+
+            const allItems = Array.from(noteSectionEl.querySelectorAll('.note-item'));
+            allItems.forEach((item, index) => {
+                item.style.display = index < max_number_of_posts ? 'block' : 'none';
+            });
+
+            let loadButton = document.getElementById('load-all-notes');
+
+            if (allItems.length > max_number_of_posts) {
+                if (!loadButton) {
+                    loadButton = document.createElement('button');
+                    loadButton.id = 'load-all-notes';
+                    loadButton.type = 'button';
+                    loadButton.textContent = 'Load all comments';
+                    noteSectionEl.appendChild(loadButton);
+
+                    loadButton.addEventListener('click', function () {
+                        noteSectionEl.querySelectorAll('.note-item').forEach(item => {
+                            item.style.display = 'block';
+                        });
+                        loadButton.style.display = 'none';
+                    });
+                }
+
+                loadButton.style.display = 'block';
+            } else if (loadButton) {
+                loadButton.style.display = 'none';
+            }
+
+            if (allItems.length === 0) {
+                noNotes.style.display = 'block';
+                noNotes.textContent = 'There are currently no notes on this post. Be the first to add one below.';
+            }
         }
 
-        // Reload notes
         function reloadNotes() {
-            const sqlStatement = encodeURIComponent(`SELECT A, C, D, E WHERE B = '${thisPageUrl}'`);
+            const sqlStatement = encodeURIComponent(
+                `SELECT A, C, D, E WHERE B = '${thisPageUrl}'`
+            );
+
             fetch(`https://docs.google.com/spreadsheets/d/1hVRP9tYl8f4bsBjJP52hv74DwZ2pYpatxaNMG2rNY_M/gviz/tq?tqx=out:csv&sheet=notes&tq=${sqlStatement}&headers=0`)
                 .then(response => response.text())
-                .then(response => displayNotes(response));
+                .then(response => displayNotes(response))
+                .catch(error => console.log(error));
         }
 
-        // Cookie helpers
         function getCookie(name) {
             const value = `; ${document.cookie}`;
             const parts = value.split(`; ${name}=`);
@@ -727,17 +811,17 @@ function initNotes() {
 
         function setCookie(name, value, days) {
             const d = new Date();
-            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
             const expires = `expires=${d.toUTCString()}`;
             document.cookie = `${name}=${value};${expires};path=/`;
         }
 
-        // Rate limit
         function canPostNote() {
             const noteHistory = JSON.parse(getCookie('noteHistory') || '[]');
             const now = Date.now();
             const fiveMinutesAgo = now - 5 * 60 * 1000;
             const recentNotes = noteHistory.filter(time => time > fiveMinutesAgo);
+
             if (recentNotes.length >= 2) return false;
 
             recentNotes.push(now);
@@ -745,11 +829,16 @@ function initNotes() {
             return true;
         }
 
-        // Post note
         async function postNote(event) {
             event.preventDefault();
+
             const username = document.getElementById('note-name').value;
             const note = document.getElementById('note-content').value;
+
+            if (note.length > max_note_length * 10) {
+                alert(`Your note is too long. Maximum length is ${max_note_length * 10} characters.`);
+                return;
+            }
 
             if (!canPostNote()) {
                 alert("You've reached the limit of 2 notes in 5 minutes. Please wait for 5 minutes before posting again.");
@@ -758,14 +847,16 @@ function initNotes() {
 
             setCookie('notePosterName', username, 365);
 
-            fetch(`https://docs.google.com/forms/d/e/1FAIpQLSehE6misroMb1QUK57ReR8JeO_eVxztTlojKRcXCbWDwYtHTQ/formResponse`, {
+            fetch('https://docs.google.com/forms/d/e/1FAIpQLSehE6misroMb1QUK57ReR8JeO_eVxztTlojKRcXCbWDwYtHTQ/formResponse', {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
                 body: encodeFormData({
-                    "entry.46315812": thisPageUrl,
-                    "entry.361353560": username,
-                    "entry.1184144290": note
+                    'entry.46315812': thisPageUrl,
+                    'entry.361353560': username,
+                    'entry.1184144290': note
                 })
             }).then(() => {
                 document.getElementById('note-content').value = '';
@@ -773,40 +864,47 @@ function initNotes() {
             }).catch(error => console.log(error));
         }
 
-        // Encode form data
         function encodeFormData(data) {
             return Object.keys(data)
                 .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
                 .join('&');
         }
 
-        // Initialize
         const thisPageUrl = window.location.href.split(/[?#]/)[0];
         let visibleNotes = [];
 
         reloadNotes();
-        document.addEventListener('swup:contentReplaced', () => reloadNotes());
+
+        document.addEventListener('swup:contentReplaced', () => {
+            visibleNotes = [];
+            const noteSectionEl = document.getElementById('noteSection');
+            if (noteSectionEl) {
+                noteSectionEl.querySelectorAll('.note-item').forEach(item => item.remove());
+                const button = document.getElementById('load-all-notes');
+                if (button) button.remove();
+            }
+            reloadNotes();
+        });
 
         const noteForm = document.getElementById('note-form');
         if (noteForm) noteForm.addEventListener('submit', postNote);
 
         const notePosterName = getCookie('notePosterName');
-        if (notePosterName) document.getElementById('note-name').value = notePosterName;
+        if (notePosterName && document.getElementById('note-name')) {
+            document.getElementById('note-name').value = notePosterName;
+        }
 
-        /* Show actions when typing */
+        const noteBox = document.querySelector('.note-box');
+        const textarea = document.getElementById('note-content');
 
-const noteBox = document.querySelector('.note-box');
-const textarea = document.getElementById('note-content');
-
-textarea.addEventListener('input', () => {
-    if (textarea.value.trim() !== '') {
-        noteBox.classList.add('active');
-    } else {
-        noteBox.classList.remove('active');
-    }
-});
+        if (textarea && noteBox) {
+            textarea.addEventListener('input', () => {
+                noteBox.classList.toggle('active', textarea.value.trim() !== '');
+            });
+        }
     }
 }
+
 
 
  

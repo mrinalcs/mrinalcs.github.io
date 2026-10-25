@@ -64,15 +64,19 @@
 
 /* Name input */
 
-#note-name {
+.note-name {
     flex: 1;
     border: none;
     outline: none;
-    background: transparent;
-    color: var(--t);
+    background: transparent; 
     font: inherit;
+    
 }
 
+span.name{
+    color: var(--t);
+    font-weight: bold;
+}
 /* Send button */
 
 #note-submit {
@@ -102,7 +106,7 @@
     padding: 0.8rem;
     border-radius: var(--br);
     border: var(--bw) solid var(--hs);
-    border-left: 5px solid var(--c);
+    border-left: 5px solid var(--ts);
 }
 #note-section .post-subtitle {
     font-size: 1.5rem;
@@ -116,4 +120,22 @@ span.author-badge {
     color: var(--cc);
     border-radius: var(--br);
     padding: 0 10px;
+}
+
+button.read-more, #load-all-notes {
+    background: transparent;
+    background-color: transparent;
+    color: var(--tc);
+    border: none;
+    font-size: inherit;
+    text-decoration: underline;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+    text-decoration-color: var(--hs);
+    text-decoration-thickness: 1px;
+    text-underline-position: under;
+    cursor: pointer;
+    &:hover {
+        color: var(--c);
+    }
 }
