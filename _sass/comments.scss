@@ -64,7 +64,7 @@
 
 /* Name input */
 
-.note-name {
+#note-name {
     flex: 1;
     border: none;
     outline: none;
@@ -84,7 +84,7 @@ span.name{
     background: var(--t);
     color: var(--b);
     // padding: .55rem 1rem;
-    border-radius: 999px;
+    border-radius: var(--br);
     cursor: pointer;
     // font-weight: 600;
 }
@@ -106,7 +106,7 @@ span.name{
     padding: 0.8rem;
     border-radius: var(--br);
     border: var(--bw) solid var(--hs);
-    border-left: 5px solid var(--ts);
+    border-left: 4px solid var(--ts);
 }
 #note-section .post-subtitle {
     font-size: 1.5rem;
