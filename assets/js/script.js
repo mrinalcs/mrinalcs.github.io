@@ -606,7 +606,7 @@ function initTimeAgo() {
 function initNotes() {
     const rootSection = document.getElementById('note-section');
     if (rootSection) {
-        // 1. Inject the HTML structure dynamically
+        // add layout
         rootSection.innerHTML = `
             <h2 class="post-subtitle icon-comment">Add Your Note</h2>
             <div id="noteSection" class="notes">
@@ -633,37 +633,57 @@ function initNotes() {
             </div>
         `;
 
-        // 2. Settings and Utilities
+        // utils
         const max_note_length = 300;
         const max_number_of_posts = 5;
         const older_first = false;
 
         function formatDate(stringDate) {
-            const date = new Date(stringDate);
+            const past = new Date(stringDate);
             const now = new Date();
+            
+            // Adjust to IST
             const utcMs = now.getTime() + now.getTimezoneOffset() * 60 * 1000;
-            const nowIst = new Date(utcMs + 5.5 * 60 * 60 * 1000);
-            const diffMs = nowIst - date;
+            const current = new Date(utcMs + 5.5 * 60 * 60 * 1000);
+
+            const diffMs = current - past;
             const diffSeconds = Math.floor(diffMs / 1000);
             const diffMinutes = Math.floor(diffSeconds / 60);
             const diffHours = Math.floor(diffMinutes / 60);
 
-            if (diffHours >= 24) {
-                const options = {
-                    year: 'numeric',
-                    month: 'numeric',
-                    day: 'numeric',
-                    hour: 'numeric',
-                    minute: 'numeric'
-                };
-                return date.toLocaleDateString(undefined, options);
-            } else if (diffHours >= 1) {
-                return `${diffHours} ${diffHours === 1 ? 'hour' : 'hours'} ago`;
-            } else if (diffMinutes >= 1) {
-                return `${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago`;
-            } else {
+            // Handle less than 24 hours ago
+            if (diffHours < 24) {
+                if (diffHours > 0) return diffHours === 1 ? '1 hour ago' : `${diffHours} hours ago`;
+                if (diffMinutes > 0) return diffMinutes === 1 ? '1 minute ago' : `${diffMinutes} minutes ago`;
                 return 'just now';
             }
+
+            // Calendar-based comparisons for 24+ hours
+            let years = current.getFullYear() - past.getFullYear();
+            let months = current.getMonth() - past.getMonth();
+            let days = current.getDate() - past.getDate();
+
+            // Adjust negative days by borrowing from the previous month
+            if (days < 0) {
+                months--;
+                // Date(year, month, 0) gets the last day of the previous month
+                const lastDayOfPrevMonth = new Date(current.getFullYear(), current.getMonth(), 0).getDate();
+                days += lastDayOfPrevMonth;
+                // Handle edge cases like Jan 31 to Mar 1
+                if (days < 0) days = 0; 
+            }
+            
+            // Adjust negative months by borrowing from the year
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            // Return highest matching unit
+            if (years > 0) return years === 1 ? '1 year ago' : `${years} years ago`;
+            if (months > 0) return months === 1 ? '1 month ago' : `${months} months ago`;
+            if (days === 1) return 'yesterday';
+            return `${days} days ago`;
         }
 
         function escapeHtml(text) {
@@ -731,7 +751,6 @@ function initNotes() {
 
             if (!noteSectionEl || !noNotes) return;
 
-            // FIX 1: Clear all old DOM notes and reset array so new notes render in the perfect order
             noteSectionEl.querySelectorAll('.note-item').forEach(item => item.remove());
             visibleNotes = []; 
             const existingLoadButton = document.getElementById('load-all-notes');
@@ -739,14 +758,12 @@ function initNotes() {
 
             let noteList = parseCsv(notes);
 
-            // FIX 2: Check if there are no notes immediately and display the fallback message
             if (noteList.length === 0) {
                 noNotes.style.display = 'block';
                 noNotes.innerHTML = 'There are currently no notes on this post. Be the first to add one below.';
                 return;
             }
 
-            // If we have notes, hide the loading text
             noNotes.style.display = 'none';
 
             if (!older_first) {
@@ -757,9 +774,19 @@ function initNotes() {
                 const noteKey = JSON.stringify(element);
                 if (visibleNotes.includes(noteKey)) return;
 
-                const authorBadge = element.isAuthor === "TRUE"
-                    ? `<span class="name">${escapeHtml(element.name)} <small class="author-badge">It's mrinal</small></span>`
-                    : `<span class="name">${escapeHtml(element.name)}</span>`;
+                // FIX 2: Check for imposter "mrinal" names
+                let authorBadge = '';
+                const safeName = escapeHtml(element.name);
+                const nameLower = element.name.toLowerCase().trim();
+                const isImposter = (nameLower === "mrinal" || nameLower === "mrinal chandra sarkar") && element.isAuthor !== "TRUE";
+
+                if (element.isAuthor === "TRUE") {
+                    authorBadge = `<span class="name">${safeName} <small class="author-badge">It's mrinal</small></span>`;
+                } else if (isImposter) {
+                    authorBadge = `<span class="name" title="this is not author mrinal">${safeName}</span>`;
+                } else {
+                    authorBadge = `<span class="name">${safeName}</span>`;
+                }
 
                 const newItem = document.createElement('div');
                 newItem.className = 'note-item';
@@ -768,10 +795,13 @@ function initNotes() {
                 const isLong = noteText.length > max_note_length;
                 const noteId = 'note-' + Math.random().toString(36).slice(2);
 
+                const relativeTime = formatDate(element.timestamp);
+                const absoluteTime = new Date(element.timestamp).toLocaleString();
+
                 newItem.innerHTML = `
                     <p class="note-name">
                         ${authorBadge}
-                        <small>${formatDate(element.timestamp)}</small>
+                        <small class="time-toggle" style="cursor: pointer;" data-relative="${relativeTime}" data-absolute="${absoluteTime}">${relativeTime}</small>
                     </p>
                     <div>
                         <p class="note-text">${escapeHtml(
@@ -780,6 +810,16 @@ function initNotes() {
                         ${isLong ? `<button type="button" class="read-more" data-note-id="${noteId}">Read more</button>` : ''}
                     </div>
                 `;
+
+                // FIX 1: Add click event listener to toggle between relative and absolute time
+                const timeToggle = newItem.querySelector('.time-toggle');
+                timeToggle.addEventListener('click', function() {
+                    if (this.textContent === this.getAttribute('data-relative')) {
+                        this.textContent = this.getAttribute('data-absolute');
+                    } else {
+                        this.textContent = this.getAttribute('data-relative');
+                    }
+                });
 
                 if (isLong) {
                     const button = newItem.querySelector('.read-more');
@@ -832,7 +872,6 @@ function initNotes() {
                 .then(response => displayNotes(response))
                 .catch(error => {
                     console.log(error);
-                    // FIX 2 fallback: Handle cases where the fetch request fails
                     const noNotes = document.getElementById('notes-list');
                     if (noNotes) {
                         noNotes.style.display = 'block';
