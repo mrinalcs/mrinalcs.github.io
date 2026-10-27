@@ -604,8 +604,36 @@ function initTimeAgo() {
 
  
 function initNotes() {
-    const noteSection = document.getElementById('note-section');
-    if (noteSection) {
+    const rootSection = document.getElementById('note-section');
+    if (rootSection) {
+        // 1. Inject the HTML structure dynamically
+        rootSection.innerHTML = `
+            <h2 class="post-subtitle icon-comment">Add Your Note</h2>
+            <div id="noteSection" class="notes">
+                <div id="notes-list" class="post-info">
+                    Checking for previous notes on this post. Please wait a moment while loading...
+                    <noscript>This requires JavaScript to function properly. Please enable JavaScript in your browser settings</noscript>
+                </div>
+            </div>
+            <div class="notes">
+                <div class="post-info">
+                    <p></p>
+                </div>
+                <div class="notes-form">
+                    <form id="note-form">
+                        <div class="note-box">
+                            <textarea id="note-content" name="note" placeholder="Write a note..." required></textarea>
+                            <div class="note-actions">
+                                <input id="note-name" name="username" type="text" placeholder="Your name" autocomplete="username" required>
+                                <input id="note-submit" type="submit" value="Send">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        `;
+
+        // 2. Settings and Utilities
         const max_note_length = 300;
         const max_number_of_posts = 5;
         const older_first = false;
@@ -701,9 +729,25 @@ function initNotes() {
             const noNotes = document.getElementById('notes-list');
             const noteSectionEl = document.getElementById('noteSection');
 
-            if (!notes || !noteSectionEl || !noNotes) return;
+            if (!noteSectionEl || !noNotes) return;
+
+            // FIX 1: Clear all old DOM notes and reset array so new notes render in the perfect order
+            noteSectionEl.querySelectorAll('.note-item').forEach(item => item.remove());
+            visibleNotes = []; 
+            const existingLoadButton = document.getElementById('load-all-notes');
+            if (existingLoadButton) existingLoadButton.remove();
 
             let noteList = parseCsv(notes);
+
+            // FIX 2: Check if there are no notes immediately and display the fallback message
+            if (noteList.length === 0) {
+                noNotes.style.display = 'block';
+                noNotes.innerHTML = 'There are currently no notes on this post. Be the first to add one below.';
+                return;
+            }
+
+            // If we have notes, hide the loading text
+            noNotes.style.display = 'none';
 
             if (!older_first) {
                 noteList.reverse();
@@ -755,7 +799,6 @@ function initNotes() {
                 newItem.style.display = 'none';
                 noteSectionEl.appendChild(newItem);
                 visibleNotes.push(noteKey);
-                noNotes.style.display = 'none';
             });
 
             const allItems = Array.from(noteSectionEl.querySelectorAll('.note-item'));
@@ -763,32 +806,19 @@ function initNotes() {
                 item.style.display = index < max_number_of_posts ? 'block' : 'none';
             });
 
-            let loadButton = document.getElementById('load-all-notes');
-
             if (allItems.length > max_number_of_posts) {
-                if (!loadButton) {
-                    loadButton = document.createElement('button');
-                    loadButton.id = 'load-all-notes';
-                    loadButton.type = 'button';
-                    loadButton.textContent = 'Load all comments';
-                    noteSectionEl.appendChild(loadButton);
+                const newLoadButton = document.createElement('button');
+                newLoadButton.id = 'load-all-notes';
+                newLoadButton.type = 'button';
+                newLoadButton.textContent = 'Load all comments';
+                noteSectionEl.appendChild(newLoadButton);
 
-                    loadButton.addEventListener('click', function () {
-                        noteSectionEl.querySelectorAll('.note-item').forEach(item => {
-                            item.style.display = 'block';
-                        });
-                        loadButton.style.display = 'none';
+                newLoadButton.addEventListener('click', function () {
+                    noteSectionEl.querySelectorAll('.note-item').forEach(item => {
+                        item.style.display = 'block';
                     });
-                }
-
-                loadButton.style.display = 'block';
-            } else if (loadButton) {
-                loadButton.style.display = 'none';
-            }
-
-            if (allItems.length === 0) {
-                noNotes.style.display = 'block';
-                noNotes.textContent = 'There are currently no notes on this post. Be the first to add one below.';
+                    newLoadButton.style.display = 'none';
+                });
             }
         }
 
@@ -800,7 +830,15 @@ function initNotes() {
             fetch(`https://docs.google.com/spreadsheets/d/1hVRP9tYl8f4bsBjJP52hv74DwZ2pYpatxaNMG2rNY_M/gviz/tq?tqx=out:csv&sheet=notes&tq=${sqlStatement}&headers=0`)
                 .then(response => response.text())
                 .then(response => displayNotes(response))
-                .catch(error => console.log(error));
+                .catch(error => {
+                    console.log(error);
+                    // FIX 2 fallback: Handle cases where the fetch request fails
+                    const noNotes = document.getElementById('notes-list');
+                    if (noNotes) {
+                        noNotes.style.display = 'block';
+                        noNotes.innerHTML = 'There are currently no notes on this post. Be the first to add one below.';
+                    }
+                });
         }
 
         function getCookie(name) {
@@ -841,7 +879,7 @@ function initNotes() {
             }
 
             if (!canPostNote()) {
-                alert("You've reached the limit of 2 notes in 5 minutes. Please wait for 5 minutes before posting again.");
+                alert("You've reached the limit. Please wait 5 minutes.");
                 return;
             }
 
@@ -870,6 +908,7 @@ function initNotes() {
                 .join('&');
         }
 
+        // 3. Execution and Event Bindings
         const thisPageUrl = window.location.href.split(/[?#]/)[0];
         let visibleNotes = [];
 
