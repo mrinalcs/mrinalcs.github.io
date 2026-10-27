@@ -560,3 +560,19 @@ header {
 ul#toc {
     margin-top: 0;
 }
+
+#note-section noscript {
+  display: block;
+  margin: 5rem 0;
+  padding: 0.75rem 1rem;
+  border: var(--bw) solid var(--bc);
+  border-radius: var(--br);
+  background: var(--bs);
+  color: var(--ts);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+#note-section noscript p {
+  margin: 0;
+}
