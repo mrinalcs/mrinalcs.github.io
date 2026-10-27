@@ -115,9 +115,17 @@ span.name{
     padding-bottom: 0.5rem;
 }
 
-span.author-badge {
+.author-badge {
     background: var(--c);
     color: var(--cc);
+    border-radius: var(--br);
+    padding: 0 10px;
+}
+
+.note-name > small {
+    background: var(--bc); 
+    /* background: var(--c); */
+    color: var(--ts);
     border-radius: var(--br);
     padding: 0 10px;
 }

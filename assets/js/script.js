@@ -658,11 +658,11 @@ function initNotes() {
                 };
                 return date.toLocaleDateString(undefined, options);
             } else if (diffHours >= 1) {
-                return `(${diffHours} ${diffHours === 1 ? 'hour' : 'hours'} ago)`;
+                return `${diffHours} ${diffHours === 1 ? 'hour' : 'hours'} ago`;
             } else if (diffMinutes >= 1) {
-                return `(${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago)`;
+                return `${diffMinutes} ${diffMinutes === 1 ? 'minute' : 'minutes'} ago`;
             } else {
-                return '(just now)';
+                return 'just now';
             }
         }
 
@@ -758,7 +758,7 @@ function initNotes() {
                 if (visibleNotes.includes(noteKey)) return;
 
                 const authorBadge = element.isAuthor === "TRUE"
-                    ? `<span class="name">${escapeHtml(element.name)} <span class="author-badge">It's Me</span></span>`
+                    ? `<span class="name">${escapeHtml(element.name)} <small class="author-badge">It's mrinal</small></span>`
                     : `<span class="name">${escapeHtml(element.name)}</span>`;
 
                 const newItem = document.createElement('div');
