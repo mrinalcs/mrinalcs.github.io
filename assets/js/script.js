@@ -1253,20 +1253,23 @@ function initRoughNotation() {
   }
 }
 
-function initProjetBacklink() {
+function initBacklink() {
   const backlink = document.querySelector('.logo.backlink');
   if (!backlink) return;
 
-  // Get the previous page from sessionStorage
+  // Read the previous page and current page
   const previousPage = sessionStorage.getItem('previousPage');
+  const currentPage = window.location.pathname;
 
-  // Set backlink href to '/' if previous page was the homepage
-  if (previousPage === '/') {
+  // Check possible previous pages 
+  if (previousPage === '/' && currentPage !== '/') {
     backlink.setAttribute('href', '/');
+  } else if (previousPage === '/search' && currentPage !== '/search') {
+    backlink.setAttribute('href', '/search');
   }
 
-  // Store the current page as the previous page for the next navigation
-  sessionStorage.setItem('previousPage', window.location.pathname);
+  // update the storage 
+  sessionStorage.setItem('previousPage', currentPage);
 }
  
  
@@ -1572,7 +1575,7 @@ function initTLDR() {
       initMermaid();
       // initTLDR();
       initRoughNotation();
-      initProjetBacklink();
+      initBacklink();
       initFormSubmission();
       initLightenseImages();
       initPhotoswipe(); 
