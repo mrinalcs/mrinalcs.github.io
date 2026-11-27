@@ -121,8 +121,10 @@ layout: empty
     }
 
     .logo-mark svg {
-      width: 15px;
-      height: 15px;
+      display: block;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
     }
 
     h1 {
@@ -146,7 +148,7 @@ layout: empty
       flex-wrap: wrap;
     }
 
-    .btn-templates-toggle {
+    .btn.btn-templates-toggle {
       height: 36px;
       padding: 0 14px;
       font-size: 0.78rem;
@@ -155,12 +157,12 @@ layout: empty
       color: var(--text);
     }
 
-    .btn-templates-toggle:hover {
+    .btn.btn-templates-toggle:hover {
       border-color: var(--primary);
       background: var(--surface-alt);
     }
 
-    .btn-templates-toggle.is-open {
+    .btn.btn-templates-toggle.is-open {
       background: var(--text);
       color: #ffffff;
       border-color: var(--text);
@@ -185,22 +187,10 @@ layout: empty
       color: #ffffff;
     }
 
-    .btn-share-toggle {
-      height: 36px;
-      padding: 0 14px;
-      font-size: 0.78rem;
-      border: 0;
-      background: var(--primary);
-      color: #ffffff;
-    }
-
-    .btn-share-toggle:hover:not(:disabled) {
-      filter: saturate(0.85);
-    }
-
-    .btn-share-toggle.is-open {
+    .btn.btn-share-toggle.is-open {
       background: var(--text);
       color: #ffffff;
+      border-color: var(--text);
     }
 
     /* Shared Banner (when opened via ?t=id) */
@@ -759,8 +749,9 @@ layout: empty
     }
 
     .btn svg {
-      width: 13px;
-      height: 13px;
+      display: block;
+      width: 14px;
+      height: 14px;
       flex-shrink: 0;
     }
 
@@ -990,7 +981,7 @@ layout: empty
       <div class="brand">
         <div class="brand-row">
           <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 4v14h5" />
               <path d="M5 10h5" />
               <rect x="10" y="7" width="9" height="6" rx="1.5" />
@@ -1004,24 +995,14 @@ layout: empty
       </div>
 
       <div class="header-nav-actions">
-        <button id="share-toggle" class="btn btn-share-toggle" type="button" aria-expanded="false" aria-controls="share-panel">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="14.5" cy="4.5" r="2.2" />
-            <circle cx="5.5" cy="10" r="2.2" />
-            <circle cx="14.5" cy="15.5" r="2.2" />
-            <path d="m7.4 8.9 5.2-3.3M7.4 11.1l5.2 3.3" />
-          </svg>
-          <span>Share</span>
-        </button>
-
         <button id="templates-toggle" class="btn btn-templates-toggle" type="button" aria-expanded="false" aria-controls="templates-view">
-          <svg id="templates-grid-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg id="templates-grid-icon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="3" y="3" width="5.5" height="5.5" rx="1" />
             <rect x="11.5" y="3" width="5.5" height="5.5" rx="1" />
             <rect x="3" y="11.5" width="5.5" height="5.5" rx="1" />
             <rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1" />
           </svg>
-          <svg id="templates-back-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+          <svg id="templates-back-icon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
             <path d="M12.5 5 7.5 10l5 5" />
           </svg>
           <span id="templates-toggle-label">Templates</span>
@@ -1139,12 +1120,12 @@ layout: empty
           <label id="input-label" class="pane-title" for="markdown-input">Markdown</label>
           <div class="header-actions">
             <button id="outdent-button" class="btn btn-ghost btn-icon" type="button" title="Outdent line (Shift+Tab)" aria-label="Outdent line">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M16 5H9M16 10H9M16 15H9M6 7l-3 3 3 3" />
               </svg>
             </button>
             <button id="indent-button" class="btn btn-ghost btn-icon" type="button" title="Indent line (Tab)" aria-label="Indent line">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M16 5H9M16 10H9M16 15H9M3 7l3 3-3 3" />
               </svg>
             </button>
@@ -1173,12 +1154,21 @@ layout: empty
           <label id="output-label" class="pane-title" for="tree-output">Tree</label>
           <div class="header-actions">
             <button id="tidy-button" class="btn btn-ghost" type="button" title="Re-align Unicode branch connectors">Tidy</button>
+            <button id="share-toggle" class="btn btn-ghost btn-share-toggle" type="button" aria-expanded="false" aria-controls="share-panel" title="Share template online">
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="14.5" cy="4.5" r="2.2" />
+                <circle cx="5.5" cy="10" r="2.2" />
+                <circle cx="14.5" cy="15.5" r="2.2" />
+                <path d="m7.4 8.9 5.2-3.3M7.4 11.1l5.2 3.3" />
+              </svg>
+              <span>Share</span>
+            </button>
             <button id="copy-button" class="btn btn-primary" type="button" aria-live="polite">
-              <svg id="copy-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg id="copy-icon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="7" y="7" width="9" height="10" rx="1.5" />
                 <path d="M12 7V4.5A1.5 1.5 0 0 0 10.5 3h-5A1.5 1.5 0 0 0 4 4.5v8A1.5 1.5 0 0 0 5.5 14H7" />
               </svg>
-              <svg id="check-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+              <svg id="check-icon" width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
                 <path d="M4.5 10.5 8 14l7.5-8" />
               </svg>
               <span id="copy-label">Copy</span>
@@ -1204,8 +1194,7 @@ layout: empty
   </main>
 
   <script>
-    // Replace with your deployed Cloudflare Worker URL (route: /tree -> app/tree.js)
-    const API_BASE = 'https://api.YOUR_SUBDOMAIN.workers.dev/tree';
+    const API_BASE = 'https://api.mrinalcs.workers.dev/tree';
 
     const TEMPLATE_CATALOG = [
       {
@@ -2127,19 +2116,29 @@ layout: empty
       }
     }
 
+    function syncWorkspaceVisibility() {
+      const hideWorkspace = isTemplatesOpen || isShareOpen;
+      workspace.hidden = hideWorkspace;
+      mobileTabsContainer.hidden = hideWorkspace;
+    }
+
     function setTemplatesOpen(open) {
-      if (open && isShareOpen) setShareOpen(false);
+      if (open && isShareOpen) {
+        isShareOpen = false;
+        sharePanel.hidden = true;
+        shareToggle.classList.remove('is-open');
+        shareToggle.setAttribute('aria-expanded', 'false');
+      }
       isTemplatesOpen = open;
       templatesView.hidden = !open;
-      workspace.hidden = open;
-      mobileTabsContainer.hidden = open;
+      syncWorkspaceVisibility();
 
       templatesToggle.classList.toggle('is-open', open);
       templatesToggle.setAttribute('aria-expanded', String(open));
       templatesToggleLabel.textContent = open ? 'Back to Editor' : 'Templates';
       templatesCountBadge.hidden = open;
-      templatesGridIcon.hidden = open;
-      templatesBackIcon.hidden = !open;
+      templatesGridIcon.toggleAttribute('hidden', open);
+      templatesBackIcon.toggleAttribute('hidden', !open);
 
       if (open) {
         renderCategoryFilters();
@@ -2155,9 +2154,19 @@ layout: empty
     }
 
     function setShareOpen(open) {
-      if (open && isTemplatesOpen) setTemplatesOpen(false);
+      if (open && isTemplatesOpen) {
+        isTemplatesOpen = false;
+        templatesView.hidden = true;
+        templatesToggle.classList.remove('is-open');
+        templatesToggle.setAttribute('aria-expanded', 'false');
+        templatesToggleLabel.textContent = 'Templates';
+        templatesCountBadge.hidden = false;
+        templatesGridIcon.toggleAttribute('hidden', false);
+        templatesBackIcon.toggleAttribute('hidden', true);
+      }
       isShareOpen = open;
       sharePanel.hidden = !open;
+      syncWorkspaceVisibility();
       shareToggle.classList.toggle('is-open', open);
       shareToggle.setAttribute('aria-expanded', String(open));
 
@@ -2179,8 +2188,8 @@ layout: empty
       }
       copyButton.classList.remove('is-copied');
       copyLabel.textContent = 'Copy';
-      copyIcon.hidden = false;
-      checkIcon.hidden = true;
+      copyIcon.toggleAttribute('hidden', false);
+      checkIcon.toggleAttribute('hidden', true);
     }
 
     function setCopiedState() {
@@ -2189,8 +2198,8 @@ layout: empty
       }
       copyButton.classList.add('is-copied');
       copyLabel.textContent = 'Copied';
-      copyIcon.hidden = true;
-      checkIcon.hidden = false;
+      copyIcon.toggleAttribute('hidden', true);
+      checkIcon.toggleAttribute('hidden', false);
       copyResetTimer = setTimeout(resetCopyButton, 1800);
     }
 
