@@ -3,7 +3,6 @@ title: Tree
 description: All post and pages
 layout: empty
 ---
- 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -992,11 +991,11 @@ layout: empty
         <div class="brand-row">
           <span class="logo-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 4v14h5"></path>
-              <path d="M5 10h5"></path>
-              <rect x="10" y="7" width="9" height="6" rx="1.5"></rect>
-              <rect x="10" y="15" width="9" height="6" rx="1.5"></rect>
-              <circle cx="5" cy="4" r="1.2" fill="currentColor" stroke="none"></circle>
+              <path d="M5 4v14h5" />
+              <path d="M5 10h5" />
+              <rect x="10" y="7" width="9" height="6" rx="1.5" />
+              <rect x="10" y="15" width="9" height="6" rx="1.5" />
+              <circle cx="5" cy="4" r="1.2" fill="currentColor" stroke="none" />
             </svg>
           </span>
           <h1>Tree</h1>
@@ -1006,21 +1005,24 @@ layout: empty
 
       <div class="header-nav-actions">
         <button id="share-toggle" class="btn btn-share-toggle" type="button" aria-expanded="false" aria-controls="share-panel">
-            <svg id="templates-grid-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="3" width="5.5" height="5.5" rx="1"></rect>
-            <rect x="11.5" y="3" width="5.5" height="5.5" rx="1"></rect>
-            <rect x="3" y="11.5" width="5.5" height="5.5" rx="1"></rect>
-            <rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1"></rect>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="14.5" cy="4.5" r="2.2" />
+            <circle cx="5.5" cy="10" r="2.2" />
+            <circle cx="14.5" cy="15.5" r="2.2" />
+            <path d="m7.4 8.9 5.2-3.3M7.4 11.1l5.2 3.3" />
           </svg>
           <span>Share</span>
         </button>
 
         <button id="templates-toggle" class="btn btn-templates-toggle" type="button" aria-expanded="false" aria-controls="templates-view">
           <svg id="templates-grid-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="3" width="5.5" height="5.5" rx="1"></rect>
-            <rect x="11.5" y="3" width="5.5" height="5.5" rx="1"></rect>
-            <rect x="3" y="11.5" width="5.5" height="5.5" rx="1"></rect>
-            <rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1"></rect>
+            <rect x="3" y="3" width="5.5" height="5.5" rx="1" />
+            <rect x="11.5" y="3" width="5.5" height="5.5" rx="1" />
+            <rect x="3" y="11.5" width="5.5" height="5.5" rx="1" />
+            <rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1" />
+          </svg>
+          <svg id="templates-back-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <path d="M12.5 5 7.5 10l5 5" />
           </svg>
           <span id="templates-toggle-label">Templates</span>
           <span id="templates-count-badge" class="count-badge">18</span>
@@ -1173,8 +1175,11 @@ layout: empty
             <button id="tidy-button" class="btn btn-ghost" type="button" title="Re-align Unicode branch connectors">Tidy</button>
             <button id="copy-button" class="btn btn-primary" type="button" aria-live="polite">
               <svg id="copy-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="7" y="7" width="9" height="10" rx="1.5"></rect>
-                <path d="M12 7V4.5A1.5 1.5 0 0 0 10.5 3h-5A1.5 1.5 0 0 0 4 4.5v8A1.5 1.5 0 0 0 5.5 14H7"></path>
+                <rect x="7" y="7" width="9" height="10" rx="1.5" />
+                <path d="M12 7V4.5A1.5 1.5 0 0 0 10.5 3h-5A1.5 1.5 0 0 0 4 4.5v8A1.5 1.5 0 0 0 5.5 14H7" />
+              </svg>
+              <svg id="check-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+                <path d="M4.5 10.5 8 14l7.5-8" />
               </svg>
               <span id="copy-label">Copy</span>
             </button>
@@ -1200,7 +1205,7 @@ layout: empty
 
   <script>
     // Replace with your deployed Cloudflare Worker URL (route: /tree -> app/tree.js)
-    const API_BASE = 'https://api.mrinalcs.workers.dev/tree';
+    const API_BASE = 'https://api.YOUR_SUBDOMAIN.workers.dev/tree';
 
     const TEMPLATE_CATALOG = [
       {
