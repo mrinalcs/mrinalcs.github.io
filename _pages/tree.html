@@ -1,0 +1,1773 @@
+---
+title: Tree
+description: All post and pages
+layout: empty
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Tree</title>
+  <meta name="description" content="Convert Markdown lists into clean folder structures and Unicode directory trees. Edit both views, use project templates, and copy your tree for README files. Markdown Tree Structure Generator">
+
+<meta name="keywords" content="markdown to tree, folder tree generator, directory tree generator, markdown tree converter, project structure generator, folder structure generator, unicode tree generator, directory structure visualizer, README tree generator, online tree generator">
+
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Space%20Mono:700|Space%20Mono:400");
+
+    :root {
+      --text: #0b0203;
+      --background: #fdf0f2;
+      --surface: #fff9fa;
+      --surface-alt: #f8e4e8;
+      --muted: #6e4950;
+      --primary: #ce2735;
+      --secondary: #ebb681;
+      --accent: #e4c955;
+      --copied-bg: #1e7e46;
+      --border: hsl(351deg 26% 84%);
+      --font-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--background);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--text);
+    }
+
+    :focus-visible,
+    .is-highlighted {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .visually-hidden {
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+      position: absolute;
+    }
+
+    .app {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: clamp(20px, 4vw, 48px) clamp(14px, 4vw, 28px) calc(28px + env(safe-area-inset-bottom, 0px));
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--primary);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-mark svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.8125rem;
+    }
+
+    .btn-templates-toggle {
+      height: 36px;
+      padding: 0 14px;
+      font-size: 0.78rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .btn-templates-toggle:hover {
+      border-color: var(--primary);
+      background: var(--surface-alt);
+    }
+
+    .btn-templates-toggle.is-open {
+      background: var(--text);
+      color: #ffffff;
+      border-color: var(--text);
+    }
+
+    .btn-templates-toggle .count-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 18px;
+      padding: 0 5px;
+      border-radius: 100vmax;
+      background: var(--surface-alt);
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .btn-templates-toggle.is-open .count-badge {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+    }
+
+    /* Templates Gallery View */
+    .templates-view {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .templates-view-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-alt);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .templates-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .templates-heading {
+      margin: 0;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .templates-search {
+      width: 240px;
+      max-width: 100%;
+      height: 32px;
+      padding: 0 12px;
+      border-radius: 100vmax;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+    }
+
+    .templates-search::placeholder {
+      color: #a68289;
+    }
+
+    .templates-search:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .category-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .category-pill {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 100vmax;
+      padding: 0.24rem 0.78rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
+      white-space: nowrap;
+    }
+
+    .category-pill:hover {
+      border-color: var(--primary);
+      color: var(--text);
+    }
+
+    .category-pill.is-active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .templates-grid {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 12px;
+    }
+
+    .template-card {
+      appearance: none;
+      text-align: left;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 13px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--background);
+      color: var(--text);
+      font-family: var(--font-mono);
+      cursor: pointer;
+      transition: border-color 140ms ease, background-color 140ms ease, transform 140ms ease;
+    }
+
+    .template-card:hover {
+      border-color: var(--primary);
+      background: var(--surface);
+      transform: translateY(-1px);
+    }
+
+    .template-card.is-active {
+      border-color: var(--text);
+      outline: 2px solid var(--accent);
+      outline-offset: 0;
+      background: var(--surface);
+    }
+
+    .template-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .template-card-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .template-card-cat {
+      font-size: 0.66rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 7px;
+      border-radius: 100vmax;
+      background: var(--surface-alt);
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .template-card.is-active .template-card-cat {
+      background: var(--text);
+      color: #ffffff;
+    }
+
+    .template-card-desc {
+      margin: 0;
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .template-preview {
+      margin: 2px 0 0;
+      padding: 9px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      line-height: 1.45;
+      color: var(--text);
+      overflow: hidden;
+      white-space: pre;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+
+    .templates-empty {
+      padding: 36px 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    /* Mobile Pane Switcher (hidden on desktop) */
+    .mobile-tabs {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      padding: 4px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 100vmax;
+    }
+
+    .mobile-tab {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      height: 36px;
+      border-radius: 100vmax;
+      cursor: pointer;
+      transition: background-color 140ms ease, color 140ms ease;
+    }
+
+    .mobile-tab.is-active {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    /* Workspace */
+    .workspace {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .pane {
+      min-width: 0;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      position: relative;
+    }
+
+    .output-pane {
+      background: var(--surface-alt);
+      border-left: 1px solid var(--border);
+    }
+
+    .pane-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-height: 48px;
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      flex-wrap: wrap;
+    }
+
+    .output-pane .pane-header {
+      background: var(--surface-alt);
+    }
+
+    .pane-title {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 28px;
+      padding: 0 11px;
+      border-radius: 100vmax;
+      font-family: var(--font-mono);
+      font-size: 0.725rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: filter 140ms ease, background-color 140ms ease, color 140ms ease, border-color 140ms ease;
+      white-space: nowrap;
+    }
+
+    .btn-icon {
+      width: 28px;
+      padding: 0;
+    }
+
+    .btn svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover:not(:disabled) {
+      background: var(--background);
+      color: var(--text);
+      border-color: var(--primary);
+    }
+
+    .btn-primary {
+      border: 0;
+      background: var(--primary);
+      color: #ffffff;
+      min-width: 82px;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      filter: saturate(0.8);
+    }
+
+    .btn-primary.is-copied {
+      background: var(--copied-bg);
+      color: #ffffff;
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+    }
+
+    .btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    textarea {
+      margin: 0;
+      width: 100%;
+      min-height: 390px;
+      padding: 16px 18px;
+      font-family: var(--font-mono);
+      font-size: 0.84375rem;
+      line-height: 1.75;
+      tab-size: 2;
+      color: var(--text);
+      display: block;
+      border: 0;
+      background: transparent;
+      resize: vertical;
+      caret-color: var(--primary);
+      accent-color: var(--primary);
+      overflow: auto;
+      white-space: pre;
+    }
+
+    textarea::placeholder {
+      color: #a68289;
+    }
+
+    textarea:focus-visible {
+      outline: none;
+    }
+
+    .empty-message {
+      position: absolute;
+      top: 64px;
+      left: 18px;
+      right: 18px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.8125rem;
+      pointer-events: none;
+    }
+
+    .pane-footer {
+      margin: 0;
+      padding: 9px 14px;
+      border-top: 1px solid var(--border);
+      font-size: 0.72rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pane-footer code {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      background: var(--background);
+      border: 1px solid var(--border);
+      padding: 0 5px;
+      border-radius: 4px;
+      color: var(--text);
+    }
+
+    .app-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.725rem;
+      color: var(--muted);
+      padding: 0 2px;
+    }
+
+    .app-footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 720px) {
+      .app {
+        gap: 14px;
+      }
+
+      .templates-search {
+        width: 100%;
+        height: 36px;
+        font-size: 16px;
+      }
+
+      .category-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+      }
+
+      .category-filters::-webkit-scrollbar {
+        display: none;
+      }
+
+      .category-pill {
+        min-height: 32px;
+        padding: 0.3rem 0.85rem;
+        font-size: 0.75rem;
+        flex-shrink: 0;
+      }
+
+      .templates-grid {
+        grid-template-columns: 1fr;
+        padding: 12px;
+      }
+
+      .mobile-tabs {
+        display: grid;
+      }
+
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .output-pane {
+        border-left: 0;
+      }
+
+      .workspace[data-mobile-pane="markdown"] .output-pane {
+        display: none;
+      }
+
+      .workspace[data-mobile-pane="tree"] .input-pane {
+        display: none;
+      }
+
+      .pane-header {
+        padding: 10px 12px;
+      }
+
+      .btn {
+        height: 34px;
+        padding: 0 12px;
+        font-size: 0.75rem;
+      }
+
+      .btn-icon {
+        width: 34px;
+        padding: 0;
+      }
+
+      textarea {
+        min-height: 340px;
+        padding: 14px;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .empty-message {
+        top: 68px;
+        left: 14px;
+        right: 14px;
+      }
+
+      .pane-footer {
+        padding: 9px 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn,
+      .category-pill,
+      .template-card,
+      .mobile-tab {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand">
+        <div class="brand-row">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 4v14h5" />
+              <path d="M5 10h5" />
+              <rect x="10" y="7" width="9" height="6" rx="1.5" />
+              <rect x="10" y="15" width="9" height="6" rx="1.5" />
+              <circle cx="5" cy="4" r="1.2" fill="currentColor" stroke="none" />
+            </svg>
+          </span>
+          <h1>Tree</h1>
+        </div>
+        <p class="subtitle">Markdown lists to folder structure ready for your README..</p>
+      </div>
+
+      <button id="templates-toggle" class="btn btn-templates-toggle" type="button" aria-expanded="false" aria-controls="templates-view">
+        <svg id="templates-grid-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="5.5" height="5.5" rx="1" />
+          <rect x="11.5" y="3" width="5.5" height="5.5" rx="1" />
+          <rect x="3" y="11.5" width="5.5" height="5.5" rx="1" />
+          <rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1" />
+        </svg>
+        <svg id="templates-back-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+          <path d="M12.5 5 7.5 10l5 5" />
+        </svg>
+        <span id="templates-toggle-label">Templates</span>
+        <span id="templates-count-badge" class="count-badge">18</span>
+      </button>
+    </header>
+
+    <section id="templates-view" class="templates-view" aria-label="Choose a folder tree template" hidden>
+      <div class="templates-view-header">
+        <div class="templates-top-row">
+          <h2 class="templates-heading">Choose a Template</h2>
+          <input
+            id="templates-search"
+            class="templates-search"
+            type="search"
+            placeholder="Filter templates..."
+            aria-label="Filter templates"
+            autocomplete="off"
+          >
+        </div>
+        <div id="category-filters" class="category-filters" role="group" aria-label="Filter by category"></div>
+      </div>
+      <div id="templates-grid" class="templates-grid"></div>
+      <p id="templates-empty" class="templates-empty" hidden>No templates match your filter.</p>
+    </section>
+
+    <div id="mobile-tabs" class="mobile-tabs" role="tablist" aria-label="Switch editor view">
+      <button id="tab-markdown" class="mobile-tab is-active" type="button" role="tab" aria-selected="true" data-pane="markdown">Markdown</button>
+      <button id="tab-tree" class="mobile-tab" type="button" role="tab" aria-selected="false" data-pane="tree">Tree</button>
+    </div>
+
+    <div class="workspace" id="workspace" data-mobile-pane="markdown">
+      <section class="pane input-pane" aria-labelledby="input-label">
+        <div class="pane-header">
+          <label id="input-label" class="pane-title" for="markdown-input">Markdown</label>
+          <div class="header-actions">
+            <button id="outdent-button" class="btn btn-ghost btn-icon" type="button" title="Outdent line (Shift+Tab)" aria-label="Outdent line">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 5H9M16 10H9M16 15H9M6 7l-3 3 3 3" />
+              </svg>
+            </button>
+            <button id="indent-button" class="btn btn-ghost btn-icon" type="button" title="Indent line (Tab)" aria-label="Indent line">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 5H9M16 10H9M16 15H9M3 7l3 3-3 3" />
+              </svg>
+            </button>
+            <button id="format-button" class="btn btn-ghost" type="button" title="Normalize indentation to 2-space steps">Format</button>
+            <button id="clear-button" class="btn btn-ghost" type="button">Clear</button>
+          </div>
+        </div>
+        <textarea
+          id="markdown-input"
+          aria-describedby="input-help"
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="off"
+          wrap="off"
+          placeholder="- project/
+  - src/
+    - index.js"
+        ></textarea>
+        <p class="pane-footer" id="input-help">
+          <span><code>Tab</code>/<code>Shift+Tab</code> indent · <code>Enter</code> auto-bullets</span>
+        </p>
+      </section>
+
+      <section class="pane output-pane" aria-labelledby="output-label">
+        <div class="pane-header">
+          <label id="output-label" class="pane-title" for="tree-output">Tree</label>
+          <div class="header-actions">
+            <button id="tidy-button" class="btn btn-ghost" type="button" title="Re-align Unicode branch connectors">Tidy</button>
+            <button id="copy-button" class="btn btn-primary" type="button" aria-live="polite">
+              <svg id="copy-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="7" y="7" width="9" height="10" rx="1.5" />
+                <path d="M12 7V4.5A1.5 1.5 0 0 0 10.5 3h-5A1.5 1.5 0 0 0 4 4.5v8A1.5 1.5 0 0 0 5.5 14H7" />
+              </svg>
+              <svg id="check-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+                <path d="M4.5 10.5 8 14l7.5-8" />
+              </svg>
+              <span id="copy-label">Copy</span>
+            </button>
+          </div>
+        </div>
+        <textarea
+          id="tree-output"
+          aria-label="Editable folder tree"
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="off"
+          wrap="off"
+        ></textarea>
+        <p id="empty-message" class="empty-message" hidden>Your folder tree will appear here. Pick a template or type on either side.</p>
+        <p class="pane-footer" id="conversion-status" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <footer class="app-footer">
+      <p>Two-way editable · Unicode branches</p>
+    </footer>
+  </main>
+
+  <script>
+    const TEMPLATE_CATALOG = [
+      {
+        id: 'web',
+        name: 'Web App',
+        category: 'Frontend',
+        desc: 'Minimal vanilla JS & CSS starter layout',
+        markdown: `- my-project/
+  - src/
+    - components/
+      - Button.js
+      - Header.js
+    - styles/
+      - main.css
+    - index.js
+  - public/
+    - favicon.svg
+  - package.json
+  - README.md`
+      },
+      {
+        id: 'react',
+        name: 'React / Vite',
+        category: 'Frontend',
+        desc: 'TypeScript SPA with hooks, pages, and assets',
+        markdown: `- react-app/
+  - public/
+    - favicon.ico
+  - src/
+    - assets/
+      - logo.svg
+    - components/
+      - Navbar.tsx
+      - Card.tsx
+    - hooks/
+      - useDebounce.ts
+    - pages/
+      - Home.tsx
+      - Settings.tsx
+    - App.tsx
+    - main.tsx
+  - index.html
+  - vite.config.ts
+  - package.json`
+      },
+      {
+        id: 'nextjs',
+        name: 'Next.js App Router',
+        category: 'Frontend',
+        desc: 'Full-stack Next.js with app routes and API handlers',
+        markdown: `- next-app/
+  - app/
+    - api/
+      - health/
+        - route.ts
+    - dashboard/
+      - page.tsx
+      - loading.tsx
+    - layout.tsx
+    - page.tsx
+    - globals.css
+  - components/
+    - ui/
+      - Button.tsx
+    - Header.tsx
+  - lib/
+    - db.ts
+    - auth.ts
+  - next.config.mjs
+  - package.json`
+      },
+      {
+        id: 'vue',
+        name: 'Vue / Nuxt',
+        category: 'Frontend',
+        desc: 'Nuxt 3 directory conventions with composables & stores',
+        markdown: `- nuxt-app/
+  - assets/
+    - css/
+      - main.css
+  - components/
+    - AppHeader.vue
+    - AppFooter.vue
+  - composables/
+    - useApi.ts
+  - layouts/
+    - default.vue
+  - pages/
+    - index.vue
+    - about.vue
+  - stores/
+    - user.ts
+  - nuxt.config.ts
+  - package.json`
+      },
+      {
+        id: 'node',
+        name: 'Node / Express API',
+        category: 'Backend',
+        desc: 'Layered REST API with controllers and services',
+        markdown: `- api-server/
+  - src/
+    - config/
+      - env.js
+      - db.js
+    - controllers/
+      - auth.controller.js
+      - users.controller.js
+    - middleware/
+      - auth.js
+      - errorHandler.js
+    - routes/
+      - index.js
+    - services/
+      - user.service.js
+    - app.js
+    - server.js
+  - tests/
+    - health.test.js
+  - .env.example
+  - package.json`
+      },
+      {
+        id: 'python',
+        name: 'Python / Django',
+        category: 'Backend',
+        desc: 'Multi-app Django project with templates and static files',
+        markdown: `- project/
+  - config/
+    - __init__.py
+    - settings.py
+    - urls.py
+    - wsgi.py
+  - apps/
+    - core/
+      - models.py
+      - views.py
+      - urls.py
+      - tests.py
+  - templates/
+    - base.html
+    - index.html
+  - static/
+    - css/
+      - app.css
+  - manage.py
+  - requirements.txt`
+      },
+      {
+        id: 'fastapi',
+        name: 'FastAPI Service',
+        category: 'Backend',
+        desc: 'Async Python API with Pydantic schemas and routers',
+        markdown: `- fastapi-service/
+  - app/
+    - api/
+      - v1/
+        - endpoints/
+          - items.py
+          - users.py
+        - router.py
+    - core/
+      - config.py
+      - security.py
+    - models/
+      - item.py
+    - schemas/
+      - item.py
+    - main.py
+  - tests/
+    - test_items.py
+  - pyproject.toml
+  - Dockerfile`
+      },
+      {
+        id: 'go',
+        name: 'Go Microservice',
+        category: 'Backend',
+        desc: 'Standard Go layout with cmd, internal, and pkg',
+        markdown: `- go-service/
+  - cmd/
+    - server/
+      - main.go
+  - internal/
+    - config/
+      - config.go
+    - handler/
+      - health.go
+      - users.go
+    - repository/
+      - postgres.go
+    - service/
+      - user_service.go
+  - pkg/
+    - logger/
+      - logger.go
+  - migrations/
+    - 001_init.sql
+  - go.mod
+  - Makefile`
+      },
+      {
+        id: 'datascience',
+        name: 'Data Science / ML',
+        category: 'Data & ML',
+        desc: 'Cookiecutter-style pipeline for notebooks and models',
+        markdown: `- ml-project/
+  - data/
+    - raw/
+    - interim/
+    - processed/
+  - notebooks/
+    - 01_eda.ipynb
+    - 02_baseline.ipynb
+  - src/
+    - features/
+      - build_features.py
+    - models/
+      - train.py
+      - evaluate.py
+    - utils/
+      - metrics.py
+  - models/
+    - best_model.onnx
+  - reports/
+    - figures/
+  - requirements.txt
+  - README.md`
+      },
+      {
+        id: 'pytorch',
+        name: 'PyTorch Training',
+        category: 'Data & ML',
+        desc: 'Modular deep learning repo with YAML configs',
+        markdown: `- vision-trainer/
+  - configs/
+    - base.yaml
+    - resnet50.yaml
+  - datasets/
+    - transforms.py
+    - loader.py
+  - models/
+    - backbone.py
+    - head.py
+  - engine/
+    - trainer.py
+    - evaluator.py
+  - scripts/
+    - train.py
+    - export_onnx.py
+  - checkpoints/
+  - pyproject.toml`
+      },
+      {
+        id: 'rstats',
+        name: 'R Analysis / Package',
+        category: 'Data & ML',
+        desc: 'Structured R package with scripts, data, and vignettes',
+        markdown: `- stats-pkg/
+  - R/
+    - clean_data.R
+    - survival_fit.R
+    - plot_km.R
+  - data/
+    - cohort.rda
+  - man/
+    - survival_fit.Rd
+  - tests/
+    - testthat/
+      - test-survival.R
+  - vignettes/
+    - analysis-report.Rmd
+  - DESCRIPTION
+  - NAMESPACE`
+      },
+      {
+        id: 'monorepo',
+        name: 'Monorepo (Turborepo)',
+        category: 'Systems & Mobile',
+        desc: 'Shared UI and utility packages across apps',
+        markdown: `- workspace/
+  - apps/
+    - web/
+      - src/
+      - package.json
+    - api/
+      - src/
+      - package.json
+  - packages/
+    - ui/
+      - components/
+      - package.json
+    - utils/
+      - index.ts
+      - package.json
+  - package.json
+  - turbo.json`
+      },
+      {
+        id: 'flutter',
+        name: 'Flutter App',
+        category: 'Systems & Mobile',
+        desc: 'Feature-first Flutter project for Android and iOS',
+        markdown: `- flutter-app/
+  - lib/
+    - core/
+      - theme.dart
+      - router.dart
+    - features/
+      - auth/
+        - login_screen.dart
+        - auth_controller.dart
+      - home/
+        - home_screen.dart
+    - main.dart
+  - assets/
+    - images/
+    - fonts/
+  - test/
+    - widget_test.dart
+  - android/
+  - ios/
+  - pubspec.yaml`
+      },
+      {
+        id: 'rust',
+        name: 'Rust Crate',
+        category: 'Systems & Mobile',
+        desc: 'Binary + library Cargo workspace with benchmarks',
+        markdown: `- rust-cli/
+  - src/
+    - main.rs
+    - lib.rs
+    - cli/
+      - args.rs
+      - commands.rs
+    - parser/
+      - mod.rs
+      - lexer.rs
+  - tests/
+    - integration_test.rs
+  - benches/
+    - parse_bench.rs
+  - Cargo.toml
+  - Cargo.lock`
+      },
+      {
+        id: 'extension',
+        name: 'Browser Extension',
+        category: 'Systems & Mobile',
+        desc: 'Manifest V3 extension with popup and content scripts',
+        markdown: `- browser-ext/
+  - manifest.json
+  - background/
+    - service-worker.js
+  - content/
+    - content.js
+    - content.css
+  - popup/
+    - popup.html
+    - popup.js
+    - popup.css
+  - options/
+    - options.html
+    - options.js
+  - icons/
+    - icon-48.png
+    - icon-128.png`
+      },
+      {
+        id: 'docker',
+        name: 'Docker Stack',
+        category: 'DevOps & Docs',
+        desc: 'Multi-container app with Nginx reverse proxy & Postgres',
+        markdown: `- deploy-stack/
+  - docker/
+    - app/
+      - Dockerfile
+    - nginx/
+      - default.conf
+  - scripts/
+    - backup-db.sh
+    - deploy.sh
+  - .github/
+    - workflows/
+      - ci.yml
+  - docker-compose.yml
+  - docker-compose.prod.yml
+  - .env.example`
+      },
+      {
+        id: 'terraform',
+        name: 'Terraform Infra',
+        category: 'DevOps & Docs',
+        desc: 'Environment-separated IaC with reusable modules',
+        markdown: `- infra/
+  - environments/
+    - dev/
+      - main.tf
+      - variables.tf
+      - terraform.tfvars
+    - prod/
+      - main.tf
+      - variables.tf
+      - backend.tf
+  - modules/
+    - vpc/
+      - main.tf
+      - outputs.tf
+    - compute/
+      - main.tf
+      - variables.tf
+  - README.md`
+      },
+      {
+        id: 'docs',
+        name: 'Documentation Site',
+        category: 'DevOps & Docs',
+        desc: 'Product docs with guides, API reference, and assets',
+        markdown: `- docs/
+  - getting-started/
+    - installation.md
+    - quickstart.md
+  - guides/
+    - configuration.md
+    - deployment.md
+  - api/
+    - endpoints.md
+    - authentication.md
+  - assets/
+    - architecture.svg
+  - CHANGELOG.md
+  - README.md`
+      }
+    ];
+
+    const CATEGORIES = ['All', ...new Set(TEMPLATE_CATALOG.map((t) => t.category))];
+
+    const workspace = document.getElementById('workspace');
+    const mobileTabsContainer = document.getElementById('mobile-tabs');
+    const templatesView = document.getElementById('templates-view');
+    const templatesToggle = document.getElementById('templates-toggle');
+    const templatesToggleLabel = document.getElementById('templates-toggle-label');
+    const templatesCountBadge = document.getElementById('templates-count-badge');
+    const templatesGridIcon = document.getElementById('templates-grid-icon');
+    const templatesBackIcon = document.getElementById('templates-back-icon');
+    const templatesSearch = document.getElementById('templates-search');
+    const categoryFilters = document.getElementById('category-filters');
+    const templatesGrid = document.getElementById('templates-grid');
+    const templatesEmpty = document.getElementById('templates-empty');
+
+    const input = document.getElementById('markdown-input');
+    const output = document.getElementById('tree-output');
+    const copyButton = document.getElementById('copy-button');
+    const copyLabel = document.getElementById('copy-label');
+    const copyIcon = document.getElementById('copy-icon');
+    const checkIcon = document.getElementById('check-icon');
+    const clearButton = document.getElementById('clear-button');
+    const indentButton = document.getElementById('indent-button');
+    const outdentButton = document.getElementById('outdent-button');
+    const formatButton = document.getElementById('format-button');
+    const tidyButton = document.getElementById('tidy-button');
+    const conversionStatus = document.getElementById('conversion-status');
+    const emptyMessage = document.getElementById('empty-message');
+    const mobileTabs = Array.from(document.querySelectorAll('.mobile-tab'));
+
+    let copyResetTimer = null;
+    let isTemplatesOpen = false;
+    let activeCategory = 'All';
+
+    function convertList(markdown) {
+      const roots = [];
+      const parents = [];
+      let count = 0;
+      let ignored = 0;
+
+      for (const line of markdown.split(/\r?\n/)) {
+        if (!line.trim()) continue;
+        const match = line.match(/^([ \t]*)[-*+]\s+(.+?)\s*$/);
+        if (!match) {
+          ignored++;
+          continue;
+        }
+
+        let indent = 0;
+        for (const ch of match[1]) {
+          indent += ch === '\t' ? 4 - (indent % 4) : 1;
+        }
+
+        const node = { name: match[2], children: [] };
+        while (parents.length && parents[parents.length - 1].indent >= indent) {
+          parents.pop();
+        }
+        const siblings = parents.length ? parents[parents.length - 1].node.children : roots;
+        siblings.push(node);
+        parents.push({ indent, node });
+        count++;
+      }
+
+      const lines = [];
+      const pending = [];
+      const singleRoot = roots.length === 1;
+
+      for (let i = roots.length - 1; i >= 0; i--) {
+        pending.push({ node: roots[i], prefix: '', last: i === roots.length - 1, root: true });
+      }
+
+      while (pending.length) {
+        const { node, prefix, last, root } = pending.pop();
+        const bareRoot = root && singleRoot;
+        lines.push(prefix + (bareRoot ? '' : last ? '└── ' : '├── ') + node.name);
+        const childPrefix = prefix + (bareRoot ? '' : last ? '    ' : '│   ');
+
+        for (let i = node.children.length - 1; i >= 0; i--) {
+          pending.push({
+            node: node.children[i],
+            prefix: childPrefix,
+            last: i === node.children.length - 1,
+            root: false
+          });
+        }
+      }
+
+      return { text: lines.join('\n'), count, ignored, roots };
+    }
+
+    function treeToMarkdown(treeText) {
+      const rawLines = treeText.split(/\r?\n/).filter((line) => line.trim().length > 0);
+      if (!rawLines.length) return { markdown: '', count: 0 };
+
+      const connectorPattern = /^([\s│|]*)(?:├──|└──|├─|└─|\|--|\+--|\\--)\s*(.+?)\s*$/;
+      const firstMatch = rawLines[0].match(connectorPattern);
+      const hasBareRoot = !firstMatch;
+
+      const mdLines = [];
+      for (let i = 0; i < rawLines.length; i++) {
+        const line = rawLines[i];
+        const match = line.match(connectorPattern);
+        if (match) {
+          let cols = 0;
+          for (const ch of match[1]) {
+            cols += ch === '\t' ? 4 - (cols % 4) : 1;
+          }
+          const depth = Math.floor(cols / 4) + (hasBareRoot ? 1 : 0);
+          mdLines.push('  '.repeat(depth) + '- ' + match[2]);
+        } else {
+          const leading = line.match(/^([ \t]*)/)[1];
+          let cols = 0;
+          for (const ch of leading) {
+            cols += ch === '\t' ? 4 - (cols % 4) : 1;
+          }
+          const cleaned = line.trim().replace(/^[-*+]\s+/, '');
+          if (!cleaned) continue;
+          const depth = i === 0 && hasBareRoot ? 0 : Math.floor(cols / 2);
+          mdLines.push('  '.repeat(depth) + '- ' + cleaned);
+        }
+      }
+
+      return { markdown: mdLines.join('\n'), count: mdLines.length };
+    }
+
+    function normalizeMarkdown(markdown) {
+      const rawLines = markdown.split(/\r?\n/);
+      const parsed = [];
+      const stack = [];
+
+      for (const line of rawLines) {
+        if (!line.trim()) continue;
+        const match = line.match(/^([ \t]*)(?:[-*+]\s+)?(.+?)\s*$/);
+        if (!match) continue;
+        let cols = 0;
+        for (const ch of match[1]) {
+          cols += ch === '\t' ? 4 - (cols % 4) : 1;
+        }
+        while (stack.length && stack[stack.length - 1] >= cols) {
+          stack.pop();
+        }
+        const level = stack.length;
+        stack.push(cols);
+        parsed.push('  '.repeat(level) + '- ' + match[2]);
+      }
+
+      return parsed.join('\n');
+    }
+
+    function buildPreview(markdown) {
+      const lines = convertList(markdown).text.split('\n');
+      const maxLines = 6;
+      if (lines.length <= maxLines) return lines.join('\n');
+      return lines.slice(0, maxLines).join('\n') + `\n… +${lines.length - maxLines} more`;
+    }
+
+    function renderCategoryFilters() {
+      categoryFilters.innerHTML = '';
+      for (const cat of CATEGORIES) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'category-pill' + (cat === activeCategory ? ' is-active' : '');
+        btn.textContent = cat;
+        btn.addEventListener('click', () => {
+          activeCategory = cat;
+          renderCategoryFilters();
+          renderTemplateCards();
+        });
+        categoryFilters.appendChild(btn);
+      }
+    }
+
+    function renderTemplateCards() {
+      const query = templatesSearch.value.trim().toLowerCase();
+      const currentMd = input.value.trim();
+      const filtered = TEMPLATE_CATALOG.filter((tpl) => {
+        const catOk = activeCategory === 'All' || tpl.category === activeCategory;
+        if (!catOk) return false;
+        if (!query) return true;
+        return (
+          tpl.name.toLowerCase().includes(query) ||
+          tpl.category.toLowerCase().includes(query) ||
+          tpl.desc.toLowerCase().includes(query) ||
+          tpl.markdown.toLowerCase().includes(query)
+        );
+      });
+
+      templatesGrid.innerHTML = '';
+      templatesEmpty.hidden = filtered.length > 0;
+
+      for (const tpl of filtered) {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'template-card' + (tpl.markdown.trim() === currentMd ? ' is-active' : '');
+
+        const head = document.createElement('div');
+        head.className = 'template-card-head';
+
+        const title = document.createElement('span');
+        title.className = 'template-card-title';
+        title.textContent = tpl.name;
+
+        const badge = document.createElement('span');
+        badge.className = 'template-card-cat';
+        badge.textContent = tpl.category;
+
+        head.append(title, badge);
+
+        const desc = document.createElement('p');
+        desc.className = 'template-card-desc';
+        desc.textContent = tpl.desc;
+
+        const preview = document.createElement('pre');
+        preview.className = 'template-preview';
+        preview.textContent = buildPreview(tpl.markdown);
+
+        card.append(head, desc, preview);
+        card.addEventListener('click', () => {
+          input.value = tpl.markdown;
+          updateFromMarkdown();
+          setTemplatesOpen(false);
+          if (window.innerWidth > 720) {
+            input.focus();
+          }
+        });
+
+        templatesGrid.appendChild(card);
+      }
+    }
+
+    function setTemplatesOpen(open) {
+      isTemplatesOpen = open;
+      templatesView.hidden = !open;
+      workspace.hidden = open;
+      mobileTabsContainer.hidden = open;
+
+      templatesToggle.classList.toggle('is-open', open);
+      templatesToggle.setAttribute('aria-expanded', String(open));
+      templatesToggleLabel.textContent = open ? 'Back to Editor' : 'Templates';
+      templatesCountBadge.hidden = open;
+      templatesGridIcon.hidden = open;
+      templatesBackIcon.hidden = !open;
+
+      if (open) {
+        renderCategoryFilters();
+        renderTemplateCards();
+        if (window.innerWidth > 720) {
+          templatesSearch.focus();
+        }
+      }
+    }
+
+    function resetCopyButton() {
+      if (copyResetTimer) {
+        clearTimeout(copyResetTimer);
+        copyResetTimer = null;
+      }
+      copyButton.classList.remove('is-copied');
+      copyLabel.textContent = 'Copy';
+      copyIcon.hidden = false;
+      checkIcon.hidden = true;
+    }
+
+    function setCopiedState() {
+      if (copyResetTimer) {
+        clearTimeout(copyResetTimer);
+      }
+      copyButton.classList.add('is-copied');
+      copyLabel.textContent = 'Copied';
+      copyIcon.hidden = true;
+      checkIcon.hidden = false;
+      copyResetTimer = setTimeout(resetCopyButton, 1800);
+    }
+
+    function updateControlsState(count, ignored, sourceLabel) {
+      const hasTree = output.value.trim().length > 0;
+      const hasInput = input.value.length > 0;
+      copyButton.disabled = !hasTree;
+      tidyButton.disabled = !hasInput;
+      clearButton.disabled = !hasInput && !hasTree;
+      formatButton.disabled = !hasInput;
+      indentButton.disabled = !hasInput;
+      outdentButton.disabled = !hasInput;
+      emptyMessage.hidden = hasTree;
+
+      let status = count
+        ? `${count} ${count === 1 ? 'item' : 'items'}`
+        : 'Waiting for a list or tree';
+      if (ignored) {
+        status += ` · ${ignored} non-bullet ${ignored === 1 ? 'line' : 'lines'} skipped`;
+      } else if (sourceLabel) {
+        status += ` · ${sourceLabel}`;
+      }
+      conversionStatus.textContent = status;
+      resetCopyButton();
+    }
+
+    function updateFromMarkdown() {
+      const result = convertList(input.value);
+      output.value = result.text;
+      updateControlsState(result.count, result.ignored, 'Editable tree');
+    }
+
+    function updateFromTree() {
+      const parsed = treeToMarkdown(output.value);
+      input.value = parsed.markdown;
+      updateControlsState(parsed.count, 0, 'Synced to Markdown');
+    }
+
+    function shiftLines(textarea, direction) {
+      const value = textarea.value;
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+
+      const blockStart = value.lastIndexOf('\n', start - 1) + 1;
+      const effectiveEnd = end > start && value[end - 1] === '\n' ? end - 1 : end;
+      const blockEndIdx = value.indexOf('\n', effectiveEnd);
+      const blockEnd = blockEndIdx === -1 ? value.length : blockEndIdx;
+
+      const lines = value.slice(blockStart, blockEnd).split('\n');
+      let firstDelta = 0;
+      let totalDelta = 0;
+
+      const updated = lines.map((line, index) => {
+        if (direction > 0) {
+          const delta = 2;
+          if (index === 0) firstDelta = delta;
+          totalDelta += delta;
+          return '  ' + line;
+        }
+        let remove = 0;
+        if (line.startsWith('  ')) remove = 2;
+        else if (line.startsWith('\t') || line.startsWith(' ')) remove = 1;
+        if (index === 0) firstDelta = -remove;
+        totalDelta -= remove;
+        return line.slice(remove);
+      });
+
+      textarea.value = value.slice(0, blockStart) + updated.join('\n') + value.slice(blockEnd);
+      textarea.selectionStart = Math.max(blockStart, start + firstDelta);
+      textarea.selectionEnd = Math.max(textarea.selectionStart, end + totalDelta);
+      textarea.focus();
+      updateFromMarkdown();
+    }
+
+    function handleMarkdownEnter(event) {
+      const value = input.value;
+      const start = input.selectionStart;
+      const end = input.selectionEnd;
+      if (start !== end) return;
+
+      const lineStart = value.lastIndexOf('\n', start - 1) + 1;
+      const lineUpToCursor = value.slice(lineStart, start);
+      const restOfLine = value.slice(start, value.indexOf('\n', start) === -1 ? value.length : value.indexOf('\n', start));
+
+      const bulletMatch = lineUpToCursor.match(/^([ \t]*)([-*+])\s+(.*)$/);
+      const emptyBulletMatch = lineUpToCursor.match(/^([ \t]*)([-*+])\s*$/);
+
+      if (emptyBulletMatch && restOfLine.trim() === '') {
+        event.preventDefault();
+        const indent = emptyBulletMatch[1];
+        if (indent.length >= 2) {
+          const outdented = indent.slice(0, -2) + emptyBulletMatch[2] + ' ';
+          input.value = value.slice(0, lineStart) + outdented + value.slice(start);
+          input.selectionStart = input.selectionEnd = lineStart + outdented.length;
+        } else {
+          input.value = value.slice(0, lineStart) + value.slice(start);
+          input.selectionStart = input.selectionEnd = lineStart;
+        }
+        updateFromMarkdown();
+        return;
+      }
+
+      if (bulletMatch) {
+        event.preventDefault();
+        const [, indent, bullet, content] = bulletMatch;
+        const isFolder = content.trim().endsWith('/') && restOfLine.trim() === '';
+        const nextIndent = isFolder ? indent + '  ' : indent;
+        const insertion = `\n${nextIndent}${bullet} `;
+        input.value = value.slice(0, start) + insertion + value.slice(end);
+        input.selectionStart = input.selectionEnd = start + insertion.length;
+        updateFromMarkdown();
+      }
+    }
+
+    function fallbackCopy(text) {
+      const helper = document.createElement('textarea');
+      helper.value = text;
+      helper.setAttribute('readonly', '');
+      helper.style.position = 'fixed';
+      helper.style.opacity = '0';
+      document.body.appendChild(helper);
+      helper.select();
+      let copied = false;
+      try {
+        copied = document.execCommand('copy');
+      } catch {
+        copied = false;
+      }
+      document.body.removeChild(helper);
+      return copied;
+    }
+
+    async function copyTree() {
+      const text = output.value;
+      if (!text.trim()) return;
+
+      let copied = false;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        try {
+          await navigator.clipboard.writeText(text);
+          copied = true;
+        } catch {
+          copied = fallbackCopy(text);
+        }
+      } else {
+        copied = fallbackCopy(text);
+      }
+
+      if (copied) {
+        setCopiedState();
+      } else {
+        output.focus();
+        output.select();
+      }
+    }
+
+    function setMobilePane(paneName) {
+      workspace.dataset.mobilePane = paneName;
+      for (const tab of mobileTabs) {
+        const active = tab.dataset.pane === paneName;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', String(active));
+      }
+    }
+
+    templatesToggle.addEventListener('click', () => {
+      setTemplatesOpen(!isTemplatesOpen);
+    });
+
+    templatesSearch.addEventListener('input', renderTemplateCards);
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && isTemplatesOpen) {
+        setTemplatesOpen(false);
+      }
+    });
+
+    mobileTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        setMobilePane(tab.dataset.pane);
+      });
+    });
+
+    input.addEventListener('input', updateFromMarkdown);
+    output.addEventListener('input', updateFromTree);
+
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        shiftLines(input, event.shiftKey ? -1 : 1);
+      } else if (event.key === 'Enter') {
+        handleMarkdownEnter(event);
+      }
+    });
+
+    output.addEventListener('keydown', (event) => {
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        const start = output.selectionStart;
+        const end = output.selectionEnd;
+        const value = output.value;
+        if (event.shiftKey) {
+          const lineStart = value.lastIndexOf('\n', start - 1) + 1;
+          const line = value.slice(lineStart);
+          const remove = line.startsWith('│   ') || line.startsWith('    ') ? 4 : line.startsWith('  ') ? 2 : 0;
+          if (remove) {
+            output.value = value.slice(0, lineStart) + value.slice(lineStart + remove);
+            output.selectionStart = Math.max(lineStart, start - remove);
+            output.selectionEnd = Math.max(lineStart, end - remove);
+            updateFromTree();
+          }
+        } else {
+          output.value = value.slice(0, start) + '    ' + value.slice(end);
+          output.selectionStart = output.selectionEnd = start + 4;
+          updateFromTree();
+        }
+      }
+    });
+
+    indentButton.addEventListener('click', () => shiftLines(input, 1));
+    outdentButton.addEventListener('click', () => shiftLines(input, -1));
+
+    formatButton.addEventListener('click', () => {
+      input.value = normalizeMarkdown(input.value);
+      updateFromMarkdown();
+      input.focus();
+    });
+
+    tidyButton.addEventListener('click', () => {
+      updateFromMarkdown();
+      output.focus();
+    });
+
+    clearButton.addEventListener('click', () => {
+      input.value = '';
+      output.value = '';
+      updateFromMarkdown();
+      input.focus();
+    });
+
+    copyButton.addEventListener('click', copyTree);
+
+    templatesCountBadge.textContent = String(TEMPLATE_CATALOG.length);
+    input.value = TEMPLATE_CATALOG[0].markdown;
+    updateFromMarkdown();
+  </script>
+</body>
+</html>
