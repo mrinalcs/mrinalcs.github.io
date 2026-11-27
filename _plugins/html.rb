@@ -25,7 +25,7 @@
       content.gsub!(/<meta\s+name=["']generator["'][^>]*>/i, '')         
          
       # Remove trailing spaces before self-closing tag (/>)
-      content.gsub!(/\s\/>/, '>')
+      # content.gsub!(/\s\/>/, '>') # issue:  void elements like <meta> or <input> don't need />, so stripping it is harmless for them. Inside an <svg>, however, the browser switches to XML-style foreign content parsing where <path />, <rect />, and <circle /> must be self-closed (/>) or explicitly closed (</path>).
 
        # Remove all empty spaces between HTML tags
        #content.gsub!(/>[[:space:]]+</, '><')
