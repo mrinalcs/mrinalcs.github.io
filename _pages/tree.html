@@ -3,6 +3,7 @@ title: Tree
 description: All post and pages
 layout: empty
 ---
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +11,9 @@ layout: empty
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Tree</title>
-  <meta name="description" content="Convert Markdown lists into clean folder structures and Unicode directory trees. Edit both views, use project templates, and copy your tree for README files. Markdown Tree Structure Generator">
+  <meta name="description" content="Convert Markdown lists into clean folder structures and Unicode directory trees. Edit both views, use and share project templates, and copy your tree for README files. Markdown Tree Structure Generator">
 
-<meta name="keywords" content="markdown to tree, folder tree generator, directory tree generator, markdown tree converter, project structure generator, folder structure generator, unicode tree generator, directory structure visualizer, README tree generator, online tree generator">
+  <meta name="keywords" content="markdown to tree, folder tree generator, directory tree generator, markdown tree converter, project structure generator, folder structure generator, unicode tree generator, directory structure visualizer, README tree generator, online tree generator">
 
   <style>
     @import url("https://fonts.googleapis.com/css?family=Space%20Mono:700|Space%20Mono:400");
@@ -139,6 +140,13 @@ layout: empty
       font-size: 0.8125rem;
     }
 
+    .header-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     .btn-templates-toggle {
       height: 36px;
       padding: 0 14px;
@@ -178,6 +186,193 @@ layout: empty
       color: #ffffff;
     }
 
+    .btn-share-toggle {
+      height: 36px;
+      padding: 0 14px;
+      font-size: 0.78rem;
+      border: 0;
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .btn-share-toggle:hover:not(:disabled) {
+      filter: saturate(0.85);
+    }
+
+    .btn-share-toggle.is-open {
+      background: var(--text);
+      color: #ffffff;
+    }
+
+    /* Shared Banner (when opened via ?t=id) */
+    .shared-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      font-size: 0.78rem;
+    }
+
+    .shared-banner-info {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .shared-banner-meta {
+      color: var(--muted);
+    }
+
+    /* Share Panel */
+    .share-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .share-panel-header {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-alt);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .share-panel-title {
+      margin: 0;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .share-form {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 14px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .form-field.is-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .form-input,
+    .form-select {
+      height: 36px;
+      padding: 0 12px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--background);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .form-input::placeholder {
+      color: #a68289;
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--surface);
+    }
+
+    .share-preview-box {
+      margin: 0;
+      padding: 10px 12px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--background);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      line-height: 1.45;
+      max-height: 120px;
+      overflow: auto;
+      white-space: pre;
+    }
+
+    .share-form-footer {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 4px;
+    }
+
+    .share-feedback {
+      margin: 0;
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+
+    .share-feedback.is-error {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .share-success-box {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .share-success-title {
+      margin: 0;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--copied-bg);
+    }
+
+    .share-link-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .share-link-input {
+      flex: 1;
+      min-width: 220px;
+      height: 36px;
+      padding: 0 12px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--background);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+    }
+
     /* Templates Gallery View */
     .templates-view {
       background: var(--surface);
@@ -205,12 +400,66 @@ layout: empty
       gap: 10px;
     }
 
+    .templates-heading-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     .templates-heading {
       margin: 0;
       font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+    }
+
+    .source-switcher {
+      display: inline-flex;
+      padding: 2px;
+      border-radius: 100vmax;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      gap: 2px;
+    }
+
+    .source-tab {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 100vmax;
+      cursor: pointer;
+      transition: background-color 140ms ease, color 140ms ease;
+    }
+
+    .source-tab.is-active {
+      background: var(--text);
+      color: #ffffff;
+    }
+
+    .templates-controls-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .sort-select {
+      height: 32px;
+      padding: 0 10px;
+      border-radius: 100vmax;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      cursor: pointer;
     }
 
     .templates-search {
@@ -316,6 +565,9 @@ layout: empty
       font-size: 0.84rem;
       font-weight: 700;
       color: var(--text);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .template-card-cat {
@@ -358,11 +610,46 @@ layout: empty
       width: 100%;
     }
 
+    .template-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: auto;
+      padding-top: 2px;
+    }
+
+    .template-link-btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 100vmax;
+      padding: 2px 8px;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .template-link-btn:hover {
+      border-color: var(--primary);
+      color: var(--text);
+    }
+
     .templates-empty {
       padding: 36px 16px;
       text-align: center;
       color: var(--muted);
       font-size: 0.82rem;
+    }
+
+    .templates-load-more {
+      padding: 0 16px 16px;
+      display: flex;
+      justify-content: center;
     }
 
     /* Mobile Pane Switcher (hidden on desktop) */
@@ -595,7 +882,16 @@ layout: empty
         gap: 14px;
       }
 
+      .share-form {
+        grid-template-columns: 1fr;
+      }
+
+      .templates-controls-right {
+        width: 100%;
+      }
+
       .templates-search {
+        flex: 1;
         width: 100%;
         height: 36px;
         font-size: 16px;
@@ -682,7 +978,8 @@ layout: empty
       .btn,
       .category-pill,
       .template-card,
-      .mobile-tab {
+      .mobile-tab,
+      .source-tab {
         transition: none;
       }
     }
@@ -704,41 +1001,132 @@ layout: empty
           </span>
           <h1>Tree</h1>
         </div>
-        <p class="subtitle">Markdown lists to folder structure ready for your README..</p>
+        <p class="subtitle">Markdown lists to folder structure ready for your README.</p>
       </div>
 
-      <button id="templates-toggle" class="btn btn-templates-toggle" type="button" aria-expanded="false" aria-controls="templates-view">
-        <svg id="templates-grid-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="3" y="3" width="5.5" height="5.5" rx="1" />
-          <rect x="11.5" y="3" width="5.5" height="5.5" rx="1" />
-          <rect x="3" y="11.5" width="5.5" height="5.5" rx="1" />
-          <rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1" />
-        </svg>
-        <svg id="templates-back-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
-          <path d="M12.5 5 7.5 10l5 5" />
-        </svg>
-        <span id="templates-toggle-label">Templates</span>
-        <span id="templates-count-badge" class="count-badge">18</span>
-      </button>
+      <div class="header-nav-actions">
+        <button id="share-toggle" class="btn btn-share-toggle" type="button" aria-expanded="false" aria-controls="share-panel">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="14.5" cy="4.5" r="2.2" />
+            <circle cx="5.5" cy="10" r="2.2" />
+            <circle cx="14.5" cy="15.5" r="2.2" />
+            <path d="m7.4 8.9 5.2-3.3M7.4 11.1l5.2 3.3" />
+          </svg>
+          <span>Share</span>
+        </button>
+
+        <button id="templates-toggle" class="btn btn-templates-toggle" type="button" aria-expanded="false" aria-controls="templates-view">
+          <svg id="templates-grid-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="5.5" height="5.5" rx="1" />
+            <rect x="11.5" y="3" width="5.5" height="5.5" rx="1" />
+            <rect x="3" y="11.5" width="5.5" height="5.5" rx="1" />
+            <rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1" />
+          </svg>
+          <svg id="templates-back-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+            <path d="M12.5 5 7.5 10l5 5" />
+          </svg>
+          <span id="templates-toggle-label">Templates</span>
+          <span id="templates-count-badge" class="count-badge">18</span>
+        </button>
+      </div>
     </header>
+
+    <div id="shared-banner" class="shared-banner" hidden>
+      <div class="shared-banner-info">
+        <strong id="shared-banner-title"></strong>
+        <span id="shared-banner-meta" class="shared-banner-meta"></span>
+      </div>
+      <button id="shared-banner-close" class="btn btn-ghost" type="button">Dismiss</button>
+    </div>
+
+    <section id="share-panel" class="share-panel" aria-label="Share your folder tree template" hidden>
+      <div class="share-panel-header">
+        <h2 class="share-panel-title">Share Template Online</h2>
+        <button id="share-close" class="btn btn-ghost" type="button">Close</button>
+      </div>
+
+      <form id="share-form" class="share-form">
+        <div class="form-field">
+          <label class="form-label" for="share-name">Template Name *</label>
+          <input id="share-name" class="form-input" type="text" required minlength="2" maxlength="60" placeholder="e.g. Astro + Tailwind Blog" autocomplete="off">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="share-category">Category</label>
+          <select id="share-category" class="form-select">
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Data & ML">Data & ML</option>
+            <option value="Systems & Mobile">Systems & Mobile</option>
+            <option value="DevOps & Docs">DevOps & Docs</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="share-desc">Short Description</label>
+          <input id="share-desc" class="form-input" type="text" maxlength="140" placeholder="Brief summary of this structure" autocomplete="off">
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="share-author">Author (optional)</label>
+          <input id="share-author" class="form-input" type="text" maxlength="32" placeholder="Anonymous" autocomplete="off">
+        </div>
+
+        <div class="form-field is-full">
+          <span class="form-label">Tree Preview</span>
+          <pre id="share-preview" class="share-preview-box"></pre>
+        </div>
+
+        <div class="share-form-footer">
+          <p id="share-feedback" class="share-feedback" role="status" aria-live="polite">Published templates appear in Community search and get a direct link.</p>
+          <button id="share-submit" class="btn btn-primary" type="submit">Publish Template</button>
+        </div>
+      </form>
+
+      <div id="share-success" class="share-success-box" hidden>
+        <p class="share-success-title">Template published! Anyone with this link can open it:</p>
+        <div class="share-link-row">
+          <input id="share-link-input" class="share-link-input" type="text" readonly aria-label="Shareable template link">
+          <button id="share-copy-link" class="btn btn-primary" type="button">Copy Link</button>
+          <button id="share-another" class="btn btn-ghost" type="button">Share Another</button>
+        </div>
+      </div>
+    </section>
 
     <section id="templates-view" class="templates-view" aria-label="Choose a folder tree template" hidden>
       <div class="templates-view-header">
         <div class="templates-top-row">
-          <h2 class="templates-heading">Choose a Template</h2>
-          <input
-            id="templates-search"
-            class="templates-search"
-            type="search"
-            placeholder="Filter templates..."
-            aria-label="Filter templates"
-            autocomplete="off"
-          >
+          <div class="templates-heading-group">
+            <h2 class="templates-heading">Templates</h2>
+            <div class="source-switcher" role="tablist" aria-label="Template source">
+              <button id="source-builtin" class="source-tab is-active" type="button" role="tab" aria-selected="true" data-source="builtin">Built-in</button>
+              <button id="source-community" class="source-tab" type="button" role="tab" aria-selected="false" data-source="community">Community</button>
+            </div>
+          </div>
+
+          <div class="templates-controls-right">
+            <select id="community-sort" class="sort-select" aria-label="Sort community templates" hidden>
+              <option value="recent">Newest</option>
+              <option value="popular">Most Used</option>
+            </select>
+            <input
+              id="templates-search"
+              class="templates-search"
+              type="search"
+              placeholder="Search templates..."
+              aria-label="Search templates"
+              autocomplete="off"
+            >
+          </div>
         </div>
         <div id="category-filters" class="category-filters" role="group" aria-label="Filter by category"></div>
       </div>
       <div id="templates-grid" class="templates-grid"></div>
       <p id="templates-empty" class="templates-empty" hidden>No templates match your filter.</p>
+      <div id="templates-load-more-wrap" class="templates-load-more" hidden>
+        <button id="templates-load-more" class="btn btn-ghost" type="button">Load More</button>
+      </div>
     </section>
 
     <div id="mobile-tabs" class="mobile-tabs" role="tablist" aria-label="Switch editor view">
@@ -773,8 +1161,8 @@ layout: empty
           autocomplete="off"
           wrap="off"
           placeholder="- project/
-  - src/
-    - index.js"
+- src/
+  - index.js"
         ></textarea>
         <p class="pane-footer" id="input-help">
           <span><code>Tab</code>/<code>Shift+Tab</code> indent · <code>Enter</code> auto-bullets</span>
@@ -812,11 +1200,14 @@ layout: empty
     </div>
 
     <footer class="app-footer">
-      <p>Two-way editable · Unicode branches</p>
+      <p>Two-way editable · Unicode branches · Community templates</p>
     </footer>
   </main>
 
   <script>
+    // Replace with your deployed Cloudflare Worker URL (route: /tree -> app/tree.js)
+    const API_BASE = 'https://api.mrinalcs.workers.dev/tree';
+
     const TEMPLATE_CATALOG = [
       {
         id: 'web',
@@ -824,17 +1215,17 @@ layout: empty
         category: 'Frontend',
         desc: 'Minimal vanilla JS & CSS starter layout',
         markdown: `- my-project/
-  - src/
-    - components/
-      - Button.js
-      - Header.js
-    - styles/
-      - main.css
-    - index.js
-  - public/
-    - favicon.svg
-  - package.json
-  - README.md`
+- src/
+  - components/
+    - Button.js
+    - Header.js
+  - styles/
+    - main.css
+  - index.js
+- public/
+  - favicon.svg
+- package.json
+- README.md`
       },
       {
         id: 'react',
@@ -842,24 +1233,24 @@ layout: empty
         category: 'Frontend',
         desc: 'TypeScript SPA with hooks, pages, and assets',
         markdown: `- react-app/
-  - public/
-    - favicon.ico
-  - src/
-    - assets/
-      - logo.svg
-    - components/
-      - Navbar.tsx
-      - Card.tsx
-    - hooks/
-      - useDebounce.ts
-    - pages/
-      - Home.tsx
-      - Settings.tsx
-    - App.tsx
-    - main.tsx
-  - index.html
-  - vite.config.ts
-  - package.json`
+- public/
+  - favicon.ico
+- src/
+  - assets/
+    - logo.svg
+  - components/
+    - Navbar.tsx
+    - Card.tsx
+  - hooks/
+    - useDebounce.ts
+  - pages/
+    - Home.tsx
+    - Settings.tsx
+  - App.tsx
+  - main.tsx
+- index.html
+- vite.config.ts
+- package.json`
       },
       {
         id: 'nextjs',
@@ -867,25 +1258,25 @@ layout: empty
         category: 'Frontend',
         desc: 'Full-stack Next.js with app routes and API handlers',
         markdown: `- next-app/
-  - app/
-    - api/
-      - health/
-        - route.ts
-    - dashboard/
-      - page.tsx
-      - loading.tsx
-    - layout.tsx
+- app/
+  - api/
+    - health/
+      - route.ts
+  - dashboard/
     - page.tsx
-    - globals.css
-  - components/
-    - ui/
-      - Button.tsx
-    - Header.tsx
-  - lib/
-    - db.ts
-    - auth.ts
-  - next.config.mjs
-  - package.json`
+    - loading.tsx
+  - layout.tsx
+  - page.tsx
+  - globals.css
+- components/
+  - ui/
+    - Button.tsx
+  - Header.tsx
+- lib/
+  - db.ts
+  - auth.ts
+- next.config.mjs
+- package.json`
       },
       {
         id: 'vue',
@@ -893,23 +1284,23 @@ layout: empty
         category: 'Frontend',
         desc: 'Nuxt 3 directory conventions with composables & stores',
         markdown: `- nuxt-app/
-  - assets/
-    - css/
-      - main.css
-  - components/
-    - AppHeader.vue
-    - AppFooter.vue
-  - composables/
-    - useApi.ts
-  - layouts/
-    - default.vue
-  - pages/
-    - index.vue
-    - about.vue
-  - stores/
-    - user.ts
-  - nuxt.config.ts
-  - package.json`
+- assets/
+  - css/
+    - main.css
+- components/
+  - AppHeader.vue
+  - AppFooter.vue
+- composables/
+  - useApi.ts
+- layouts/
+  - default.vue
+- pages/
+  - index.vue
+  - about.vue
+- stores/
+  - user.ts
+- nuxt.config.ts
+- package.json`
       },
       {
         id: 'node',
@@ -917,26 +1308,26 @@ layout: empty
         category: 'Backend',
         desc: 'Layered REST API with controllers and services',
         markdown: `- api-server/
-  - src/
-    - config/
-      - env.js
-      - db.js
-    - controllers/
-      - auth.controller.js
-      - users.controller.js
-    - middleware/
-      - auth.js
-      - errorHandler.js
-    - routes/
-      - index.js
-    - services/
-      - user.service.js
-    - app.js
-    - server.js
-  - tests/
-    - health.test.js
-  - .env.example
-  - package.json`
+- src/
+  - config/
+    - env.js
+    - db.js
+  - controllers/
+    - auth.controller.js
+    - users.controller.js
+  - middleware/
+    - auth.js
+    - errorHandler.js
+  - routes/
+    - index.js
+  - services/
+    - user.service.js
+  - app.js
+  - server.js
+- tests/
+  - health.test.js
+- .env.example
+- package.json`
       },
       {
         id: 'python',
@@ -944,25 +1335,25 @@ layout: empty
         category: 'Backend',
         desc: 'Multi-app Django project with templates and static files',
         markdown: `- project/
-  - config/
-    - __init__.py
-    - settings.py
+- config/
+  - __init__.py
+  - settings.py
+  - urls.py
+  - wsgi.py
+- apps/
+  - core/
+    - models.py
+    - views.py
     - urls.py
-    - wsgi.py
-  - apps/
-    - core/
-      - models.py
-      - views.py
-      - urls.py
-      - tests.py
-  - templates/
-    - base.html
-    - index.html
-  - static/
-    - css/
-      - app.css
-  - manage.py
-  - requirements.txt`
+    - tests.py
+- templates/
+  - base.html
+  - index.html
+- static/
+  - css/
+    - app.css
+- manage.py
+- requirements.txt`
       },
       {
         id: 'fastapi',
@@ -970,25 +1361,25 @@ layout: empty
         category: 'Backend',
         desc: 'Async Python API with Pydantic schemas and routers',
         markdown: `- fastapi-service/
-  - app/
-    - api/
-      - v1/
-        - endpoints/
-          - items.py
-          - users.py
-        - router.py
-    - core/
-      - config.py
-      - security.py
-    - models/
-      - item.py
-    - schemas/
-      - item.py
-    - main.py
-  - tests/
-    - test_items.py
-  - pyproject.toml
-  - Dockerfile`
+- app/
+  - api/
+    - v1/
+      - endpoints/
+        - items.py
+        - users.py
+      - router.py
+  - core/
+    - config.py
+    - security.py
+  - models/
+    - item.py
+  - schemas/
+    - item.py
+  - main.py
+- tests/
+  - test_items.py
+- pyproject.toml
+- Dockerfile`
       },
       {
         id: 'go',
@@ -996,26 +1387,26 @@ layout: empty
         category: 'Backend',
         desc: 'Standard Go layout with cmd, internal, and pkg',
         markdown: `- go-service/
-  - cmd/
-    - server/
-      - main.go
-  - internal/
-    - config/
-      - config.go
-    - handler/
-      - health.go
-      - users.go
-    - repository/
-      - postgres.go
-    - service/
-      - user_service.go
-  - pkg/
-    - logger/
-      - logger.go
-  - migrations/
-    - 001_init.sql
-  - go.mod
-  - Makefile`
+- cmd/
+  - server/
+    - main.go
+- internal/
+  - config/
+    - config.go
+  - handler/
+    - health.go
+    - users.go
+  - repository/
+    - postgres.go
+  - service/
+    - user_service.go
+- pkg/
+  - logger/
+    - logger.go
+- migrations/
+  - 001_init.sql
+- go.mod
+- Makefile`
       },
       {
         id: 'datascience',
@@ -1023,27 +1414,27 @@ layout: empty
         category: 'Data & ML',
         desc: 'Cookiecutter-style pipeline for notebooks and models',
         markdown: `- ml-project/
-  - data/
-    - raw/
-    - interim/
-    - processed/
-  - notebooks/
-    - 01_eda.ipynb
-    - 02_baseline.ipynb
-  - src/
-    - features/
-      - build_features.py
-    - models/
-      - train.py
-      - evaluate.py
-    - utils/
-      - metrics.py
+- data/
+  - raw/
+  - interim/
+  - processed/
+- notebooks/
+  - 01_eda.ipynb
+  - 02_baseline.ipynb
+- src/
+  - features/
+    - build_features.py
   - models/
-    - best_model.onnx
-  - reports/
-    - figures/
-  - requirements.txt
-  - README.md`
+    - train.py
+    - evaluate.py
+  - utils/
+    - metrics.py
+- models/
+  - best_model.onnx
+- reports/
+  - figures/
+- requirements.txt
+- README.md`
       },
       {
         id: 'pytorch',
@@ -1051,23 +1442,23 @@ layout: empty
         category: 'Data & ML',
         desc: 'Modular deep learning repo with YAML configs',
         markdown: `- vision-trainer/
-  - configs/
-    - base.yaml
-    - resnet50.yaml
-  - datasets/
-    - transforms.py
-    - loader.py
-  - models/
-    - backbone.py
-    - head.py
-  - engine/
-    - trainer.py
-    - evaluator.py
-  - scripts/
-    - train.py
-    - export_onnx.py
-  - checkpoints/
-  - pyproject.toml`
+- configs/
+  - base.yaml
+  - resnet50.yaml
+- datasets/
+  - transforms.py
+  - loader.py
+- models/
+  - backbone.py
+  - head.py
+- engine/
+  - trainer.py
+  - evaluator.py
+- scripts/
+  - train.py
+  - export_onnx.py
+- checkpoints/
+- pyproject.toml`
       },
       {
         id: 'rstats',
@@ -1075,21 +1466,21 @@ layout: empty
         category: 'Data & ML',
         desc: 'Structured R package with scripts, data, and vignettes',
         markdown: `- stats-pkg/
-  - R/
-    - clean_data.R
-    - survival_fit.R
-    - plot_km.R
-  - data/
-    - cohort.rda
-  - man/
-    - survival_fit.Rd
-  - tests/
-    - testthat/
-      - test-survival.R
-  - vignettes/
-    - analysis-report.Rmd
-  - DESCRIPTION
-  - NAMESPACE`
+- R/
+  - clean_data.R
+  - survival_fit.R
+  - plot_km.R
+- data/
+  - cohort.rda
+- man/
+  - survival_fit.Rd
+- tests/
+  - testthat/
+    - test-survival.R
+- vignettes/
+  - analysis-report.Rmd
+- DESCRIPTION
+- NAMESPACE`
       },
       {
         id: 'monorepo',
@@ -1097,22 +1488,22 @@ layout: empty
         category: 'Systems & Mobile',
         desc: 'Shared UI and utility packages across apps',
         markdown: `- workspace/
-  - apps/
-    - web/
-      - src/
-      - package.json
-    - api/
-      - src/
-      - package.json
-  - packages/
-    - ui/
-      - components/
-      - package.json
-    - utils/
-      - index.ts
-      - package.json
-  - package.json
-  - turbo.json`
+- apps/
+  - web/
+    - src/
+    - package.json
+  - api/
+    - src/
+    - package.json
+- packages/
+  - ui/
+    - components/
+    - package.json
+  - utils/
+    - index.ts
+    - package.json
+- package.json
+- turbo.json`
       },
       {
         id: 'flutter',
@@ -1120,25 +1511,25 @@ layout: empty
         category: 'Systems & Mobile',
         desc: 'Feature-first Flutter project for Android and iOS',
         markdown: `- flutter-app/
-  - lib/
-    - core/
-      - theme.dart
-      - router.dart
-    - features/
-      - auth/
-        - login_screen.dart
-        - auth_controller.dart
-      - home/
-        - home_screen.dart
-    - main.dart
-  - assets/
-    - images/
-    - fonts/
-  - test/
-    - widget_test.dart
-  - android/
-  - ios/
-  - pubspec.yaml`
+- lib/
+  - core/
+    - theme.dart
+    - router.dart
+  - features/
+    - auth/
+      - login_screen.dart
+      - auth_controller.dart
+    - home/
+      - home_screen.dart
+  - main.dart
+- assets/
+  - images/
+  - fonts/
+- test/
+  - widget_test.dart
+- android/
+- ios/
+- pubspec.yaml`
       },
       {
         id: 'rust',
@@ -1146,21 +1537,21 @@ layout: empty
         category: 'Systems & Mobile',
         desc: 'Binary + library Cargo workspace with benchmarks',
         markdown: `- rust-cli/
-  - src/
-    - main.rs
-    - lib.rs
-    - cli/
-      - args.rs
-      - commands.rs
-    - parser/
-      - mod.rs
-      - lexer.rs
-  - tests/
-    - integration_test.rs
-  - benches/
-    - parse_bench.rs
-  - Cargo.toml
-  - Cargo.lock`
+- src/
+  - main.rs
+  - lib.rs
+  - cli/
+    - args.rs
+    - commands.rs
+  - parser/
+    - mod.rs
+    - lexer.rs
+- tests/
+  - integration_test.rs
+- benches/
+  - parse_bench.rs
+- Cargo.toml
+- Cargo.lock`
       },
       {
         id: 'extension',
@@ -1168,22 +1559,22 @@ layout: empty
         category: 'Systems & Mobile',
         desc: 'Manifest V3 extension with popup and content scripts',
         markdown: `- browser-ext/
-  - manifest.json
-  - background/
-    - service-worker.js
-  - content/
-    - content.js
-    - content.css
-  - popup/
-    - popup.html
-    - popup.js
-    - popup.css
-  - options/
-    - options.html
-    - options.js
-  - icons/
-    - icon-48.png
-    - icon-128.png`
+- manifest.json
+- background/
+  - service-worker.js
+- content/
+  - content.js
+  - content.css
+- popup/
+  - popup.html
+  - popup.js
+  - popup.css
+- options/
+  - options.html
+  - options.js
+- icons/
+  - icon-48.png
+  - icon-128.png`
       },
       {
         id: 'docker',
@@ -1191,20 +1582,20 @@ layout: empty
         category: 'DevOps & Docs',
         desc: 'Multi-container app with Nginx reverse proxy & Postgres',
         markdown: `- deploy-stack/
-  - docker/
-    - app/
-      - Dockerfile
-    - nginx/
-      - default.conf
-  - scripts/
-    - backup-db.sh
-    - deploy.sh
-  - .github/
-    - workflows/
-      - ci.yml
-  - docker-compose.yml
-  - docker-compose.prod.yml
-  - .env.example`
+- docker/
+  - app/
+    - Dockerfile
+  - nginx/
+    - default.conf
+- scripts/
+  - backup-db.sh
+  - deploy.sh
+- .github/
+  - workflows/
+    - ci.yml
+- docker-compose.yml
+- docker-compose.prod.yml
+- .env.example`
       },
       {
         id: 'terraform',
@@ -1212,23 +1603,23 @@ layout: empty
         category: 'DevOps & Docs',
         desc: 'Environment-separated IaC with reusable modules',
         markdown: `- infra/
-  - environments/
-    - dev/
-      - main.tf
-      - variables.tf
-      - terraform.tfvars
-    - prod/
-      - main.tf
-      - variables.tf
-      - backend.tf
-  - modules/
-    - vpc/
-      - main.tf
-      - outputs.tf
-    - compute/
-      - main.tf
-      - variables.tf
-  - README.md`
+- environments/
+  - dev/
+    - main.tf
+    - variables.tf
+    - terraform.tfvars
+  - prod/
+    - main.tf
+    - variables.tf
+    - backend.tf
+- modules/
+  - vpc/
+    - main.tf
+    - outputs.tf
+  - compute/
+    - main.tf
+    - variables.tf
+- README.md`
       },
       {
         id: 'docs',
@@ -1236,23 +1627,24 @@ layout: empty
         category: 'DevOps & Docs',
         desc: 'Product docs with guides, API reference, and assets',
         markdown: `- docs/
-  - getting-started/
-    - installation.md
-    - quickstart.md
-  - guides/
-    - configuration.md
-    - deployment.md
-  - api/
-    - endpoints.md
-    - authentication.md
-  - assets/
-    - architecture.svg
-  - CHANGELOG.md
-  - README.md`
+- getting-started/
+  - installation.md
+  - quickstart.md
+- guides/
+  - configuration.md
+  - deployment.md
+- api/
+  - endpoints.md
+  - authentication.md
+- assets/
+  - architecture.svg
+- CHANGELOG.md
+- README.md`
       }
     ];
 
-    const CATEGORIES = ['All', ...new Set(TEMPLATE_CATALOG.map((t) => t.category))];
+    const BUILTIN_CATEGORIES = ['All', ...new Set(TEMPLATE_CATALOG.map((t) => t.category))];
+    const COMMUNITY_CATEGORIES = ['All', 'Frontend', 'Backend', 'Data & ML', 'Systems & Mobile', 'DevOps & Docs', 'Other'];
 
     const workspace = document.getElementById('workspace');
     const mobileTabsContainer = document.getElementById('mobile-tabs');
@@ -1266,6 +1658,31 @@ layout: empty
     const categoryFilters = document.getElementById('category-filters');
     const templatesGrid = document.getElementById('templates-grid');
     const templatesEmpty = document.getElementById('templates-empty');
+    const templatesLoadMoreWrap = document.getElementById('templates-load-more-wrap');
+    const templatesLoadMoreBtn = document.getElementById('templates-load-more');
+    const sourceTabs = Array.from(document.querySelectorAll('.source-tab'));
+    const communitySortSelect = document.getElementById('community-sort');
+
+    const shareToggle = document.getElementById('share-toggle');
+    const sharePanel = document.getElementById('share-panel');
+    const shareClose = document.getElementById('share-close');
+    const shareForm = document.getElementById('share-form');
+    const shareNameInput = document.getElementById('share-name');
+    const shareCategorySelect = document.getElementById('share-category');
+    const shareDescInput = document.getElementById('share-desc');
+    const shareAuthorInput = document.getElementById('share-author');
+    const sharePreview = document.getElementById('share-preview');
+    const shareFeedback = document.getElementById('share-feedback');
+    const shareSubmitBtn = document.getElementById('share-submit');
+    const shareSuccessBox = document.getElementById('share-success');
+    const shareLinkInput = document.getElementById('share-link-input');
+    const shareCopyLinkBtn = document.getElementById('share-copy-link');
+    const shareAnotherBtn = document.getElementById('share-another');
+
+    const sharedBanner = document.getElementById('shared-banner');
+    const sharedBannerTitle = document.getElementById('shared-banner-title');
+    const sharedBannerMeta = document.getElementById('shared-banner-meta');
+    const sharedBannerClose = document.getElementById('shared-banner-close');
 
     const input = document.getElementById('markdown-input');
     const output = document.getElementById('tree-output');
@@ -1284,7 +1701,18 @@ layout: empty
 
     let copyResetTimer = null;
     let isTemplatesOpen = false;
+    let isShareOpen = false;
+    let activeSource = 'builtin'; // 'builtin' | 'community'
     let activeCategory = 'All';
+
+    // Community pagination & search state
+    const PAGE_SIZE = 18;
+    let communityTemplates = [];
+    let communityOffset = 0;
+    let communityHasMore = false;
+    let communityLoading = false;
+    let communitySearchTimer = null;
+    let communityAbortController = null;
 
     function convertList(markdown) {
       const roots = [];
@@ -1408,9 +1836,48 @@ layout: empty
       return lines.slice(0, maxLines).join('\n') + `\n… +${lines.length - maxLines} more`;
     }
 
+    function buildShareUrl(id) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('t', id);
+      return url.toString();
+    }
+
+    async function copyText(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {
+          return fallbackCopy(text);
+        }
+      }
+      return fallbackCopy(text);
+    }
+
+    function fallbackCopy(text) {
+      const helper = document.createElement('textarea');
+      helper.value = text;
+      helper.setAttribute('readonly', '');
+      helper.style.position = 'fixed';
+      helper.style.opacity = '0';
+      document.body.appendChild(helper);
+      helper.select();
+      let copied = false;
+      try {
+        copied = document.execCommand('copy');
+      } catch {
+        copied = false;
+      }
+      document.body.removeChild(helper);
+      return copied;
+    }
+
     function renderCategoryFilters() {
+      const cats = activeSource === 'community' ? COMMUNITY_CATEGORIES : BUILTIN_CATEGORIES;
+      if (!cats.includes(activeCategory)) activeCategory = 'All';
+
       categoryFilters.innerHTML = '';
-      for (const cat of CATEGORIES) {
+      for (const cat of cats) {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'category-pill' + (cat === activeCategory ? ' is-active' : '');
@@ -1418,15 +1885,92 @@ layout: empty
         btn.addEventListener('click', () => {
           activeCategory = cat;
           renderCategoryFilters();
-          renderTemplateCards();
+          if (activeSource === 'community') {
+            fetchCommunityTemplates({ reset: true });
+          } else {
+            renderBuiltinTemplateCards();
+          }
         });
         categoryFilters.appendChild(btn);
       }
     }
 
-    function renderTemplateCards() {
-      const query = templatesSearch.value.trim().toLowerCase();
+    function createTemplateCard(tpl, isCommunity) {
       const currentMd = input.value.trim();
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'template-card' + (tpl.markdown.trim() === currentMd ? ' is-active' : '');
+
+      const head = document.createElement('div');
+      head.className = 'template-card-head';
+
+      const title = document.createElement('span');
+      title.className = 'template-card-title';
+      title.textContent = tpl.name;
+
+      const badge = document.createElement('span');
+      badge.className = 'template-card-cat';
+      badge.textContent = tpl.category;
+
+      head.append(title, badge);
+
+      const desc = document.createElement('p');
+      desc.className = 'template-card-desc';
+      desc.textContent = tpl.desc || tpl.description || 'Community folder structure';
+
+      const preview = document.createElement('pre');
+      preview.className = 'template-preview';
+      preview.textContent = buildPreview(tpl.markdown);
+
+      card.append(head, desc, preview);
+
+      if (isCommunity) {
+        const meta = document.createElement('div');
+        meta.className = 'template-card-meta';
+
+        const authorInfo = document.createElement('span');
+        const usesText = tpl.uses ? ` · ${tpl.uses} ${tpl.uses === 1 ? 'use' : 'uses'}` : '';
+        authorInfo.textContent = `by ${tpl.author || 'Anonymous'}${usesText}`;
+
+        const copyLinkBtn = document.createElement('button');
+        copyLinkBtn.type = 'button';
+        copyLinkBtn.className = 'template-link-btn';
+        copyLinkBtn.textContent = 'Copy link';
+        copyLinkBtn.addEventListener('click', async (event) => {
+          event.stopPropagation();
+          const ok = await copyText(buildShareUrl(tpl.id));
+          if (ok) {
+            copyLinkBtn.textContent = 'Copied!';
+            setTimeout(() => {
+              copyLinkBtn.textContent = 'Copy link';
+            }, 1400);
+          }
+        });
+
+        meta.append(authorInfo, copyLinkBtn);
+        card.append(meta);
+      }
+
+      card.addEventListener('click', () => {
+        input.value = tpl.markdown;
+        updateFromMarkdown();
+        setTemplatesOpen(false);
+        if (isCommunity) {
+          trackTemplateUse(tpl.id);
+          showSharedBanner(tpl);
+        } else {
+          sharedBanner.hidden = true;
+        }
+        if (window.innerWidth > 720) {
+          input.focus();
+        }
+      });
+
+      return card;
+    }
+
+    function renderBuiltinTemplateCards() {
+      const query = templatesSearch.value.trim().toLowerCase();
       const filtered = TEMPLATE_CATALOG.filter((tpl) => {
         const catOk = activeCategory === 'All' || tpl.category === activeCategory;
         if (!catOk) return false;
@@ -1440,49 +1984,152 @@ layout: empty
       });
 
       templatesGrid.innerHTML = '';
+      templatesLoadMoreWrap.hidden = true;
+      templatesEmpty.textContent = 'No templates match your filter.';
       templatesEmpty.hidden = filtered.length > 0;
 
       for (const tpl of filtered) {
-        const card = document.createElement('button');
-        card.type = 'button';
-        card.className = 'template-card' + (tpl.markdown.trim() === currentMd ? ' is-active' : '');
+        templatesGrid.appendChild(createTemplateCard(tpl, false));
+      }
+    }
 
-        const head = document.createElement('div');
-        head.className = 'template-card-head';
+    function renderCommunityTemplateCards(errorMessage = '') {
+      templatesGrid.innerHTML = '';
 
-        const title = document.createElement('span');
-        title.className = 'template-card-title';
-        title.textContent = tpl.name;
+      if (errorMessage) {
+        templatesEmpty.textContent = errorMessage;
+        templatesEmpty.hidden = false;
+        templatesLoadMoreWrap.hidden = true;
+        return;
+      }
 
-        const badge = document.createElement('span');
-        badge.className = 'template-card-cat';
-        badge.textContent = tpl.category;
+      if (communityLoading && communityTemplates.length === 0) {
+        templatesEmpty.textContent = 'Loading community templates...';
+        templatesEmpty.hidden = false;
+        templatesLoadMoreWrap.hidden = true;
+        return;
+      }
 
-        head.append(title, badge);
+      if (communityTemplates.length === 0) {
+        templatesEmpty.textContent = 'No community templates found yet. Be the first to share one!';
+        templatesEmpty.hidden = false;
+        templatesLoadMoreWrap.hidden = true;
+        return;
+      }
 
-        const desc = document.createElement('p');
-        desc.className = 'template-card-desc';
-        desc.textContent = tpl.desc;
+      templatesEmpty.hidden = true;
+      for (const tpl of communityTemplates) {
+        templatesGrid.appendChild(createTemplateCard(tpl, true));
+      }
 
-        const preview = document.createElement('pre');
-        preview.className = 'template-preview';
-        preview.textContent = buildPreview(tpl.markdown);
+      templatesLoadMoreWrap.hidden = !communityHasMore;
+      templatesLoadMoreBtn.disabled = communityLoading;
+      templatesLoadMoreBtn.textContent = communityLoading ? 'Loading...' : 'Load More';
+    }
 
-        card.append(head, desc, preview);
-        card.addEventListener('click', () => {
-          input.value = tpl.markdown;
-          updateFromMarkdown();
-          setTemplatesOpen(false);
-          if (window.innerWidth > 720) {
-            input.focus();
-          }
+    async function fetchCommunityTemplates({ reset = true } = {}) {
+      if (communityAbortController) {
+        communityAbortController.abort();
+      }
+      communityAbortController = new AbortController();
+
+      if (reset) {
+        communityTemplates = [];
+        communityOffset = 0;
+        communityHasMore = false;
+      }
+
+      communityLoading = true;
+      renderCommunityTemplateCards();
+
+      const params = new URLSearchParams({
+        limit: String(PAGE_SIZE),
+        offset: String(communityOffset),
+        sort: communitySortSelect.value
+      });
+
+      const q = templatesSearch.value.trim();
+      if (q) params.set('q', q);
+      if (activeCategory !== 'All') params.set('category', activeCategory);
+
+      try {
+        const res = await fetch(`${API_BASE}?${params.toString()}`, {
+          signal: communityAbortController.signal
         });
+        if (!res.ok) {
+          throw new Error(`Server responded with ${res.status}`);
+        }
+        const data = await res.json();
+        const batch = Array.isArray(data.templates) ? data.templates : [];
+        communityTemplates = reset ? batch : [...communityTemplates, ...batch];
+        communityOffset = communityTemplates.length;
+        communityHasMore = Boolean(data.hasMore);
+        communityLoading = false;
+        renderCommunityTemplateCards();
+      } catch (err) {
+        if (err.name === 'AbortError') return;
+        communityLoading = false;
+        renderCommunityTemplateCards(
+          'Could not reach the community template API. Check API_BASE or try again later.'
+        );
+      }
+    }
 
-        templatesGrid.appendChild(card);
+    function trackTemplateUse(id) {
+      if (!id) return;
+      fetch(`${API_BASE}?action=use&id=${encodeURIComponent(id)}`, {
+        method: 'POST',
+        keepalive: true
+      }).catch(() => {});
+    }
+
+    function showSharedBanner(tpl) {
+      sharedBannerTitle.textContent = tpl.name;
+      const author = tpl.author || 'Anonymous';
+      const cat = tpl.category ? ` · ${tpl.category}` : '';
+      sharedBannerMeta.textContent = `Shared by ${author}${cat}`;
+      sharedBanner.hidden = false;
+    }
+
+    async function loadSharedTemplateFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const id = (params.get('t') || '').trim();
+      if (!id) return false;
+
+      try {
+        const res = await fetch(`${API_BASE}?id=${encodeURIComponent(id)}`);
+        if (!res.ok) return false;
+        const data = await res.json();
+        if (!data.template || !data.template.markdown) return false;
+
+        input.value = data.template.markdown;
+        updateFromMarkdown();
+        showSharedBanner(data.template);
+        trackTemplateUse(id);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function setTemplateSource(source) {
+      activeSource = source;
+      for (const tab of sourceTabs) {
+        const active = tab.dataset.source === source;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', String(active));
+      }
+      communitySortSelect.hidden = source !== 'community';
+      renderCategoryFilters();
+      if (source === 'community') {
+        fetchCommunityTemplates({ reset: true });
+      } else {
+        renderBuiltinTemplateCards();
       }
     }
 
     function setTemplatesOpen(open) {
+      if (open && isShareOpen) setShareOpen(false);
       isTemplatesOpen = open;
       templatesView.hidden = !open;
       workspace.hidden = open;
@@ -1497,10 +2144,32 @@ layout: empty
 
       if (open) {
         renderCategoryFilters();
-        renderTemplateCards();
+        if (activeSource === 'community') {
+          fetchCommunityTemplates({ reset: true });
+        } else {
+          renderBuiltinTemplateCards();
+        }
         if (window.innerWidth > 720) {
           templatesSearch.focus();
         }
+      }
+    }
+
+    function setShareOpen(open) {
+      if (open && isTemplatesOpen) setTemplatesOpen(false);
+      isShareOpen = open;
+      sharePanel.hidden = !open;
+      shareToggle.classList.toggle('is-open', open);
+      shareToggle.setAttribute('aria-expanded', String(open));
+
+      if (open) {
+        shareForm.hidden = false;
+        shareSuccessBox.hidden = true;
+        shareFeedback.classList.remove('is-error');
+        shareFeedback.textContent = 'Published templates appear in Community search and get a direct link.';
+        sharePreview.textContent = output.value.trim() || '(Empty tree — add items in the editor first)';
+        shareSubmitBtn.disabled = !output.value.trim();
+        shareNameInput.focus();
       }
     }
 
@@ -1530,12 +2199,18 @@ layout: empty
       const hasTree = output.value.trim().length > 0;
       const hasInput = input.value.length > 0;
       copyButton.disabled = !hasTree;
+      shareToggle.disabled = !hasTree;
       tidyButton.disabled = !hasInput;
       clearButton.disabled = !hasInput && !hasTree;
       formatButton.disabled = !hasInput;
       indentButton.disabled = !hasInput;
       outdentButton.disabled = !hasInput;
       emptyMessage.hidden = hasTree;
+
+      if (isShareOpen) {
+        sharePreview.textContent = output.value.trim() || '(Empty tree — add items in the editor first)';
+        shareSubmitBtn.disabled = !hasTree;
+      }
 
       let status = count
         ? `${count} ${count === 1 ? 'item' : 'items'}`
@@ -1637,40 +2312,11 @@ layout: empty
       }
     }
 
-    function fallbackCopy(text) {
-      const helper = document.createElement('textarea');
-      helper.value = text;
-      helper.setAttribute('readonly', '');
-      helper.style.position = 'fixed';
-      helper.style.opacity = '0';
-      document.body.appendChild(helper);
-      helper.select();
-      let copied = false;
-      try {
-        copied = document.execCommand('copy');
-      } catch {
-        copied = false;
-      }
-      document.body.removeChild(helper);
-      return copied;
-    }
-
     async function copyTree() {
       const text = output.value;
       if (!text.trim()) return;
 
-      let copied = false;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        try {
-          await navigator.clipboard.writeText(text);
-          copied = true;
-        } catch {
-          copied = fallbackCopy(text);
-        }
-      } else {
-        copied = fallbackCopy(text);
-      }
-
+      const copied = await copyText(text);
       if (copied) {
         setCopiedState();
       } else {
@@ -1688,15 +2334,111 @@ layout: empty
       }
     }
 
-    templatesToggle.addEventListener('click', () => {
-      setTemplatesOpen(!isTemplatesOpen);
+    // Event bindings
+    templatesToggle.addEventListener('click', () => setTemplatesOpen(!isTemplatesOpen));
+    shareToggle.addEventListener('click', () => setShareOpen(!isShareOpen));
+    shareClose.addEventListener('click', () => setShareOpen(false));
+    sharedBannerClose.addEventListener('click', () => {
+      sharedBanner.hidden = true;
     });
 
-    templatesSearch.addEventListener('input', renderTemplateCards);
+    sourceTabs.forEach((tab) => {
+      tab.addEventListener('click', () => setTemplateSource(tab.dataset.source));
+    });
+
+    communitySortSelect.addEventListener('change', () => {
+      if (activeSource === 'community') {
+        fetchCommunityTemplates({ reset: true });
+      }
+    });
+
+    templatesSearch.addEventListener('input', () => {
+      if (activeSource === 'builtin') {
+        renderBuiltinTemplateCards();
+      } else {
+        clearTimeout(communitySearchTimer);
+        communitySearchTimer = setTimeout(() => {
+          fetchCommunityTemplates({ reset: true });
+        }, 280);
+      }
+    });
+
+    templatesLoadMoreBtn.addEventListener('click', () => {
+      if (!communityLoading && communityHasMore) {
+        fetchCommunityTemplates({ reset: false });
+      }
+    });
+
+    shareForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const markdown = input.value.trim();
+      if (!markdown) {
+        shareFeedback.classList.add('is-error');
+        shareFeedback.textContent = 'Add some items to your tree before sharing.';
+        return;
+      }
+
+      shareSubmitBtn.disabled = true;
+      shareSubmitBtn.textContent = 'Publishing...';
+      shareFeedback.classList.remove('is-error');
+      shareFeedback.textContent = 'Saving template to community library...';
+
+      try {
+        const res = await fetch(API_BASE, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: shareNameInput.value.trim(),
+            category: shareCategorySelect.value,
+            description: shareDescInput.value.trim(),
+            author: shareAuthorInput.value.trim(),
+            markdown
+          })
+        });
+
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          throw new Error(data.error || `Failed to publish (${res.status})`);
+        }
+
+        const shareUrl = buildShareUrl(data.template.id);
+        shareLinkInput.value = shareUrl;
+        shareForm.hidden = true;
+        shareSuccessBox.hidden = false;
+        shareForm.reset();
+      } catch (err) {
+        shareFeedback.classList.add('is-error');
+        shareFeedback.textContent = err.message || 'Could not publish template. Check API_BASE.';
+      } finally {
+        shareSubmitBtn.disabled = false;
+        shareSubmitBtn.textContent = 'Publish Template';
+      }
+    });
+
+    shareCopyLinkBtn.addEventListener('click', async () => {
+      const ok = await copyText(shareLinkInput.value);
+      if (ok) {
+        shareCopyLinkBtn.classList.add('is-copied');
+        shareCopyLinkBtn.textContent = 'Copied!';
+        setTimeout(() => {
+          shareCopyLinkBtn.classList.remove('is-copied');
+          shareCopyLinkBtn.textContent = 'Copy Link';
+        }, 1600);
+      } else {
+        shareLinkInput.select();
+      }
+    });
+
+    shareAnotherBtn.addEventListener('click', () => {
+      shareSuccessBox.hidden = true;
+      shareForm.hidden = false;
+      shareNameInput.focus();
+    });
 
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && isTemplatesOpen) {
-        setTemplatesOpen(false);
+      if (event.key === 'Escape') {
+        if (isTemplatesOpen) setTemplatesOpen(false);
+        if (isShareOpen) setShareOpen(false);
       }
     });
 
@@ -1759,15 +2501,22 @@ layout: empty
     clearButton.addEventListener('click', () => {
       input.value = '';
       output.value = '';
+      sharedBanner.hidden = true;
       updateFromMarkdown();
       input.focus();
     });
 
     copyButton.addEventListener('click', copyTree);
 
+    // Initialize editor (load ?t=<id> if present, otherwise default built-in template)
     templatesCountBadge.textContent = String(TEMPLATE_CATALOG.length);
-    input.value = TEMPLATE_CATALOG[0].markdown;
-    updateFromMarkdown();
+    (async () => {
+      const loadedShared = await loadSharedTemplateFromUrl();
+      if (!loadedShared) {
+        input.value = TEMPLATE_CATALOG[0].markdown;
+        updateFromMarkdown();
+      }
+    })();
   </script>
 </body>
 </html>
